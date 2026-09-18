@@ -14,7 +14,7 @@ A static Guardian Tales data and research explorer, compatible with GitHub Pages
 - Events: 114 readable event definitions, including two normalized copies.
 - Audit: every one of the 15,278 downloaded files, status filters, hashes, and downloadable catalogs.
 
-Collections and source chunks are fetched only when opened. Original APK binaries, graphics, local preferences, and account data are not copied into the website. Metadata literals are not published wholesale. The existing five caches overlap with several static tables; their counts should not be added as unique gameplay entities.
+Collections and source chunks are fetched only when opened. Original APK binaries, local preferences, and account data are not copied into the website. Metadata literals are not published wholesale. The existing five caches overlap with several static tables; their counts should not be added as unique gameplay entities.
 
 ## Preview
 
@@ -35,3 +35,16 @@ The XP calculator uses internal indices (0–219), not verified UI levels. It as
 Lua files are source text. The compiled-code browser is a metadata index, not a C# decompiler. Map references are extracted strings, not a fully reconstructed map object graph. Original files remain intact outside the website.
 
 See the research overview and downloadable offline report for evidence and validation details.
+
+
+## Visual library
+
+Open `visual.html` for searchable graphic previews, heroes, monsters/bosses, items and maps. The highlighted XP/research link is available from the main table and visual library.
+
+- 29,140 graphic objects cataloged; 29,078 previews available, including 7,813 individually cropped atlas icons. Previews are at most 768 pixels; animation atlases are labeled, not presented as assembled characters.
+- Images matched to 700 hero, 5,147 monster, 2,524 NPC and 5,399 item records using asset-name fields. Andras is searchable by her established alias and `demon_slayer`. Other localized aliases are not guessed.
+- 2,027 parsed maps with interactive layers, tile inspection, thumbnails and static artwork coverage. 24 additional map entries are explicitly unavailable (legacy formats or failed decryption).
+- Meshes use stored rotations and original UVs/textures. Lighting, animated characters, particles and runtime changes are not recreated. Event markers are counted but not drawn. Structural mode covers unresolved tiles. Fit map focuses on floor tiles, excluding distant staging objects; those remain in the object selector.
+- Map and mesh payloads are gzipped and require a browser with DecompressionStream support. The published folder is self-contained; no game installation is needed to browse it.
+
+Extraction utilities are in the sibling `guardian-analysis` folder: `export_gallery.py`, `export_atlas_icons.py`, `export_maps.py`, `export_tilesets.py`, `link_visual_records.py`, and `finalize_visual_maps.py` (run last for coverage and thumbnails). These require the original local input files and UnityPy; they are not required for deployment.
