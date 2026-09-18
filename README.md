@@ -48,3 +48,14 @@ Open `visual.html` for searchable graphic previews, heroes, monsters/bosses, ite
 - Map and mesh payloads are gzipped and require a browser with DecompressionStream support. The published folder is self-contained; no game installation is needed to browse it.
 
 Extraction utilities are in the sibling `guardian-analysis` folder: `export_gallery.py`, `export_atlas_icons.py`, `export_maps.py`, `export_tilesets.py`, `link_visual_records.py`, and `finalize_visual_maps.py` (run last for coverage and thumbnails). These require the original local input files and UnityPy; they are not required for deployment.
+
+
+## Search and downloads
+
+- Record and graphic searches have a **Name only** option. Record name searches match `Name` and established display aliases, without checking unrelated nested fields.
+- Related artwork links carry the record ID and use its matched asset IDs. Name searches landing on an empty section automatically try the other visual sections.
+- Record inspectors, tables, graphic details and map viewers expose download actions.
+- `files.html` browses original game content, decrypted/decoded files, unknown binaries and hosted exports separately. Original files remain unchanged. Local account settings, notifications, follower history and analytics are excluded.
+- Hosted exports download directly. Original/recovered downloads use GitHub Release ZIPs. Visitors download the containing archive, open it in the file browser (locally, never uploaded), then save individual files. Each extracted file is checked against its SHA-256. Exact small subfolders can be repackaged as ZIP; large folders use archive parts. Large export folders can also be downloaded as browser-generated ZIP parts.
+- Run `prepare_file_downloads.py` to build `dist/data/file-catalog.json` and the sibling `guardian-release-archives` directory. Publish only the ZIPs listed in `release-manifest.json` as assets of release tag `game-files-3.54.0-snapshot`. Never commit the large archives into this repository. When replacing source data, remove the corresponding generated archive first to force rebuilding it; unchanged archive checkpoints are reused based on path and size.
+- The release must be published before archive links work. Source-folder data version/region is not verified; the tag identifies this analysis snapshot and the separately supplied APK version.
