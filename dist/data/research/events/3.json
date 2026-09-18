@@ -1,0 +1,1 @@
+{"setting":[{"do":{"$burning_skull":{"find":"burningskull"}}}],"talk1":[{"$burning_skull sequence":[{"talk":{"code":"burningskull_1"}},{"talk":{"code":"burningskull_2"}}]}]}

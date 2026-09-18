@@ -1,0 +1,1 @@
+{"setting":[{"do":{"$guide_npc":{"find":"guide_npc"}}}],"ReceiveSNS1":[{"sns":{"id":6,"code":"magicschool_1_2_sns_open_a"}}],"ReceiveSNS2":[{"sns":{"id":6,"code":"magicschool_1_2_sns_open_b"}}],"ReceiveSNS3":[{"sns":{"id":6,"code":"magicschool_1_2_sns_open_c"}}],"allopen":[{"sns":{"id":6,"code":"magicschool_1_2_sns_open_all"}}]}

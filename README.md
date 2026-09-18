@@ -1,46 +1,37 @@
 # Guardian Atlas
 
-A static browser for five decoded Guardian Tales data tables, with 187,988 records.
+A static Guardian Tales data and research explorer, compatible with GitHub Pages.
 
-## Features
+## Explore
 
-- Heroes, battle actions, monsters, NPCs, and English text.
-- Search across all fields, including nested content.
-- Field filters with text matching, equality, numeric ranges, and presence checks.
-- Sortable tables, configurable columns, and pagination.
-- Complete nested record details and original JSON.
-- Links between hero evolution and origin records.
-- Responsive mobile layout and keyboard-accessible controls.
+- `dist/index.html`: 130 searchable datasets (the original five caches and 125 additional decoded tables), nested fields, sorting, filters, and pagination.
+- `dist/research.html`: findings, extraction methods, validation evidence, and remaining uncertainties.
+- XP calculator: hero/weapon variants, internal level indices, cumulative thresholds, and table download.
+- Lua: all 6,344 recovered scripts, path/function search, category filters, function jumps, line numbers, file search, and downloads.
+- Code: 36,384 types, their 293,384 methods and 253,660 fields; native addresses for the game assembly where available.
+- Maps: references for 2,050 decoded maps and the unresolved test-map entry.
+- Unity: object counts for all 4,267 archives and a compressed full object inventory.
+- Events: 114 readable event definitions, including two normalized copies.
+- Audit: every one of the 15,278 downloaded files, status filters, hashes, and downloadable catalogs.
 
-## Run locally
+Collections and source chunks are fetched only when opened. Original APK binaries, graphics, local preferences, and account data are not copied into the website. Metadata literals are not published wholesale. The existing five caches overlap with several static tables; their counts should not be added as unique gameplay entities.
 
-Serve the `dist` directory with a static HTTP server. For example, with Python installed:
+## Preview
 
-```sh
-python -m http.server 8765 --directory dist
-```
+Serve `dist` over HTTP, for example `python -m http.server 8765 --directory dist`, then open http://localhost:8765/research.html. Opening HTML directly from the filesystem will not load JSON.
 
-Open http://localhost:8765. Opening `index.html` directly will not work because browsers restrict local JSON requests.
+## Rebuild
 
-## Publish with GitHub Pages
+With the sibling `guardian-analysis` outputs available, run `prepare_data.py` followed by `prepare_research.py`. The latter also reads the original event files from the source path defined in that script. No game is launched or script executed during extraction/building. The committed `dist` is self-contained and needs no build step on GitHub.
 
-1. Publish this repository to GitHub.
-2. In the repository, open **Settings → Pages**.
-3. Set the publishing source to **GitHub Actions**.
-4. Open **Actions → Publish Guardian Atlas → Run workflow**.
+## Publish
 
-The included workflow publishes only `dist`, with no build or dependency installation. Relative asset paths work at a GitHub Pages repository URL. The Pages website exposes all included records to visitors.
+The included GitHub Actions workflow publishes `dist` on a push to `main`. Repository Settings → Pages must use GitHub Actions. All asset URLs are relative, including the research page, so repository subpaths are supported.
 
-## Data and limitations
+## Interpretation
 
-| Table | Records |
-|---|---:|
-| Heroes | 701 |
-| Battle actions | 2,670 |
-| Monsters | 10,157 |
-| NPCs | 4,073 |
-| English text | 170,387 |
+The XP calculator uses internal indices (0–219), not verified UI levels. It assumes no partial XP at the starting level. Stored caps and regional variants must be considered. Native formulas describe the APK's unpatched path; IFix/Lua corrections and server behavior can differ. The folder and APK package names differ, so exact region/version alignment is unverified.
 
-Records were decoded from supplied game caches. Variants count separately. Values are displayed as stored and are not necessarily final in-game stats. Cache date/client version and some field semantics are unverified. The XP table and encrypted scripts have not been decoded and are not included. This is an unofficial explorer, not an official game service.
+Lua files are source text. The compiled-code browser is a metadata index, not a C# decompiler. Map references are extracted strings, not a fully reconstructed map object graph. Original files remain intact outside the website.
 
-`prepare_data.py` regenerates public JSON from the sibling `guardian-analysis/decoded` folder when those original exports are available. The committed `dist/data` files are sufficient to run and publish the site.
+See the research overview and downloadable offline report for evidence and validation details.
