@@ -57,7 +57,7 @@ Try [the small ancient dungeon](https://Jikolr.github.io/guardian-explorer/map-p
 
 ## Use the XP calculator
 
-Open the gold **XP & research** button, then **XP & progression**. Choose **Hero** or **Weapon**, select a variant, and enter the starting and target internal levels. The result updates automatically; **Download this table** saves the selected data.
+Choose **XP & progression** in the shared left sidebar. Choose **Hero** or **Weapon**, select a variant, and enter the starting and target internal levels. The result updates automatically; **Download this table** saves the selected data.
 
 These are **internal level indices**, not verified in-game level labels. The calculator assumes no partial XP at the starting level. Platform variants, live changes and playable caps may differ.
 
@@ -121,3 +121,15 @@ This is an unofficial offline archive, not a live game database. Local account s
 ---
 
 **Maintaining or running the site yourself?** See [maintainer notes](docs/MAINTAINING.md) for local setup, rebuilding and GitHub Pages deployment. Regular visitors only need the website link above.
+
+
+## Read the code behind a rule
+
+Every page now has the same left sidebar. On smaller screens, use **All sections** to open it.
+
+- **Damage calculation** opens the explained formula and links to its supporting instructions.
+- **Reports & evidence** contains analysis reports, recovered assembly excerpts, extraction-tool source and audit inventories. Each file can be downloaded.
+- **Compiled code & assembly** lets you find a class (for example `DamageCalculator`), select it, then choose **Read assembly** on a mapped method. This displays the native ARM64 instructions, rather than only names and addresses.
+- **Lua source** displays the recovered scripts themselves.
+
+The native archive covers mapped methods from the game assembly. Unmapped methods are explicitly labeled. Available assembly is not original C# source or a verified explanation: address ranges may include padding or other code, incomplete ranges are labeled, and runtime patches can change behavior. Human-readable explanations are available only for the rules already investigated.

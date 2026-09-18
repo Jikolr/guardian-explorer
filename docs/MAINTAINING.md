@@ -72,3 +72,12 @@ Profiles group records by `OriginId`; default/exclusive weapon IDs and exact bat
 `atlas-tools.js` stores favorites and the comparison basket in the visitor's local browser. View settings live in URL parameters. There is no account or server database. The published game-file release archives are immutable snapshots and do not need rebuilding for these UI changes.
 
 `name-evidence.json` holds manually reviewed biography-based inferences. Each entry records the source text ID and a supporting phrase; the builder verifies both the name and phrase against that text. These checks confirm the evidence exists, not that the inferred identity is proven. Keep this confidence category distinct from confirmed names. Dedicated profiles use `character.html?id=…`; legacy `characters.html?id=…` bookmarks redirect there.
+
+
+## Native-code and evidence exports
+
+`python prepare_native.py` exports all nonzero Scripts.dll method mappings to compressed chunks in `dist/data/research/native`. It uses the installed offline Capstone/ELF tools. Ranges end at the next mapped game entry point, are restricted to the executable section, and are capped at 64 KiB. Unconsumed or capped ranges are explicitly partial, not complete decompiled functions. This is a reproducible disassembly export, not automatic semantic analysis.
+
+`python prepare_evidence.py` refreshes the evidence catalog, copied reports, all existing assembly excerpts, extraction scripts and audit summaries. The new page code uses gzip decompression for native chunks. The shared sidebar lives in `site-nav.js` / `site-nav.css` and is included by every HTML entry page.
+
+Research metadata chunks under `data/research/code` are now `.json.gz` files. `prepare_research.py` writes that format directly; `prepare_evidence.py` can migrate old JSON chunks after verifying decompression preserves their exact bytes. Run the evidence exporter after the native exporter to refresh direct-download catalog entries. Original Release ZIPs remain unchanged.

@@ -39,7 +39,8 @@ for t in types:
     for m in ms:m['address']=addresses.get(m['index'],'unmapped')
     chunks[i//300][str(i)]={'methods':ms,'fields':fs}
 write(R/'types.json',types)
-for chunk,records in chunks.items():write(R/'code'/f'{chunk}.json',records)
+for chunk,records in chunks.items():
+    folder=R/'code';folder.mkdir(parents=True,exist_ok=True);(folder/f'{chunk}.json.gz').write_bytes(gzip.compress(json.dumps(records,ensure_ascii=True,separators=(',',':')).encode(),mtime=0))
 maps=read(SRC/'audit/map-decode-summary.json');mapindex=[]
 for i,m in enumerate(maps['files']):
     mapindex.append({'id':i,'path':m['source'].replace('\\','/'),'bytes':m['bytes'],'version':m['version'],'references':len(m['references']),'status':'Decoded; object schema partial'})
