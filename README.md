@@ -1,61 +1,123 @@
 # Guardian Atlas
 
-A static Guardian Tales data and research explorer, compatible with GitHub Pages.
+Explore Guardian Tales heroes, enemies, items, artwork, maps and recovered game data—without writing code or installing the game.
 
-## Explore
+**[Open the website](https://Jikolr.github.io/guardian-explorer/) · [How to use: visual guide](https://Jikolr.github.io/guardian-explorer/help.html) · [Download archives](https://github.com/Jikolr/guardian-explorer/releases/tag/game-files-3.54.0-snapshot)**
 
-- `dist/index.html`: 130 searchable datasets (the original five caches and 125 additional decoded tables), nested fields, sorting, filters, and pagination.
-- `dist/research.html`: findings, extraction methods, validation evidence, and remaining uncertainties.
-- XP calculator: hero/weapon variants, internal level indices, cumulative thresholds, and table download.
-- Lua: all 6,344 recovered scripts, path/function search, category filters, function jumps, line numbers, file search, and downloads.
-- Code: 36,384 types, their 293,384 methods and 253,660 fields; native addresses for the game assembly where available.
-- Maps: references for 2,050 decoded maps and the unresolved test-map entry.
-- Unity: object counts for all 4,267 archives and a compressed full object inventory.
-- Events: 114 readable event definitions, including two normalized copies.
-- Audit: every one of the 15,278 downloaded files, status filters, hashes, and downloadable catalogs.
+## What would you like to do?
 
-Collections and source chunks are fetched only when opened. Original APK binaries, local preferences, and account data are not copied into the website. Metadata literals are not published wholesale. The existing five caches overlap with several static tables; their counts should not be added as unique gameplay entities.
+| I want to… | Start here |
+| --- | --- |
+| Find a character’s identity, variants and linked weapons | [Character directory](https://Jikolr.github.io/guardian-explorer/characters.html) |
+| Compare up to four records | [Side-by-side comparison](https://Jikolr.github.io/guardian-explorer/compare.html) |
+| Recognize a hero, boss or item | [Artwork & portraits](https://Jikolr.github.io/guardian-explorer/visual.html) |
+| Look up stored stats or other details | [Data tables](https://Jikolr.github.io/guardian-explorer/index.html) |
+| Explore a map | [Map library](https://Jikolr.github.io/guardian-explorer/visual.html?tab=maps) |
+| Explore XP requirements | [XP calculator](https://Jikolr.github.io/guardian-explorer/research.html#xp) |
+| Download a picture, table or original file | [Game files & downloads](https://Jikolr.github.io/guardian-explorer/files.html) |
+| Read recovered scripts and research | [Research archive](https://Jikolr.github.io/guardian-explorer/research.html) |
 
-## Preview
+## Find your first character
 
-Serve `dist` over HTTP, for example `python -m http.server 8765 --directory dist`, then open http://localhost:8765/research.html. Opening HTML directly from the filesystem will not load JSON.
+1. Open **Data tables** and choose **Heroes**, **Monsters** or **NPCs** in the sidebar. Use **Find a table…** to locate other collections, such as items.
+2. Select **Name only** beside the search box. This avoids results that match unrelated values inside a record.
+3. Search part of a name, then select a row to see its portrait and details.
+4. Choose **Browse related artwork** to see the pictures linked to that entry.
 
-## Rebuild
+![Three-step guide to searching by name](dist/help-assets/search.svg)
 
-With the sibling `guardian-analysis` outputs available, run `prepare_data.py` followed by `prepare_research.py`. The latter also reads the original event files from the source path defined in that script. No game is launched or script executed during extraction/building. The committed `dist` is self-contained and needs no build step on GitHub.
+**Try [Andras](https://Jikolr.github.io/guardian-explorer/visual.html?tab=heroes&q=Andras&scope=name): her internal name is `demon_slayer`.** In-game names and file names can differ; the directory labels confirmed names and English-spelling matches separately.
 
-## Publish
+**Name only** still matches parts of names: `oni` can match `onigirl` or `moniko`. **All fields** searches every stored value, including nested details. Use it when you are researching something beyond a name.
 
-The included GitHub Actions workflow publishes `dist` on a push to `main`. Repository Settings → Pages must use GitHub Actions. All asset URLs are relative, including the research page, so repository subpaths are supported.
+## Character profiles, comparisons and saved discoveries
 
-## Interpretation
+Open **Characters**, search an internal or known in-game name, and select a portrait. Profiles bring together evolution variants, linked weapons, battle actions and matched biographies. The directory has 222 character families (including non-playable/test entries); 19 names are linked, with evidence labels. Andras and Seira are confirmed; the other 17 are English-spelling matches. Biography matches are also labeled.
 
-The XP calculator uses internal indices (0–219), not verified UI levels. It assumes no partial XP at the starting level. Stored caps and regional variants must be considered. Native formulas describe the APK's unpatched path; IFix/Lua corrections and server behavior can differ. The folder and APK package names differ, so exact region/version alignment is unverified.
+Choose **Compare** from a variant or a hero, monster, NPC or item record. Add up to four entries, then use the bottom **Compare** button. **Only differences** hides identical fields; highlighted values and numeric changes are relative to the first entry. You can download the comparison as JSON.
 
-Lua files are source text. The compiled-code browser is a metadata index, not a C# decompiler. Map references are extracted strings, not a fully reconstructed map object graph. Original files remain intact outside the website.
+Use **☆ Save view**, **Save record** or **Save character** to keep a discovery in this browser. **Saved** opens your bookmarks; **Copy link** shares the current view, including supported filters, comparison choices or XP inputs. Favorites do not sync across devices, and clearing browser data removes them. Copy links from the hosted website for other visitors; localhost links work only on your own running local site.
 
-See the research overview and downloadable offline report for evidence and validation details.
+## Browse pictures and maps
 
+The visual library has tabs for **Heroes**, **Monsters & bosses**, **NPCs**, **Items** and **Maps**. **All graphics** also includes backgrounds, interface pictures and animation sheets.
 
-## Visual library
+- Select a hero card to open its character profile; other character and item cards open their data entries.
+- Select a graphic card to view and download its image preview.
+- A new name search that finds nothing in one section tries the other sections and explains when it switches.
+- Pictures labeled **Texture / atlas** may contain separate body parts or animation pieces. Look for **Icon / sprite** when you want a recognizable portrait.
 
-Open `visual.html` for searchable graphic previews, heroes, monsters/bosses, items and maps. The highlighted XP/research link is available from the main table and visual library.
+![Visual guide to exploring a map](dist/help-assets/maps.svg)
 
-- 29,140 graphic objects cataloged; 29,078 previews available, including 7,813 individually cropped atlas icons. Previews are at most 768 pixels; animation atlases are labeled, not presented as assembled characters.
-- Images matched to 700 hero, 5,147 monster, 2,524 NPC and 5,399 item records using asset-name fields. Andras is searchable by her established alias and `demon_slayer`. Other localized aliases are not guessed.
-- 2,027 parsed maps with interactive layers, tile inspection, thumbnails and static artwork coverage. 24 additional map entries are explicitly unavailable (legacy formats or failed decryption).
-- Meshes use stored rotations and original UVs/textures. Lighting, animated characters, particles and runtime changes are not recreated. Event markers are counted but not drawn. Structural mode covers unresolved tiles. Fit map focuses on floor tiles, excluding distant staging objects; those remain in the object selector.
-- Map and mesh payloads are gzipped and require a browser with DecompressionStream support. The published folder is self-contained; no game installation is needed to browse it.
+In a map, **drag to move**, **scroll or use +/− to zoom**, and choose **Fit map** to reset the view. Toggle **Layers** to hide objects, floors or walls. Click a tile—or choose it from the object list—to see its name and position.
 
-Extraction utilities are in the sibling `guardian-analysis` folder: `export_gallery.py`, `export_atlas_icons.py`, `export_maps.py`, `export_tilesets.py`, `link_visual_records.py`, and `finalize_visual_maps.py` (run last for coverage and thumbnails). These require the original local input files and UnityPy; they are not required for deployment.
+Enable **Markers** to inspect decoded placements. Marker colors follow the stored layer, and each marker shows its stored name and position; these do not confirm live spawn identities or event behavior. Map links remember the view mode, layers and selected object, but reset the camera to fit.
 
+Try [the small ancient dungeon](https://Jikolr.github.io/guardian-explorer/map-preview.html?map=ancientdungeon_red_1_1). Choose **Structural layout** if artwork is missing. The artwork count describes coverage, not loading progress. Maps are reconstructions: animations, live events and some decorations are not shown.
 
-## Search and downloads
+## Use the XP calculator
 
-- Record and graphic searches have a **Name only** option. Record name searches match `Name` and established display aliases, without checking unrelated nested fields.
-- Related artwork links carry the record ID and use its matched asset IDs. Name searches landing on an empty section automatically try the other visual sections.
-- Record inspectors, tables, graphic details and map viewers expose download actions.
-- `files.html` browses original game content, decrypted/decoded files, unknown binaries and hosted exports separately. Original files remain unchanged. Local account settings, notifications, follower history and analytics are excluded.
-- Hosted exports download directly. Original/recovered downloads use GitHub Release ZIPs. Visitors download the containing archive, open it in the file browser (locally, never uploaded), then save individual files. Each extracted file is checked against its SHA-256. Exact small subfolders can be repackaged as ZIP; large folders use archive parts. Large export folders can also be downloaded as browser-generated ZIP parts.
-- Run `prepare_file_downloads.py` to build `dist/data/file-catalog.json` and the sibling `guardian-release-archives` directory. Publish only the ZIPs listed in `release-manifest.json` as assets of release tag `game-files-3.54.0-snapshot`. Never commit the large archives into this repository. When replacing source data, remove the corresponding generated archive first to force rebuilding it; unchanged archive checkpoints are reused based on path and size.
-- The release must be published before archive links work. Source-folder data version/region is not verified; the tag identifies this analysis snapshot and the separately supplied APK version.
+Open the gold **XP & research** button, then **XP & progression**. Choose **Hero** or **Weapon**, select a variant, and enter the starting and target internal levels. The result updates automatically; **Download this table** saves the selected data.
+
+These are **internal level indices**, not verified in-game level labels. The calculator assumes no partial XP at the starting level. Platform variants, live changes and playable caps may differ.
+
+## Download a picture, a record or a folder
+
+For a quick download, look for:
+
+- **Download image** / **Download image preview** in record or graphic details.
+- **Download record JSON** in a selected record.
+- **Download table JSON** above a data table.
+- **Download map JSON** in the map viewer.
+
+JSON is simply a text file containing organized names and values. You can save it without knowing how to read its formatting. Image previews can be smaller than the original game textures.
+
+### Original and recovered files
+
+The [file browser](https://Jikolr.github.io/guardian-explorer/files.html) separates **Decrypted / decoded files**, **Unencrypted originals**, **Encrypted originals**, **Other original binaries**, and **Website exports & images**.
+
+![Download an archive, open it locally, then save an individual file](dist/help-assets/downloads.svg)
+
+1. Select a file and click **Download containing archive** to save its ZIP from GitHub Releases.
+2. Return to the file browser and use **Open downloaded archives** to select that ZIP. It stays on your device; nothing is uploaded.
+3. Select the file again and click **Download this file**. The website checks the file before saving it.
+
+For a whole folder, click **Download folder…**. Download the listed ZIP parts, or open the required archives locally to save an exact small subfolder. Parts are independent ZIP files: extract the parts you want into the same directory. Folder downloads include subfolders and ignore your text search filter. Some packages also contain neighboring folders.
+
+**Website exports download directly**, without first opening an archive. Large export folders are offered in ZIP parts. Original bundles may require specialist software to open even when they are unencrypted.
+
+## Common questions
+
+**Why can’t I find a character’s in-game name?**
+
+Only some aliases are mapped. Try part of an internal name, clear filters, or browse the portraits.
+
+**Why are there several versions of the same character?**
+
+Different evolution ranks, regional variants and game modes can have separate entries. The number of records is not the number of unique heroes.
+
+**Are these the final stats I will see in the game?**
+
+No. These are stored values from an offline snapshot. Equipment, buffs, runtime changes and server behavior can affect the final result. The source folder and inspected APK may differ in region or version.
+
+**Why is “Download this file” disabled?**
+
+Download the containing archive first, then open that ZIP in the file browser. Direct website exports do not require this step.
+
+**Why is loading slow?**
+
+The catalogs and maps can be large. Wait for the loading message to finish before searching, especially on a first visit. If a page reports an error, check your connection and reload.
+
+## What is available?
+
+- 130 searchable data collections.
+- 29,078 available graphic previews, with images linked to hundreds of hero records and thousands of monster, NPC and item entries.
+- 2,027 interactive parsed maps; unsupported entries are labeled.
+- 6,344 recovered Lua scripts and a research area for code indexes, events and extraction evidence.
+- 39 downloadable game-file archives, separate from the website repository.
+
+This is an unofficial offline archive, not a live game database. Local account settings and analytics are excluded. “Unencrypted” describes a file format; it does not mean public domain.
+
+---
+
+**Maintaining or running the site yourself?** See [maintainer notes](docs/MAINTAINING.md) for local setup, rebuilding and GitHub Pages deployment. Regular visitors only need the website link above.
