@@ -3,7 +3,7 @@
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const params=new URLSearchParams(location.search);let tab=params.get('tab')||'assets',page=0,filtered=[],assets=[],maps=[],records=[],media={},related=params.get('related');const size=36;
 const image=a=>a.image?`<img loading="lazy" src="data/visual/${esc(a.image)}" alt="${esc(a.displayName||a.name)}">`:'<div class="placeholder">Preview unavailable</div>';
-const recordURL=r=>r.table==='heroes'&&r.profileId?`characters.html?id=${r.profileId}`:`index.html?record=${encodeURIComponent(r.id)}&table=${encodeURIComponent(r.table)}#${encodeURIComponent(r.table)}`;
+const recordURL=r=>r.table==='heroes'&&r.profileId?`character.html?id=${r.profileId}`:`index.html?record=${encodeURIComponent(r.id)}&table=${encodeURIComponent(r.table)}#${encodeURIComponent(r.table)}`;
 const tabs=['assets','heroes','monsters','npcs','items','maps'];
 const source=t=>t==='maps'?maps:t==='assets'?assets:records.filter(r=>r.table===({heroes:'heroes',monsters:'monsters',npcs:'npcs',items:'static-items'}[t]));
 function matches(r,t){const q=$('#query').value.toLowerCase().trim(),cat=$('#category').value,status=$('#status').value,names=[r.name,r.displayName,...r.aliases||[]];const text=($('#search-scope').value==='name'?names:[...names,r.bundle,...r.tilesets||[]]).join(' ').toLowerCase();return (!q||text.includes(q))&&(!cat||t!=='assets'||r.category===cat)&&(!status||(r.status||(r.image?'ready':'unavailable'))===status)}

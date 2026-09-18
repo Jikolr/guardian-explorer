@@ -32,7 +32,7 @@ Explore Guardian Tales heroes, enemies, items, artwork, maps and recovered game 
 
 ## Character profiles, comparisons and saved discoveries
 
-Open **Characters**, search an internal or known in-game name, and select a portrait. Profiles bring together evolution variants, linked weapons, battle actions and matched biographies. The directory has 222 character families (including non-playable/test entries); 19 names are linked, with evidence labels. Andras and Seira are confirmed; the other 17 are English-spelling matches. Biography matches are also labeled.
+Open **Characters**, search an internal or known in-game name, and select a portrait. Profiles bring together evolution variants, linked weapons, battle actions and matched biographies. The directory has 222 character families (including non-playable/test entries); 45 names are linked, with evidence labels: 2 confirmed identities, 17 English-spelling matches and 26 biography-based inferences. The inferred matches are not independently confirmed. Biography matches are also labeled.
 
 Choose **Compare** from a variant or a hero, monster, NPC or item record. Add up to four entries, then use the bottom **Compare** button. **Only differences** hides identical fields; highlighted values and numeric changes are relative to the first entry. You can download the comparison as JSON.
 
@@ -51,7 +51,7 @@ The visual library has tabs for **Heroes**, **Monsters & bosses**, **NPCs**, **I
 
 In a map, **drag to move**, **scroll or use +/− to zoom**, and choose **Fit map** to reset the view. Toggle **Layers** to hide objects, floors or walls. Click a tile—or choose it from the object list—to see its name and position.
 
-Enable **Markers** to inspect decoded placements. Marker colors follow the stored layer, and each marker shows its stored name and position; these do not confirm live spawn identities or event behavior. Map links remember the view mode, layers and selected object, but reset the camera to fit.
+Enable **Markers** to inspect decoded placements. Use **Find a placement** to search names and toggle NPCs, enemies, events, camera markers or other markers. Select a search result to zoom directly to it. Marker colors follow the stored layer, and each marker shows its stored name and position; these do not confirm live spawn identities or event behavior. Map links remember the view mode, layers and selected object, but reset the camera to fit.
 
 Try [the small ancient dungeon](https://Jikolr.github.io/guardian-explorer/map-preview.html?map=ancientdungeon_red_1_1). Choose **Structural layout** if artwork is missing. The artwork count describes coverage, not loading progress. Maps are reconstructions: animations, live events and some decorations are not shown.
 

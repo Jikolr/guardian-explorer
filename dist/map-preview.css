@@ -3,3 +3,5 @@
 .toolbar #render-mode{width:auto;max-width:180px;font-size:12px}.toolbar{flex-wrap:wrap}
 
 .marker-legend{font-size:12px;padding:8px 15px;color:#aac0d5}.toolbar{flex-wrap:wrap}
+
+.marker-types{display:grid;gap:8px;margin:16px 0}.marker-types label{display:flex;gap:8px;align-items:center}.marker-types small{color:#a2b6cb}#marker-search{box-sizing:border-box;width:100%;padding:12px;background:#0b1624;color:#eef5fc;border:1px solid #39516b;border-radius:6px;margin-top:8px}.marker-results{max-height:300px;overflow:auto;display:grid;gap:6px}.marker-results button{text-align:left;white-space:normal;overflow-wrap:anywhere;padding:12px}.marker-results small{display:block;margin-top:5px;color:#a2b6cb}#marker-count{color:#f6c85f;font-size:13px}#marker-more{margin-top:10px}

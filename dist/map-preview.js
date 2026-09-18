@@ -8,6 +8,14 @@
  const colors={gimmick:'#efc665',breakale:'#f29978',obj_wall:'#a998d9',wall2:'#9b8fd2',wall:'#718bad',obj1:'#79c6b6',floor2:'#466a80',floor:'#345570'};
  const tiles=data.layers.flatMap((l,layer)=>l.tiles.map((t,i)=>({...t,layer,index:i,id:`${layer}:${i}`})));
  const markers=data.layers.flatMap((l,layer)=>(l.events||[]).map((t,i)=>({...t,layer,index:i,id:`m:${layer}:${i}`,marker:true})));const objects=[...tiles,...markers];
+ const markerType=t=>{const n=data.layers[t.layer].name;return n==='npcs'?'npcs':n==='monsters'?'monsters':n==='events'?'events':n.includes('camera')?'camera':'other'};
+ const typeLabels={npcs:'NPCs',monsters:'Enemies',events:'Events',camera:'Camera markers',other:'Other markers'};
+ const markerTypes=new Set(initial.has('types')?initial.get('types').split(',').filter(k=>k in typeLabels):Object.keys(typeLabels));let markerLimit=40;
+ $('#marker-search').value=initial.get('mq')||'';
+ $('#marker-types').innerHTML=Object.entries(typeLabels).map(([key,label])=>`<label><input type="checkbox" data-marker-type="${key}" ${markerTypes.has(key)?'checked':''}> ${label} <small>(${markers.filter(t=>markerType(t)===key).length})</small></label>`).join('');
+ const markerVisible=t=>visible.has(t.layer)&&markerTypes.has(markerType(t));
+ function markerList(){const q=$('#marker-search').value.trim().toLowerCase();const found=markers.filter(t=>markerVisible(t)&&(!q||(t.name+' '+data.layers[t.layer].name).toLowerCase().includes(q)));$('#marker-count').textContent=`${found.length} matching placements · ${Math.min(found.length,markerLimit)} shown`;$('#marker-results').innerHTML=found.slice(0,markerLimit).map(t=>`<button data-marker="${t.id}" aria-label="Locate ${esc(t.name)}"><strong>${esc(t.name)}</strong><small>${esc(typeLabels[markerType(t)])} · ${esc(data.layers[t.layer].name)} · X ${t.position[0]}, Z ${t.position[2]}</small></button>`).join('')||'<p>No matching placements. Try another name, enable a marker type or restore its layer.</p>';$('#marker-more').hidden=found.length<=markerLimit}
+
  const art=await window.createMapArt(tiles).catch(e=>{$('.badge').textContent='Layout only · artwork unresolved';$('#render-mode').value='layout';$('#render-mode').options[0].disabled=true;$('#render-mode').options[1].disabled=true;return null});
  if(art&&art.matched<tiles.length*.5)$('#render-mode').value='layout';
  if(art)$('.badge').textContent=`Artwork: ${art.matched.toLocaleString()} / ${tiles.length.toLocaleString()} placements`;
@@ -32,8 +40,8 @@
    else{ctx.beginPath();if(name==='gimmick'){ctx.moveTo(x,y-s*.45);ctx.lineTo(x+s*.4,y);ctx.lineTo(x,y+s*.45);ctx.lineTo(x-s*.4,y);ctx.closePath()}else ctx.arc(x,y,s*.3,0,Math.PI*2);ctx.fill();ctx.stroke()}
    if(scale>28&&name==='gimmick'){ctx.fillStyle='#322609';ctx.font=`bold ${Math.min(13,scale*.35)}px system-ui`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('K',x,y)}
   }
-  if($('#show-markers').checked)for(const t of markers){if(!visible.has(t.layer))continue;const [x,y]=point(t);if(x<0||x>width||y<0||y>height)continue;const l=data.layers[t.layer].name;ctx.fillStyle=l==='npcs'?'#65dccf':l==='monsters'?'#ff8799':l==='events'?'#ffd470':'#b59bff';ctx.strokeStyle='#07111e';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fill();ctx.stroke();}
-  if(selected&&visible.has(selected.layer)&&(!selected.marker||$('#show-markers').checked)){const [x,y]=point(selected);ctx.strokeStyle='#ffe5a0';ctx.lineWidth=2;ctx.strokeRect(x-scale*.55,y-scale*.55,scale*1.1,scale*1.1)}
+  if($('#show-markers').checked)for(const t of markers){if(!markerVisible(t))continue;const [x,y]=point(t);if(x<0||x>width||y<0||y>height)continue;const l=data.layers[t.layer].name;ctx.fillStyle=l==='npcs'?'#65dccf':l==='monsters'?'#ff8799':l==='events'?'#ffd470':'#b59bff';ctx.strokeStyle='#07111e';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fill();ctx.stroke();}
+  if(selected&&visible.has(selected.layer)&&(!selected.marker||($('#show-markers').checked&&markerVisible(selected)))){const [x,y]=point(selected);ctx.strokeStyle='#ffe5a0';ctx.lineWidth=2;ctx.strokeRect(x-scale*.55,y-scale*.55,scale*1.1,scale*1.1)}
   $('#zoom').textContent=Math.round(scale/fitScale*100)+'%';
  }
  function fit(){scale=Math.min((width-50)/(bounds.maxX-bounds.minX),(height-70)/((bounds.maxZ-bounds.minZ)*(tilted()?.8:1)+2));fitScale=scale;ox=width/2-(bounds.minX+bounds.maxX)/2*scale;oy=height/2+(bounds.minZ+bounds.maxZ)/2*scale*(tilted()?.8:1);draw()}
@@ -41,17 +49,22 @@
  function zoom(f,x=width/2,y=height/2){const next=Math.min(180,Math.max(5,scale*f));const k=next/scale;ox=x-(x-ox)*k;oy=y-(y-oy)*k;scale=next;draw()}
  function select(t){selected=t;$('#objects').value=t?t.id:'';if(t){const l=data.layers[t.layer];$('#inspector').innerHTML=`<h3>${esc(t.name)}</h3><dl><dt>Layer</dt><dd>${esc(l.name)}</dd><dt>Tileset</dt><dd>${esc(t.marker?'Stored '+l.name+' placement':t.tileset)}</dd><dt>X / Y / Z</dt><dd>${t.position.join(' / ')}</dd><dt>Rotation code</dt><dd>${t.rotation??'Not applicable'}</dd><dt>Partition</dt><dd>${t.partition?.join(', ')||'Not applicable'}</dd><dt>Byte offset</dt><dd>${t.offset===undefined?'Marker position from decoded layer':t.offset+' (0x'+t.offset.toString(16)+')'}</dd></dl>`}else{$('#inspector').innerHTML='<p class="empty">Select a tile to see its name, position and source record.</p>'}draw();saveView()}
  $('#download-map').onclick=()=>{const u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download=mapName+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),30000)};
- $('#layers').addEventListener('change',e=>{const n=Number(e.target.dataset.layer);e.target.checked?visible.add(n):visible.delete(n);draw();saveView()});
- $('#objects').addEventListener('change',e=>{const t=objects.find(t=>t.id===e.target.value);if(t){visible.add(t.layer);$(`[data-layer="${t.layer}"]`).checked=true;ox=width/2-t.position[0]*scale;oy=height/2+(t.position[2]*(tilted()?.8:1)+t.position[1]*(tilted()?.6:0))*scale}select(t)});
+ $('#layers').addEventListener('change',e=>{const n=Number(e.target.dataset.layer);e.target.checked?visible.add(n):visible.delete(n);markerList();draw();saveView()});
+ function focusObject(t){if(!t)return;visible.add(t.layer);$(`[data-layer="${t.layer}"]`).checked=true;if(t.marker){markerTypes.add(markerType(t));$(`[data-marker-type="${markerType(t)}"]`).checked=true;$('#show-markers').checked=true}scale=Math.max(scale,24);ox=width/2-t.position[0]*scale;oy=height/2+(t.position[2]*(tilted()?.8:1)+t.position[1]*(tilted()?.6:0))*scale;markerList();select(t);canvas.scrollIntoView({block:'center',behavior:'smooth'})}
+ $('#objects').addEventListener('change',e=>focusObject(objects.find(t=>t.id===e.target.value)));
+ $('#marker-types').onchange=e=>{const key=e.target.dataset.markerType;if(!key)return;e.target.checked?markerTypes.add(key):markerTypes.delete(key);markerLimit=40;markerList();draw();saveView()};
+ $('#marker-search').oninput=()=>{markerLimit=40;markerList();saveView()};
+ $('#marker-more').onclick=()=>{markerLimit+=40;markerList()};
+ $('#marker-results').onclick=e=>{const b=e.target.closest('[data-marker]');if(b)focusObject(markers.find(t=>t.id===b.dataset.marker))};
  $('#render-mode').onchange=()=>{fit();saveView()};$('#show-markers').onchange=()=>{draw();saveView()};$('#grid').onchange=draw;$('#fit').onclick=fit;$('#zoom-in').onclick=()=>zoom(1.3);$('#zoom-out').onclick=()=>zoom(1/1.3);
  const pos=e=>{const r=canvas.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top]};
  canvas.addEventListener('wheel',e=>{e.preventDefault();zoom(Math.exp(-e.deltaY*.0015),...pos(e))},{passive:false});
  canvas.addEventListener('pointerdown',e=>{const [x,y]=pos(e);drag={x,y,sx:x,sy:y,moved:false};canvas.setPointerCapture(e.pointerId)});
  canvas.addEventListener('pointermove',e=>{const [x,y]=pos(e);$('#coords').textContent=`X ${((x-ox)/scale).toFixed(1)} · Z ${((oy-y)/scale/(tilted()?.8:1)).toFixed(1)}`;if(drag){ox+=x-drag.x;oy+=y-drag.y;drag.moved||=Math.hypot(x-drag.sx,y-drag.sy)>4;drag.x=x;drag.y=y;draw()}});
- canvas.addEventListener('pointerup',e=>{if(drag&&!drag.moved){const [x,y]=pos(e);const hits=ordered.filter(t=>{const [a,b]=point(t);return visible.has(t.layer)&&Math.abs(x-a)<scale*.5&&Math.abs(y-b)<scale*.5});const markerHits=$('#show-markers').checked?markers.filter(t=>{const [a,b]=point(t);return visible.has(t.layer)&&Math.hypot(x-a,y-b)<9}):[];select(markerHits.at(-1)||hits.at(-1)||null)}drag=null});
+ canvas.addEventListener('pointerup',e=>{if(drag&&!drag.moved){const [x,y]=pos(e);const hits=ordered.filter(t=>{const [a,b]=point(t);return visible.has(t.layer)&&Math.abs(x-a)<scale*.5&&Math.abs(y-b)<scale*.5});const markerHits=$('#show-markers').checked?markers.filter(t=>{const [a,b]=point(t);return markerVisible(t)&&Math.hypot(x-a,y-b)<9}):[];select(markerHits.at(-1)||hits.at(-1)||null)}drag=null});
  canvas.addEventListener('pointercancel',()=>drag=null);
  canvas.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','+','=','-','0'].includes(e.key)){e.preventDefault();if(e.key==='0')return fit();if(e.key==='+'||e.key==='=')return zoom(1.3);if(e.key==='-')return zoom(1/1.3);ox+=e.key==='ArrowLeft'?30:e.key==='ArrowRight'?-30:0;oy+=e.key==='ArrowUp'?30:e.key==='ArrowDown'?-30:0;draw()}});
- function saveView(){const p=new URLSearchParams({map:mapName,mode:$('#render-mode').value,markers:$('#show-markers').checked?'1':'0',layers:[...visible].join(',')});if(selected)p.set('object',selected.id);history.replaceState(null,'','?'+p)}
- new ResizeObserver(resize).observe(canvas);resize();if(initial.has('object')){const t=objects.find(t=>t.id===initial.get('object'));if(t){visible.add(t.layer);$(`[data-layer="${t.layer}"]`).checked=true;select(t)}}saveView();
+ function saveView(){const p=new URLSearchParams({map:mapName,mode:$('#render-mode').value,markers:$('#show-markers').checked?'1':'0',layers:[...visible].join(','),types:[...markerTypes].join(','),mq:$('#marker-search').value});if(selected)p.set('object',selected.id);history.replaceState(null,'','?'+p)}
+ new ResizeObserver(resize).observe(canvas);resize();markerList();if(initial.has('object')){const t=objects.find(t=>t.id===initial.get('object'));if(t){visible.add(t.layer);$(`[data-layer="${t.layer}"]`).checked=true;select(t)}}saveView();
  }catch(e){$('#stats').textContent=`Unable to display the map: ${e.message}`;console.error(e)}
 })();

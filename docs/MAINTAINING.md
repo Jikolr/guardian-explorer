@@ -70,3 +70,5 @@ Run `python prepare_profiles.py` from the repository after rebuilding visual cat
 Profiles group records by `OriginId`; default/exclusive weapon IDs and exact battle-style class/action references provide links. Names carry evidence labels. Biography matching uses a unique English opening sentence, not a recovered localization-key mapping. Keep these limitations visible when extending the mappings.
 
 `atlas-tools.js` stores favorites and the comparison basket in the visitor's local browser. View settings live in URL parameters. There is no account or server database. The published game-file release archives are immutable snapshots and do not need rebuilding for these UI changes.
+
+`name-evidence.json` holds manually reviewed biography-based inferences. Each entry records the source text ID and a supporting phrase; the builder verifies both the name and phrase against that text. These checks confirm the evidence exists, not that the inferred identity is proven. Keep this confidence category distinct from confirmed names. Dedicated profiles use `character.html?id=…`; legacy `characters.html?id=…` bookmarks redirect there.
