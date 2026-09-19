@@ -102,3 +102,80 @@ const driverWs=driverActions.find(a=>a.name==='GraphTrigger:CwpBridgeDriver');ne
 assert.equal(E.attackList(timingTeam.team[0]).find(a=>a.name==='CwpInvaderKnight').ticks.length,4);
 assert.equal(E.attackList(timingTeam.team[2]).find(a=>a.name==='CwpDemonCeo').ticks.length,2);
 console.log('Passed: Beth before/after-hit debuff, initial debuff deduplication, EX gating, per-hit totals, and teammate graph/weapon sequences.');
+
+// User measurement: Water Invader Terrorist, first wave, only Beth EX equipped.
+const bethMeasured=E.defaultState();bethMeasured.team=[20368,20641,406,20698].map(id=>E.slot(id));bethMeasured.team.slice(1).forEach(t=>t.weapon=0);bethMeasured.boss=790185;bethMeasured.element='Ice';bethMeasured.profile.mastery.meleeAtk=49;bethMeasured.debuffs=[];
+const bethOutput=E.calculate(bethMeasured).heroes[0],measuredWave=bethOutput.results.find(a=>a.name==='ManualInvaderKnight:Wave');
+const predictedTicks=[measuredWave.hits[0].critical,measuredWave.hits[1].noncrit,measuredWave.hits[2].critical];
+[39871,23560,51833].forEach((observed,i)=>assert.ok(Math.abs(predictedTicks[i]-observed)<1,'Beth measured tick '+i));
+const outsideRange=structuredClone(bethMeasured);outsideRange.team[0].nearbyEnemies=0;const outsideOutput=E.calculate(outsideRange).heroes[0];
+near(bethOutput.atk,outsideOutput.atk);near(bethOutput.uiDps,outsideOutput.uiDps);
+near(measuredWave.hits[0].noncrit/outsideOutput.results.find(a=>a.name==='ManualInvaderKnight:Wave').hits[0].noncrit,1.2);
+const threeEnemies=structuredClone(bethMeasured);threeEnemies.team[0].nearbyEnemies=3;
+near(bethWave(threeEnemies).hits[0].noncrit/bethWave(outsideRange).hits[0].noncrit,1.6);
+assert.equal(E.validate(bethMeasured).team[0].nearbyEnemies,1);
+const oldProximity=structuredClone(bethMeasured);delete oldProximity.team[0].nearbyEnemies;assert.equal(E.validate(oldProximity).team[0].nearbyEnemies,1);
+console.log('Passed: Beth measured critical/normal/critical ticks within 1 damage, proximity range/cap and unchanged prepared ATK/UI DPS.');
+
+// Native damage options are separate from prepared ATK and displayed DPS.
+const firstDamage=v=>v.results.find(a=>a.total)?.total.noncrit;
+const garam=E.defaultState();garam.team=[E.slot(367),E.slot(),E.slot(),E.slot()];garam.debuffs=[];
+const garamOut=E.calculate(garam).heroes[0];near(garamOut.e.damageMultiplier,1.2);
+const noPassiveDb=structuredClone(E.db);noPassiveDb.options.find(o=>o.Id===320365).Modifier=0;
+const noPassive=require('./dist/raid-engine.js').create(noPassiveDb).calculate(garam).heroes[0];
+near(garamOut.atk,noPassive.atk);near(garamOut.uiDps,noPassive.uiDps);near(firstDamage(garamOut)/firstDamage(noPassive),1.2);
+const basket=E.db.items.find(i=>i.Type==='weapon'&&i.WeaponType==='basket');garam.team[0].weapon=basket.Id;
+near(E.calculate(garam).heroes[0].e.damageMultiplier,1);
+for(const hero of [159,84,460,475,478]){
+ const st=E.defaultState();st.team=[E.slot(hero),E.slot(),E.slot(),E.slot()];st.debuffs=[];
+ const buff=E.availableBuffs(st).find(b=>b.key==='damageMultiplier');assert.ok(buff,'Native window for '+hero);
+ const before=E.calculate(st).heroes[0];st.activeBuffs=[{id:buff.id,scope:'Self',stacks:1}];
+ const after=E.calculate(st).heroes[0];near(after.atk,before.atk);near(after.uiDps,before.uiDps);
+ near(after.e.damageMultiplier/before.e.damageMultiplier,1+buff.value);
+ if(firstDamage(before)>0)near(firstDamage(after)/firstDamage(before),1+buff.value);
+ assert.equal(E.validate(st).activeBuffs[0].id,buff.id);
+ st.activeBuffs.push({...st.activeBuffs[0]});near(E.calculate(st).heroes[0].e.damageMultiplier,after.e.damageMultiplier);
+ st.team[0]=E.slot(20596);assert.ok(!E.availableBuffs(st).some(b=>b.id===buff.id));
+}
+assert.ok(E.effectCoverage(E.slot(20596)).some(o=>o.status==='Partial action model'));
+assert.ok(E.calculate(E.measured()).heroes[0].warnings.some(w=>w.includes('BattleActionParameter')));
+console.log('Passed: Garam weapon gating, native conditional windows, unchanged ATK/UI DPS, no duplicate stacking, save validation and explicit partial script coverage.');
+for(const [id,full,half,low] of [[99,1,1.5,1.5],[454,1.3,1.15,1.03],[475,1.1,1.1,1.1]]){
+ const st=E.defaultState();st.team=[E.slot(id),E.slot(),E.slot(),E.slot()];st.debuffs=[];
+ const baseline=E.calculate(st).heroes[0];near(baseline.e.damageMultiplier,full);
+ for(const [hp,value] of [[50,half],[10,low]]){
+  st.team[0].hpPercent=hp;const out=E.calculate(st).heroes[0];near(out.e.damageMultiplier,value);near(out.atk,baseline.atk);near(out.uiDps,baseline.uiDps);
+  assert.equal(E.validate(st).team[0].hpPercent,hp);
+ }
+ st.team[0].hpPercent=101;assert.throws(()=>E.validate(st));
+ delete st.team[0].hpPercent;assert.equal(E.validate(st).team[0].hpPercent,100);
+}
+const shieldDb=structuredClone(E.db),gHero=shieldDb.heroes.find(h=>h.Id===367);
+gHero.Options.push({OptionId:3103531,Level:1});
+const shieldOption=shieldDb.options.find(o=>o.Id===3103531);delete shieldOption.CharacterOriginIds;delete shieldOption.ConditionType;
+const shieldE=engine.create(shieldDb),shieldState=shieldE.defaultState();shieldState.team=[shieldE.slot(367),shieldE.slot(),shieldE.slot(),shieldE.slot()];
+const unshielded=shieldE.calculate(shieldState).heroes[0];shieldState.team[0].shield=shieldE.db.items.find(i=>String(i.WeaponType).toLowerCase()==='shield').Id;
+near(shieldE.calculate(shieldState).heroes[0].e.damageMultiplier/unshielded.e.damageMultiplier,1.2);
+console.log('Passed: HP passive boundaries, full-health legacy default, independent damage factors and secondary shield weapon-type matching.');
+
+// Source-validated Darkness-team components (see validate_team_sources.py).
+const darkTeam=E.defaultState();darkTeam.team=[20368,20641,406,20698].map(id=>E.slot(id));darkTeam.debuffs=[];
+let darkOut=E.calculate(darkTeam);near(darkOut.heroes[1].e.damageMultiplier,1.3);
+const fewerDark=structuredClone(darkTeam);fewerDark.team[3]=E.slot();near(E.calculate(fewerDark).heroes[1].e.damageMultiplier,1.2);
+const soloWrestler=structuredClone(darkTeam);soloWrestler.team=[E.slot(),E.slot(20641),E.slot(),E.slot()];near(E.calculate(soloWrestler).heroes[0].e.damageMultiplier,1);
+const baseWrestler=E.db.heroes.find(h=>h.OriginId===641&&h.Rank!==6&&(h.Options||[]).some(r=>r.OptionId===320641));assert.ok(baseWrestler);
+const baseDark=structuredClone(darkTeam);baseDark.team[1]=E.slot(baseWrestler.Id);near(E.calculate(baseDark).heroes[1].e.damageMultiplier,1.15);
+for(const [name,ticks] of [['First',[.5]],['Second',[.5]],['Thrid',[.35,.35]],['Fourth',[.4,.4]]]){
+ const a=darkOut.heroes[2].results.find(a=>a.name==='ManualDemonCeo:'+name);assert.deepEqual(a.ticks,ticks);assert.ok(a.validation);
+}
+const wChain=darkOut.heroes[1].results.find(a=>a.name==='GraphSupport:Wrestler');near(wChain.coefficient,3.3);assert.ok(wChain.note.includes('static Myth description says 3.5'));
+near(darkOut.heroes[3].results.find(a=>a.name==='GraphRole:BridgeDriver').coefficient,.6);
+const bethChain=darkOut.heroes[0].results.find(a=>a.name==='BasicSupport:InvaderKnight');assert.deepEqual(bethChain.ticks,[.4,.4,.4,3]);assert.equal(bethChain.timings.length,4);
+const wrestlerHit=st=>E.calculate(st).heroes.find(h=>h.h.OriginId===641).results.find(a=>a.name==='GraphCombo:WrestlerFirst').hits[0];
+const freshW=wrestlerHit(darkTeam);assert.equal(freshW.activeEffects.length,0);assert.ok(freshW.appliedAfter.some(x=>x.includes('1/5')));
+const stacked=structuredClone(darkTeam),stack=E.availableBuffs(stacked).find(b=>b.source==='WrestlerEX-stacks');stacked.activeBuffs=[{id:stack.id,stacks:4,scope:'Self'}];
+const fifth=wrestlerHit(stacked);assert.ok(fifth.appliedAfter.some(x=>x.includes('5/5')));assert.ok(fifth.appliedAfter.some(x=>x.includes('critical damage')));
+near(fifth.critical/fifth.noncrit,freshW.critical/freshW.noncrit); // Newly earned critical buff cannot boost this hit.
+const preW=structuredClone(darkTeam);preW.debuffs=['data-641-3206414'];assert.ok(wrestlerHit(preW).noncrit>freshW.noncrit);
+const unarmedW=structuredClone(darkTeam);unarmedW.team[1].weapon=0;assert.ok(!E.availableBuffs(unarmedW).some(b=>b.source.startsWith('WrestlerEX')));
+console.log('Passed: Wrestler own-only elemental passive and Myth gate, post-hit EX stack/crit windows, fresh-boss debuff timing, Demon CEO sequences, Beth chain, and graph-over-description coefficients.');

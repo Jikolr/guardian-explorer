@@ -1,0 +1,1540 @@
+
+GRAPH wrestler-ManualWrestlerFirst
+30 OnInit {"coroutine": false, "$version": "A"} {}
+32 SelectUnit {"$version": "A"} {}
+34 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+36 AddVectorOffset {"$version": "A"} {"OffsetAmount": {"$content": 1.0, "$type": "System.Single"}}
+38 GetOwner {"$version": "A"} {}
+40 OnStartAction {"coroutine": false, "$version": "A"} {}
+42 LockDirection {"$version": "A"} {}
+44 AddVectorOffset {"$version": "A"} {"OffsetAmount": {"$content": 1.0, "$type": "System.Single"}}
+46 GetBoundDistance {"$version": "A"} {}
+48 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+50 OnUpdateRoutine {"InputCount": 1, "$version": "A"} {}
+52 If {"$version": "A"} {}
+54 GetHitSound {"$version": "A"} {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+56 GetOwner {"$version": "A"} {}
+58 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 310641, "$type": "System.Int32"}}
+60 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "buff_wrestler_weapon_3", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+62 SetActionActive {"$version": "A"} {}
+64 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+66 If {"$version": "A"} {}
+68 Literal {"type": "System.Int32", "value": {"$content": 1, "$type": "System.Int32"}, "$version": "A"} {}
+70 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+72 TriggerAction {"$version": "A"} {}
+74 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "anim_attack", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+76 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+78 GetAnyRoutineActive {"InputCount": 1, "$version": "A"} {}
+80 GetActionDirVector {"$version": "A"} {}
+82 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+84 SelectUnit {"$version": "A"} {}
+86 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+88 PlaySound {"$version": "A"} {"SoundKey": {"$content": "sfx_attack", "$type": "System.String"}}
+90 If {"$version": "A"} {}
+92 GetOwner {"$version": "A"} {}
+94 GetActionDirVector {"$version": "A"} {}
+96 GetBuffStack {"$version": "A"} {"BuffName": {"$content": "buff_wrestler_weapon_1", "$type": "System.String"}}
+98 Literal {"type": "System.String", "value": {"$content": "buff_wrestler_myth_weapon_2", "$type": "System.String"}, "$version": "A"} {}
+100 GetModifier {"$version": "A"} {"Modifier": {"$content": 0.0, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+102 CollisionCalculateEnd {"InputCount": 1, "$version": "A"} {}
+104 StartRoutine {"InputCount": 1, "$version": "A"} {}
+106 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+108 ReturnBool {"$version": "A"} {"Bool": {"$content": false, "$type": "System.Boolean"}}
+110 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "buff_wrestler_weapon_0", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+112 GetActionDirVector {"$version": "A"} {}
+114 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_first_hit", "$type": "System.String"}}
+116 PublishTriggerAction {"$version": "A"} {}
+118 CollisionCalculateStart {"SynchronizeId": 1, "$version": "A"} {}
+120 GetActionDirVector {"$version": "A"} {}
+122 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+124 SelectUnit {"$version": "A"} {}
+126 GetTargetForManualMelee {"$version": "A"} {"SearchRange": {"$content": 7.0, "$type": "System.Single"}}
+128 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "is_first_hit", "$type": "System.String"}}
+130 Literal {"type": "System.Single", "value": {"$content": 0.3, "$type": "System.Single"}, "$version": "A"} {}
+132 Literal {"type": "System.Boolean", "value": {"$content": true, "$type": "System.Boolean"}, "$version": "A"} {}
+134 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_dust", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+136 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+138 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+140 SelectUnit {"$version": "A"} {}
+142 CollisionInit {"CalculatorType": "Cylinder", "$version": "A"} {"Radius": {"$content": 1.3, "$type": "System.Single"}, "InnerRadius": {"$content": 0.0, "$type": "System.Single"}, "Height": {"$content": 0.75, "$type": "System.Single"}, "IsCenterToBottom": {"$content": false, "$type": "System.Boolean"}, "MaxHit": {"$content": 1, "$type": "System.Int32"}, "OnlyHittableTarget": {"$content": true, "$type": "System.Boolean"}, "OnlyFriendlyTarget": {"$content": false, "$type": "System.Boolean"}}
+144 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+146 SetIsControllingCharacter {"$version": "A"} {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+148 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+150 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+152 GetActionDirVector {"$version": "A"} {}
+154 Literal {"type": "System.String", "value": {"$content": "buff_wrestler_myth_weapon_1", "$type": "System.String"}, "$version": "A"} {}
+156 IsTimeBetween {"$version": "A"} {"MinTimer": {"$content": 0.2, "$type": "System.Single"}, "MaxTimer": {"$content": 0.3, "$type": "System.Single"}}
+158 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+160 Literal {"type": "System.String", "value": {"$content": "buff_wrestler_weapon_1", "$type": "System.String"}, "$version": "A"} {}
+162 GetOwner {"$version": "A"} {}
+164 OnUpdateFrame {"coroutine": false, "$version": "A"} {}
+166 Literal {"type": "System.String", "value": {"$content": "buff_wrestler_weapon_1", "$type": "System.String"}, "$version": "A"} {}
+168 SetIsRunCancelable {"$version": "A"} {"IsRunCancel": {"$content": true, "$type": "System.Boolean"}}
+170 GetOwner {"$version": "A"} {}
+172 SetActionInactive {"$version": "A"} {}
+174 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+176 EndRoutine {"InputCount": 1, "$version": "A"} {}
+178 Literal {"type": "System.Int32", "value": {"$content": 9, "$type": "System.Int32"}, "$version": "A"} {}
+180 Literal {"type": "System.String", "value": {"$content": "buff_wrestler_myth_weapon_1", "$type": "System.String"}, "$version": "A"} {}
+182 IsAvailable {"$version": "A"} {}
+184 IsTimePassedForFinishAction {"$version": "A"} {"Timer": {"$content": 0.3, "$type": "System.Single"}}
+186 GetActionDirVector {"$version": "A"} {}
+188 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "buff_wrestler_weapon_2", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+190 Literal {"type": "System.String", "value": {"$content": "buff_wrestler_weapon_2", "$type": "System.String"}, "$version": "A"} {}
+192 ApplyDamage {"$version": "A"} {"DamageType": {"$content": "Melee", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "Normal", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.4, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+194 GetActionDirVector {"$version": "A"} {}
+196 ReturnBool {"$version": "A"} {"Bool": {"$content": false, "$type": "System.Boolean"}}
+198 GetActionDirVector {"$version": "A"} {}
+200 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+202 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 20310641, "$type": "System.Int32"}}
+204 IsHittable {"$version": "A"} {}
+206 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+208 AddVectorOffset {"$version": "A"} {"OffsetAmount": {"$content": 1.0, "$type": "System.Single"}}
+210 RemoveAnim {"$version": "A"} {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+212 LessOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 3.64, "$type": "System.Single"}}
+214 OnFinishAction {"coroutine": false, "$version": "A"} {}
+216 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+218 PlayDash {"$version": "A"} {"StayDuration": {"$content": 0.0, "$type": "System.Single"}, "DashDuration": {"$content": 0.25, "$type": "System.Single"}, "DashSpeed": {"$content": 24.0, "$type": "System.Single"}, "DashOnBlockType": {"$content": "Slide", "$type": "Oak.ShortDashState+OnBlockType"}, "CancelByMove": {"$content": false, "$type": "System.Boolean"}, "ManualMinDistance": {"$content": 0.0, "$type": "System.Single"}, "CanRecoverStamina": {"$content": false, "$type": "System.Boolean"}}
+220 PlayCameraShake {"$version": "A"} {"ShakeAmount": {"$content": 0.1, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.1, "$type": "System.Single"}}
+222 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+224 GetActionDirVector {"$version": "A"} {}
+226 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+228 GetOwner {"$version": "A"} {}
+230 GreaterOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 9.0, "$type": "System.Single"}}
+232 UnLockDirection {"$version": "A"} {}
+234 AppendTarget {"InputCount": 1, "$version": "A"} {}
+236 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "is_first_hit", "$type": "System.String"}}
+238 GetOptionAppliedSelector {"$version": "A"} {"TargetId": {"$content": 20350641, "$type": "System.Int32"}, "True": {"$content": 1.55, "$type": "System.Single"}, "False": {"$content": 1.3, "$type": "System.Single"}}
+240 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+242 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+244 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+246 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+248 SelectUnit {"$version": "A"} {}
+250 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.2, "$type": "System.Single"}}
+252 GetActionTarget {"$version": "A"} {}
+254 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+256 GetOwner {"$version": "A"} {}
+258 AppendDirection {"InputCount": 1, "$version": "A"} {}
+260 If {"$version": "A"} {}
+262 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "buff_wrestler_weapon_1", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+264 WhileCollisionCalculate {"$version": "A"} {}
+266 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+268 If {"$version": "A"} {}
+270 Literal {"type": "System.Single", "value": {"$content": 0.1, "$type": "System.Single"}, "$version": "A"} {}
+272 Literal {"type": "System.Int32", "value": {"$content": 4, "$type": "System.Int32"}, "$version": "A"} {}
+None GraphGroup {"label": "Init", "comment": null, "color": {"r": 1.0, "g": 0.964491, "b": 0.6367924, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Start", "comment": null, "color": {"r": 0.6444392, "g": 1.0, "b": 0.5801887, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Trigger", "comment": null, "color": {"r": 0.7028302, "g": 0.8903667, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Update", "comment": null, "color": {"r": 0.8673532, "g": 0.6839622, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Finish", "comment": null, "color": {"r": 1.0, "g": 0.7122642, "b": 0.8045109, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Checker", "comment": null, "color": {"r": 1.0, "g": 0.8686246, "b": 0.6273585, "a": 1.0}, "$version": "A"} {}
+None StickyNote {"title": "Checker 진입점 섹터", "body": "기대 동작\n\nIsHittable 체커 동작 구현\nIsAvailable 체커 동작 구현", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnFinishAction 진입점 섹터", "body": "기대 동작\n\n액션 비활성화\n애니메이션 초기화\n루틴 초기화\n바라보는 방향 초기화\n충돌체 초기화", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnInit 진입점 섹터", "body": "기대 동작\n\n액션 중 캐릭터는 움직일 수 없음\n액션은 런캔슬이 가능함\n실린더 충돌체 생성 필요", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnStartAction 진입점 섹터", "body": "기대 동작\n\n액션 활성화 체크\ntarget 세팅\ndir_vector 세팅\n사용할 루틴 시작\n캐릭터 바라보는 방향 고정", "colorTheme": "Classic"} {}
+None StickyNote {"title": "TriggerAction 진입점 섹터", "body": "기대 동작\n\n근거리 타겟 체크\n액션 시작 트리거 배포", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnUpdateFrame 진입점 섹터", "body": "기대 동작\n\n에임포인트 고정\n0초 : 애니메이션 재생\n0초 : 대시 재생\n0.3초 : 이펙트 재생\n0.4초 ~ 0.4초 : 충돌체 판정\n0.5초 : 액션 종료", "colorTheme": "Classic"} {}
+None StickyNote {"title": "", "body": "최초 1회에만 버프를 부여해 주어야 하므로 관련 사항 is_first_hit 으로 대응", "colorTheme": "Classic"} {}
+None StickyNote {"title": "", "body": "무옵 적용중일때 무옵 버프 부여", "colorTheme": "Classic"} {}
+None StickyNote {"title": "", "body": "이번걸로 무옵 버프 스택이 최대가 된다면 치배율 버프를 추가로 부여해야 한다.", "colorTheme": "Classic"} {}
+ControlConnection {'$ref': '72'} Trigger -> {'$ref': '126'} InputTrigger
+ControlConnection {'$ref': '66'} ifTrue -> {'$ref': '60'} InputTrigger
+ControlConnection {'$ref': '264'} True -> {'$ref': '52'} enter
+ControlConnection {'$ref': '52'} ifTrue -> {'$ref': '128'} assign
+ControlConnection {'$ref': '262'} OutputTrigger -> {'$ref': '188'} InputTrigger
+ControlConnection {'$ref': '104'} OutputTrigger -> {'$ref': '42'} InputTrigger
+ControlConnection {'$ref': '204'} Trigger -> {'$ref': '90'} enter
+ControlConnection {'$ref': '62'} OutputTrigger -> {'$ref': '104'} InputTrigger
+ControlConnection {'$ref': '226'} Exit -> {'$ref': '250'} InputTrigger
+ControlConnection {'$ref': '264'} Each -> {'$ref': '192'} InputTrigger
+ControlConnection {'$ref': '250'} Exit -> {'$ref': '156'} InputTrigger
+ControlConnection {'$ref': '60'} OutputTrigger -> {'$ref': '262'} InputTrigger
+ControlConnection {'$ref': '144'} assigned -> {'$ref': '70'} assign
+ControlConnection {'$ref': '176'} OutputTrigger -> {'$ref': '102'} InputTrigger
+ControlConnection {'$ref': '156'} True -> {'$ref': '264'} InputTrigger
+ControlConnection {'$ref': '268'} ifTrue -> {'$ref': '66'} enter
+ControlConnection {'$ref': '156'} Exit -> {'$ref': '184'} InputTrigger
+ControlConnection {'$ref': '126'} OutputTrigger -> {'$ref': '116'} InputTrigger
+ControlConnection {'$ref': '90'} ifFalse -> {'$ref': '196'} InputTrigger
+ControlConnection {'$ref': '116'} OutputTrigger -> {'$ref': '138'} InputTrigger
+ControlConnection {'$ref': '172'} OutputTrigger -> {'$ref': '210'} InputTrigger
+ControlConnection {'$ref': '214'} trigger -> {'$ref': '172'} InputTrigger
+ControlConnection {'$ref': '86'} OutputTrigger -> {'$ref': '88'} InputTrigger
+ControlConnection {'$ref': '146'} OutputTrigger -> {'$ref': '168'} InputTrigger
+ControlConnection {'$ref': '218'} OutputTrigger -> {'$ref': '134'} InputTrigger
+ControlConnection {'$ref': '250'} True -> {'$ref': '86'} InputTrigger
+ControlConnection {'$ref': '220'} OutputTrigger -> {'$ref': '118'} InputTrigger
+ControlConnection {'$ref': '30'} trigger -> {'$ref': '146'} InputTrigger
+ControlConnection {'$ref': '168'} OutputTrigger -> {'$ref': '150'} assign
+ControlConnection {'$ref': '182'} Trigger -> {'$ref': '260'} enter
+ControlConnection {'$ref': '66'} ifFalse -> {'$ref': '262'} InputTrigger
+ControlConnection {'$ref': '210'} OutputTrigger -> {'$ref': '232'} InputTrigger
+ControlConnection {'$ref': '40'} trigger -> {'$ref': '62'} InputTrigger
+ControlConnection {'$ref': '128'} assigned -> {'$ref': '268'} enter
+ControlConnection {'$ref': '192'} OutputTrigger -> {'$ref': '110'} InputTrigger
+ControlConnection {'$ref': '226'} True -> {'$ref': '74'} InputTrigger
+ControlConnection {'$ref': '50'} 1 Update -> {'$ref': '226'} InputTrigger
+ControlConnection {'$ref': '232'} OutputTrigger -> {'$ref': '176'} InputTrigger
+ControlConnection {'$ref': '74'} OutputTrigger -> {'$ref': '218'} InputTrigger
+ControlConnection {'$ref': '88'} OutputTrigger -> {'$ref': '220'} InputTrigger
+ControlConnection {'$ref': '164'} trigger -> {'$ref': '50'} InputTrigger
+ControlConnection {'$ref': '260'} ifTrue -> {'$ref': '108'} InputTrigger
+ControlConnection {'$ref': '260'} ifFalse -> {'$ref': '34'} InputTrigger
+ControlConnection {'$ref': '90'} ifTrue -> {'$ref': '246'} InputTrigger
+ControlConnection {'$ref': '150'} assigned -> {'$ref': '144'} assign
+ControlConnection {'$ref': '118'} OutputTrigger -> {'$ref': '236'} assign
+ValueConnection {'$ref': '58'} Result -> {'$ref': '144'} input
+ValueConnection {'$ref': '230'} comparison -> {'$ref': '66'} condition
+ValueConnection {'$ref': '264'} EachFieldObject -> {'$ref': '192'} DamageTarget
+ValueConnection {'$ref': '112'} Result -> {'$ref': '134'} Direction
+ValueConnection {'$ref': '154'} output -> {'$ref': '124'} ifTrue
+ValueConnection {'$ref': '264'} EachFieldObject -> {'$ref': '110'} Target
+ValueConnection {'$ref': '162'} Result -> {'$ref': '262'} Sender
+ValueConnection {'$ref': '148'} Result -> {'$ref': '36'} Position
+ValueConnection {'$ref': '252'} Result -> {'$ref': '218'} Target
+ValueConnection {'$ref': '228'} Result -> {'$ref': '60'} Sender
+ValueConnection {'$ref': '200'} value -> {'$ref': '104'} 1 Routine
+ValueConnection {'$ref': '122'} value -> {'$ref': '124'} condition
+ValueConnection {'$ref': '32'} selection -> {'$ref': '262'} BuffKey
+ValueConnection {'$ref': '202'} Result -> {'$ref': '70'} input
+ValueConnection {'$ref': '212'} comparison -> {'$ref': '90'} condition
+ValueConnection {'$ref': '160'} output -> {'$ref': '124'} ifFalse
+ValueConnection {'$ref': '114'} value -> {'$ref': '52'} condition
+ValueConnection {'$ref': '256'} Result -> {'$ref': '96'} Target
+ValueConnection {'$ref': '46'} Result -> {'$ref': '212'} a
+ValueConnection {'$ref': '94'} Result -> {'$ref': '36'} Direction
+ValueConnection {'$ref': '194'} Result -> {'$ref': '86'} Direction
+ValueConnection {'$ref': '186'} Result -> {'$ref': '118'} Direction
+ValueConnection {'$ref': '234'} Result -> {'$ref': '258'} TargetInfo
+ValueConnection {'$ref': '136'} output -> {'$ref': '140'} ifFalse
+ValueConnection {'$ref': '124'} selection -> {'$ref': '96'} BuffName
+ValueConnection {'$ref': '82'} value -> {'$ref': '84'} condition
+ValueConnection {'$ref': '244'} value -> {'$ref': '248'} condition
+ValueConnection {'$ref': '242'} value -> {'$ref': '176'} 1 Routine
+ValueConnection {'$ref': '238'} Result -> {'$ref': '142'} Radius
+ValueConnection {'$ref': '76'} value -> {'$ref': '140'} condition
+ValueConnection {'$ref': '98'} output -> {'$ref': '84'} ifTrue
+ValueConnection {'$ref': '132'} output -> {'$ref': '236'} input
+ValueConnection {'$ref': '180'} output -> {'$ref': '32'} ifTrue
+ValueConnection {'$ref': '266'} value -> {'$ref': '32'} condition
+ValueConnection {'$ref': '48'} value -> {'$ref': '118'} Calculator
+ValueConnection {'$ref': '78'} Result -> {'$ref': '260'} condition
+ValueConnection {'$ref': '142'} Result -> {'$ref': '150'} input
+ValueConnection {'$ref': '206'} value -> {'$ref': '264'} Calculator
+ValueConnection {'$ref': '166'} output -> {'$ref': '32'} ifFalse
+ValueConnection {'$ref': '240'} value -> {'$ref': '102'} 1 Calculator
+ValueConnection {'$ref': '158'} Result -> {'$ref': '208'} Position
+ValueConnection {'$ref': '152'} Result -> {'$ref': '218'} Direction
+ValueConnection {'$ref': '228'} Result -> {'$ref': '60'} Target
+ValueConnection {'$ref': '198'} Result -> {'$ref': '264'} Direction
+ValueConnection {'$ref': '204'} OnHitTarget -> {'$ref': '46'} Current
+ValueConnection {'$ref': '272'} output -> {'$ref': '248'} ifTrue
+ValueConnection {'$ref': '178'} output -> {'$ref': '248'} ifFalse
+ValueConnection {'$ref': '248'} selection -> {'$ref': '230'} b
+ValueConnection {'$ref': '54'} SfxInfo -> {'$ref': '192'} HitSound
+ValueConnection {'$ref': '84'} selection -> {'$ref': '188'} BuffKey
+ValueConnection {'$ref': '38'} Result -> {'$ref': '134'} ParentObject
+ValueConnection {'$ref': '190'} output -> {'$ref': '84'} ifFalse
+ValueConnection {'$ref': '254'} value -> {'$ref': '268'} condition
+ValueConnection {'$ref': '130'} output -> {'$ref': '100'} Modifier
+ValueConnection {'$ref': '64'} value -> {'$ref': '78'} 1 Routine
+ValueConnection {'$ref': '56'} Result -> {'$ref': '188'} Target
+ValueConnection {'$ref': '224'} Result -> {'$ref': '42'} Direction
+ValueConnection {'$ref': '56'} Result -> {'$ref': '188'} Sender
+ValueConnection {'$ref': '216'} value -> {'$ref': '50'} 1 Routine
+ValueConnection {'$ref': '140'} selection -> {'$ref': '110'} BuffLevel
+ValueConnection {'$ref': '106'} output -> {'$ref': '128'} input
+ValueConnection {'$ref': '80'} Result -> {'$ref': '208'} Direction
+ValueConnection {'$ref': '96'} Result -> {'$ref': '230'} a
+ValueConnection {'$ref': '120'} Result -> {'$ref': '44'} Direction
+ValueConnection {'$ref': '126'} Direction -> {'$ref': '258'} 0 Value
+ValueConnection {'$ref': '208'} Result -> {'$ref': '264'} Position
+ValueConnection {'$ref': '170'} Result -> {'$ref': '46'} Target
+ValueConnection {'$ref': '92'} Result -> {'$ref': '110'} Sender
+ValueConnection {'$ref': '258'} Result -> {'$ref': '116'} TriggerInfo
+ValueConnection {'$ref': '36'} Result -> {'$ref': '86'} Position
+ValueConnection {'$ref': '164'} DeltaTime -> {'$ref': '50'} DeltaTime
+ValueConnection {'$ref': '44'} Result -> {'$ref': '118'} Position
+ValueConnection {'$ref': '222'} Result -> {'$ref': '44'} Position
+ValueConnection {'$ref': '126'} Target -> {'$ref': '234'} 0 Value
+ValueConnection {'$ref': '174'} Result -> {'$ref': '134'} Position
+ValueConnection {'$ref': '270'} output -> {'$ref': '142'} Duration
+ValueConnection {'$ref': '68'} output -> {'$ref': '140'} ifTrue
+ValueConnection {'$ref': '100'} Result -> {'$ref': '192'} Modifier
+ValueConnection {'$ref': '162'} Result -> {'$ref': '262'} Target
+
+GRAPH wrestler-SupportWrestler
+44 OnInit {"coroutine": false, "$version": "A"} {}
+46 GetActionDirVector {"$version": "A"} {}
+48 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.3, "$type": "System.Single"}}
+50 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+52 UnsetSupportDarken {"$version": "A"} {"Duration": {"$content": 0.15, "$type": "System.Single"}}
+54 ToSideDirection {"$version": "A"} {}
+56 IsTimePassed {"$version": "A"} {"Timer": {"$content": 1.05, "$type": "System.Single"}}
+58 SetSpineFade {"$version": "A"} {"TargetAlpha": {"$content": 1.0, "$type": "System.Single"}, "Duration": {"$content": 0.0, "$type": "System.Single"}}
+60 IsTimeBetween {"$version": "A"} {"MinTimer": {"$content": 1.3, "$type": "System.Single"}, "MaxTimer": {"$content": 1.5, "$type": "System.Single"}}
+62 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+64 SetSpineFade {"$version": "A"} {"TargetAlpha": {"$content": 1.0, "$type": "System.Single"}, "Duration": {"$content": 0.05, "$type": "System.Single"}}
+66 SetSpineOffset {"$version": "A"} {"Offset": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+68 SetActionInactive {"$version": "A"} {}
+70 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+72 GetEaseProgress {"$version": "A"} {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.0, "$type": "System.Single"}, "EndTime": {"$content": 0.3, "$type": "System.Single"}}
+74 GetEaseProgress {"$version": "A"} {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.0, "$type": "System.Single"}, "EndTime": {"$content": 0.3, "$type": "System.Single"}}
+76 ExecuteLerpMove {"$version": "A"} {"StartPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "TargetPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "MoveType": {"$content": "", "$type": "Oak.MoveOneFrameTypes"}}
+78 GetGroundPosition {"$version": "A"} {}
+80 GetBoundPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+82 Vector3Sum {"inputCount": 2, "$version": "A"} {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+84 CollisionCalculateOnce {"SynchronizeId": 1, "$version": "A"} {}
+86 Literal {"type": "System.Single", "value": {"$content": 4.5, "$type": "System.Single"}, "$version": "A"} {}
+88 SetSpineFade {"$version": "A"} {"TargetAlpha": {"$content": 0.0, "$type": "System.Single"}, "Duration": {"$content": 0.1, "$type": "System.Single"}}
+90 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+92 SetOwnerDirection {"$version": "A"} {"DirectionVector": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+94 ExecuteLerpMove {"$version": "A"} {"StartPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "TargetPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "MoveType": {"$content": "", "$type": "Oak.MoveOneFrameTypes"}}
+96 ChangeSupportCrashBehaviour {"$version": "A"} {"CrashBehaviour": {"$content": "None", "$type": "CharacterTool.SupportCrashBehaviour"}}
+98 IsTimePassed {"$version": "A"} {"Timer": {"$content": 1.3, "$type": "System.Single"}}
+100 IsTimeBetween {"$version": "A"} {"MinTimer": {"$content": 0.6, "$type": "System.Single"}, "MaxTimer": {"$content": 0.75, "$type": "System.Single"}}
+102 ApplyDamage {"$version": "A"} {"DamageType": {"$content": "Melee", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "Normal", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.4, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": true, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": true, "$type": "System.Boolean"}}
+104 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "ring_position", "$type": "System.String"}}
+106 GetBoundPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+108 IsTimeBetween {"$version": "A"} {"MinTimer": {"$content": 0.8, "$type": "System.Single"}, "MaxTimer": {"$content": 0.9, "$type": "System.Single"}}
+110 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+112 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.9, "$type": "System.Single"}}
+114 SetSupportDarken {"$version": "A"} {"TargetDarken": {"$content": 0.5, "$type": "System.Single"}, "Duration": {"$content": 0.15, "$type": "System.Single"}}
+116 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "anim_cast", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+118 IsTimeBetween {"$version": "A"} {"MinTimer": {"$content": 0.9, "$type": "System.Single"}, "MaxTimer": {"$content": 1.0, "$type": "System.Single"}}
+120 Literal {"type": "System.Single", "value": {"$content": 0.15, "$type": "System.Single"}, "$version": "A"} {}
+122 Literal {"type": "System.String", "value": {"$content": "cache_ring", "$type": "System.String"}, "$version": "A"} {}
+124 ExecuteLerpMove {"$version": "A"} {"StartPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "TargetPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "MoveType": {"$content": "", "$type": "Oak.MoveOneFrameTypes"}}
+126 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "start_position", "$type": "System.String"}}
+128 SetIsRunCancelable {"$version": "A"} {"IsRunCancel": {"$content": false, "$type": "System.Boolean"}}
+130 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "jump_position", "$type": "System.String"}}
+132 OnDeclareAction {"coroutine": false, "$version": "A"} {}
+134 GetAilmentInfo {"$version": "A"} {"AilmentType": {"$content": "Down", "$type": "Oak.Ailment"}, "IsFullGauge": {"$content": true, "$type": "System.Boolean"}, "Gauge": {"$content": 0.0, "$type": "System.Single"}, "GaugeAdd": {"$content": 0.0, "$type": "System.Single"}}
+136 Vector3Lerp {"$version": "A"} {"a": {"x": 0.0, "y": 1.5, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 6.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+138 ToSideDirection {"$version": "A"} {}
+140 GetHitSound {"$version": "A"} {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+142 DisposeEffect {"InputCount": 2, "$version": "A"} {"1 immediate": {"$content": false, "$type": "System.Boolean"}, "2 immediate": {"$content": false, "$type": "System.Boolean"}}
+144 GetEaseProgress {"$version": "A"} {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.9, "$type": "System.Single"}, "EndTime": {"$content": 1.0, "$type": "System.Single"}}
+146 SetActionActive {"$version": "A"} {}
+148 GetModifier {"$version": "A"} {"Modifier": {"$content": 0.3, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+150 GetActionDirVector {"$version": "A"} {}
+152 SetSpineOffset {"$version": "A"} {"Offset": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+154 Literal {"type": "System.Single", "value": {"$content": 3.3, "$type": "System.Single"}, "$version": "A"} {}
+156 ChangeSupportCrashBehaviour {"$version": "A"} {"CrashBehaviour": {"$content": "Ethereal", "$type": "CharacterTool.SupportCrashBehaviour"}}
+158 Vector3Lerp {"$version": "A"} {"a": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 1.5, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+160 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "anim_jump", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+162 OnFinishAction {"coroutine": false, "$version": "A"} {}
+164 OnUpdateFrame {"coroutine": false, "$version": "A"} {}
+166 CalculateMovePosition {"$version": "A"} {}
+168 AppendTarget {"InputCount": 1, "$version": "A"} {}
+170 Literal {"type": "System.String", "value": {"$content": "cache_trail", "$type": "System.String"}, "$version": "A"} {}
+172 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.6, "$type": "System.Single"}}
+174 LockDirection {"$version": "A"} {}
+176 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "anim_jump", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+178 CollisionCalculateEnd {"InputCount": 1, "$version": "A"} {}
+180 GetEaseProgress {"$version": "A"} {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 1.3, "$type": "System.Single"}, "EndTime": {"$content": 1.5, "$type": "System.Single"}}
+182 GetActionTarget {"$version": "A"} {}
+184 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "jump_position", "$type": "System.String"}}
+186 GetOptionAppliedSelector {"$version": "A"} {"TargetId": {"$content": 20300641, "$type": "System.Int32"}, "True": {"$content": 3.0, "$type": "System.Single"}, "False": {"$content": 2.5, "$type": "System.Single"}}
+188 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+190 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+192 PlayJump {"$version": "A"} {"Height": {"$content": 0.5, "$type": "System.Single"}, "JumpDuration": {"$content": 0.2, "$type": "System.Single"}, "AerialDuration": {"$content": 0.1, "$type": "System.Single"}, "AllowJumpAdditive": {"$content": false, "$type": "System.Boolean"}}
+194 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "anim_tumbling", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+196 GetBoundPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+198 GetActionTarget {"$version": "A"} {}
+200 SetIsControllingCharacter {"$version": "A"} {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+202 GetTargetForSupport {"$version": "A"} {"XZNormalize": {"$content": true, "$type": "System.Boolean"}}
+204 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+206 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "anim_victory", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+208 GetMember {"member": {"name": "right", "parameterTypes": null, "targetType": "UnityEngine.Vector3", "targetTypeName": "UnityEngine.Vector3", "$version": "A"}, "$version": "A"} {}
+211 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_ring", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+213 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "jump_position", "$type": "System.String"}}
+215 GetActionDirVector {"$version": "A"} {}
+217 GetOwner {"$version": "A"} {}
+219 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "ring_position", "$type": "System.String"}}
+221 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "start_position", "$type": "System.String"}}
+223 TriggerAction {"$version": "A"} {}
+225 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "start_position", "$type": "System.String"}}
+227 GetActionTarget {"$version": "A"} {}
+229 UnLockDirection {"$version": "A"} {}
+231 GetMember {"member": {"name": "x", "parameterTypes": null, "targetType": "UnityEngine.Vector3", "targetTypeName": "UnityEngine.Vector3", "$version": "A"}, "$version": "A"} {"target": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+234 RemoveAnim {"$version": "A"} {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+236 CacheEffect {"$version": "A"} {"ManageKey": {"$content": "cache_ring", "$type": "System.String"}}
+238 CacheEffect {"$version": "A"} {"ManageKey": {"$content": "cache_trail", "$type": "System.String"}}
+240 SelectUnit {"$version": "A"} {}
+242 GetActionTarget {"$version": "A"} {}
+244 GetActionDirVector {"$version": "A"} {}
+246 PublishTriggerAction {"$version": "A"} {}
+248 GetOwnerSpineOffset {"$version": "A"} {}
+250 AddVectorOffset {"$version": "A"} {"OffsetAmount": {"$content": -1.5, "$type": "System.Single"}}
+252 IsTimePassed {"$version": "A"} {"Timer": {"$content": 1.05, "$type": "System.Single"}}
+254 Less {"numeric": true, "$version": "A"} {"b": {"$content": 0.0, "$type": "System.Single"}}
+256 ExcuteInstantMove {"$version": "A"} {"TargetPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "MoveType": {"$content": "IgnoreCrash,IgnoreSlope", "$type": "Oak.MoveOneFrameTypes"}}
+258 PlaySound {"$version": "A"} {"SoundKey": {"$content": "sfx_explosion", "$type": "System.String"}}
+260 EndRoutine {"InputCount": 1, "$version": "A"} {}
+262 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+264 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "anim_attack", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+266 AppendDirection {"InputCount": 1, "$version": "A"} {}
+268 Vector3Lerp {"$version": "A"} {"a": {"x": 0.0, "y": 6.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+270 CollisionInit {"CalculatorType": "Cylinder", "$version": "A"} {"Radius": {"$content": 2.5, "$type": "System.Single"}, "InnerRadius": {"$content": 0.0, "$type": "System.Single"}, "Height": {"$content": 0.75, "$type": "System.Single"}, "IsCenterToBottom": {"$content": true, "$type": "System.Boolean"}, "MaxHit": {"$content": 1, "$type": "System.Int32"}, "OnlyHittableTarget": {"$content": true, "$type": "System.Boolean"}, "OnlyFriendlyTarget": {"$content": false, "$type": "System.Boolean"}}
+272 IsTimePassed {"$version": "A"} {"Timer": {"$content": 1.0, "$type": "System.Single"}}
+274 GetActionTarget {"$version": "A"} {}
+276 PlaySound {"$version": "A"} {"SoundKey": {"$content": "sfx_cast", "$type": "System.String"}}
+278 IsTimeBetween {"$version": "A"} {"MinTimer": {"$content": 0.0, "$type": "System.Single"}, "MaxTimer": {"$content": 0.3, "$type": "System.Single"}}
+280 GetActionDirVector {"$version": "A"} {}
+282 StartRoutine {"InputCount": 1, "$version": "A"} {}
+284 OnUpdateRoutine {"InputCount": 1, "$version": "A"} {}
+286 GetEaseProgress {"$version": "A"} {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.8, "$type": "System.Single"}, "EndTime": {"$content": 0.9, "$type": "System.Single"}}
+288 GetEaseProgress {"$version": "A"} {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.6, "$type": "System.Single"}, "EndTime": {"$content": 0.75, "$type": "System.Single"}}
+290 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_trail", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+292 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_stomp", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+294 SetSpineOffset {"$version": "A"} {"Offset": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+296 PlayCameraShake {"$version": "A"} {"ShakeAmount": {"$content": 0.3, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.4, "$type": "System.Single"}}
+298 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+300 PlayDefaultVoice {"$version": "A"} {}
+302 SetAimPoint {"$version": "A"} {}
+304 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.7, "$type": "System.Single"}}
+306 DisposeEffect {"InputCount": 1, "$version": "A"} {"1 immediate": {"$content": true, "$type": "System.Boolean"}}
+308 GetBoundPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+310 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "start_position", "$type": "System.String"}}
+312 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.5, "$type": "System.Single"}}
+314 IsTimePassedForFinishAction {"$version": "A"} {"Timer": {"$content": 1.5, "$type": "System.Single"}}
+316 Literal {"type": "System.String", "value": {"$content": "cache_trail", "$type": "System.String"}, "$version": "A"} {}
+318 SetSpineOffset {"$version": "A"} {"Offset": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+320 GetMember {"member": {"name": "left", "parameterTypes": null, "targetType": "UnityEngine.Vector3", "targetTypeName": "UnityEngine.Vector3", "$version": "A"}, "$version": "A"} {}
+323 OnStartAction {"coroutine": false, "$version": "A"} {}
+None GraphGroup {"label": "Init", "comment": null, "color": {"r": 1.0, "g": 0.964491, "b": 0.6367924, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Start", "comment": null, "color": {"r": 0.6444392, "g": 1.0, "b": 0.5801887, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Trigger", "comment": null, "color": {"r": 0.7028302, "g": 0.8903667, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Update", "comment": null, "color": {"r": 0.8673532, "g": 0.6839622, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Finish", "comment": null, "color": {"r": 1.0, "g": 0.7122642, "b": 0.8045109, "a": 1.0}, "$version": "A"} {}
+None StickyNote {"title": "TriggerAction 진입점 섹터", "body": "기대 동작\n\n근거리 타겟 체크\n액션 시작 트리거 배포", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnFinishAction 진입점 섹터", "body": "기대 동작\n\n액션 비활성화\n애니메이션 초기화\n루틴 초기화\n바라보는 방향 초기화\n충돌체 초기화", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnInit 진입점 섹터", "body": "기대 동작\n\n액션 중 캐릭터는 움직일 수 없음\n액션은 런캔슬이 가능함\n원형 충돌체 생성 필요", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnStartAction 진입점 섹터", "body": "기대 동작\n\n액션 활성화 체크\ntarget 세팅\ndir_vector 세팅\n사용할 루틴 시작\n캐릭터 바라보는 방향 고정", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnUpdateFrame 진입점 섹터", "body": "기대 동작\n\n에임포인트 고정\n0초 : 대쉬 이펙트, 대쉬\n0.1초 : 킥 애니메이션\n0.2초 ~ 0.3초 : 충돌체 판정, 방깎디버프, 히트 이펙트, 버프 옵션\n0.3초 : 스톰프 사운드 재생\n0.5초 : 액션 종료", "colorTheme": "Classic"} {}
+ControlConnection {'$ref': '52'} OutputTrigger -> {'$ref': '142'} InputTrigger
+ControlConnection {'$ref': '118'} Exit -> {'$ref': '272'} InputTrigger
+ControlConnection {'$ref': '104'} assigned -> {'$ref': '211'} InputTrigger
+ControlConnection {'$ref': '304'} Exit -> {'$ref': '108'} InputTrigger
+ControlConnection {'$ref': '84'} Each -> {'$ref': '102'} InputTrigger
+ControlConnection {'$ref': '118'} True -> {'$ref': '152'} InputTrigger
+ControlConnection {'$ref': '229'} OutputTrigger -> {'$ref': '260'} InputTrigger
+ControlConnection {'$ref': '174'} OutputTrigger -> {'$ref': '156'} InputTrigger
+ControlConnection {'$ref': '304'} True -> {'$ref': '88'} InputTrigger
+ControlConnection {'$ref': '68'} OutputTrigger -> {'$ref': '256'} InputTrigger
+ControlConnection {'$ref': '100'} True -> {'$ref': '294'} InputTrigger
+ControlConnection {'$ref': '298'} Exit -> {'$ref': '278'} InputTrigger
+ControlConnection {'$ref': '178'} OutputTrigger -> {'$ref': '52'} InputTrigger
+ControlConnection {'$ref': '200'} OutputTrigger -> {'$ref': '128'} InputTrigger
+ControlConnection {'$ref': '58'} OutputTrigger -> {'$ref': '92'} InputTrigger
+ControlConnection {'$ref': '128'} OutputTrigger -> {'$ref': '204'} assign
+ControlConnection {'$ref': '252'} True -> {'$ref': '292'} InputTrigger
+ControlConnection {'$ref': '60'} Exit -> {'$ref': '314'} InputTrigger
+ControlConnection {'$ref': '94'} OutputTrigger -> {'$ref': '66'} InputTrigger
+ControlConnection {'$ref': '246'} OutputTrigger -> {'$ref': '70'} InputTrigger
+ControlConnection {'$ref': '164'} trigger -> {'$ref': '284'} InputTrigger
+ControlConnection {'$ref': '98'} True -> {'$ref': '192'} InputTrigger
+ControlConnection {'$ref': '100'} Exit -> {'$ref': '304'} InputTrigger
+ControlConnection {'$ref': '44'} trigger -> {'$ref': '200'} InputTrigger
+ControlConnection {'$ref': '192'} OutputTrigger -> {'$ref': '176'} InputTrigger
+ControlConnection {'$ref': '298'} True -> {'$ref': '194'} InputTrigger
+ControlConnection {'$ref': '48'} Exit -> {'$ref': '312'} InputTrigger
+ControlConnection {'$ref': '156'} OutputTrigger -> {'$ref': '114'} InputTrigger
+ControlConnection {'$ref': '318'} OutputTrigger -> {'$ref': '234'} InputTrigger
+ControlConnection {'$ref': '146'} OutputTrigger -> {'$ref': '310'} assign
+ControlConnection {'$ref': '202'} OutputTrigger -> {'$ref': '246'} InputTrigger
+ControlConnection {'$ref': '234'} OutputTrigger -> {'$ref': '229'} InputTrigger
+ControlConnection {'$ref': '278'} Exit -> {'$ref': '48'} InputTrigger
+ControlConnection {'$ref': '56'} Exit -> {'$ref': '98'} InputTrigger
+ControlConnection {'$ref': '64'} OutputTrigger -> {'$ref': '264'} InputTrigger
+ControlConnection {'$ref': '290'} OutputTrigger -> {'$ref': '238'} InputTrigger
+ControlConnection {'$ref': '112'} True -> {'$ref': '64'} InputTrigger
+ControlConnection {'$ref': '264'} OutputTrigger -> {'$ref': '290'} InputTrigger
+ControlConnection {'$ref': '296'} OutputTrigger -> {'$ref': '258'} InputTrigger
+ControlConnection {'$ref': '184'} assigned -> {'$ref': '104'} assign
+ControlConnection {'$ref': '48'} True -> {'$ref': '206'} InputTrigger
+ControlConnection {'$ref': '112'} Exit -> {'$ref': '118'} InputTrigger
+ControlConnection {'$ref': '278'} True -> {'$ref': '94'} InputTrigger
+ControlConnection {'$ref': '108'} Exit -> {'$ref': '112'} InputTrigger
+ControlConnection {'$ref': '310'} assigned -> {'$ref': '184'} assign
+ControlConnection {'$ref': '142'} OutputTrigger -> {'$ref': '58'} InputTrigger
+ControlConnection {'$ref': '236'} OutputTrigger -> {'$ref': '276'} InputTrigger
+ControlConnection {'$ref': '272'} True -> {'$ref': '84'} InputTrigger
+ControlConnection {'$ref': '172'} Exit -> {'$ref': '100'} InputTrigger
+ControlConnection {'$ref': '96'} OutputTrigger -> {'$ref': '318'} InputTrigger
+ControlConnection {'$ref': '282'} OutputTrigger -> {'$ref': '174'} InputTrigger
+ControlConnection {'$ref': '292'} OutputTrigger -> {'$ref': '296'} InputTrigger
+ControlConnection {'$ref': '56'} True -> {'$ref': '306'} InputTrigger
+ControlConnection {'$ref': '108'} True -> {'$ref': '76'} InputTrigger
+ControlConnection {'$ref': '312'} Exit -> {'$ref': '172'} InputTrigger
+ControlConnection {'$ref': '312'} True -> {'$ref': '116'} InputTrigger
+ControlConnection {'$ref': '172'} True -> {'$ref': '160'} InputTrigger
+ControlConnection {'$ref': '60'} True -> {'$ref': '124'} InputTrigger
+ControlConnection {'$ref': '302'} OutputTrigger -> {'$ref': '298'} InputTrigger
+ControlConnection {'$ref': '284'} 1 Update -> {'$ref': '302'} InputTrigger
+ControlConnection {'$ref': '323'} trigger -> {'$ref': '282'} InputTrigger
+ControlConnection {'$ref': '132'} trigger -> {'$ref': '146'} InputTrigger
+ControlConnection {'$ref': '223'} Trigger -> {'$ref': '300'} InputTrigger
+ControlConnection {'$ref': '300'} OutputTrigger -> {'$ref': '202'} InputTrigger
+ControlConnection {'$ref': '256'} OutputTrigger -> {'$ref': '96'} InputTrigger
+ControlConnection {'$ref': '260'} OutputTrigger -> {'$ref': '178'} InputTrigger
+ControlConnection {'$ref': '98'} Exit -> {'$ref': '60'} InputTrigger
+ControlConnection {'$ref': '211'} OutputTrigger -> {'$ref': '236'} InputTrigger
+ControlConnection {'$ref': '252'} Exit -> {'$ref': '56'} InputTrigger
+ControlConnection {'$ref': '272'} Exit -> {'$ref': '252'} InputTrigger
+ControlConnection {'$ref': '162'} trigger -> {'$ref': '68'} InputTrigger
+ValueConnection {'$ref': '84'} EachFieldObject -> {'$ref': '102'} DamageTarget
+ValueConnection {'$ref': '270'} Result -> {'$ref': '204'} input
+ValueConnection {'$ref': '250'} Result -> {'$ref': '104'} input
+ValueConnection {'$ref': '280'} Result -> {'$ref': '231'} target
+ValueConnection {'$ref': '144'} Result -> {'$ref': '268'} t
+ValueConnection {'$ref': '82'} sum -> {'$ref': '290'} Position
+ValueConnection {'$ref': '90'} value -> {'$ref': '284'} 1 Routine
+ValueConnection {'$ref': '288'} Result -> {'$ref': '136'} t
+ValueConnection {'$ref': '148'} Result -> {'$ref': '102'} Modifier
+ValueConnection {'$ref': '164'} DeltaTime -> {'$ref': '284'} DeltaTime
+ValueConnection {'$ref': '168'} Result -> {'$ref': '266'} TargetInfo
+ValueConnection {'$ref': '74'} Result -> {'$ref': '158'} t
+ValueConnection {'$ref': '120'} output -> {'$ref': '270'} Duration
+ValueConnection {'$ref': '106'} Result -> {'$ref': '84'} Position
+ValueConnection {'$ref': '46'} Result -> {'$ref': '54'} DirectionVector
+ValueConnection {'$ref': '154'} output -> {'$ref': '148'} Modifier
+ValueConnection {'$ref': '130'} value -> {'$ref': '76'} StartPos
+ValueConnection {'$ref': '208'} value -> {'$ref': '240'} ifTrue
+ValueConnection {'$ref': '110'} Result -> {'$ref': '310'} input
+ValueConnection {'$ref': '140'} SfxInfo -> {'$ref': '102'} HitSound
+ValueConnection {'$ref': '225'} value -> {'$ref': '124'} TargetPos
+ValueConnection {'$ref': '134'} Result -> {'$ref': '102'} AilmentInfo
+ValueConnection {'$ref': '166'} Result -> {'$ref': '78'} Position
+ValueConnection {'$ref': '62'} value -> {'$ref': '178'} 1 Calculator
+ValueConnection {'$ref': '78'} Result -> {'$ref': '184'} input
+ValueConnection {'$ref': '182'} Result -> {'$ref': '196'} Target
+ValueConnection {'$ref': '186'} Result -> {'$ref': '270'} Radius
+ValueConnection {'$ref': '80'} Result -> {'$ref': '76'} TargetPos
+ValueConnection {'$ref': '190'} value -> {'$ref': '282'} 1 Routine
+ValueConnection {'$ref': '180'} Result -> {'$ref': '124'} Progress
+ValueConnection {'$ref': '219'} value -> {'$ref': '211'} Position
+ValueConnection {'$ref': '72'} Result -> {'$ref': '94'} Progress
+ValueConnection {'$ref': '136'} interpolation -> {'$ref': '294'} Offset
+ValueConnection {'$ref': '254'} comparison -> {'$ref': '240'} condition
+ValueConnection {'$ref': '50'} Result -> {'$ref': '82'} 0
+ValueConnection {'$ref': '196'} Result -> {'$ref': '124'} StartPos
+ValueConnection {'$ref': '150'} Result -> {'$ref': '92'} DirectionVector
+ValueConnection {'$ref': '268'} interpolation -> {'$ref': '152'} Offset
+ValueConnection {'$ref': '202'} Direction -> {'$ref': '266'} 0 Value
+ValueConnection {'$ref': '122'} output -> {'$ref': '142'} 1 Managed Key
+ValueConnection {'$ref': '274'} Result -> {'$ref': '106'} Target
+ValueConnection {'$ref': '308'} Result -> {'$ref': '292'} Position
+ValueConnection {'$ref': '242'} Result -> {'$ref': '166'} Target
+ValueConnection {'$ref': '54'} Result -> {'$ref': '174'} Direction
+ValueConnection {'$ref': '227'} Result -> {'$ref': '308'} Target
+ValueConnection {'$ref': '211'} PooledObject -> {'$ref': '236'} PooledObject
+ValueConnection {'$ref': '231'} value -> {'$ref': '254'} a
+ValueConnection {'$ref': '286'} Result -> {'$ref': '76'} Progress
+ValueConnection {'$ref': '248'} Result -> {'$ref': '82'} 1
+ValueConnection {'$ref': '316'} output -> {'$ref': '142'} 2 Managed Key
+ValueConnection {'$ref': '240'} selection -> {'$ref': '166'} Direction
+ValueConnection {'$ref': '262'} value -> {'$ref': '84'} Calculator
+ValueConnection {'$ref': '202'} Target -> {'$ref': '168'} 0 Value
+ValueConnection {'$ref': '217'} Result -> {'$ref': '290'} ParentObject
+ValueConnection {'$ref': '215'} Result -> {'$ref': '138'} DirectionVector
+ValueConnection {'$ref': '240'} selection -> {'$ref': '250'} Direction
+ValueConnection {'$ref': '290'} PooledObject -> {'$ref': '238'} PooledObject
+ValueConnection {'$ref': '86'} output -> {'$ref': '166'} Magnitude
+ValueConnection {'$ref': '126'} value -> {'$ref': '256'} TargetPos
+ValueConnection {'$ref': '188'} value -> {'$ref': '260'} 1 Routine
+ValueConnection {'$ref': '320'} value -> {'$ref': '240'} ifFalse
+ValueConnection {'$ref': '198'} Result -> {'$ref': '80'} Target
+ValueConnection {'$ref': '184'} output -> {'$ref': '250'} Position
+ValueConnection {'$ref': '170'} output -> {'$ref': '306'} 1 Managed Key
+ValueConnection {'$ref': '221'} value -> {'$ref': '94'} StartPos
+ValueConnection {'$ref': '158'} interpolation -> {'$ref': '66'} Offset
+ValueConnection {'$ref': '244'} Result -> {'$ref': '302'} AimDirection
+ValueConnection {'$ref': '138'} Result -> {'$ref': '211'} Direction
+ValueConnection {'$ref': '266'} Result -> {'$ref': '246'} TriggerInfo
+ValueConnection {'$ref': '213'} value -> {'$ref': '94'} TargetPos
+
+GRAPH bridge_driver-ManualBridgeDriver
+69 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+71 ScalarSum {"inputCount": 2, "$version": "A"} {"1": {"$content": 0.15, "$type": "System.Single"}}
+73 ReturnBool {"$version": "A"} {"Bool": {"$content": false, "$type": "System.Boolean"}}
+75 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+77 ScalarMultiply {"$version": "A"} {"b": {"$content": 1.0, "$type": "System.Single"}}
+79 GetBoundDistance {"$version": "A"} {}
+81 PublishTriggerOption {"$version": "A"} {"TargetOptionId": {"$content": 320698, "$type": "System.Int32"}}
+83 GetHitSound {"$version": "A"} {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+85 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "ani_spin", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+87 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_1", "$type": "System.String"}}
+89 SetIsControllingCharacter {"$version": "A"} {"IsControllingCharacter": {"$content": false, "$type": "System.Boolean"}}
+91 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+93 If {"$version": "A"} {}
+95 GetModifier {"$version": "A"} {"Modifier": {"$content": 2.0, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+97 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "DamageBoost", "$type": "System.String"}}
+99 ApplyDamage {"$version": "A"} {"DamageType": {"$content": "Melee", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "NormalEnhanced", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+101 GetOwner {"$version": "A"} {}
+103 Literal {"type": "System.Int32", "value": {"$content": 1, "$type": "System.Int32"}, "$version": "A"} {}
+105 ScalarSum {"inputCount": 2, "$version": "A"} {"1": {"$content": 1.0, "$type": "System.Single"}}
+107 GetOptionTriggerInfo {"$version": "A"} {}
+109 GetOptionTriggerInfo {"$version": "A"} {}
+111 Literal {"type": "UnityEngine.Vector3", "value": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "$version": "A"} {}
+113 GetIntegerAt {"$version": "A"} {"Index": {"$content": 0, "$type": "System.Int32"}}
+115 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "ManualDamageBoost", "$type": "System.String"}}
+117 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "damagetiming", "$type": "System.String"}}
+119 RemoveAnim {"$version": "A"} {"AnimationTrack": {"$content": "Emotion", "$type": "Oak.Character+SpineAnimationTrack"}}
+121 IsAvailable {"$version": "A"} {}
+123 DisposeAudioSource {"$version": "A"} {"ManageKey": {"$content": "attack_1", "$type": "System.String"}, "FadeOutDuration": {"$content": 0.1, "$type": "System.Single"}}
+125 ScalarSum {"inputCount": 2, "$version": "A"} {"1": {"$content": 1.0, "$type": "System.Single"}}
+127 GetOptionAppliedSelector {"$version": "A"} {"TargetId": {"$content": 310698, "$type": "System.Int32"}, "True": {"$content": 0.45, "$type": "System.Single"}, "False": {"$content": 0.0, "$type": "System.Single"}}
+129 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "buff_bridge_driver_special_option_2", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+131 Literal {"type": "System.Int32", "value": {"$content": 1, "$type": "System.Int32"}, "$version": "A"} {}
+133 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "collider_main", "$type": "System.String"}}
+135 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.29999, "$type": "System.Single"}}
+137 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "ManualDamageBoost", "$type": "System.String"}}
+139 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_weapon", "$type": "System.String"}, "$version": "A"} {}
+141 DisposeEffect {"InputCount": 2, "$version": "A"} {"1 immediate": {"$content": true, "$type": "System.Boolean"}, "2 immediate": {"$content": true, "$type": "System.Boolean"}}
+143 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "loop", "$type": "System.String"}}
+145 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop", "$type": "System.String"}}
+147 OnFinishAction {"coroutine": false, "$version": "A"} {}
+149 OnInit {"coroutine": false, "$version": "A"} {}
+151 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "loop", "$type": "System.String"}}
+153 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "DamageBoost", "$type": "System.String"}}
+155 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.1, "$type": "System.Single"}}
+157 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop_end", "$type": "System.String"}}
+159 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "ActionDuration", "$type": "System.String"}}
+161 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_1", "$type": "System.String"}}
+163 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+165 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.0001, "$type": "System.Single"}}
+167 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_myth_weapon", "$type": "System.String"}, "$version": "A"} {}
+169 AppendDirection {"InputCount": 1, "$version": "A"} {}
+171 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_sub_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": false, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position", "$type": "Oak.ParentFollowFlag"}}
+173 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+175 ScalarMultiply {"$version": "A"} {"b": {"$content": 1.0, "$type": "System.Single"}}
+177 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_myth_weapon", "$type": "System.String"}, "$version": "A"} {}
+179 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+181 If {"$version": "A"} {}
+183 OnStartAction {"coroutine": false, "$version": "A"} {}
+185 PublishTriggerAction {"$version": "A"} {}
+187 SetIsRunCancelable {"$version": "A"} {"IsRunCancel": {"$content": true, "$type": "System.Boolean"}}
+189 If {"$version": "A"} {}
+191 ScalarMultiply {"$version": "A"} {"b": {"$content": 1.0, "$type": "System.Single"}}
+193 GetOptionAppliedSelector {"$version": "A"} {"TargetId": {"$content": 20350698, "$type": "System.Int32"}, "True": {"$content": 0.45, "$type": "System.Single"}, "False": {"$content": 0.0, "$type": "System.Single"}}
+195 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+197 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_end", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": false, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position", "$type": "Oak.ParentFollowFlag"}}
+199 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider_sub", "$type": "System.String"}}
+201 OnUpdateFrame {"coroutine": false, "$version": "A"} {}
+203 GetMember {"member": {"name": "Fo", "parameterTypes": null, "targetType": "CharacterTool.ToolFieldObject", "targetTypeName": "CharacterTool.ToolFieldObject", "$version": "A"}, "$version": "A"} {}
+206 GetMember {"member": {"name": "Fo", "parameterTypes": null, "targetType": "CharacterTool.ToolFieldObject", "targetTypeName": "CharacterTool.ToolFieldObject", "$version": "A"}, "$version": "A"} {}
+209 InvokeMember {"chainable": false, "parameterNames": ["objA", "objB"], "member": {"name": "Equals", "parameterTypes": ["System.Object", "System.Object"], "targetType": "CharacterTool.ToolFieldObject", "targetTypeName": "CharacterTool.ToolFieldObject", "$version":  {}
+213 GetHitSound {"$version": "A"} {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+215 If {"$version": "A"} {}
+217 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider_main", "$type": "System.String"}}
+219 And {"$version": "A"} {}
+221 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "collider_sub", "$type": "System.String"}}
+223 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop", "$type": "System.String"}}
+225 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "loopint", "$type": "System.String"}}
+227 Literal {"type": "System.Boolean", "value": {"$content": true, "$type": "System.Boolean"}, "$version": "A"} {}
+229 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_main_trail", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": false, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position", "$type": "Oak.ParentFollowFlag"}}
+231 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "loop", "$type": "System.String"}}
+233 GreaterOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 0.45, "$type": "System.Single"}}
+235 ScalarSum {"inputCount": 2, "$version": "A"} {"1": {"$content": 1.0, "$type": "System.Single"}}
+237 EndBattleActionEventListen {"coroutine": false, "$version": "A"} {}
+239 If {"$version": "A"} {}
+241 CacheEffect {"$version": "A"} {"ManageKey": {"$content": "cache_loop", "$type": "System.String"}}
+243 GetOwner {"$version": "A"} {}
+245 GetOptionAppliedSelector {"$version": "A"} {"TargetId": {"$content": 20350698, "$type": "System.Int32"}, "True": {"$content": 0.45, "$type": "System.Single"}, "False": {"$content": 0.0, "$type": "System.Single"}}
+247 Literal {"type": "System.String", "value": {"$content": "cache_trail", "$type": "System.String"}, "$version": "A"} {}
+249 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "loopint", "$type": "System.String"}}
+251 IsHittable {"$version": "A"} {}
+253 StartRoutine {"InputCount": 1, "$version": "A"} {}
+255 IsTimePassedForFinishAction {"$version": "A"} {"Timer": {"$content": 0.35, "$type": "System.Single"}}
+257 GetIsOwnerLocal {"$version": "A"} {}
+259 StartRoutine {"InputCount": 1, "$version": "A"} {}
+261 ApplyDamage {"$version": "A"} {"DamageType": {"$content": "Melee", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "NormalEnhanced", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+263 PlayCameraShake {"$version": "A"} {"ShakeAmount": {"$content": 0.04, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.2, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+265 Literal {"type": "UnityEngine.Vector3", "value": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "$version": "A"} {}
+267 RemoveAnim {"$version": "A"} {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+269 SelectUnit {"$version": "A"} {}
+271 PublishSyncAction {"$version": "A"} {}
+273 If {"$version": "A"} {}
+275 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider_main", "$type": "System.String"}}
+277 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+279 Literal {"type": "System.Boolean", "value": {"$content": true, "$type": "System.Boolean"}, "$version": "A"} {}
+281 GetOwner {"$version": "A"} {}
+283 SetActionActive {"$version": "A"} {}
+285 Literal {"type": "System.String", "value": {"$content": "GraphRole:BridgeDriver", "$type": "System.String"}, "$version": "A"} {}
+287 GetOptionAppliedSelector {"$version": "A"} {"TargetId": {"$content": 310698, "$type": "System.Int32"}, "True": {"$content": 0.45, "$type": "System.Single"}, "False": {"$content": 0.0, "$type": "System.Single"}}
+289 AppendTarget {"InputCount": 1, "$version": "A"} {}
+291 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+293 EndRoutine {"InputCount": 2, "$version": "A"} {}
+295 SelectUnit {"$version": "A"} {}
+297 PlaySound {"$version": "A"} {"SoundKey": {"$content": "sfx_attack_3", "$type": "System.String"}}
+299 RemoveBuff {"$version": "A"} {"BuffKey": {"$content": "buff_bridge_driver_special_option_2", "$type": "System.String"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}}
+301 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+303 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_1", "$type": "System.String"}}
+305 If {"$version": "A"} {}
+307 CacheAudioSource {"$version": "A"} {"ManageKey": {"$content": "attack_1", "$type": "System.String"}}
+309 Literal {"type": "System.String", "value": {"$content": "cache_loop", "$type": "System.String"}, "$version": "A"} {}
+311 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+313 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+315 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+317 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+319 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 20310698, "$type": "System.Int32"}}
+321 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "bufflevel", "$type": "System.String"}}
+323 CollisionInit {"CalculatorType": "Cylinder", "$version": "A"} {"Radius": {"$content": 1.5, "$type": "System.Single"}, "InnerRadius": {"$content": 0.0, "$type": "System.Single"}, "Height": {"$content": 0.75, "$type": "System.Single"}, "IsCenterToBottom": {"$content": false, "$type": "System.Boolean"}, "MaxHit": {"$content": 1, "$type": "System.Int32"}, "OnlyHittableTarget": {"$content": true, "$type": "System.Boolean"}, "OnlyFriendlyTarget": {"$content": false, "$type": "System.Boolean"}}
+325 PublishSyncAction {"$version": "A"} {}
+327 Literal {"type": "System.String", "value": {"$content": "cache_trail", "$type": "System.String"}, "$version": "A"} {}
+329 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+331 GetOwner {"$version": "A"} {}
+333 Literal {"type": "System.Int32", "value": {"$content": 1, "$type": "System.Int32"}, "$version": "A"} {}
+335 Literal {"type": "System.String", "value": {"$content": "GraphPersistent:BridgeDriver", "$type": "System.String"}, "$version": "A"} {}
+337 DisposeEffect {"InputCount": 2, "$version": "A"} {"1 immediate": {"$content": true, "$type": "System.Boolean"}, "2 immediate": {"$content": true, "$type": "System.Boolean"}}
+339 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "ModifierBase", "$type": "System.String"}}
+341 GetOptionTriggerInfo {"$version": "A"} {}
+343 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+345 SetActionInactive {"$version": "A"} {}
+347 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop_end", "$type": "System.String"}}
+349 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider_sub", "$type": "System.String"}}
+351 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+353 GetOwner {"$version": "A"} {}
+355 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+357 GetOwner {"$version": "A"} {}
+359 AppendInteger {"InputCount": 1, "$version": "A"} {}
+361 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "loopint", "$type": "System.String"}}
+363 IsTimePassedForFinishAction {"$version": "A"} {"Timer": {"$content": 0.3, "$type": "System.Single"}}
+365 GetOwner {"$version": "A"} {}
+367 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+369 DisposeAudioSource {"$version": "A"} {"ManageKey": {"$content": "attack_1", "$type": "System.String"}, "FadeOutDuration": {"$content": 0.1, "$type": "System.Single"}}
+371 Literal {"type": "System.String", "value": {"$content": "GraphPersistent:BridgeDriver", "$type": "System.String"}, "$version": "A"} {}
+373 Literal {"type": "System.String", "value": {"$content": "GraphRole:BridgeDriver", "$type": "System.String"}, "$version": "A"} {}
+375 Literal {"type": "System.Int32", "value": {"$content": 1, "$type": "System.Int32"}, "$version": "A"} {}
+377 CollisionCalculateEnd {"InputCount": 2, "$version": "A"} {}
+379 PublishSyncAction {"$version": "A"} {}
+381 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "damagetiming", "$type": "System.String"}}
+383 ReturnBool {"$version": "A"} {"Bool": {"$content": false, "$type": "System.Boolean"}}
+385 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+387 PublishSyncAction {"$version": "A"} {}
+389 LessOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 3.32, "$type": "System.Single"}}
+391 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_weapon", "$type": "System.String"}, "$version": "A"} {}
+393 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "bufflevel", "$type": "System.String"}}
+395 PublishTriggerOption {"$version": "A"} {"TargetOptionId": {"$content": 320698, "$type": "System.Int32"}}
+397 GetOwner {"$version": "A"} {}
+399 If {"$version": "A"} {}
+401 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+403 AppendInteger {"InputCount": 1, "$version": "A"} {}
+405 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_end", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": false, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position", "$type": "Oak.ParentFollowFlag"}}
+407 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.15, "$type": "System.Single"}}
+409 LockDirection {"$version": "A"} {}
+411 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+413 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+415 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+417 UnLockDirection {"$version": "A"} {}
+419 If {"$version": "A"} {}
+421 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+423 PlayCameraShake {"$version": "A"} {"ShakeAmount": {"$content": 0.02, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.2, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+425 CollisionCalculateOnce {"IsSynchronized": true, "SynchronizeId": 2, "$version": "A"} {}
+427 OnUpdateRoutine {"InputCount": 2, "$version": "A"} {}
+429 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+431 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+433 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+435 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider_main", "$type": "System.String"}}
+437 AppendInteger {"InputCount": 1, "$version": "A"} {}
+439 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop_end", "$type": "System.String"}}
+441 Literal {"type": "System.Boolean", "value": {"$content": false, "$type": "System.Boolean"}, "$version": "A"} {}
+443 PlaySound {"$version": "A"} {"SoundKey": {"$content": "sfx_attack_1", "$type": "System.String"}}
+445 EndRoutine {"InputCount": 2, "$version": "A"} {}
+447 If {"$version": "A"} {}
+449 ScalarMultiply {"$version": "A"} {"b": {"$content": 1.0, "$type": "System.Single"}}
+451 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop_end", "$type": "System.String"}}
+453 OnSyncAction {"coroutine": false, "$version": "A"} {}
+455 PlaySound {"$version": "A"} {"SoundKey": {"$content": "sfx_attack_2", "$type": "System.String"}}
+457 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+459 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+461 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 310698, "$type": "System.Int32"}}
+463 CollisionInit {"CalculatorType": "Cylinder", "$version": "A"} {"Radius": {"$content": 1.5, "$type": "System.Single"}, "InnerRadius": {"$content": 0.0, "$type": "System.Single"}, "Height": {"$content": 0.75, "$type": "System.Single"}, "IsCenterToBottom": {"$content": false, "$type": "System.Boolean"}, "MaxHit": {"$content": 1, "$type": "System.Int32"}, "OnlyHittableTarget": {"$content": true, "$type": "System.Boolean"}, "OnlyFriendlyTarget": {"$content": false, "$type": "System.Boolean"}}
+465 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+467 OnForceCancelAction {"coroutine": false, "$version": "A"} {}
+469 Literal {"type": "System.String", "value": {"$content": "cache_loop", "$type": "System.String"}, "$version": "A"} {}
+471 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop_end", "$type": "System.String"}}
+473 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.15, "$type": "System.Single"}}
+475 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "SubRadius", "$type": "System.String"}}
+477 PublishTriggerOption {"$version": "A"} {"TargetOptionId": {"$content": 320698, "$type": "System.Int32"}}
+479 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "ModifierBase", "$type": "System.String"}}
+481 Literal {"type": "System.Boolean", "value": {"$content": true, "$type": "System.Boolean"}, "$version": "A"} {}
+483 RemoveBuff {"$version": "A"} {"BuffKey": {"$content": "buff_bridge_driver_special_option_2", "$type": "System.String"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}}
+485 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "damagetiming", "$type": "System.String"}}
+487 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+489 GetOwner {"$version": "A"} {}
+491 Literal {"type": "System.Single", "value": {"$content": 0.0, "$type": "System.Single"}, "$version": "A"} {}
+493 Literal {"type": "System.Int32", "value": {"$content": 1, "$type": "System.Int32"}, "$version": "A"} {}
+495 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+497 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_1", "$type": "System.String"}}
+499 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 310698, "$type": "System.Int32"}}
+501 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop", "$type": "System.String"}}
+503 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop", "$type": "System.String"}}
+505 Greater {"numeric": true, "$version": "A"} {"b": {"$content": 0.0, "$type": "System.Single"}}
+507 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "loop", "$type": "System.String"}}
+509 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "MainRadius", "$type": "System.String"}}
+511 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "damagetiming", "$type": "System.String"}}
+513 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "loopint", "$type": "System.String"}}
+515 GetOwner {"$version": "A"} {}
+517 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "loop", "$type": "System.String"}}
+519 CollisionCalculateOnce {"IsSynchronized": true, "SynchronizeId": 1, "$version": "A"} {}
+521 GetAnyRoutineActive {"InputCount": 2, "$version": "A"} {}
+523 LockDirection {"$version": "A"} {}
+525 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "ActionDuration", "$type": "System.String"}}
+527 GetModifier {"$version": "A"} {"Modifier": {"$content": 2.0, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+529 If {"$version": "A"} {}
+531 AppendInteger {"InputCount": 1, "$version": "A"} {}
+533 EndRoutine {"InputCount": 1, "$version": "A"} {}
+535 GetOwner {"$version": "A"} {}
+537 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_main_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": false, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position", "$type": "Oak.ParentFollowFlag"}}
+539 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+541 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+543 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop_end", "$type": "System.String"}}
+545 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_1", "$type": "System.String"}}
+547 TriggerAction {"$version": "A"} {}
+549 Equal {"numeric": false, "$version": "A"} {}
+551 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+553 GetOwner {"$version": "A"} {}
+555 CollisionCalculateEnd {"InputCount": 2, "$version": "A"} {}
+557 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.0001, "$type": "System.Single"}}
+559 ScalarSum {"inputCount": 2, "$version": "A"} {"1": {"$content": 1.0, "$type": "System.Single"}}
+561 Literal {"type": "System.Single", "value": {"$content": 0.0, "$type": "System.Single"}, "$version": "A"} {}
+563 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider_sub", "$type": "System.String"}}
+565 GetTargetForManualMelee {"$version": "A"} {"SearchRange": {"$content": 7.0, "$type": "System.Single"}}
+567 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "fx_loop", "$type": "System.String"}}
+569 CacheEffect {"$version": "A"} {"ManageKey": {"$content": "cache_trail", "$type": "System.String"}}
+571 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "damagetiming", "$type": "System.String"}}
+573 And {"$version": "A"} {}
+575 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+None GraphGroup {"label": "Finish", "comment": null, "color": {"r": 1.0, "g": 0.7122642, "b": 0.8045109, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Update", "comment": null, "color": {"r": 0.8673532, "g": 0.6839622, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Init", "comment": null, "color": {"r": 1.0, "g": 0.964491, "b": 0.6367924, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Checker", "comment": null, "color": {"r": 1.0, "g": 0.8686246, "b": 0.6273585, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Trigger", "comment": null, "color": {"r": 0.7028302, "g": 0.8903667, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Start", "comment": null, "color": {"r": 0.6444392, "g": 1.0, "b": 0.5801887, "a": 1.0}, "$version": "A"} {}
+None StickyNote {"title": "OnInit 진입점 섹터", "body": "기대 동작\n\n액션 중 캐릭터는 움직일 수 없음\n액션은 런캔슬이 가능함\n직육면체 충돌체 생성 필요", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnUpdateFrame 진입점 섹터", "body": "기대 동작\n\n에임포인트 고정\n0초 : 애니메이션 재생\n0초 : 대시 재생\n0.07초 : 이펙트 재생\n0.1초 ~ 0.2초 : 충돌체 판정\n0.3초 : 액션 종료", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnFinishAction 진입점 섹터", "body": "기대 동작\n\n액션 비활성화\n애니메이션 초기화\n루틴 초기화\n바라보는 방향 초기화\n충돌체 초기화", "colorTheme": "Classic"} {}
+None StickyNote {"title": "TriggerAction 진입점 섹터", "body": "기대 동작\n\n근거리 타겟 체크\n액션 시작 트리거 배포", "colorTheme": "Classic"} {}
+None StickyNote {"title": "Checker 진입점 섹터", "body": "기대 동작\n\nIsHittable 체커 동작 구현\nIsAvailable 체커 동작 구현", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnStartAction 진입점 섹터", "body": "기대 동작\n\n액션 활성화 체크\ntarget 세팅\ndir_vector 세팅\n사용할 루틴 시작\n캐릭터 바라보는 방향 고정", "colorTheme": "Classic"} {}
+ControlConnection {'$ref': '395'} OutputTrigger -> {'$ref': '119'} InputTrigger
+ControlConnection {'$ref': '123'} OutputTrigger -> {'$ref': '273'} enter
+ControlConnection {'$ref': '519'} Each -> {'$ref': '99'} InputTrigger
+ControlConnection {'$ref': '155'} True -> {'$ref': '171'} InputTrigger
+ControlConnection {'$ref': '157'} assigned -> {'$ref': '255'} InputTrigger
+ControlConnection {'$ref': '473'} True -> {'$ref': '519'} InputTrigger
+ControlConnection {'$ref': '135'} Exit -> {'$ref': '363'} InputTrigger
+ControlConnection {'$ref': '547'} Trigger -> {'$ref': '565'} InputTrigger
+ControlConnection {'$ref': '273'} ifFalse -> {'$ref': '503'} assign
+ControlConnection {'$ref': '483'} OutputTrigger -> {'$ref': '477'} InputTrigger
+ControlConnection {'$ref': '425'} Each -> {'$ref': '261'} InputTrigger
+ControlConnection {'$ref': '439'} assigned -> {'$ref': '511'} assign
+ControlConnection {'$ref': '393'} assigned -> {'$ref': '483'} InputTrigger
+ControlConnection {'$ref': '503'} assigned -> {'$ref': '143'} assign
+ControlConnection {'$ref': '229'} OutputTrigger -> {'$ref': '569'} InputTrigger
+ControlConnection {'$ref': '399'} ifFalse -> {'$ref': '255'} InputTrigger
+ControlConnection {'$ref': '143'} assigned -> {'$ref': '439'} assign
+ControlConnection {'$ref': '251'} Trigger -> {'$ref': '239'} enter
+ControlConnection {'$ref': '201'} trigger -> {'$ref': '427'} InputTrigger
+ControlConnection {'$ref': '453'} trigger -> {'$ref': '225'} assign
+ControlConnection {'$ref': '93'} ifTrue -> {'$ref': '73'} InputTrigger
+ControlConnection {'$ref': '271'} OutputTrigger -> {'$ref': '163'} InputTrigger
+ControlConnection {'$ref': '337'} OutputTrigger -> {'$ref': '447'} enter
+ControlConnection {'$ref': '345'} OutputTrigger -> {'$ref': '513'} assign
+ControlConnection {'$ref': '369'} OutputTrigger -> {'$ref': '417'} InputTrigger
+ControlConnection {'$ref': '513'} assigned -> {'$ref': '267'} InputTrigger
+ControlConnection {'$ref': '305'} ifTrue -> {'$ref': '507'} assign
+ControlConnection {'$ref': '427'} 1 Update -> {'$ref': '557'} InputTrigger
+ControlConnection {'$ref': '259'} OutputTrigger -> {'$ref': '129'} InputTrigger
+ControlConnection {'$ref': '239'} ifFalse -> {'$ref': '383'} InputTrigger
+ControlConnection {'$ref': '155'} Exit -> {'$ref': '473'} InputTrigger
+ControlConnection {'$ref': '181'} ifFalse -> {'$ref': '253'} InputTrigger
+ControlConnection {'$ref': '89'} OutputTrigger -> {'$ref': '187'} InputTrigger
+ControlConnection {'$ref': '267'} OutputTrigger -> {'$ref': '369'} InputTrigger
+ControlConnection {'$ref': '253'} OutputTrigger -> {'$ref': '409'} InputTrigger
+ControlConnection {'$ref': '377'} OutputTrigger -> {'$ref': '337'} InputTrigger
+ControlConnection {'$ref': '471'} assigned -> {'$ref': '355'} assign
+ControlConnection {'$ref': '511'} assigned -> {'$ref': '393'} assign
+ControlConnection {'$ref': '93'} ifFalse -> {'$ref': '291'} InputTrigger
+ControlConnection {'$ref': '425'} True -> {'$ref': '271'} InputTrigger
+ControlConnection {'$ref': '519'} True -> {'$ref': '379'} InputTrigger
+ControlConnection {'$ref': '445'} OutputTrigger -> {'$ref': '555'} InputTrigger
+ControlConnection {'$ref': '183'} trigger -> {'$ref': '283'} InputTrigger
+ControlConnection {'$ref': '501'} assigned -> {'$ref': '151'} assign
+ControlConnection {'$ref': '557'} Exit -> {'$ref': '155'} InputTrigger
+ControlConnection {'$ref': '165'} Exit -> {'$ref': '407'} InputTrigger
+ControlConnection {'$ref': '293'} OutputTrigger -> {'$ref': '377'} InputTrigger
+ControlConnection {'$ref': '447'} ifTrue -> {'$ref': '405'} InputTrigger
+ControlConnection {'$ref': '447'} ifFalse -> {'$ref': '567'} assign
+ControlConnection {'$ref': '249'} assigned -> {'$ref': '419'} enter
+ControlConnection {'$ref': '221'} assigned -> {'$ref': '133'} assign
+ControlConnection {'$ref': '189'} ifTrue -> {'$ref': '429'} InputTrigger
+ControlConnection {'$ref': '321'} assigned -> {'$ref': '299'} InputTrigger
+ControlConnection {'$ref': '165'} True -> {'$ref': '263'} InputTrigger
+ControlConnection {'$ref': '529'} ifTrue -> {'$ref': '495'} InputTrigger
+ControlConnection {'$ref': '427'} 2 Update -> {'$ref': '165'} InputTrigger
+ControlConnection {'$ref': '555'} OutputTrigger -> {'$ref': '141'} InputTrigger
+ControlConnection {'$ref': '455'} OutputTrigger -> {'$ref': '307'} InputTrigger
+ControlConnection {'$ref': '273'} ifTrue -> {'$ref': '197'} InputTrigger
+ControlConnection {'$ref': '141'} OutputTrigger -> {'$ref': '123'} InputTrigger
+ControlConnection {'$ref': '151'} assigned -> {'$ref': '471'} assign
+ControlConnection {'$ref': '407'} True -> {'$ref': '485'} assign
+ControlConnection {'$ref': '533'} OutputTrigger -> {'$ref': '259'} InputTrigger
+ControlConnection {'$ref': '507'} assigned -> {'$ref': '249'} assign
+ControlConnection {'$ref': '99'} OutputTrigger -> {'$ref': '189'} enter
+ControlConnection {'$ref': '133'} assigned -> {'$ref': '501'} assign
+ControlConnection {'$ref': '485'} assigned -> {'$ref': '425'} InputTrigger
+ControlConnection {'$ref': '473'} Exit -> {'$ref': '135'} InputTrigger
+ControlConnection {'$ref': '379'} OutputTrigger -> {'$ref': '465'} InputTrigger
+ControlConnection {'$ref': '241'} OutputTrigger -> {'$ref': '455'} InputTrigger
+ControlConnection {'$ref': '209'} exit -> {'$ref': '215'} enter
+ControlConnection {'$ref': '237'} trigger -> {'$ref': '209'} enter
+ControlConnection {'$ref': '225'} assigned -> {'$ref': '305'} enter
+ControlConnection {'$ref': '567'} assigned -> {'$ref': '231'} assign
+ControlConnection {'$ref': '537'} OutputTrigger -> {'$ref': '241'} InputTrigger
+ControlConnection {'$ref': '171'} OutputTrigger -> {'$ref': '443'} InputTrigger
+ControlConnection {'$ref': '135'} True -> {'$ref': '387'} InputTrigger
+ControlConnection {'$ref': '417'} OutputTrigger -> {'$ref': '293'} InputTrigger
+ControlConnection {'$ref': '467'} trigger -> {'$ref': '445'} InputTrigger
+ControlConnection {'$ref': '571'} assigned -> {'$ref': '321'} assign
+ControlConnection {'$ref': '215'} ifTrue -> {'$ref': '325'} InputTrigger
+ControlConnection {'$ref': '149'} trigger -> {'$ref': '89'} InputTrigger
+ControlConnection {'$ref': '297'} OutputTrigger -> {'$ref': '567'} assign
+ControlConnection {'$ref': '185'} OutputTrigger -> {'$ref': '457'} InputTrigger
+ControlConnection {'$ref': '187'} OutputTrigger -> {'$ref': '221'} assign
+ControlConnection {'$ref': '557'} True -> {'$ref': '85'} InputTrigger
+ControlConnection {'$ref': '543'} assigned -> {'$ref': '571'} assign
+ControlConnection {'$ref': '261'} OutputTrigger -> {'$ref': '529'} enter
+ControlConnection {'$ref': '239'} ifTrue -> {'$ref': '539'} InputTrigger
+ControlConnection {'$ref': '399'} ifTrue -> {'$ref': '157'} assign
+ControlConnection {'$ref': '145'} assigned -> {'$ref': '523'} InputTrigger
+ControlConnection {'$ref': '419'} ifFalse -> {'$ref': '537'} InputTrigger
+ControlConnection {'$ref': '405'} OutputTrigger -> {'$ref': '297'} InputTrigger
+ControlConnection {'$ref': '443'} OutputTrigger -> {'$ref': '423'} InputTrigger
+ControlConnection {'$ref': '81'} OutputTrigger -> {'$ref': '181'} enter
+ControlConnection {'$ref': '419'} ifTrue -> {'$ref': '523'} InputTrigger
+ControlConnection {'$ref': '305'} ifFalse -> {'$ref': '345'} InputTrigger
+ControlConnection {'$ref': '299'} OutputTrigger -> {'$ref': '395'} InputTrigger
+ControlConnection {'$ref': '181'} ifTrue -> {'$ref': '533'} InputTrigger
+ControlConnection {'$ref': '569'} OutputTrigger -> {'$ref': '145'} assign
+ControlConnection {'$ref': '231'} assigned -> {'$ref': '543'} assign
+ControlConnection {'$ref': '129'} OutputTrigger -> {'$ref': '409'} InputTrigger
+ControlConnection {'$ref': '283'} OutputTrigger -> {'$ref': '81'} InputTrigger
+ControlConnection {'$ref': '565'} OutputTrigger -> {'$ref': '185'} InputTrigger
+ControlConnection {'$ref': '121'} Trigger -> {'$ref': '93'} enter
+ControlConnection {'$ref': '407'} Exit -> {'$ref': '399'} enter
+ControlConnection {'$ref': '307'} OutputTrigger -> {'$ref': '229'} InputTrigger
+ControlConnection {'$ref': '147'} trigger -> {'$ref': '325'} InputTrigger
+ValueConnection {'$ref': '469'} output -> {'$ref': '337'} 1 Managed Key
+ValueConnection {'$ref': '317'} output -> {'$ref': '231'} input
+ValueConnection {'$ref': '459'} value -> {'$ref': '427'} 1 Routine
+ValueConnection {'$ref': '113'} Result -> {'$ref': '225'} input
+ValueConnection {'$ref': '521'} Result -> {'$ref': '93'} condition
+ValueConnection {'$ref': '535'} Result -> {'$ref': '197'} ParentObject
+ValueConnection {'$ref': '551'} output -> {'$ref': '109'} Integer
+ValueConnection {'$ref': '277'} output -> {'$ref': '321'} input
+ValueConnection {'$ref': '341'} Result -> {'$ref': '395'} TriggerInfo
+ValueConnection {'$ref': '331'} Result -> {'$ref': '299'} Sender
+ValueConnection {'$ref': '431'} value -> {'$ref': '293'} 1 Routine
+ValueConnection {'$ref': '413'} output -> {'$ref': '567'} input
+ValueConnection {'$ref': '295'} selection -> {'$ref': '429'} BuffKey
+ValueConnection {'$ref': '421'} output -> {'$ref': '543'} input
+ValueConnection {'$ref': '505'} comparison -> {'$ref': '305'} condition
+ValueConnection {'$ref': '329'} value -> {'$ref': '269'} condition
+ValueConnection {'$ref': '111'} output -> {'$ref': '409'} Direction
+ValueConnection {'$ref': '137'} Result -> {'$ref': '193'} True
+ValueConnection {'$ref': '101'} Result -> {'$ref': '229'} ParentObject
+ValueConnection {'$ref': '401'} output -> {'$ref': '341'} Integer
+ValueConnection {'$ref': '371'} output -> {'$ref': '549'} a
+ValueConnection {'$ref': '237'} BattleActionName -> {'$ref': '549'} b
+ValueConnection {'$ref': '549'} equal -> {'$ref': '573'} a
+ValueConnection {'$ref': '219'} result -> {'$ref': '573'} b
+ValueConnection {'$ref': '275'} value -> {'$ref': '555'} 2 Calculator
+ValueConnection {'$ref': '301'} value -> {'$ref': '533'} 1 Routine
+ValueConnection {'$ref': '351'} Result -> {'$ref': '405'} Position
+ValueConnection {'$ref': '127'} Result -> {'$ref': '235'} 0
+ValueConnection {'$ref': '331'} Result -> {'$ref': '299'} Target
+ValueConnection {'$ref': '347'} value -> {'$ref': '447'} condition
+ValueConnection {'$ref': '69'} value -> {'$ref': '521'} 1 Routine
+ValueConnection {'$ref': '371'} output -> {'$ref': '325'} ActionName
+ValueConnection {'$ref': '563'} value -> {'$ref': '555'} 1 Calculator
+ValueConnection {'$ref': '517'} value -> {'$ref': '181'} condition
+ValueConnection {'$ref': '153'} Result -> {'$ref': '287'} True
+ValueConnection {'$ref': '509'} Result -> {'$ref': '323'} Radius
+ValueConnection {'$ref': '105'} sum -> {'$ref': '77'} b
+ValueConnection {'$ref': '107'} Result -> {'$ref': '81'} TriggerInfo
+ValueConnection {'$ref': '201'} DeltaTime -> {'$ref': '427'} DeltaTime
+ValueConnection {'$ref': '167'} output -> {'$ref': '269'} ifTrue
+ValueConnection {'$ref': '159'} Result -> {'$ref': '255'} Timer
+ValueConnection {'$ref': '479'} Result -> {'$ref': '95'} Modifier
+ValueConnection {'$ref': '79'} Result -> {'$ref': '389'} a
+ValueConnection {'$ref': '389'} comparison -> {'$ref': '239'} condition
+ValueConnection {'$ref': '535'} Result -> {'$ref': '197'} EffectOwner
+ValueConnection {'$ref': '285'} output -> {'$ref': '271'} ActionName
+ValueConnection {'$ref': '109'} Result -> {'$ref': '477'} TriggerInfo
+ValueConnection {'$ref': '195'} output -> {'$ref': '471'} input
+ValueConnection {'$ref': '339'} Result -> {'$ref': '527'} Modifier
+ValueConnection {'$ref': '315'} Result -> {'$ref': '197'} Position
+ValueConnection {'$ref': '541'} value -> {'$ref': '295'} condition
+ValueConnection {'$ref': '83'} SfxInfo -> {'$ref': '99'} HitSound
+ValueConnection {'$ref': '461'} Result -> {'$ref': '189'} condition
+ValueConnection {'$ref': '279'} output -> {'$ref': '507'} input
+ValueConnection {'$ref': '357'} Result -> {'$ref': '495'} Sender
+ValueConnection {'$ref': '235'} sum -> {'$ref': '175'} b
+ValueConnection {'$ref': '269'} selection -> {'$ref': '495'} BuffKey
+ValueConnection {'$ref': '481'} output -> {'$ref': '157'} input
+ValueConnection {'$ref': '561'} output -> {'$ref': '571'} input
+ValueConnection {'$ref': '573'} result -> {'$ref': '215'} condition
+ValueConnection {'$ref': '103'} output -> {'$ref': '249'} input
+ValueConnection {'$ref': '175'} product -> {'$ref': '77'} a
+ValueConnection {'$ref': '437'} Result -> {'$ref': '379'} TriggerInfo
+ValueConnection {'$ref': '451'} value -> {'$ref': '273'} condition
+ValueConnection {'$ref': '455'} AudioSource -> {'$ref': '307'} AudioSource
+ValueConnection {'$ref': '435'} value -> {'$ref': '425'} Calculator
+ValueConnection {'$ref': '281'} Result -> {'$ref': '171'} ParentObject
+ValueConnection {'$ref': '493'} output -> {'$ref': '107'} Integer
+ValueConnection {'$ref': '95'} Result -> {'$ref': '175'} a
+ValueConnection {'$ref': '309'} output -> {'$ref': '141'} 1 Managed Key
+ValueConnection {'$ref': '311'} output -> {'$ref': '439'} input
+ValueConnection {'$ref': '101'} Result -> {'$ref': '229'} EffectOwner
+ValueConnection {'$ref': '177'} output -> {'$ref': '295'} ifTrue
+ValueConnection {'$ref': '425'} EachFieldObject -> {'$ref': '261'} DamageTarget
+ValueConnection {'$ref': '499'} Result -> {'$ref': '529'} condition
+ValueConnection {'$ref': '415'} Result -> {'$ref': '537'} Position
+ValueConnection {'$ref': '531'} Result -> {'$ref': '271'} TriggerInfo
+ValueConnection {'$ref': '537'} PooledObject -> {'$ref': '241'} PooledObject
+ValueConnection {'$ref': '161'} value -> {'$ref': '445'} 2 Routine
+ValueConnection {'$ref': '247'} output -> {'$ref': '141'} 2 Managed Key
+ValueConnection {'$ref': '223'} value -> {'$ref': '419'} condition
+ValueConnection {'$ref': '213'} SfxInfo -> {'$ref': '261'} HitSound
+ValueConnection {'$ref': '169'} Result -> {'$ref': '185'} TriggerInfo
+ValueConnection {'$ref': '91'} output -> {'$ref': '151'} input
+ValueConnection {'$ref': '333'} output -> {'$ref': '531'} 0 Value
+ValueConnection {'$ref': '227'} output -> {'$ref': '145'} input
+ValueConnection {'$ref': '553'} Result -> {'$ref': '483'} Sender
+ValueConnection {'$ref': '575'} value -> {'$ref': '253'} 1 Routine
+ValueConnection {'$ref': '553'} Result -> {'$ref': '483'} Target
+ValueConnection {'$ref': '251'} OnHitTarget -> {'$ref': '79'} Current
+ValueConnection {'$ref': '491'} output -> {'$ref': '511'} input
+ValueConnection {'$ref': '229'} PooledObject -> {'$ref': '569'} PooledObject
+ValueConnection {'$ref': '475'} Result -> {'$ref': '463'} Radius
+ValueConnection {'$ref': '353'} Result -> {'$ref': '429'} Sender
+ValueConnection {'$ref': '303'} value -> {'$ref': '521'} 2 Routine
+ValueConnection {'$ref': '433'} output -> {'$ref': '393'} input
+ValueConnection {'$ref': '365'} Result -> {'$ref': '537'} ParentObject
+ValueConnection {'$ref': '559'} sum -> {'$ref': '449'} b
+ValueConnection {'$ref': '361'} value -> {'$ref': '505'} a
+ValueConnection {'$ref': '373'} output -> {'$ref': '379'} ActionName
+ValueConnection {'$ref': '193'} Result -> {'$ref': '105'} 0
+ValueConnection {'$ref': '397'} Result -> {'$ref': '129'} Sender
+ValueConnection {'$ref': '199'} value -> {'$ref': '519'} Calculator
+ValueConnection {'$ref': '525'} Result -> {'$ref': '363'} Timer
+ValueConnection {'$ref': '281'} Result -> {'$ref': '171'} EffectOwner
+ValueConnection {'$ref': '545'} value -> {'$ref': '293'} 2 Routine
+ValueConnection {'$ref': '343'} Result -> {'$ref': '229'} Position
+ValueConnection {'$ref': '425'} EachFieldObject -> {'$ref': '495'} Target
+ValueConnection {'$ref': '217'} value -> {'$ref': '377'} 2 Calculator
+ValueConnection {'$ref': '565'} Direction -> {'$ref': '169'} 0 Value
+ValueConnection {'$ref': '173'} value -> {'$ref': '445'} 1 Routine
+ValueConnection {'$ref': '515'} Result -> {'$ref': '79'} Target
+ValueConnection {'$ref': '71'} sum -> {'$ref': '485'} input
+ValueConnection {'$ref': '463'} Result -> {'$ref': '221'} input
+ValueConnection {'$ref': '335'} output -> {'$ref': '387'} ActionName
+ValueConnection {'$ref': '519'} EachFieldObject -> {'$ref': '429'} Target
+ValueConnection {'$ref': '403'} Result -> {'$ref': '325'} TriggerInfo
+ValueConnection {'$ref': '497'} value -> {'$ref': '259'} 1 Routine
+ValueConnection {'$ref': '289'} Result -> {'$ref': '169'} TargetInfo
+ValueConnection {'$ref': '179'} Result -> {'$ref': '519'} Position
+ValueConnection {'$ref': '313'} Result -> {'$ref': '171'} Position
+ValueConnection {'$ref': '489'} Result -> {'$ref': '405'} ParentObject
+ValueConnection {'$ref': '381'} value -> {'$ref': '71'} 0
+ValueConnection {'$ref': '287'} Result -> {'$ref': '125'} 0
+ValueConnection {'$ref': '349'} value -> {'$ref': '377'} 1 Calculator
+ValueConnection {'$ref': '75'} output -> {'$ref': '501'} input
+ValueConnection {'$ref': '139'} output -> {'$ref': '295'} ifFalse
+ValueConnection {'$ref': '265'} output -> {'$ref': '523'} Direction
+ValueConnection {'$ref': '441'} output -> {'$ref': '143'} input
+ValueConnection {'$ref': '397'} Result -> {'$ref': '129'} Target
+ValueConnection {'$ref': '319'} Result -> {'$ref': '355'} input
+ValueConnection {'$ref': '519'} EachFieldObject -> {'$ref': '99'} DamageTarget
+ValueConnection {'$ref': '125'} sum -> {'$ref': '191'} b
+ValueConnection {'$ref': '489'} Result -> {'$ref': '405'} EffectOwner
+ValueConnection {'$ref': '359'} Result -> {'$ref': '387'} TriggerInfo
+ValueConnection {'$ref': '565'} Target -> {'$ref': '289'} 0 Value
+ValueConnection {'$ref': '77'} product -> {'$ref': '99'} Modifier
+ValueConnection {'$ref': '385'} output -> {'$ref': '513'} input
+ValueConnection {'$ref': '115'} Result -> {'$ref': '245'} True
+ValueConnection {'$ref': '453'} TriggerInfo -> {'$ref': '113'} TargetInfo
+ValueConnection {'$ref': '375'} output -> {'$ref': '359'} 0 Value
+ValueConnection {'$ref': '527'} Result -> {'$ref': '191'} a
+ValueConnection {'$ref': '367'} output -> {'$ref': '503'} input
+ValueConnection {'$ref': '487'} Result -> {'$ref': '425'} Position
+ValueConnection {'$ref': '327'} output -> {'$ref': '337'} 2 Managed Key
+ValueConnection {'$ref': '237'} Sender -> {'$ref': '203'} target
+ValueConnection {'$ref': '243'} Result -> {'$ref': '206'} target
+ValueConnection {'$ref': '203'} value -> {'$ref': '209'} %objA
+ValueConnection {'$ref': '191'} product -> {'$ref': '449'} a
+ValueConnection {'$ref': '97'} Result -> {'$ref': '127'} True
+ValueConnection {'$ref': '245'} Result -> {'$ref': '559'} 0
+ValueConnection {'$ref': '87'} value -> {'$ref': '427'} 2 Routine
+ValueConnection {'$ref': '391'} output -> {'$ref': '269'} ifFalse
+ValueConnection {'$ref': '131'} output -> {'$ref': '437'} 0 Value
+ValueConnection {'$ref': '323'} Result -> {'$ref': '133'} input
+ValueConnection {'$ref': '411'} output -> {'$ref': '403'} 0 Value
+ValueConnection {'$ref': '365'} Result -> {'$ref': '537'} EffectOwner
+ValueConnection {'$ref': '449'} product -> {'$ref': '261'} Modifier
+ValueConnection {'$ref': '233'} comparison -> {'$ref': '399'} condition
+ValueConnection {'$ref': '209'} result -> {'$ref': '219'} a
+ValueConnection {'$ref': '257'} Result -> {'$ref': '219'} b
+ValueConnection {'$ref': '206'} value -> {'$ref': '209'} %objB
+ValueConnection {'$ref': '117'} value -> {'$ref': '233'} a
+
+GRAPH bridge_driver-RoleBridgeDriver
+61 OnInit {"coroutine": false, "$version": "A"} {}
+63 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+65 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "Count", "$type": "System.String"}}
+67 ReturnBool {"$version": "A"} {"Bool": {"$content": false, "$type": "System.Boolean"}}
+69 SetIsRunCancelable {"$version": "A"} {"IsRunCancel": {"$content": true, "$type": "System.Boolean"}}
+71 GetBoundPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+73 GetActionDirVector {"$version": "A"} {}
+75 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 320698, "$type": "System.Int32"}}
+77 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+79 SetupRoleParameter {"RoleType": "HitCharge", "$version": "A"} {"TargetingType": {"$content": "Default", "$type": "Oak.TargetingRole"}, "UseCount": {"$content": 0, "$type": "System.Int32"}, "UseLeftDecrement": {"$content": 1, "$type": "System.Int32"}, "MaxHitCount": {"$content": 1, "$type": "System.Int32"}, "CoolTime": {"$content": 0.0, "$type": "System.Single"}, "IsResetAction": {"$content": false, "$type": "System.Boolean"}, "NeedRefresh": {"$content": true, "$type": "System.Boolean"}}
+81 If {"$version": "A"} {}
+83 SelectUnit {"$version": "A"} {}
+85 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_myth_role_3", "$type": "System.String"}, "$version": "A"} {}
+87 RemoveAnim {"$version": "A"} {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+89 StartRoutine {"InputCount": 1, "$version": "A"} {}
+91 SetIsControllingCharacter {"$version": "A"} {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+93 If {"$version": "A"} {}
+95 UnLockDirection {"$version": "A"} {}
+97 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Count", "$type": "System.String"}}
+99 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_role_3", "$type": "System.String"}, "$version": "A"} {}
+101 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+103 GetOwner {"$version": "A"} {}
+105 ScalarSubtract {"$version": "A"} {"minuend": {"$content": 1.0, "$type": "System.Single"}, "subtrahend": {"$content": 1.0, "$type": "System.Single"}}
+107 SelectUnit {"$version": "A"} {}
+109 PublishTriggerAction {"$version": "A"} {}
+111 ReturnBool {"$version": "A"} {"Bool": {"$content": false, "$type": "System.Boolean"}}
+113 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_weapon", "$type": "System.String"}, "$version": "A"} {}
+115 If {"$version": "A"} {}
+117 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+119 Less {"numeric": true, "$version": "A"} {"b": {"$content": 1.0, "$type": "System.Single"}}
+121 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+123 GetIsCharacterPartyLeader {"$version": "A"} {}
+125 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "Count", "$type": "System.String"}}
+127 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+129 ApplyDamage {"$version": "A"} {"DamageType": {"$content": "Melee", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "NormalEnhanced", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.4, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+131 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+133 CollisionInit {"CalculatorType": "Cylinder", "$version": "A"} {"Radius": {"$content": 1.5, "$type": "System.Single"}, "InnerRadius": {"$content": 0.0, "$type": "System.Single"}, "Height": {"$content": 0.75, "$type": "System.Single"}, "IsCenterToBottom": {"$content": true, "$type": "System.Boolean"}, "MaxHit": {"$content": 1, "$type": "System.Int32"}, "OnlyHittableTarget": {"$content": true, "$type": "System.Boolean"}, "OnlyFriendlyTarget": {"$content": false, "$type": "System.Boolean"}}
+135 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_special_option", "$type": "System.String"}}
+137 If {"$version": "A"} {}
+139 AddVectorOffset {"$version": "A"} {"OffsetAmount": {"$content": 1.0, "$type": "System.Single"}}
+141 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_explosion", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Rotation", "$type": "Oak.ParentFollowFlag"}}
+143 DisposeEffect {"InputCount": 1, "$version": "A"} {"1 immediate": {"$content": true, "$type": "System.Boolean"}}
+145 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "buff_bridge_driver_myth_special_0", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+147 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+149 DisposeEffect {"InputCount": 1, "$version": "A"} {"1 immediate": {"$content": true, "$type": "System.Boolean"}}
+151 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+153 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+155 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Count", "$type": "System.String"}}
+157 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "DashDuration", "$type": "System.String"}}
+159 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.36, "$type": "System.Single"}}
+161 GetStatic {"InfoType": "intType", "$version": "A"} {"Key": {"$content": "UseCount", "$type": "System.String"}}
+163 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "LimitCoolTime", "$type": "System.String"}}
+165 OnSyncAction {"coroutine": false, "$version": "A"} {}
+167 OnUpdateFrame {"coroutine": false, "$version": "A"} {}
+169 CacheEffect {"$version": "A"} {"ManageKey": {"$content": "cache_dash", "$type": "System.String"}}
+171 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_special_option", "$type": "System.String"}}
+173 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_cwp_option", "$type": "System.String"}}
+175 If {"$version": "A"} {}
+177 LessOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 3.5, "$type": "System.Single"}}
+179 If {"$version": "A"} {}
+181 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 310698, "$type": "System.Int32"}}
+183 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+185 And {"$version": "A"} {}
+187 OnStartAction {"coroutine": false, "$version": "A"} {}
+189 GetOwner {"$version": "A"} {}
+191 AppendDirection {"InputCount": 1, "$version": "A"} {}
+193 CollisionCalculateEnd {"InputCount": 1, "$version": "A"} {}
+195 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 310698, "$type": "System.Int32"}}
+197 GetRoleUISetInfo {"$version": "A"} {}
+199 IsTimePassedForFinishAction {"$version": "A"} {"Timer": {"$content": 0.3, "$type": "System.Single"}}
+201 GetHitSound {"$version": "A"} {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+203 GetStatic {"InfoType": "intType", "$version": "A"} {"Key": {"$content": "UseCount", "$type": "System.String"}}
+205 PlaySound {"$version": "A"} {"SoundKey": {"$content": "sfx_role_1", "$type": "System.String"}}
+207 PlaySound {"$version": "A"} {"SoundKey": {"$content": "sfx_role_2", "$type": "System.String"}}
+209 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_myth_weapon", "$type": "System.String"}, "$version": "A"} {}
+211 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "LimitCoolTime", "$type": "System.String"}}
+213 RemoveAnim {"$version": "A"} {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+215 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+217 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_special_option", "$type": "System.String"}}
+219 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+221 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+223 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "ModifierBase", "$type": "System.String"}}
+225 Literal {"type": "System.String", "value": {"$content": "cache_dash", "$type": "System.String"}, "$version": "A"} {}
+227 If {"$version": "A"} {}
+229 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "ActionDuration", "$type": "System.String"}}
+231 Greater {"numeric": true, "$version": "A"} {"b": {"$content": 0.0, "$type": "System.Single"}}
+233 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_role_0", "$type": "System.String"}, "$version": "A"} {}
+235 PlayEffect {"$version": "A"} {"EffectKey": {"$content": "fx_dash", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position", "$type": "Oak.ParentFollowFlag"}}
+237 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.35, "$type": "System.Single"}}
+239 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+241 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+243 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_cwp_option", "$type": "System.String"}}
+245 GetTargetForManualMelee {"$version": "A"} {"SearchRange": {"$content": 7.0, "$type": "System.Single"}}
+247 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+249 EndRoutine {"InputCount": 1, "$version": "A"} {}
+251 GetIsCharacterElementalType {"$version": "A"} {"ElementalType": {"$content": "Darkness", "$type": "Oak.ElementalType"}}
+253 TriggerAction {"$version": "A"} {}
+255 CollisionCalculateOnce {"IsSynchronized": true, "SynchronizeId": 1, "$version": "A"} {}
+257 ReturnRoleUISetInfo {"$version": "A"} {}
+259 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_special_option", "$type": "System.String"}}
+261 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+263 GetIntegerAt {"$version": "A"} {"Index": {"$content": 0, "$type": "System.Int32"}}
+265 PlayActionUnavailableString {"$version": "A"} {"StringKey": {"$content": "gnome_doctor_role_action_unavailable", "$type": "System.String"}, "Color": {"r": 1.0, "g": 0.0, "b": 0.0, "a": 1.0, "$type": "UnityEngine.Color"}}
+267 Literal {"type": "System.String", "value": {"$content": "cache_dash", "$type": "System.String"}, "$version": "A"} {}
+269 CollisionCalculateEnd {"InputCount": 1, "$version": "A"} {}
+271 SelectUnit {"$version": "A"} {}
+273 GetActionDirVector {"$version": "A"} {}
+275 IsInActiveBattle {"$version": "A"} {}
+277 If {"$version": "A"} {}
+279 OnUpdateRoutine {"InputCount": 1, "$version": "A"} {}
+281 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 20320698, "$type": "System.Int32"}}
+283 GetActionDirVector {"$version": "A"} {}
+285 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "Radius", "$type": "System.String"}}
+287 LessOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 0.0, "$type": "System.Single"}}
+289 ReturnBool {"$version": "A"} {"Bool": {"$content": false, "$type": "System.Boolean"}}
+291 SetAimPoint {"$version": "A"} {}
+293 GetOwner {"$version": "A"} {}
+295 If {"$version": "A"} {}
+297 If {"$version": "A"} {}
+299 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "Distance", "$type": "System.String"}}
+301 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+303 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "Count", "$type": "System.String"}}
+305 LessOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 0.0, "$type": "System.Single"}}
+307 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_role_0", "$type": "System.String"}, "$version": "A"} {}
+309 GetOwner {"$version": "A"} {}
+311 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "Count", "$type": "System.String"}}
+313 SetActionInactive {"$version": "A"} {}
+315 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+317 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+319 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "Count", "$type": "System.String"}}
+321 GreaterOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 0.0, "$type": "System.Single"}}
+323 GetBoundDistance {"$version": "A"} {}
+325 PlayAnim {"$version": "A"} {"AnimKey": {"$content": "ani_atk", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+327 IsHittable {"$version": "A"} {}
+329 SetActionInactive {"$version": "A"} {}
+331 SetActionActive {"$version": "A"} {}
+333 IsTimePassed {"$version": "A"} {"Timer": {"$content": 0.0001, "$type": "System.Single"}}
+335 GetActionDirVector {"$version": "A"} {}
+337 GetActionTarget {"$version": "A"} {}
+339 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+341 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+343 IncreaseHitCount {"$version": "A"} {"Amount": {"$content": 1, "$type": "System.Int32"}}
+345 EndRoutine {"InputCount": 1, "$version": "A"} {}
+347 GetOwner {"$version": "A"} {}
+349 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+351 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_special_option", "$type": "System.String"}}
+353 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_myth_role_0", "$type": "System.String"}, "$version": "A"} {}
+355 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "DashSpeed", "$type": "System.String"}}
+357 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+359 SetRoleChargeIcon {"$version": "A"} {"IconName": {"$content": "actbtn_ic_ar_milkywaygirl.png", "$type": "System.String"}, "IconFillName": {"$content": "actbtn_ic_ar_milkywaygirl_fill.png", "$type": "System.String"}, "IconPadFillName": {"$content": "actbtn_ic_ar_milkywaygirl_fill_pad.png", "$type": "System.String"}}
+361 OnFinishAction {"coroutine": false, "$version": "A"} {}
+363 OnForceCancelAction {"coroutine": false, "$version": "A"} {}
+365 GetStatic {"InfoType": "intType", "$version": "A"} {"Key": {"$content": "UseCount", "$type": "System.String"}}
+367 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "collider", "$type": "System.String"}}
+369 GetStageMemberEach {"$version": "A"} {}
+371 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "LimitCoolTime", "$type": "System.String"}}
+373 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_myth_special_1", "$type": "System.String"}, "$version": "A"} {}
+375 GetOptionApply {"$version": "A"} {"TargetId": {"$content": 20350698, "$type": "System.Int32"}}
+377 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "Routine_0", "$type": "System.String"}}
+379 Literal {"type": "System.Int32", "value": {"$content": 0, "$type": "System.Int32"}, "$version": "A"} {}
+381 GetCurrentHitCount {"$version": "A"} {}
+383 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "is_myth_cwp_option", "$type": "System.String"}}
+385 IsAvailable {"$version": "A"} {}
+387 PlayDash {"$version": "A"} {"StayDuration": {"$content": 0.0, "$type": "System.Single"}, "DashDuration": {"$content": 0.25, "$type": "System.Single"}, "DashSpeed": {"$content": 20.0, "$type": "System.Single"}, "DashOnBlockType": {"$content": "Slide", "$type": "Oak.ShortDashState+OnBlockType"}, "CancelByMove": {"$content": false, "$type": "System.Boolean"}, "ManualMinDistance": {"$content": 0.0, "$type": "System.Single"}, "CanRecoverStamina": {"$content": false, "$type": "System.Boolean"}}
+389 ApplyBuff {"$version": "A"} {"BuffKey": {"$content": "", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+391 OnUpdateFrame {"coroutine": false, "$version": "A"} {}
+393 Vector3Distance {"$version": "A"} {}
+395 If {"$version": "A"} {}
+397 GetModifier {"$version": "A"} {"Modifier": {"$content": 2.0, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+399 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+401 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_myth_role_0", "$type": "System.String"}, "$version": "A"} {}
+403 GetAnyRoutineActive {"InputCount": 1, "$version": "A"} {}
+405 SelectUnit {"$version": "A"} {}
+407 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+409 Literal {"type": "System.Single", "value": {"$content": 0.0, "$type": "System.Single"}, "$version": "A"} {}
+411 PlayCameraShake {"$version": "A"} {"ShakeAmount": {"$content": 0.3, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.2, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+413 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "cool_time", "$type": "System.String"}}
+415 IncreaseHitCount {"$version": "A"} {"Amount": {"$content": 0, "$type": "System.Int32"}}
+417 DisposeEffect {"InputCount": 1, "$version": "A"} {"1 immediate": {"$content": true, "$type": "System.Boolean"}}
+419 If {"$version": "A"} {}
+421 If {"$version": "A"} {}
+423 SelectUnit {"$version": "A"} {}
+425 UnLockDirection {"$version": "A"} {}
+427 LessOrEqual {"numeric": true, "$version": "A"} {"b": {"$content": 0.0, "$type": "System.Single"}}
+429 Literal {"type": "System.String", "value": {"$content": "buff_bridge_driver_special_1", "$type": "System.String"}, "$version": "A"} {}
+431 ScalarSum {"inputCount": 2, "$version": "A"} {"1": {"$content": 1.0, "$type": "System.Single"}}
+433 GetOwner {"$version": "A"} {}
+435 AppendTarget {"InputCount": 1, "$version": "A"} {}
+437 GetStatic {"InfoType": "intType", "$version": "A"} {"Key": {"$content": "LimitCount", "$type": "System.String"}}
+439 Literal {"type": "System.Single", "value": {"$content": 0.0, "$type": "System.Single"}, "$version": "A"} {}
+441 Literal {"type": "System.String", "value": {"$content": "cache_dash", "$type": "System.String"}, "$version": "A"} {}
+443 GetOwner {"$version": "A"} {}
+445 GetOwnerPosition {"$version": "A"} {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+447 ReturnBool {"$version": "A"} {"Bool": {"$content": true, "$type": "System.Boolean"}}
+449 If {"$version": "A"} {}
+None GraphGroup {"label": "Start", "comment": null, "color": {"r": 0.6444392, "g": 1.0, "b": 0.5801887, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Listener", "comment": null, "color": {"r": 1.0, "g": 1.0, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Finish", "comment": null, "color": {"r": 1.0, "g": 0.7122642, "b": 0.8045109, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Init", "comment": null, "color": {"r": 1.0, "g": 0.964491, "b": 0.6367924, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Checker", "comment": null, "color": {"r": 1.0, "g": 0.8686246, "b": 0.6273585, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Update", "comment": null, "color": {"r": 0.8673532, "g": 0.6839622, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "On Sync", "comment": null, "color": {"r": 0.908012, "g": 1.0, "b": 0.7877358, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Trigger", "comment": null, "color": {"r": 0.7028302, "g": 0.8903667, "b": 1.0, "a": 1.0}, "$version": "A"} {}
+None StickyNote {"title": "OnStartAction 진입점 섹터", "body": "기대 동작\n\n액션 활성화 체크\ntarget 세팅\ndir_vector 세팅\n사용할 루틴 시작\n캐릭터 바라보는 방향 고정", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnInit 진입점 섹터", "body": "기대 동작\n\n액션 중 캐릭터는 움직일 수 없음\n액션은 런캔슬이 가능함\n원형 충돌체 생성 필요", "colorTheme": "Classic"} {}
+None StickyNote {"title": "TriggerAction 진입점 섹터", "body": "기대 동작\n\n근거리 타겟 체크\n액션 시작 트리거 배포", "colorTheme": "Classic"} {}
+None StickyNote {"title": "Listener 진입점 섹터", "body": "기대 동작\n\n롤액션 버프 추가 시 오라 이펙트 부여\n롤액션 버프 해제 시 오라 이펙트 해제", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnFinishAction 진입점 섹터", "body": "기대 동작\n\n액션 비활성화\n애니메이션 초기화\n루틴 초기화\n바라보는 방향 초기화\n충돌체 초기화", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnUpdateFrame 진입점 섹터", "body": "기대 동작\n\n0초 : 대쉬 이펙트, 대쉬\n0.1초 : 킥 애니메이션\n0.35초 : 쉐이킹, 충돌체 시작, 히트 이펙트\n0.35초 ~ 0.5초 : 충돌체 판정, 크리티컬 타격 시 버프\n0.3초 : 스톰프 사운드 재생\n0.5초 : 액션 종료", "colorTheme": "Classic"} {}
+None StickyNote {"title": "Checker 진입점 섹터", "body": "기대 동작\n\nIsHittable 체커 동작 구현\nIsAvailable 체커 동작 구현", "colorTheme": "Classic"} {}
+None StickyNote {"title": "OnSyncAction 진입점 섹터", "body": "기대 동작\n\n롤액션 use count 싱크 받아서 1씩 증가", "colorTheme": "Classic"} {}
+ControlConnection {'$ref': '363'} trigger -> {'$ref': '313'} InputTrigger
+ControlConnection {'$ref': '125'} assigned -> {'$ref': '413'} assign
+ControlConnection {'$ref': '313'} OutputTrigger -> {'$ref': '87'} InputTrigger
+ControlConnection {'$ref': '149'} OutputTrigger -> {'$ref': '125'} assign
+ControlConnection {'$ref': '295'} ifTrue -> {'$ref': '245'} InputTrigger
+ControlConnection {'$ref': '327'} Trigger -> {'$ref': '137'} enter
+ControlConnection {'$ref': '187'} trigger -> {'$ref': '331'} InputTrigger
+ControlConnection {'$ref': '331'} OutputTrigger -> {'$ref': '89'} InputTrigger
+ControlConnection {'$ref': '213'} OutputTrigger -> {'$ref': '95'} InputTrigger
+ControlConnection {'$ref': '175'} ifTrue -> {'$ref': '127'} InputTrigger
+ControlConnection {'$ref': '95'} OutputTrigger -> {'$ref': '249'} InputTrigger
+ControlConnection {'$ref': '115'} ifTrue -> {'$ref': '289'} InputTrigger
+ControlConnection {'$ref': '425'} OutputTrigger -> {'$ref': '345'} InputTrigger
+ControlConnection {'$ref': '317'} assigned -> {'$ref': '121'} assign
+ControlConnection {'$ref': '237'} True -> {'$ref': '417'} InputTrigger
+ControlConnection {'$ref': '197'} Trigger -> {'$ref': '257'} InputTrigger
+ControlConnection {'$ref': '137'} ifFalse -> {'$ref': '111'} InputTrigger
+ControlConnection {'$ref': '277'} ifTrue -> {'$ref': '311'} assign
+ControlConnection {'$ref': '419'} ifTrue -> {'$ref': '415'} InputTrigger
+ControlConnection {'$ref': '79'} OutputTrigger -> {'$ref': '317'} assign
+ControlConnection {'$ref': '109'} OutputTrigger -> {'$ref': '241'} InputTrigger
+ControlConnection {'$ref': '93'} ifTrue -> {'$ref': '145'} InputTrigger
+ControlConnection {'$ref': '87'} OutputTrigger -> {'$ref': '425'} InputTrigger
+ControlConnection {'$ref': '193'} OutputTrigger -> {'$ref': '143'} InputTrigger
+ControlConnection {'$ref': '91'} OutputTrigger -> {'$ref': '69'} InputTrigger
+ControlConnection {'$ref': '237'} Exit -> {'$ref': '159'} InputTrigger
+ControlConnection {'$ref': '269'} OutputTrigger -> {'$ref': '149'} InputTrigger
+ControlConnection {'$ref': '349'} OutputTrigger -> {'$ref': '93'} enter
+ControlConnection {'$ref': '279'} 1 Update -> {'$ref': '291'} InputTrigger
+ControlConnection {'$ref': '253'} Trigger -> {'$ref': '295'} enter
+ControlConnection {'$ref': '143'} OutputTrigger -> {'$ref': '303'} assign
+ControlConnection {'$ref': '325'} OutputTrigger -> {'$ref': '235'} InputTrigger
+ControlConnection {'$ref': '333'} True -> {'$ref': '387'} InputTrigger
+ControlConnection {'$ref': '115'} ifFalse -> {'$ref': '101'} InputTrigger
+ControlConnection {'$ref': '333'} Exit -> {'$ref': '237'} InputTrigger
+ControlConnection {'$ref': '265'} OutputTrigger -> {'$ref': '67'} InputTrigger
+ControlConnection {'$ref': '259'} assigned -> {'$ref': '419'} enter
+ControlConnection {'$ref': '387'} OutputTrigger -> {'$ref': '325'} InputTrigger
+ControlConnection {'$ref': '127'} OutputTrigger -> {'$ref': '227'} enter
+ControlConnection {'$ref': '343'} OutputTrigger -> {'$ref': '319'} assign
+ControlConnection {'$ref': '391'} trigger -> {'$ref': '81'} enter
+ControlConnection {'$ref': '81'} ifTrue -> {'$ref': '247'} assign
+ControlConnection {'$ref': '291'} OutputTrigger -> {'$ref': '333'} InputTrigger
+ControlConnection {'$ref': '69'} OutputTrigger -> {'$ref': '79'} InputTrigger
+ControlConnection {'$ref': '235'} OutputTrigger -> {'$ref': '169'} InputTrigger
+ControlConnection {'$ref': '245'} OutputTrigger -> {'$ref': '109'} InputTrigger
+ControlConnection {'$ref': '159'} Exit -> {'$ref': '199'} InputTrigger
+ControlConnection {'$ref': '385'} Trigger -> {'$ref': '115'} enter
+ControlConnection {'$ref': '311'} assigned -> {'$ref': '215'} assign
+ControlConnection {'$ref': '297'} ifTrue -> {'$ref': '343'} InputTrigger
+ControlConnection {'$ref': '297'} ifFalse -> {'$ref': '277'} enter
+ControlConnection {'$ref': '77'} assigned -> {'$ref': '297'} enter
+ControlConnection {'$ref': '345'} OutputTrigger -> {'$ref': '269'} InputTrigger
+ControlConnection {'$ref': '137'} ifTrue -> {'$ref': '447'} InputTrigger
+ControlConnection {'$ref': '167'} trigger -> {'$ref': '279'} InputTrigger
+ControlConnection {'$ref': '411'} OutputTrigger -> {'$ref': '141'} InputTrigger
+ControlConnection {'$ref': '329'} OutputTrigger -> {'$ref': '213'} InputTrigger
+ControlConnection {'$ref': '179'} ifTrue -> {'$ref': '389'} InputTrigger
+ControlConnection {'$ref': '65'} assigned -> {'$ref': '77'} assign
+ControlConnection {'$ref': '165'} trigger -> {'$ref': '421'} enter
+ControlConnection {'$ref': '421'} ifFalse -> {'$ref': '297'} enter
+ControlConnection {'$ref': '303'} assigned -> {'$ref': '357'} assign
+ControlConnection {'$ref': '315'} OutputTrigger -> {'$ref': '449'} enter
+ControlConnection {'$ref': '63'} OutputTrigger -> {'$ref': '395'} enter
+ControlConnection {'$ref': '227'} ifTrue -> {'$ref': '315'} InputTrigger
+ControlConnection {'$ref': '395'} ifTrue -> {'$ref': '349'} InputTrigger
+ControlConnection {'$ref': '421'} ifTrue -> {'$ref': '65'} assign
+ControlConnection {'$ref': '449'} ifTrue -> {'$ref': '63'} InputTrigger
+ControlConnection {'$ref': '255'} Each -> {'$ref': '129'} InputTrigger
+ControlConnection {'$ref': '169'} OutputTrigger -> {'$ref': '205'} InputTrigger
+ControlConnection {'$ref': '207'} OutputTrigger -> {'$ref': '255'} InputTrigger
+ControlConnection {'$ref': '369'} Each -> {'$ref': '175'} enter
+ControlConnection {'$ref': '361'} trigger -> {'$ref': '329'} InputTrigger
+ControlConnection {'$ref': '159'} True -> {'$ref': '369'} InputTrigger
+ControlConnection {'$ref': '295'} ifFalse -> {'$ref': '265'} InputTrigger
+ControlConnection {'$ref': '61'} trigger -> {'$ref': '91'} InputTrigger
+ControlConnection {'$ref': '173'} assigned -> {'$ref': '259'} assign
+ControlConnection {'$ref': '417'} OutputTrigger -> {'$ref': '411'} InputTrigger
+ControlConnection {'$ref': '449'} ifFalse -> {'$ref': '395'} enter
+ControlConnection {'$ref': '121'} assigned -> {'$ref': '173'} assign
+ControlConnection {'$ref': '129'} OutputTrigger -> {'$ref': '179'} enter
+ControlConnection {'$ref': '141'} OutputTrigger -> {'$ref': '207'} InputTrigger
+ControlConnection {'$ref': '249'} OutputTrigger -> {'$ref': '193'} InputTrigger
+ValueConnection {'$ref': '255'} EachFieldObject -> {'$ref': '389'} Target
+ValueConnection {'$ref': '99'} output -> {'$ref': '423'} ifFalse
+ValueConnection {'$ref': '243'} value -> {'$ref': '405'} condition
+ValueConnection {'$ref': '299'} Result -> {'$ref': '427'} b
+ValueConnection {'$ref': '239'} value -> {'$ref': '305'} a
+ValueConnection {'$ref': '211'} Result -> {'$ref': '77'} input
+ValueConnection {'$ref': '351'} value -> {'$ref': '271'} condition
+ValueConnection {'$ref': '275'} Result -> {'$ref': '185'} a
+ValueConnection {'$ref': '231'} comparison -> {'$ref': '81'} condition
+ValueConnection {'$ref': '251'} Result -> {'$ref': '395'} condition
+ValueConnection {'$ref': '335'} Result -> {'$ref': '139'} Direction
+ValueConnection {'$ref': '379'} output -> {'$ref': '65'} input
+ValueConnection {'$ref': '353'} output -> {'$ref': '271'} ifTrue
+ValueConnection {'$ref': '397'} Result -> {'$ref': '129'} Modifier
+ValueConnection {'$ref': '229'} Result -> {'$ref': '199'} Timer
+ValueConnection {'$ref': '347'} Result -> {'$ref': '389'} Sender
+ValueConnection {'$ref': '157'} Result -> {'$ref': '387'} DashDuration
+ValueConnection {'$ref': '401'} output -> {'$ref': '405'} ifTrue
+ValueConnection {'$ref': '405'} selection -> {'$ref': '127'} BuffKey
+ValueConnection {'$ref': '255'} EachFieldObject -> {'$ref': '129'} DamageTarget
+ValueConnection {'$ref': '201'} SfxInfo -> {'$ref': '129'} HitSound
+ValueConnection {'$ref': '375'} Result -> {'$ref': '173'} input
+ValueConnection {'$ref': '359'} Result -> {'$ref': '257'} Info
+ValueConnection {'$ref': '321'} comparison -> {'$ref': '185'} b
+ValueConnection {'$ref': '221'} value -> {'$ref': '345'} 1 Routine
+ValueConnection {'$ref': '167'} DeltaTime -> {'$ref': '279'} DeltaTime
+ValueConnection {'$ref': '307'} output -> {'$ref': '271'} ifFalse
+ValueConnection {'$ref': '337'} Result -> {'$ref': '387'} Target
+ValueConnection {'$ref': '155'} value -> {'$ref': '119'} a
+ValueConnection {'$ref': '83'} selection -> {'$ref': '349'} BuffKey
+ValueConnection {'$ref': '369'} EachFieldObject -> {'$ref': '145'} Target
+ValueConnection {'$ref': '119'} comparison -> {'$ref': '297'} condition
+ValueConnection {'$ref': '327'} OnHitTarget -> {'$ref': '323'} Current
+ValueConnection {'$ref': '85'} output -> {'$ref': '423'} ifTrue
+ValueConnection {'$ref': '73'} Result -> {'$ref': '387'} Direction
+ValueConnection {'$ref': '113'} output -> {'$ref': '107'} ifFalse
+ValueConnection {'$ref': '75'} Result -> {'$ref': '227'} condition
+ValueConnection {'$ref': '439'} output -> {'$ref': '413'} input
+ValueConnection {'$ref': '441'} output -> {'$ref': '143'} 1 Managed Key
+ValueConnection {'$ref': '153'} value -> {'$ref': '231'} a
+ValueConnection {'$ref': '177'} comparison -> {'$ref': '137'} condition
+ValueConnection {'$ref': '433'} Result -> {'$ref': '235'} ParentObject
+ValueConnection {'$ref': '369'} EachFieldObject -> {'$ref': '71'} Target
+ValueConnection {'$ref': '103'} Result -> {'$ref': '349'} Target
+ValueConnection {'$ref': '219'} value -> {'$ref': '193'} 1 Calculator
+ValueConnection {'$ref': '355'} Result -> {'$ref': '387'} DashSpeed
+ValueConnection {'$ref': '285'} Result -> {'$ref': '133'} Radius
+ValueConnection {'$ref': '365'} Result -> {'$ref': '79'} MaxHitCount
+ValueConnection {'$ref': '161'} Result -> {'$ref': '415'} Amount
+ValueConnection {'$ref': '377'} value -> {'$ref': '249'} 1 Routine
+ValueConnection {'$ref': '435'} Result -> {'$ref': '191'} TargetInfo
+ValueConnection {'$ref': '391'} DeltaTime -> {'$ref': '105'} subtrahend
+ValueConnection {'$ref': '301'} value -> {'$ref': '255'} Calculator
+ValueConnection {'$ref': '323'} Result -> {'$ref': '177'} a
+ValueConnection {'$ref': '437'} Result -> {'$ref': '119'} b
+ValueConnection {'$ref': '245'} Direction -> {'$ref': '191'} 0 Value
+ValueConnection {'$ref': '381'} HitCount -> {'$ref': '321'} a
+ValueConnection {'$ref': '245'} Target -> {'$ref': '435'} 0 Value
+ValueConnection {'$ref': '117'} value -> {'$ref': '279'} 1 Routine
+ValueConnection {'$ref': '97'} value -> {'$ref': '431'} 0
+ValueConnection {'$ref': '223'} Result -> {'$ref': '397'} Modifier
+ValueConnection {'$ref': '139'} Result -> {'$ref': '141'} Position
+ValueConnection {'$ref': '429'} output -> {'$ref': '83'} ifFalse
+ValueConnection {'$ref': '133'} Result -> {'$ref': '317'} input
+ValueConnection {'$ref': '225'} output -> {'$ref': '417'} 1 Managed Key
+ValueConnection {'$ref': '107'} selection -> {'$ref': '389'} BuffKey
+ValueConnection {'$ref': '181'} Result -> {'$ref': '179'} condition
+ValueConnection {'$ref': '399'} Result -> {'$ref': '393'} b
+ValueConnection {'$ref': '309'} Result -> {'$ref': '323'} Target
+ValueConnection {'$ref': '183'} Result -> {'$ref': '235'} Position
+ValueConnection {'$ref': '427'} comparison -> {'$ref': '175'} condition
+ValueConnection {'$ref': '105'} difference -> {'$ref': '247'} input
+ValueConnection {'$ref': '373'} output -> {'$ref': '83'} ifTrue
+ValueConnection {'$ref': '189'} Result -> {'$ref': '275'} Target
+ValueConnection {'$ref': '191'} Result -> {'$ref': '109'} TriggerInfo
+ValueConnection {'$ref': '371'} Result -> {'$ref': '215'} input
+ValueConnection {'$ref': '263'} Result -> {'$ref': '343'} Amount
+ValueConnection {'$ref': '305'} comparison -> {'$ref': '277'} condition
+ValueConnection {'$ref': '209'} output -> {'$ref': '107'} ifTrue
+ValueConnection {'$ref': '271'} selection -> {'$ref': '315'} BuffKey
+ValueConnection {'$ref': '147'} value -> {'$ref': '403'} 1 Routine
+ValueConnection {'$ref': '369'} EachFieldObject -> {'$ref': '63'} Target
+ValueConnection {'$ref': '203'} Result -> {'$ref': '321'} b
+ValueConnection {'$ref': '293'} Result -> {'$ref': '63'} Sender
+ValueConnection {'$ref': '283'} Result -> {'$ref': '235'} Direction
+ValueConnection {'$ref': '217'} value -> {'$ref': '93'} condition
+ValueConnection {'$ref': '431'} sum -> {'$ref': '319'} input
+ValueConnection {'$ref': '267'} output -> {'$ref': '149'} 1 Managed Key
+ValueConnection {'$ref': '151'} output -> {'$ref': '303'} input
+ValueConnection {'$ref': '339'} output -> {'$ref': '125'} input
+ValueConnection {'$ref': '393'} distance -> {'$ref': '427'} a
+ValueConnection {'$ref': '235'} PooledObject -> {'$ref': '169'} PooledObject
+ValueConnection {'$ref': '163'} Result -> {'$ref': '121'} input
+ValueConnection {'$ref': '233'} output -> {'$ref': '405'} ifFalse
+ValueConnection {'$ref': '281'} Result -> {'$ref': '259'} input
+ValueConnection {'$ref': '423'} selection -> {'$ref': '63'} BuffKey
+ValueConnection {'$ref': '433'} Result -> {'$ref': '235'} EffectOwner
+ValueConnection {'$ref': '273'} Result -> {'$ref': '291'} AimDirection
+ValueConnection {'$ref': '103'} Result -> {'$ref': '145'} Sender
+ValueConnection {'$ref': '185'} result -> {'$ref': '295'} condition
+ValueConnection {'$ref': '287'} comparison -> {'$ref': '421'} condition
+ValueConnection {'$ref': '369'} EachFieldObject -> {'$ref': '315'} Target
+ValueConnection {'$ref': '369'} EachFieldObject -> {'$ref': '251'} Target
+ValueConnection {'$ref': '369'} EachFieldObject -> {'$ref': '123'} Target
+ValueConnection {'$ref': '341'} value -> {'$ref': '287'} a
+ValueConnection {'$ref': '369'} EachFieldObject -> {'$ref': '127'} Target
+ValueConnection {'$ref': '195'} Result -> {'$ref': '419'} condition
+ValueConnection {'$ref': '131'} output -> {'$ref': '311'} input
+ValueConnection {'$ref': '261'} value -> {'$ref': '89'} 1 Routine
+ValueConnection {'$ref': '383'} value -> {'$ref': '107'} condition
+ValueConnection {'$ref': '409'} output -> {'$ref': '357'} input
+ValueConnection {'$ref': '123'} Result -> {'$ref': '449'} condition
+ValueConnection {'$ref': '71'} Result -> {'$ref': '393'} a
+ValueConnection {'$ref': '293'} Result -> {'$ref': '315'} Sender
+ValueConnection {'$ref': '407'} value -> {'$ref': '105'} minuend
+ValueConnection {'$ref': '135'} value -> {'$ref': '423'} condition
+ValueConnection {'$ref': '403'} Result -> {'$ref': '115'} condition
+ValueConnection {'$ref': '165'} TriggerInfo -> {'$ref': '263'} TargetInfo
+ValueConnection {'$ref': '171'} value -> {'$ref': '83'} condition
+ValueConnection {'$ref': '139'} Result -> {'$ref': '255'} Position
+ValueConnection {'$ref': '445'} Result -> {'$ref': '139'} Position
+ValueConnection {'$ref': '443'} Result -> {'$ref': '127'} Sender
+ValueConnection {'$ref': '367'} value -> {'$ref': '269'} 1 Calculator
+ValueConnection {'$ref': '103'} Result -> {'$ref': '349'} Sender
+
+GRAPH bridge_driver-BridgeDriverSpecialOption
+None OnInit {"coroutine": false, "$version": "A"} {}
+15 OnTriggerOption {"coroutine": false, "$version": "A"} {}
+17 Greater {"numeric": true, "$version": "A"} {"b": {"$content": 0.0, "$type": "System.Single"}}
+19 SetVariable {"kind": "Graph", "$version": "A"} {"name": {"$content": "damagereduce", "$type": "System.String"}}
+21 GetOptionDefenceModifier {"$version": "A"} {}
+23 GetVariable {"specifyFallback": false, "kind": "Graph", "$version": "A"} {"name": {"$content": "damagereduce", "$type": "System.String"}}
+25 ScalarSubtract {"$version": "A"} {"minuend": {"$content": 1.0, "$type": "System.Single"}, "subtrahend": {"$content": 1.0, "$type": "System.Single"}}
+27 ReturnFloat {"$version": "A"} {"Float": {"$content": 1.0, "$type": "System.Single"}}
+29 If {"$version": "A"} {}
+31 ReturnFloat {"$version": "A"} {"Float": {"$content": 1.0, "$type": "System.Single"}}
+33 GetStatic {"InfoType": "floatType", "$version": "A"} {"Key": {"$content": "DamageReduceModifier", "$type": "System.String"}}
+None GraphGroup {"label": "On Sync", "comment": null, "color": {"r": 0.908012, "g": 1.0, "b": 0.7877358, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Init", "comment": null, "color": {"r": 1.0, "g": 0.964491, "b": 0.6367924, "a": 1.0}, "$version": "A"} {}
+None GraphGroup {"label": "Modifier", "comment": null, "color": {"r": 0.7311321, "g": 1.0, "b": 0.9154003, "a": 1.0}, "$version": "A"} {}
+None StickyNote {"title": "OnInit 진입점 섹터", "body": "기대 동작\n", "colorTheme": "Classic"} {}
+None StickyNote {"title": "Get Modifier 진입점 섹터", "body": "기대 동작\n\n크루시엘 어질어질 버프 보유중인 대상에게 데미지 20% 증가\n크루시엘 어질어질 버프 보유중인 대상에게 받는 피해 20% 감소", "colorTheme": "Classic"} {}
+ControlConnection {'$ref': '29'} ifFalse -> {'$ref': '31'} InputTrigger
+ControlConnection {'$ref': '29'} ifTrue -> {'$ref': '27'} InputTrigger
+ControlConnection {'$ref': '15'} trigger -> {'$ref': '19'} assign
+ControlConnection {'$ref': '21'} Trigger -> {'$ref': '29'} enter
+ValueConnection {'$ref': '25'} difference -> {'$ref': '27'} Float
+ValueConnection {'$ref': '33'} Result -> {'$ref': '25'} subtrahend
+ValueConnection {'$ref': '23'} value -> {'$ref': '17'} a
+ValueConnection {'$ref': '17'} comparison -> {'$ref': '29'} condition
+ValueConnection {'$ref': '15'} Integer -> {'$ref': '19'} input

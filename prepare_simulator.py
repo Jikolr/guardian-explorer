@@ -55,6 +55,8 @@ data = dict(snapshot='3.54.0', heroes=heroes, items=items, bosses=bosses,
             styles=read('battlestyles')['BattleStyles'], projectiles=read('projectiles'),
             weaponTypes=read('weapontypespecs'), elements=read('elementalmatrix')['ElementalMatrix'],
             mastery=guardian['GuardianSkillLevel'], masterySkills=guardian['GuardianSkill'])
+if (OUT/'raid-source-models.json').exists():
+    data['sourceModels']=json.loads((OUT/'raid-source-models.json').read_text(encoding='utf-8'))
 (OUT / 'raid-simulator.json').write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 assert next(h for h in heroes if h['Id'] == 20596)['awakening']
 print(f'Exported {len(heroes)} hero stages, {len(items)} equipment records, {len(bosses)} raid variants')

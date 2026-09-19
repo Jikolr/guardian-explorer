@@ -1,0 +1,71 @@
+{
+  "snapshot": "3.54.0",
+  "scope": "Component-level source validation for the selected Darkness team. Not full hero/rotation validation or proof against runtime hotfixes.",
+  "checks": [
+    {
+      "file": "audit/attack-graphs/wrestler-ManualWrestlerFirst.json",
+      "sha256": "57d2bb3b55a4803103dd4f3213482b747ca7359adaf90e4520a081f87e74c672",
+      "claim": "Direct damage path: literal 0.3 -> GetModifier (MaxHit 1) -> ApplyDamage"
+    },
+    {
+      "file": "audit/attack-graphs/wrestler-ManualWrestlerSecond.json",
+      "sha256": "3c1f993e1353be3da89a437bead7992f9825deafb8d16573f00ab79dff422b9d",
+      "claim": "Direct damage path: literal 0.5 -> GetModifier (MaxHit 1) -> ApplyDamage"
+    },
+    {
+      "file": "audit/attack-graphs/wrestler-ManualWrestlerThird.json",
+      "sha256": "d6e931b7eb3be43f15c4da83334521dd81c910417a4c85c348a6533d6d4e4fc3",
+      "claim": "Direct damage path: literal 0.4 -> GetModifier (MaxHit 1) -> ApplyDamage"
+    },
+    {
+      "file": "audit/attack-graphs/wrestler-ManualWrestlerFourth.json",
+      "sha256": "7313445a881070b2d4ff3dc389ebcb065dde00a021803669fd1400c42b2fe540",
+      "claim": "Direct damage path: literal 0.8 -> GetModifier (MaxHit 1) -> ApplyDamage"
+    },
+    {
+      "file": "audit/attack-graphs/wrestler-SupportWrestler.json",
+      "sha256": "ec84e4702e97fc3473f2f7c05f014efd865bfb1596fecf33396bce10843c6c63",
+      "claim": "Direct damage path: literal 3.3 -> GetModifier (MaxHit 1) -> ApplyDamage"
+    },
+    {
+      "file": "audit/attack-graphs/bridge_driver-RoleBridgeDriver.json",
+      "sha256": "eac28fec8bf6f81c218ebc9d98e34145485307c4d19f17c8c8fdca2d81c716e4",
+      "claim": "Role direct damage: ModifierBase -> GetModifier -> one ApplyDamage node; timing is position-dependent"
+    },
+    {
+      "file": "decoded-scripts/Battle/Option/WrestlerSpecialOption.lua",
+      "sha256": "d97a1bc8855a6075705597b913a04302c771a47133cb299dea5a40371833949d",
+      "claim": "Matching-element teammates excluding owner; owned Myth override; capped damage multiplier"
+    },
+    {
+      "file": "decoded-scripts/Battle/BattleAction/ManualDemonCeoBattleAction.lua",
+      "sha256": "d4292c3c3aa71d4db429385d83d3d97a5714e3713446089a6bdb1168c151fbb9",
+      "claim": "Synchronized collision state splits coefficient over HitTiming; projectile arrival is not cast time"
+    },
+    {
+      "file": "decoded-scripts/Battle/BattleAction/Support/InvaderKnightSupportBattleAction.lua",
+      "sha256": "7621e2066359ecea43c23681be8076ced56786e5dc5db2e524d3916ed46cb259",
+      "claim": "Chain hit timings, coefficient per hit and owned Myth override"
+    },
+    {
+      "file": "decoded-scripts/Battle/Option/WrestlerRoleOption.lua",
+      "sha256": "ad3ec7688f2073878a107ceab60373f4a1e8a9535013b911158aa5a7a7c96f10",
+      "claim": "Role buff targets self after role damage; critical requirement waived by special option"
+    },
+    {
+      "file": "docs/passive-evidence/WhileCollisionCalculate-get_Each.asm",
+      "sha256": "4300091d71e90c18b95668e2e846b4fe56575fe83435b9d850c43b82483a991b",
+      "claim": "get_Each field offset"
+    },
+    {
+      "file": "docs/passive-evidence/WhileCollisionCalculate-get_True.asm",
+      "sha256": "a1fd43b494fe9d136ac796fa73fad37fb35deb66d7ad377a550de8738c8cf4a6",
+      "claim": "get_True field offset"
+    },
+    {
+      "file": "docs/passive-evidence/WhileCollisionCalculate-TriggerAction.asm",
+      "sha256": "84dac5e3c3a3ee1eafd0fe72fff472623615173e53ede192085aba29d41ba270",
+      "claim": "Native graph runner invokes Each over targets before True; Wrestler graph grants EX stacks after damage, unlike older Lua"
+    }
+  ]
+}

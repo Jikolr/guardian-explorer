@@ -6,7 +6,7 @@ const num=x=>Number.isFinite(Number(x))?Number(x):0;
 const pct=x=>num(x)/100;
 const cap=(x,a,b)=>Math.max(a,Math.min(b,x));
 const sum=a=>a.reduce((v,x)=>v+x,0);
-const empty=()=>({atk:0,skill:0,crit:0,critDamage:0,ranged:0,melee:0,normal:0,boss:0,battleAtk:0,element:{},warnings:[],sources:[]});
+const empty=()=>({atk:0,skill:0,crit:0,critDamage:0,ranged:0,melee:0,normal:0,boss:0,battleAtk:0,damageMultiplier:1,element:{},warnings:[],sources:[]});
 const growth=(level,rate=1.02)=>rate**Math.min(82,Math.max(0,level-1))*1.026**Math.min(17,Math.max(0,level-83))*1.006**Math.max(0,level-100);
 const maxProfile={name:'Endgame snapshot preset',heroCollection:71,itemCollection:102.7,equipCostume:10,illustration:2.2,jewelBook:2,tower:10,guardian:39.8,extraAtk:0,weaponBooks:Object.fromEntries(['onehandsword','twohandsword','assaultrifle','bow','staff','basket','gauntlet','claw'].map(k=>[k,10])),mastery:{meleeAtk:0,rangedAtk:0,supportAtk:0,tankerAtk:0,meleeSkill:0,rangedSkill:0,supportSkill:0,tankerSkill:0}};
 function create(db){
@@ -21,7 +21,7 @@ function create(db){
  const heroOptions=h=>[...(h.Options||[]),...(h.awakening||[])];
  function compatible(h,i){return !i||((h.CompatibleWeapons?.default||[]).includes(i.WeaponType));}
  function bestWeapon(h){return db.items.filter(i=>i.Type==='weapon'&&i.ExclusiveCharacterId===h.OriginId&&compatible(h,i)).sort((a,b)=>b.Rarity-a.Rarity)[0]?.Id||0;}
- function slot(id=0){const h=heroes[id],weapon=h?bestWeapon(h):0;return {hero:id,level:heroCap(h),weapon,weaponLevel:weaponCap(items[weapon]),accessory:0,shield:0,card1:0,card2:0,merch:0,merchLevel:30,jewel:0,relic:0,relicOptions:[],relicSet:true,extra:{atk:0,skill:0,crit:0,critDamage:0,ranged:0,melee:0,boss:0,battleAtk:0,normal:0},attackOverrides:{}};}
+ function slot(id=0){const h=heroes[id],weapon=h?bestWeapon(h):0;return {hero:id,level:heroCap(h),weapon,weaponLevel:weaponCap(items[weapon]),accessory:0,shield:0,card1:0,card2:0,merch:0,merchLevel:30,jewel:0,relic:0,relicOptions:[],relicSet:true,hpPercent:100,nearbyEnemies:1,extra:{atk:0,skill:0,crit:0,critDamage:0,ranged:0,melee:0,boss:0,battleAtk:0,normal:0},attackOverrides:{}};}
  function defaultState(){return {version:1,profile:clone(maxProfile),team:[slot(20596),slot(535),slot(20425),slot(20542)],leader:0,boss:790035,element:'Ice',debuffs:[],effects:[],activeBuffs:[],customDebuffs:{def:0,rangedDef:0,meleeDef:0,resistance:0},ailment:'none'};}
  function measured(){const s=defaultState();s.profile.name='Dabin measured account';s.profile.illustration=2.2;s.profile.mastery.rangedAtk=49;s.profile.mastery.rangedSkill=41;s.team.slice(1).forEach(x=>x.weapon=0);s.debuffs=['dabin-earth'];return s;}
  function eligible(o,h,w){
@@ -30,7 +30,7 @@ function create(db){
   if(o.ConditionType==='WeaponType'&&o.WeaponType!==w?.WeaponType)return false;
   return true;
  }
- const harmless=new Set(['HpScale','DefenseScale','RecoveryScale','ManaRegenScale','WeaponDefenseUp','WeaponDamageReduction','RawDamageReductionAdd','ShieldGenerationOnBattleStart','ShieldGenerationOnKill','HpRecoveryOnKill','DebuffResist','CriticalResistanceUp','TargetConditionProtection','GeneralIntervalInBattle','SuperBattleLevelUp','BattleAction','MythBattleAction','BattleActionParameter','WeaponElementalUp']);
+ const harmless=new Set(['InvaderKnightSpecial','HpScale','DefenseScale','RecoveryScale','ManaRegenScale','WeaponDefenseUp','WeaponDamageReduction','RawDamageReductionAdd','ShieldGenerationOnBattleStart','ShieldGenerationOnKill','HpRecoveryOnKill','DebuffResist','CriticalResistanceUp','TargetConditionProtection','GeneralIntervalInBattle','SuperBattleLevelUp','BattleAction','MythBattleAction','WeaponElementalUp']);
  function apply(target,ref,h,w,source,party=false){
   const o=options[ref.OptionId];if(!o||!eligible(o,h,w))return;
   const l=ref.Level??ref.MaxLevel??0,c=o.Class;
@@ -41,7 +41,7 @@ function create(db){
   let applied=false;
   if(c==='Buff'){
    if(!!o.IsPartyBuff!==party&&!o.IsForRelicSet)return;
-   const b=buffs[o.BuffId];if(!b)return;
+   const b=buffs[o.BuffId];if(!b){target.warnings.push(`${source}: missing buff record ${o.BuffId}.`);return;}
    const cls=b.ClassName;
    if(cls==='TotalAttackScale'){target.battleAtk+=optionValue(b,'AttackScale',l);applied=true;}
    if(cls==='ElementalAttackScale'){target.element[b.Elemental]=(target.element[b.Elemental]||0)+optionValue(b,'AttackScale',l);applied=true;}
@@ -54,10 +54,61 @@ function create(db){
     // Elemental options contribute to prepared ATK, restricted to each damage component below.
     const key=String(o.Elemental).toLowerCase();target.element[key]=(target.element[key]||0)+optionValue(o,'ElementalScale',l);applied=true;
    }else if(c==='TargetConditionDamageBoost'){target.boss+=optionValue(o,'BossModifier',l);applied=true;}
-   else if(c==='MerchDamageBoost'&&o.BossAlwaysApply){target.boss+=num(o.BossDamageModifier)*num(l);applied=true;target.warnings.push(`${source}: boss-always merch bonus included; conditional extra damage is not simulated.`);}
+   else if(c==='MerchDamageBoost'&&o.BossAlwaysApply){target.boss+=num(o.BossDamageModifier)*num(l);applied=true;}
+   else if(['WeaponTypeDamageBoost','LowHpDamageBoost','GourrySpecial'].includes(c))return; // Evaluated with loadout / current HP below.
+   else if(['AfterSkillDamageBoost','NoHitDamageBoost','HalfVampireSpecial'].includes(c)){target.warnings.push(`${source}: ${o.Name} has a conditional damage window; select it in Active team buffs when active. Other scripted effects remain partial.`);}
+   else if(c==='Lua'&&['WrestlerSpecial','DaiSpecial','FallenQueenSpecial','BlueDragonSpecial','DemonOperatorAwakening'].includes(o.ScriptName))return; // Battle / target conditions are evaluated in calculate().
    else if(!harmless.has(c))target.warnings.push(`${source}: ${o.Name} (${c}) needs a custom-effect model.`);
   }
   if(applied)target.sources.push(`${source}: ${o.Name} · level ${l}`);
+ }
+ function effectRefs(s){
+  const h=heroes[s.hero];if(!h)return [];
+  const rows=heroOptions(h).map(r=>({...r,source:'Hero / max awakening'}));
+  rows.push(...(h.BlessingLevelOptions?.at(-1)||[]).map(r=>({...r,source:'Max blessing'})));
+  for(const key of ['weapon','accessory','shield','card1','card2','merch','jewel']){
+   const i=items[s[key]];if(!i)continue;
+   rows.push(...[...i.Options||[],...i.StaticOptions||[],...(key==='weapon'?i.EngraveStaticOptions||[]:[])].map(r=>({...r,source:key+': '+i.Name})));
+   const picks=key==='weapon'?i.EngraveRandomOptions||[]:[];
+   if(picks.length)rows.push({...picks.reduce((a,b)=>a.Level>b.Level?a:b),source:'Max engraving roll'});
+  }
+  rows.push(...(s.relicOptions||[]).map(r=>({...r,source:'Relic roll'})));
+  return rows;
+ }
+ function effectCoverage(s){
+  const h=heroes[s.hero],w=items[s.weapon];if(!h)return [];
+  const stats=new Set(['TotalAttackScale','SuperSkillScale','CriticalChanceUp','CriticalMultiplierScaleUp','NormalSkillScale','ElementalScale','WeaponElementalUp','TargetConditionDamageBoost']);
+  const buffStats=new Set(['TotalAttackScale','ElementalAttackScale','ProjectileAttackScale','MeleeAttackScale','SuperSkillScale','NormalSkillScale','Critical','CriticalMultiplierScale']);
+  const rows=[],seen=new Set();
+  for(const ref of effectRefs(s)){
+   const o=options[ref.OptionId],token=ref.source+':'+ref.OptionId;if(seen.has(token))continue;seen.add(token);
+   let status='Unresolved',note='Custom effect not fully replayed. Its absence from the calculated number does not mean it has no damage effect.';
+   if(!o){rows.push({id:ref.OptionId,source:ref.source,status,note:'Missing option record.'});continue;}
+   if(!eligible(o,h,w)){status='Inactive';note='Hero / weapon eligibility condition is not met.';}
+   else if(stats.has(o.Class)){status='Stat formula';note='General stat or boss-damage formula; see applied options for eligibility and value.';}
+   else if(o.Class==='Buff'&&buffStats.has(buffs[o.BuffId]?.ClassName)){status='Stat formula';note='Supported permanent self / party stat bonus.';}
+   else if(o.Class==='WeaponTypeDamageBoost'){status='Conditional formula';note='Damage × (1 + Modifier) when either equipped weapon slot matches TargetWeaponType.';}
+   else if(o.Class==='Lua'&&o.ScriptName==='WrestlerSpecial'){status='Code-traced passive';note='WrestlerSpecialOption.lua: count matching-element teammates except self, apply owned Myth override, cap the bonus, then multiply damage. Independent of equipped weapons.';}
+   else if(o.Class==='Lua'&&['DaiSpecial','FallenQueenSpecial','BlueDragonSpecial','DemonOperatorAwakening'].includes(o.ScriptName)){status='Partial code-traced passive';note='Direct damage multiplier traced from Lua; other event-driven buffs / defensive effects are not covered by that proof. Blue Dragon assumes all selected party members are alive in this raid snapshot.';}
+   else if(['LowHpDamageBoost','GourrySpecial'].includes(o.Class)){status='Conditional formula';note='Native damage multiplier evaluated using the source hero’s current HP percentage. Healing / defensive effects are outside the damage snapshot.';}
+   else if(['AfterSkillDamageBoost','NoHitDamageBoost','HalfVampireSpecial'].includes(o.Class)){status='Manual window';note='Native damage multiplier available in Active team buffs; activation and expiry are manual. Other custom fields are not implied to be modelled.';}
+   else if(o.Class==='InvaderKnightSpecial'){status='Conditional formula';note='Nearby-enemy damage multiplier; set enemy count. Other effects are not a timed replay.';}
+   else if(o.Class==='MerchDamageBoost'&&o.BossAlwaysApply){status='Raid formula';note='Boss modifier replaces the ordinary HP-condition branch.';}
+   else if(['BattleAction','MythBattleAction','BattleActionParameter','SuperBattleLevelUp'].includes(o.Class)){status='Partial action model';note='Action / evolution parameters are only applied where explicitly traced. See each attack note; script branches, procs and timing may be missing.';}
+   else if(harmless.has(o.Class)){status='Outside direct damage';note='Not used as a direct damage bonus in this snapshot; does not simulate survivability or cooldown rotations.';}
+   if(o.ConditionType&&!['CoopExpeditionExclude','CharacterOriginType','EngraveOptionExclusive','WeaponType','WeaponLimitBreakType'].includes(o.ConditionType)){status='Unresolved condition';note='Live condition is not automatically evaluated.';}
+   rows.push({id:o.Id,name:o.Name,class:o.Class,source:ref.source,status,note});
+  }
+  return rows;
+ }
+ function weaponDamageEffects(s,h){
+  const w=items[s.weapon],seen=new Set(),matched=[];
+  for(const ref of effectRefs(s)){
+   const o=options[ref.OptionId];if(!o||o.Class!=='WeaponTypeDamageBoost'||!eligible(o,h,w)||seen.has(o.Id))continue;
+   seen.add(o.Id);
+   if([w,items[s.shield]].some(i=>String(i?.WeaponType).toLowerCase()===String(o.TargetWeaponType).toLowerCase()))matched.push(o);
+  }
+  return matched;
  }
  function equipment(s,h){
   const result=empty(),w=items[s.weapon];
@@ -80,6 +131,16 @@ function create(db){
   }
   for(const r of s.relicOptions||[])apply(result,r,h,w,'Relic roll');
   for(const [k,v] of Object.entries(s.extra||{}))if(k in result&&typeof result[k]==='number')result[k]+=k==='crit'?num(v):pct(v);
+  for(const o of weaponDamageEffects(s,h)){result.damageMultiplier*=1+num(o.Modifier);result.sources.push(`Weapon-type damage passive: ${o.Name} ×${1+num(o.Modifier)}`);}
+  const seenHp=new Set(),hp=cap(num(s.hpPercent??100)/100,0,1);
+  for(const ref of effectRefs(s)){
+   const o=options[ref.OptionId];if(!o||!eligible(o,h,w)||seenHp.has(o.Id))continue;
+   let bonus;
+   if(o.Class==='LowHpDamageBoost')bonus=hp<=num(o.HpRatio)?cap(1-hp,num(o.MinModifier),num(o.MaxModifier)):0;
+   if(o.Class==='GourrySpecial')bonus=hp*num(o.DamageModifier);
+   if(bonus===undefined)continue;seenHp.add(o.Id);result.damageMultiplier*=1+bonus;
+   result.sources.push(`Current HP damage passive: ${o.Name} ×${1+bonus} at ${hp*100}% HP`);
+  }
   if(!h.treeKnown)result.warnings.push('Max awakening tree is unavailable for this hero.');
   return result;
  }
@@ -113,6 +174,7 @@ function create(db){
    if(h.OriginId===425)result.push({id:'kamael-ranged',label:'Kamael · ranged DEF −20%',kind:'rangedDef',value:.2,group:'ranged-def'});
    if(h.OriginId===542)result.push({id:'eunha-def',label:'Eunha · DEF −20%',kind:'def',value:.2,group:'def'});
    if(h.OriginId===368&&w.ExclusiveCharacterId===368)result.push({id:'beth-dark',label:'Beth EX · Darkness resistance −30%',kind:'resistance',element:'Darkness',value:.3,group:'darkness-resistance'});
+   if(h.OriginId===641)result.push({id:w.ExclusiveCharacterId===641?'data-641-3206414':'data-641-3206410',label:`Wrestler normal hit · melee DEF −${w.ExclusiveCharacterId===641?20:10}%`,kind:'meleeDef',value:w.ExclusiveCharacterId===641?.2:.1,group:'melee-def'});
    // Discover directly referenced constant debuffs. Do not guess stack counts or
    // option levels for scripted/level-scaled effects.
    const refs=heroOptions(h),owned=new Set(refs.map(r=>r.OptionId));
@@ -141,7 +203,7 @@ function create(db){
    if(!b||seen.has(b.Id))return;seen=new Set(seen);seen.add(b.Id);
    if(b.ClassName==='MultipleGroup'){(b.BuffId||[]).forEach((id,j)=>add(buffs[id],b.Level?.[j]??level,meta,seen));return;}
    if(!(b.Duration>0))return;
-   const mapping={TotalAttackScale:['battleAtk','AttackScale'],StackableAttackScale:['battleAtk','AttackScale'],StackableTotalAttackScale:['battleAtk','AttackScale'],StackableCriticalMultiplierScale:['critDamage','CriticalScale'],ElementalAttackScale:['element','AttackScale'],ProjectileAttackScale:['ranged','AttackScale'],MeleeAttackScale:['melee','AttackScale'],SuperSkillScale:['skill','AttackScale'],NormalSkillScale:['normal','AttackScale'],Critical:['crit','Critical'],CriticalMultiplierScale:['critDamage','CriticalScale']};
+   const mapping={TotalAttackScale:['battleAtk','AttackScale'],StackableAttackScale:['battleAtk','AttackScale'],StackableTotalAttackScale:['battleAtk','AttackScale'],StackableCriticalMultiplierScale:['critDamage','CriticalScale'],ElementalAttackScale:['element','AttackScale'],ProjectileAttackScale:['ranged','AttackScale'],MeleeAttackScale:['melee','AttackScale'],SuperSkillScale:['skill','AttackScale'],NormalSkillScale:['normal','AttackScale'],StackableNormalSkillScale:['normal','AttackScale'],Critical:['crit','Critical'],CriticalMultiplierScale:['critDamage','CriticalScale']};
    const rule=mapping[b.ClassName];if(!rule)return;
    const [key,field]=rule;
    if(num(b[field+'Add'])!==0&&!Number.isFinite(level))return;
@@ -161,6 +223,27 @@ function create(db){
    if(h.OriginId===533&&w.ExclusiveCharacterId===533){
     const o=override(options[310533]);add(byName[o.BuffName],o.BuffLevel,{owner,hero:h.displayName,source:'ManualDragonDaughter',trigger:'Normal / break attack hit with EX',scope:'Party'});
    }
+   if(h.OriginId===641){
+    const role=override(options[350641]);if(owned.has(350641))add(byName[role.RoleBuffName],0,{owner,hero:h.displayName,source:'WrestlerRoleOption',trigger:owned.has(320641)?'After a special-role hit on a character':'After a critical special-role hit on a character',scope:'Self'});
+    if(w.ExclusiveCharacterId===641){const o=override(options[310641]);
+     add(byName[o.AttackBuffName],0,{owner,hero:h.displayName,source:'WrestlerEX-stacks',trigger:'EX ATK stacks already active before this cast',scope:'Self'});
+     add(byName[o.CritMutiplyBuffName],0,{owner,hero:h.displayName,source:'WrestlerEX-critical',trigger:'EX critical-damage window active after reaching the stack threshold',scope:'Self'});
+    }
+   }
+   const forest=refs.map(r=>options[r.OptionId]).find(o=>o?.ScriptName==='ForestElfSpecial');
+   if(forest){
+    const hasEx=effectRefs(s).some(r=>r.OptionId===forest.CwpOptionId&&eligible(options[r.OptionId],h,w));
+    const meta={owner,hero:h.displayName,source:'ForestElfSpecialOption',scope:hasEx?'Party':'Self'};
+    add(byName[forest.BuffName],0,{...meta,trigger:`No-damage timer stacks already active (${forest.RequireTime}s interval)`});
+    add(byName[forest.CritMultBuffName],0,{...meta,trigger:'No-damage timer critical-damage window already active'});
+   }
+   for(const ref of effectRefs(s)){
+    const o=options[ref.OptionId];if(!o||!eligible(o,h,w)||!['AfterSkillDamageBoost','NoHitDamageBoost','HalfVampireSpecial'].includes(o.Class))continue;
+    const value=num(o.Class==='HalfVampireSpecial'?o.DamageModifier:o.Modifier);if(value<=0)continue;
+    const id=`passive:${owner}:${o.Id}`;
+    const trigger=o.Class==='HalfVampireSpecial'?`While ${o.BuffName} is active`:o.Class==='AfterSkillDamageBoost'?'After-skill damage window active (trigger timing not replayed)':`No-hit damage window active (required timer: ${o.RequireTime}s; activation is manual)`;
+    found.set(id,{id,owner,hero:h.displayName,source:String(o.Id),optionId:o.Id,name:o.Name,key:'damageMultiplier',value,scope:'Self',duration:o.ApplyTime||byName[o.BuffName]?.Duration||null,maxStacks:1,group:'passive-'+o.Id,trigger});
+   }
    const names=new Map();
    for(const st of db.styles.filter(x=>x.Class===h.Class&&(x.Weapon1===w.WeaponType||x.Weapon2===w.WeaponType)))for(const name of [...st.BattleActions||[],...st.ManualBattleActions||[]])names.set(name,name.startsWith('Role')?'Special attack':'Normal attack');
    for(const ref of refs){const o=options[ref.OptionId];if(o?.BattleActionName&&o.BattleActionName!=='FALSE')names.set(o.BattleActionName,o.Class==='MythBattleAction'?'Leader skill':o.Class==='BattleAction'?'Chain skill':'Hero action');}
@@ -177,11 +260,9 @@ function create(db){
    }
    // Scripted hero / equipped EX references are discoverable even when the
    // trigger or recipient is unknown. They require an explicit recipient choice.
-   const eqRefs=['weapon','shield','accessory','merch','jewel','card1','card2'].flatMap(k=>items[s[k]]?.StaticOptions||[]);
-   for(const ref of [...refs,...eqRefs]){
+   for(const ref of effectRefs(s)){
     const raw=options[ref.OptionId];if(!raw||!eligible(raw,h,w)||raw.Class==='Buff')continue;
     const o=override(raw);
-    if(owned.has(ref.OptionId)&&raw.Class==='BattleActionParameter')continue;
     const superTrigger=o.ActionType==='super'||String(o.BattleActionName||'').startsWith('Cwp');
     if(superTrigger&&owner!==state.leader)continue;
     const meta={owner,hero:h.displayName,source:String(o.Id),trigger:superTrigger?'After weapon skill':o.Class==='OnHitPassive'?'On hit':'Hero / equipment effect (trigger not decoded)',scope:['Self','Party'].includes(o.TargetType)?o.TargetType:'Unknown'};
@@ -211,7 +292,7 @@ function create(db){
  function prepared(s,profile,p,temporary=[]){
   const h=heroes[s.hero],w=items[s.weapon];if(!h)return null;
   const e=equipment(s,h),components=[],baseCrit=e.crit;
-  for(const b of temporary){if(b.key==='element')e.element[b.element]=(e.element[b.element]||0)+b.value;else e[b.key]+=b.value;e.sources.push(`Active: ${b.hero} · ${b.trigger} · ${b.name} (${b.stacks} stack${b.stacks===1?'':'s'})`);}
+  for(const b of temporary){if(b.key==='element')e.element[b.element]=(e.element[b.element]||0)+b.value;else if(b.key==='damageMultiplier')e.damageMultiplier*=1+b.value;else e[b.key]+=b.value;e.sources.push(`Active: ${b.hero} · ${b.trigger} · ${b.name} (${b.stacks} stack${b.stacks===1?'':'s'})`);}
   const ordinary=1+e.atk+pct(profile.heroCollection)+pct(profile.itemCollection)+pct(profile.equipCostume)+pct(profile.illustration)+pct(profile.jewelBook)+pct(profile.tower)+pct(profile.extraAtk)+pct(profile.weaponBooks?.[w?.WeaponType]);
   const account=1+pct(profile.guardian)+mastery(profile,h,'atk');
   if(w&&!compatible(h,w))e.warnings.push('Selected weapon is incompatible with this hero.');
@@ -286,9 +367,37 @@ function create(db){
    if(name==='GraphMyth:BridgeDriver'){ticks=Array(3).fill(num(a.TotalDpsMult)/3);coefficient=sum(ticks);timings=[.2,.6,1];status='estimate';note='Extracted MythBridgeDriver graph: three timer paths share a TotalDpsMult / 3 damage node. Buff timing remains a separate manual scenario.';}
    if(name==='GraphTrigger:CwpBridgeDriver'&&coefficient!==null){ticks=[coefficient*(1-num(a.MainDamage)),coefficient*num(a.MainDamage)];timings=[.4,.7];note='Extracted CwpBridgeDriver graph: sub-damage path at 0.4s, main-damage path at 0.7s. Uses connected MainDamage / (1 − MainDamage) values. Both collision areas must hit.';}
    if(['GraphSupport:Wrestler','GraphSupport:BridgeDriver','GraphTrigger:CwpWrestler'].includes(name)&&coefficient!==null){ticks=[coefficient];timings=[name==='GraphSupport:Wrestler'?1:name==='GraphSupport:BridgeDriver'?.9:.55];note+=' One damage event traced in the extracted graph; conditional buffs remain manually selected.';}
+   let validation=null;
+   if(name.startsWith('GraphCombo:Wrestler')&&ticks){
+    const ex=w?.ExclusiveCharacterId===641;
+    hitEffects=[{id:ex?'data-641-3206414':'data-641-3206410',label:`Wrestler: melee DEF −${ex?20:10}%`,kind:'meleeDef',value:ex?.2:.1,group:'melee-def',afterHit:0,duration:3}];
+    status='verified';validation='Direct graph coefficient, collision event and post-hit debuff order';
+    note='Wrestler graph damage publishes before the melee DEF debuff. Native WhileCollisionCalculate invokes Each before True: the EX ATK stack and stack-threshold critical buff are granted AFTER the first collision. Selected Active team buffs describe the state BEFORE this cast. All hits must connect; no automatic rotation is simulated.';
+   }
+   if(name.startsWith('ManualDemonCeo:')&&a.ModifierBase>0&&!a.ModifierAdd){
+    coefficient=a.ModifierBase;ticks=a.HitTiming.map(()=>coefficient/a.HitTiming.length);timings=a.HitTiming;
+    status='verified';validation='Direct coefficient and collision hit sequence';
+    note='ManualDemonCeoBattleAction.lua: collision_state divides ModifierBase by HitTiming.length. Projectile arrival starts the collision state; displayed times are relative to that state, not the initial cast. All collisions must connect. Role effects are separate.';
+   }
+   if(name==='BasicSupport:InvaderKnight'){
+    ticks=a.HitDpsMultipliers;coefficient=sum(ticks);timings=a.HitAreaTimings;status='verified';validation='Direct coefficient, Myth override and hit sequence';
+    note='InvaderKnightSupportBattleAction.lua reads HitAreaTimings and HitDpsMultipliers, replacing the latter when the Myth option is owned. Each hit publishes damage; the final hit applies the chain ailment. No normal-attack EX debuff is invoked by this action.';
+   }
+   if(name==='GraphSupport:Wrestler'){
+    coefficient=3.3;ticks=[3.3];timings=[1];status='verified';validation='Direct graph damage path';
+    note='SupportWrestler graph: Literal node 154 (3.3) → GetModifier 148 → ApplyDamage 102. The Myth selector changes collision radius, not this literal coefficient. The static Myth description says 3.5; this extracted graph executes 3.3. Runtime patch differences remain possible.';
+   }
+   if(name==='GraphRole:BridgeDriver'&&a.ModifierBase>0){
+    coefficient=a.ModifierBase;ticks=[coefficient];timings=null;status='verified';validation='Direct graph coefficient and one collision event';
+    note='RoleBridgeDriver graph: GetStatic ModifierBase node 223 → GetModifier 397 → ApplyDamage 129, once per collision target. Dash / contact time depends on position. Party-buff and EX timing are not included in this validation.';
+   }
    const override=s.attackOverrides?.[name];
    if(override&&override.enabled){coefficient=num(override.coefficient);ticks=Array.from({length:cap(Math.floor(num(override.hits)||1),1,100)},()=>coefficient/cap(Math.floor(num(override.hits)||1),1,100));status='custom';note='Your coefficient; total split equally over the specified hits.';}
-   list.push({name,kind,coefficient,ticks,timings,status,note,hitEffects,noDamage:noDamage&&!override?.enabled,type:a.BaseDamageType||((h.CoopClass==='melee')?'Melee':'Projectile')});
+   list.push({name,kind,coefficient,ticks,timings,status,note,validation:override?.enabled?null:validation,hitEffects,noDamage:noDamage&&!override?.enabled,type:a.BaseDamageType||((h.CoopClass==='melee')?'Melee':'Projectile')});
+   if(status!=='verified'&&!override?.enabled){
+    const model=db.sourceModels?.[name];
+    for(const event of model?.events||[])list.push({name:name+' · graph event '+event.node,kind,coefficient:event.coefficient,ticks:[event.coefficient],timings:null,status:'verified',eventOnly:true,validation:'One graph damage input only; trigger, repeats and cast total unresolved',type:event.damageType,note:`Source: ${model.source}, ApplyDamage node ${event.node}. Its GetModifier expression resolves to this coefficient. This is ONE INVOCATION if this branch executes, not a full attack, rotation or guaranteed extra hit. Buff state remains your selected snapshot.`,source:model.source});
+   }
    if(name==='ManualChinaHero'&&!override?.enabled)list.push({name:name+' · enhanced hit',kind:'normal',coefficient:num(a.EnhanceModifier)*num(a.ActionDuration),status:'estimate',note:'Enhanced collision from EnhanceModifier / hits-per-second. Select this result only when the enhanced hit occurs; no probability averaging.',type:a.BaseDamageType});
    if(name==='RoleSunyeo'&&owned.has(320596)){
     const special=options[320596];
@@ -309,6 +418,25 @@ function create(db){
   const output=[],buffAvailable=availableBuffs(state);
   for(let index=0;index<state.team.length;index++){
    const s=state.team[index],v=prepared(s,state.profile,p,activeBuffEffects(state,index,buffAvailable));if(!v)continue;
+   const scriptedSeen=new Set(),ownedScriptOptions=new Set(heroOptions(v.h).map(r=>r.OptionId));
+   for(const ref of effectRefs(s)){
+    const raw=options[ref.OptionId];if(!raw||raw.Class!=='Lua'||!eligible(raw,v.h,v.w)||scriptedSeen.has(raw.Id))continue;
+    scriptedSeen.add(raw.Id);const o=ownedScriptOptions.has(raw.MythOptionId)?{...raw,...options[raw.MythOptionId]}:raw;
+    let bonus;
+    if(['DaiSpecial','FallenQueenSpecial'].includes(raw.ScriptName))bonus=num(o.DamageModifier);
+    if(raw.ScriptName==='BlueDragonSpecial')bonus=Math.min(Math.max(state.team.filter(t=>heroes[t.hero]).length,1),num(o.MaxCount))*num(o.DamageModifier);
+    if(raw.ScriptName==='DemonOperatorAwakening'){
+     if(boss.CoopClass===undefined)v.e.warnings.push('Demon Operator awakening: boss combat class is absent from this record; target-class bonus remains unresolved and is not added.');
+     else bonus=String(boss.CoopClass).toLowerCase()==='tanker'?optionValue(o,'CoopClassModifier',ref.Level??ref.MaxLevel):0;
+    }
+    if(bonus!==undefined){v.e.damageMultiplier*=1+bonus;v.e.sources.push(`Lua direct damage passive: ${raw.ScriptName} ×${1+bonus}`);}
+   }
+   const wrestler=heroOptions(v.h).find(r=>options[r.OptionId]?.ScriptName==='WrestlerSpecial');
+   if(wrestler){const raw=options[wrestler.OptionId],owned=new Set(heroOptions(v.h).map(r=>r.OptionId)),o=owned.has(raw.MythOptionId)?{...raw,...options[raw.MythOptionId]}:raw;
+    const matching=state.team.filter((t,j)=>j!==index&&heroes[t.hero]?.ElementalType===v.h.ElementalType).length;
+    const factor=1+Math.min(matching*num(o.BonusDamageRatio),num(o.MaxBonusDamageRatio));
+    v.e.damageMultiplier*=factor;v.e.sources.push(`Wrestler same-element passive: ${matching} teammates ×${factor} (WrestlerSpecialOption.lua)`);
+   }
    const warnings=[...v.e.warnings,...p.warnings];
    if(!v.w)warnings.push('No weapon equipped: this hero contributes party buffs but has no calculated attack damage.');
    const results=attackList(s).map(a=>{
@@ -318,6 +446,8 @@ function create(db){
     if(a.coefficient===null)return a;
     if(!v.w)return {...a,unavailable:'No weapon equipped'};
     if(!compatible(v.h,v.w))return {...a,unavailable:'Incompatible weapon'};
+    const special=heroOptions(v.h).some(r=>r.OptionId===320368)?options[320368]:null;
+    const proximity=special?1+Math.min(cap(num(s.nearbyEnemies??1),0,3)*num(special.DamageModifier),num(special.MaxDamageModifier)):1;
     const evaluateHit=(k,hitIndex)=>{
      const triggered=(a.hitEffects||[]).filter(e=>hitIndex>e.afterHit&&(!a.timings||a.timings[hitIndex]-a.timings[e.afterHit]<e.duration));
      const hitActive=[...active,...triggered];
@@ -340,15 +470,19 @@ function create(db){
      const resistance=1+Math.max(0,...hitActive.filter(d=>d.kind==='resistance'&&d.element===c.element).map(d=>d.value))+pct(state.customDebuffs.resistance);
      const target=100/(100+defense)*matchup*resistance*(1-protection);
      let role=1;if(v.h.OriginId===596&&a.name==='ManualSunyeo'&&state.effects.includes('dabin-role'))role=1.3;
-     const value=c.battleAtk*v.factor*typeFactor*skillFactor*normalFactor*(1+v.e.boss)*target*ailment*role;
-     damagePerCoefficient+=value;breakdown.push({hitIndex,...c,matchup,resistance,defense,protection,target,typeFactor,skillFactor,normalFactor,ailment,role});
+     const value=c.battleAtk*v.factor*typeFactor*skillFactor*normalFactor*(1+v.e.boss)*target*ailment*role*proximity*v.e.damageMultiplier;
+     damagePerCoefficient+=value;breakdown.push({hitIndex,...c,matchup,resistance,defense,protection,target,typeFactor,skillFactor,normalFactor,ailment,role,proximity,damageMultiplier:v.e.damageMultiplier});
     }
      return {noncrit:damagePerCoefficient*k,critical:damagePerCoefficient*k*v.critMultiplier,average:damagePerCoefficient*k*(1+v.crit*(v.critMultiplier-1)),breakdown,activeEffects:[...new Set(hitActive.map(e=>e.label))],appliedAfter:(a.hitEffects||[]).filter(e=>e.afterHit===hitIndex&&!active.some(d=>d.id===e.id)).map(e=>e.label)};
     };
     const hits=(a.ticks||[a.coefficient]).map(evaluateHit),breakdown=hits.flatMap(h=>h.breakdown);
+    if(a.name.startsWith('GraphCombo:Wrestler')&&v.w.ExclusiveCharacterId===641){
+     const buff=buffAvailable.find(b=>b.owner===index&&b.source==='WrestlerEX-stacks'),prior=v.temporary.find(b=>b.id===buff?.id)?.stacks||0;
+     if(buff&&hits.length){hits[0].appliedAfter.push(`Wrestler EX ATK stacks: ${Math.min(prior+1,buff.maxStacks)}/${buff.maxStacks} (for subsequent attacks)`);if(prior>=buff.maxStacks-1)hits[0].appliedAfter.push('Wrestler EX: critical damage +30% for 5s (for subsequent attacks)');}
+    }
     return {...a,hits,total:{noncrit:sum(hits.map(x=>x.noncrit)),critical:sum(hits.map(x=>x.critical)),average:sum(hits.map(x=>x.average))},breakdown};
    });
-   output.push({index,...v,results,warnings:[...new Set(warnings)],uiDps:v.atk*v.factor*(1+cap((num(v.w?.Critical)+v.baseCrit)/100,0,1))});
+   output.push({index,...v,results,coverage:effectCoverage(s),warnings:[...new Set(warnings)],uiDps:v.atk*v.factor*(1+cap((num(v.w?.Critical)+v.baseCrit)/100,0,1))});
   }
   return {heroes:output,party:p,boss,protection,activeDebuffs:active};
  }
@@ -366,6 +500,8 @@ function create(db){
    if(x.hero){const h=heroes[x.hero];for(const key of ['weapon','shield','accessory'])if(x[key]&&!compatible(h,items[x[key]]))throw Error('Incompatible equipment in setup.');}
    for(const key of ['weapon','shield','accessory']){const item=items[x[key]];if(item&&(item.Type!=='weapon'||(key==='weapon'&&['shield','accessory'].includes(item.WeaponType))||(key!=='weapon'&&item.WeaponType!==key)))throw Error('Equipment in wrong weapon slot.');}
    for(const key of ['level','weaponLevel'])x[key]=Math.min(number(t[key],1,150),key==='level'?heroCap(heroes[x.hero]):weaponCap(items[x.weapon]));
+   x.nearbyEnemies=number(t.nearbyEnemies??1,0,3);if(!Number.isInteger(x.nearbyEnemies))throw Error('Nearby enemy count must be a whole number.');
+   x.hpPercent=number(t.hpPercent??100,0,100);
    x.merchLevel=number(t.merchLevel,1,30);x.relicSet=!!t.relicSet;
    const relic=items[x.relic],pools=[...relic?.BaseOptions||[],...relic?.ChangeOptions||[]];
    x.relicOptions=(t.relicOptions||[]).slice(0,5).map((r,j)=>{if(!r.OptionId)return {OptionId:0,Level:0};const roll=pools[j]?.find(o=>o.OptionId===r.OptionId);if(!roll)throw Error('Invalid relic option for this stage / slot.');return {OptionId:r.OptionId,Level:number(r.Level,roll.MinLevel,roll.MaxLevel)};});
@@ -386,7 +522,7 @@ function create(db){
   for(const k of Object.keys(s.customDebuffs))s.customDebuffs[k]=number(input.customDebuffs?.[k]||0,0,k==='resistance'?100:99);
   s.ailment=['none','airborne','downed','injured'].includes(input.ailment)?input.ailment:'none';return s;
  }
- return {db,heroes,items,options,bosses,stage,heroCap,weaponCap,slot,bestWeapon,compatible,defaultState,measured,calculate,attackList,availableDebuffs,availableBuffs,activeBuffEffects,validate,maxProfile:clone(maxProfile)};
+ return {db,heroes,items,options,bosses,stage,heroCap,weaponCap,slot,bestWeapon,compatible,defaultState,measured,calculate,attackList,effectRefs,effectCoverage,availableDebuffs,availableBuffs,activeBuffEffects,validate,maxProfile:clone(maxProfile)};
 }
 root.RaidEngine={create,growth,maxProfile};if(typeof module!=='undefined')module.exports=root.RaidEngine;
 })(typeof window==='undefined'?globalThis:window);

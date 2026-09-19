@@ -76,3 +76,14 @@ Implemented sequences from this pass:
 - Graph Wrestler chain / WS and Bridge Driver chain have one traced direct damage event. This does not imply every passive proc is included.
 
 Every result now distinguishes an aggregate with an unresolved sequence from modelled hits. Per-hit breakdowns show the target state and newly applied effects. Existing generic aggregate damage estimates are still not validated full rotations or complete hit models. In particular, graph-based Bridge Driver normal attack branches and many roster-wide proc/buff paths remain unresolved.
+## Beth first-wave in-game cross-check
+
+For the subsequent catalogue-wide passive review, implemented native damage windows and remaining coverage limits, see [passive-audit.md](passive-audit.md). The simulator exposes the selected loadout audit beside each hero result and offers the complete inventory as a download.
+
+The user reported 39,871 / 23,560 / 51,833 against Water Invader Terrorist on a fresh boss. Team: Myth Beth, Myth Wrestler, Demon CEO and Myth Bridge Driver; only Beth's EX equipped, maximum account preset and melee ATK mastery level 49. No critical-hit labels were observed. The ratios strongly imply critical / noncritical / critical: 51,833 / 23,560 is approximately 2.2, and 23,560 / (39,871 / 2.2) is approximately 1.3.
+
+Missing effect: option 320368 `InvaderKnightSpecial`, DamageModifier 0.2, capped at 0.6. Native method 71369 (`Oak.InvaderKnightSpecialAppliedOption.IDamageBoostOption.GetAttackModifier`, VA 0x6a1c2c4) checks proximity, accumulates the per-enemy contribution (0x6a1c734–738), caps it and adds one (0x6a1c7e8–7f8). Local disassembly: `guardian-analysis/audit/beth-nearby-damage.asm`. The Myth option record extends range from 3 to 4 tiles without changing the 20% increment.
+
+With one nearby enemy, predicted ticks are 39,871.7937 / 23,560.6053 / 51,833.3317, within one point of each observation. Intermediate integer rounding is not replayed exactly. Prepared ATK remains 368,364.6864 and estimated UI DPS 994,584.6531. This validates this isolated scenario; it does not establish every passive interaction or other attack path.
+
+The model applies this as a battle damage multiplier, not prepared ATK or a party ATK increase. Beth's slot now saves `nearbyEnemies` (0–3); existing saves default to one nearby raid boss. Set it to zero for an out-of-range wave. Other nearby enemies can raise it to the 60% cap. The count is a user-specified scenario held constant through a cast, not an inferred position simulation.
