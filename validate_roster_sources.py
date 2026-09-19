@@ -75,7 +75,7 @@ for hero in roster:
    for k,v in a.items():
     if k.endswith('OptionId'):pending.extend(v if isinstance(v,list) else [v])
    if name in action_reports:continue
-   r={'name':name,'status':'Native or unresolved action source'}
+   r={'name':name,'status':'Native implementation indexed'}
    if a.get('GraphName'):r.update(analyze_graph(a['GraphName']));r['graph']=a['GraphName']
    else:
     family=name.split(':')[0];p=scripts.get(family+'BattleAction')
@@ -98,7 +98,15 @@ for hero in roster:
     if p:r.update(status='Lua source located; custom path validation required',source=source(p))
    option_reports[id]=r
   loadout['optionIds']=sorted(seen);del loadout['options']
+progress={}
+for hero in roster:
+ for loadout in hero['loadouts']:
+  for action in loadout['actions']:progress.setdefault(action['name'],set()).add(action['status'])
 counts={'uniqueHeroes':sum(h['rarity']=='Unique' for h in roster),'rareHeroes':sum(h['rarity']=='Rare' for h in roster),'stages':len({l['heroId'] for h in roster for l in h['loadouts']}),'loadouts':sum(len(h['loadouts'])for h in roster),'actions':len(action_reports),'options':len(option_reports),'sourceFiles':len(source_files),'graphs':len(graphs),'missingGraphs':sum(g['status']=='Missing graph bundle' for g in graphs.values()),'tracedEventInputs':sum(e['status']=='Code-traced input' for g in graphs.values() for e in g['events'])}
+counts['unresolvedActions']=sum('unresolved' in statuses for statuses in progress.values())
+counts['estimatedActions']=sum('unresolved' not in statuses and 'estimate' in statuses for statuses in progress.values())
+counts['codeTracedActions']=sum(statuses=={'verified'} for statuses in progress.values())
+counts['resolvedActions']=sum(statuses<= {'verified','resolved'} for statuses in progress.values())
 proofs={
  'DaiSpecial':['self.damage_modifier = cs_util.get_float_from_dictionary(param, \'DamageModifier\')','return 1 + self.damage_modifier','battle_util.is_in_battle(self.owner)'],
  'FallenQueenSpecial':['self:apply_myth_option(param)',"self.damage_modifier = cs_util.get_float_from_dictionary(myth_param, 'DamageModifier')",'return 1 + self.damage_modifier'],
@@ -117,9 +125,26 @@ model_scopes={
 for id,r in option_reports.items():
  family=options.get(id,{}).get('ScriptName')
  if family in model_scopes:r.update(status='Partial code-traced passive',modelScope=model_scopes[family])
+manual_graph_proofs={
+ 'GraphCombo:BattleballPitcherFirst':{'175':'One projectile hit: coefficient 0.6; DEF debuff is applied afterward.'},
+ 'GraphCombo:BattleballPitcherSecond':{'101':'One projectile hit: coefficient 0.6; DEF debuff is applied afterward.'},
+ 'GraphCombo:BattleballPitcherThird':{'162':'Initial projectile hit: coefficient 0.8. Applies DEF debuff before the EX branch.','200':'EX-only follow-up after the DEF debuff: owner ATK-to-DPS times 0.30, or 0.45 when option 20310659 is active.'},
+ 'GraphSupport:BattleballPitcher':{'342':'Two timed collisions at 0.3s and 0.6s, each 0.72 (0.8 with option 20300659).','444':'One capped final collision at 0.9–1.1s: 2.16 (2.4 with option 20300659). EX party skill buff is granted before the sequence.'},
+ 'GraphTrigger:CwpBattleballPitcher':{'277':'One projectile impact: 0.51 + 0.06 × skill level; base becomes 0.60 with option 20340659.','251':'One capped area hit in synced 0.4–0.7s window: 1.19 + 0.14 × skill level; base becomes 1.40 with option 20340659.'}
+}
+for name,checks in manual_graph_proofs.items():
+ for event in action_reports[name]['events']:
+  if event['node'] in checks:event['manualProof']=checks[event['node']]
+sequence_path=OUT/'raid-attack-sequences.json'
+if sequence_path.exists():
+ for name,model in json.loads(sequence_path.read_text(encoding='utf8'))['models'].items():
+  if name in action_reports:
+   for event in action_reports[name]['events']:
+    paths=[p for p in model['paths'] if p['damageNode']==event['node']]
+    if paths:event['manualProof']='Timed collision path traced: '+str(len(paths))+' hits at '+', '.join(str(p['time'])+'s' for p in paths)+'. '+model['scope']
 report={'snapshot':db['snapshot'],'scope':'All Unique and Rare origins with their available stages and own EX variants; no claim of complete runtime validation. Source location and graph-input proof are separate from cast/trigger validation.','counts':counts,'heroes':roster,'actions':action_reports,'options':option_reports,'sources':source_files,'implementedLuaChecks':list(proofs)}
 (OUT/'raid-roster-validation.json').write_text(json.dumps(report,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
-db['sourceModels']={name:{'source':r.get('source'),'events':[e for e in r.get('events',[]) if e['status']=='Code-traced input']} for name,r in action_reports.items() if any(e['status']=='Code-traced input' for e in r.get('events',[]))}
+db['sourceModels']={name:{'source':r.get('source'),'eventCount':len(r.get('events',[])),'events':[e for e in r.get('events',[]) if e['status']=='Code-traced input']} for name,r in action_reports.items() if r.get('graph')}
 (OUT/'raid-source-models.json').write_text(json.dumps(db['sourceModels'],separators=(',',':')),encoding='utf-8')
 (OUT/'raid-simulator.json').write_text(json.dumps(db,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 print(json.dumps(counts))

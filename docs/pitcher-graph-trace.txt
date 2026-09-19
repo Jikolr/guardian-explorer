@@ -1,0 +1,1735 @@
+
+### battleball_pitcher-BattleballPitcherSpecialOption.json
+61 GetOptionDefenceModifier:Trigger -> 17 ReturnFloat:InputTrigger
+41 GetOptionAttackModifier:Trigger -> 81 ReturnFloat:InputTrigger
+79 OnTriggerOption:trigger -> 31 If:enter
+23 If:ifTrue -> 25 ApplyBuff:InputTrigger
+51 If:ifTrue -> 15 ApplyBuff:InputTrigger
+83 GetSummonedEach:Each -> 23 If:enter
+43 SetVariable:assigned -> 55 GetStageMemberEach:InputTrigger
+55 GetStageMemberEach:Each -> 51 If:enter
+65 If:ifFalse -> 29 SetVariable:assign
+85 If:ifTrue -> 45 SetVariable:assign
+65 If:ifTrue -> 43 SetVariable:assign
+31 If:ifTrue -> 65 If:enter
+85 If:ifFalse -> 69 SetVariable:assign
+31 If:ifFalse -> 85 If:enter
+11 OnInit:trigger -> 93 SetVariable:assign
+45 SetVariable:assigned -> 47 ApplyBuff:InputTrigger
+15 ApplyBuff:OutputTrigger -> 83 GetSummonedEach:InputTrigger
+VALUES
+77 Literal:output -> 67 SelectUnit:ifTrue
+63 GreaterOrEqual:comparison -> 65 If:condition
+89 Literal:output -> 67 SelectUnit:ifFalse
+91 GetOptionApply:Result -> 93 SetVariable:input
+35 Literal:output -> 43 SetVariable:input
+71 GetIsCharacterElementalType:Result -> 23 If:condition
+53 GetVariable:value -> 75 GreaterOrEqual:a
+75 GreaterOrEqual:comparison -> 85 If:condition
+55 GetStageMemberEach:EachFieldObject -> 37 GetIsCharacterElementalType:Target
+27 ScalarSum:sum -> 29 SetVariable:input
+83 GetSummonedEach:EachFieldObject -> 71 GetIsCharacterElementalType:Target
+95 GetOwner:Result -> 25 ApplyBuff:Sender
+37 GetIsCharacterElementalType:Result -> 51 If:condition
+57 GetOwner:Result -> 47 ApplyBuff:Sender
+57 GetOwner:Result -> 47 ApplyBuff:Target
+67 SelectUnit:selection -> 47 ApplyBuff:BuffKey
+19 GetVariable:value -> 63 GreaterOrEqual:a
+87 GetOwner:Result -> 15 ApplyBuff:Sender
+79 OnTriggerOption:Integer -> 21 Equal:a
+21 Equal:equal -> 31 If:condition
+73 GetVariable:value -> 67 SelectUnit:condition
+55 GetStageMemberEach:EachFieldObject -> 15 ApplyBuff:Target
+49 ScalarSum:sum -> 69 SetVariable:input
+39 GetVariable:value -> 27 ScalarSum:0
+33 GetVariable:value -> 49 ScalarSum:0
+13 Literal:output -> 45 SetVariable:input
+59 Literal:output -> 21 Equal:b
+83 GetSummonedEach:EachFieldObject -> 25 ApplyBuff:Target
+55 GetStageMemberEach:EachFieldObject -> 83 GetSummonedEach:Target
+DEFAULTS
+11 OnInit {}
+13 Literal {}
+15 ApplyBuff {"BuffKey": {"$content": "buff_battleball_pitcher_special_0", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+17 ReturnFloat {"Float": {"$content": 1.0, "$type": "System.Single"}}
+19 GetVariable {"name": {"$content": "special_hit_buff_count", "$type": "System.String"}}
+21 Equal {}
+23 If {}
+25 ApplyBuff {"BuffKey": {"$content": "buff_battleball_pitcher_special_0", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+27 ScalarSum {"1": {"$content": 1.0, "$type": "System.Single"}}
+29 SetVariable {"name": {"$content": "special_hit_buff_count", "$type": "System.String"}}
+31 If {}
+33 GetVariable {"name": {"$content": "special_miss_buff_count", "$type": "System.String"}}
+35 Literal {}
+37 GetIsCharacterElementalType {"ElementalType": {"$content": "Fire", "$type": "Oak.ElementalType"}}
+39 GetVariable {"name": {"$content": "special_hit_buff_count", "$type": "System.String"}}
+41 GetOptionAttackModifier {}
+43 SetVariable {"name": {"$content": "special_hit_buff_count", "$type": "System.String"}}
+45 SetVariable {"name": {"$content": "special_miss_buff_count", "$type": "System.String"}}
+47 ApplyBuff {"BuffKey": {"$content": "buff_battleball_pitcher_special_1", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+49 ScalarSum {"1": {"$content": 1.0, "$type": "System.Single"}}
+51 If {}
+53 GetVariable {"name": {"$content": "special_miss_buff_count", "$type": "System.String"}}
+55 GetStageMemberEach {}
+57 GetOwner {}
+59 Literal {}
+61 GetOptionDefenceModifier {}
+63 GreaterOrEqual {"b": {"$content": 2.0, "$type": "System.Single"}}
+65 If {}
+67 SelectUnit {}
+69 SetVariable {"name": {"$content": "special_miss_buff_count", "$type": "System.String"}}
+71 GetIsCharacterElementalType {"ElementalType": {"$content": "Fire", "$type": "Oak.ElementalType"}}
+73 GetVariable {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+75 GreaterOrEqual {"b": {"$content": 3.0, "$type": "System.Single"}}
+77 Literal {}
+79 OnTriggerOption {}
+81 ReturnFloat {"Float": {"$content": 1.0, "$type": "System.Single"}}
+83 GetSummonedEach {}
+85 If {}
+87 GetOwner {}
+89 Literal {}
+91 GetOptionApply {"TargetId": {"$content": 20320659, "$type": "System.Int32"}}
+93 SetVariable {"name": {"$content": "is_myth_option", "$type": "System.String"}}
+95 GetOwner {}
+
+### battleball_pitcher-CwpBattleballPitcher.json
+313 IsTimeBetween:Exit -> 207 IsTimePassed:InputTrigger
+273 OnUpdateRoutine:1 Update -> 161 IsTimePassed:InputTrigger
+95 If:ifFalse -> 381 ReturnBool:InputTrigger
+277 ApplyDamage:OutputTrigger -> 145 GetClosestTargetFrom:InputTrigger
+313 IsTimeBetween:True -> 187 WhileCollisionCalculate:InputTrigger
+197 IsTimeBetween:Exit -> 103 IsTimePassed:InputTrigger
+147 SetVariable:assigned -> 101 SetVariable:assign
+259 SetCwpDarken:OutputTrigger -> 243 PlayScreenEffect:InputTrigger
+125 OnFinishAction:trigger -> 239 SetActionInactive:InputTrigger
+211 PlayDefaultVoice:OutputTrigger -> 135 StartRoutine:InputTrigger
+369 IsHittableTarget:False -> 337 PlayEffect:InputTrigger
+141 IsTimeBetween:True -> 271 UpdateEffect:InputTrigger
+103 IsTimePassed:Exit -> 313 IsTimeBetween:InputTrigger
+95 If:ifTrue -> 131 ReturnBool:InputTrigger
+205 IsTimePassed:True -> 379 SetLockedTarget:InputTrigger
+297 UpdateEffect:OutputTrigger -> 85 UpdateEffect:InputTrigger
+327 GetTargetForManualProj:OutputTrigger -> 331 PublishTriggerAction:InputTrigger
+253 OnUpdateFrame:trigger -> 273 OnUpdateRoutine:InputTrigger
+213 PlayEffect:OutputTrigger -> 249 ReturnBool:InputTrigger
+225 IsHittableTarget:True -> 93 PublishSyncAction:InputTrigger
+101 SetVariable:assigned -> 111 SetVariable:assign
+393 PlayCameraShake:OutputTrigger -> 69 PlayEffect:InputTrigger
+295 OnSyncAction:trigger -> 147 SetVariable:assign
+149 SwitchOnProjectileHit:%SelfDestruction -> 213 PlayEffect:InputTrigger
+339 ProjectileHit:Trigger -> 149 SwitchOnProjectileHit:enter
+369 IsHittableTarget:True -> 277 ApplyDamage:InputTrigger
+337 PlayEffect:OutputTrigger -> 145 GetClosestTargetFrom:InputTrigger
+367 PublishSyncAction:OutputTrigger -> 279 ReturnBool:InputTrigger
+203 SetActionActive:OutputTrigger -> 259 SetCwpDarken:InputTrigger
+173 IsTimePassed:Exit -> 205 IsTimePassed:InputTrigger
+127 TriggerAction:Trigger -> 327 GetTargetForManualProj:InputTrigger
+67 OnInit:trigger -> 233 SetIsControllingCharacter:InputTrigger
+285 DisposeEffect:OutputTrigger -> 151 CollisionCalculateStart:InputTrigger
+81 OnStartAction:trigger -> 203 SetActionActive:InputTrigger
+139 PlayEffect:OutputTrigger -> 229 CacheEffect:InputTrigger
+205 IsTimePassed:Exit -> 325 IsTimePassedForFinishAction:InputTrigger
+207 IsTimePassed:True -> 189 EndRoutine:InputTrigger
+87 UnSetCwpDarken:OutputTrigger -> 321 RemoveAnim:InputTrigger
+209 If:ifTrue -> 389 ReturnBool:InputTrigger
+281 UnLockDirection:OutputTrigger -> 289 EndRoutine:InputTrigger
+197 IsTimeBetween:True -> 297 UpdateEffect:InputTrigger
+355 OnForceCancelAction:trigger -> 293 DisposeEffect:InputTrigger
+103 IsTimePassed:True -> 393 PlayCameraShake:InputTrigger
+379 SetLockedTarget:OutputTrigger -> 275 ShootProjectile:InputTrigger
+141 IsTimeBetween:Exit -> 197 IsTimeBetween:InputTrigger
+293 DisposeEffect:OutputTrigger -> 261 EndRoutine:InputTrigger
+187 WhileCollisionCalculate:Each -> 251 ApplyDamage:InputTrigger
+271 UpdateEffect:OutputTrigger -> 383 UpdateEffect:InputTrigger
+343 IsHittable:Trigger -> 95 If:enter
+239 SetActionInactive:OutputTrigger -> 87 UnSetCwpDarken:InputTrigger
+289 EndRoutine:OutputTrigger -> 263 SetOwnerDirection:InputTrigger
+161 IsTimePassed:True -> 177 If:enter
+209 If:ifFalse -> 113 ReturnBool:InputTrigger
+153 IsAvailable:Trigger -> 209 If:enter
+345 SetIsRunCancelable:OutputTrigger -> 287 SetVariable:assign
+229 CacheEffect:OutputTrigger -> 315 PlayEffect:InputTrigger
+225 IsHittableTarget:False -> 367 PublishSyncAction:InputTrigger
+135 StartRoutine:OutputTrigger -> 309 LockDirection:InputTrigger
+287 SetVariable:assigned -> 215 SetVariable:assign
+145 GetClosestTargetFrom:OutputTrigger -> 225 IsHittableTarget:InputTrigger
+309 LockDirection:OutputTrigger -> 119 PlayEffect:InputTrigger
+359 If:ifTrue -> 231 PlayAnim:InputTrigger
+195 IsTimePassed:True -> 359 If:enter
+173 IsTimePassed:True -> 357 If:enter
+357 If:ifTrue -> 301 PlayAnim:InputTrigger
+111 SetVariable:assigned -> 193 StartRoutine:InputTrigger
+305 IsTimePassed:True -> 351 PlayCameraShake:InputTrigger
+69 PlayEffect:OutputTrigger -> 285 DisposeEffect:InputTrigger
+177 If:ifTrue -> 303 PlayAnim:InputTrigger
+177 If:ifFalse -> 155 PlayAnim:InputTrigger
+351 PlayCameraShake:OutputTrigger -> 139 PlayEffect:InputTrigger
+195 IsTimePassed:Exit -> 173 IsTimePassed:InputTrigger
+93 PublishSyncAction:OutputTrigger -> 279 ReturnBool:InputTrigger
+331 PublishTriggerAction:OutputTrigger -> 217 ReturnBool:InputTrigger
+273 OnUpdateRoutine:2 Update -> 305 IsTimePassed:InputTrigger
+149 SwitchOnProjectileHit:%FieldObject -> 369 IsHittableTarget:InputTrigger
+315 PlayEffect:OutputTrigger -> 247 PlaySound:InputTrigger
+305 IsTimePassed:Exit -> 141 IsTimeBetween:InputTrigger
+247 PlaySound:OutputTrigger -> 235 CacheEffect:InputTrigger
+233 SetIsControllingCharacter:OutputTrigger -> 345 SetIsRunCancelable:InputTrigger
+321 RemoveAnim:OutputTrigger -> 281 UnLockDirection:InputTrigger
+119 PlayEffect:OutputTrigger -> 371 PlaySound:InputTrigger
+161 IsTimePassed:Exit -> 195 IsTimePassed:InputTrigger
+243 PlayScreenEffect:OutputTrigger -> 211 PlayDefaultVoice:InputTrigger
+VALUES
+219 Vector3Lerp:interpolation -> 373 Vector3Sum:0
+199 GetHitSound:SfxInfo -> 251 ApplyDamage:HitSound
+329 GetVariable:value -> 139 PlayEffect:Direction
+237 GetOwner:Result -> 75 GetBoundDistance:Target
+387 GetEaseProgress:Result -> 163 Vector3Lerp:t
+227 GetTargetAt:Result -> 159 GetBoundPosition:Target
+159 GetBoundPosition:Result -> 181 SelectUnit:ifFalse
+323 GetVariable:value -> 135 StartRoutine:1 Routine
+109 GetVariable:value -> 187 WhileCollisionCalculate:Calculator
+339 ProjectileHit:OnHitTarget -> 277 ApplyDamage:DamageTarget
+147 SetVariable:output -> 319 Vector3Subtract:minuend
+105 GetVariable:value -> 193 StartRoutine:1 Routine
+299 GetVariable:value -> 69 PlayEffect:Position
+375 GetExclusiveWeapon:Result -> 359 If:condition
+339 ProjectileHit:HitPosition -> 341 AppendPosition:0 Value
+187 WhileCollisionCalculate:EachFieldObject -> 251 ApplyDamage:DamageTarget
+179 GetHitSound:SfxInfo -> 277 ApplyDamage:HitSound
+307 GetExclusiveWeapon:Result -> 357 If:condition
+145 GetClosestTargetFrom:Target -> 97 SelectUnit:ifFalse
+315 PlayEffect:PooledObject -> 235 CacheEffect:PooledObject
+295 OnSyncAction:TriggerInfo -> 73 GetPositionAt:TargetInfo
+191 GetAilmentInfo:Result -> 277 ApplyDamage:AilmentInfo
+317 Literal:output -> 285 DisposeEffect:2 Managed Key
+89 Literal:output -> 337 PlayEffect:Scale
+83 Literal:output -> 285 DisposeEffect:1 Managed Key
+185 GetEaseProgress:Result -> 91 Vector3Lerp:t
+183 GetVariable:value -> 273 OnUpdateRoutine:2 Routine
+341 AppendPosition:Result -> 93 PublishSyncAction:TriggerInfo
+339 ProjectileHit:HitPosition -> 213 PlayEffect:Position
+353 GetAnyRoutineActive:Result -> 209 If:condition
+361 GetEaseProgress:Result -> 219 Vector3Lerp:t
+295 OnSyncAction:TriggerInfo -> 223 GetPositionAt:TargetInfo
+107 GetCharacterIsNull:Result -> 181 SelectUnit:condition
+181 SelectUnit:selection -> 147 SetVariable:input
+347 GetActionDirVector:Result -> 119 PlayEffect:Direction
+201 GetHitEffect:HitEffect -> 277 ApplyDamage:HitEffect
+319 Vector3Subtract:difference -> 111 SetVariable:input
+75 GetBoundDistance:Result -> 283 LessOrEqual:a
+257 Vector3Sum:sum -> 85 UpdateEffect:Position
+223 GetPositionAt:Result -> 181 SelectUnit:ifTrue
+395 GetOptionAppliedSelector:Result -> 365 GetModifier:Modifier
+99 GetVariable:value -> 315 PlayEffect:Position
+245 GetVariable:value -> 151 CollisionCalculateStart:Position
+101 SetVariable:output -> 319 Vector3Subtract:subtrahend
+97 SelectUnit:selection -> 255 AppendTarget:0 Value
+79 GetAilmentInfo:Result -> 251 ApplyDamage:AilmentInfo
+377 GetVariable:value -> 139 PlayEffect:Position
+137 GetVariable:value -> 151 CollisionCalculateStart:Calculator
+73 GetPositionAt:Result -> 101 SetVariable:input
+145 GetClosestTargetFrom:Target -> 349 GetCharacterIsNull:Value
+391 AppendTarget:Result -> 311 AppendDirection:TargetInfo
+295 OnSyncAction:TriggerInfo -> 227 GetTargetAt:TargetInfo
+339 ProjectileHit:HitPosition -> 363 AppendPosition:0 Value
+123 GetVariable:value -> 261 EndRoutine:2 Routine
+291 GetVariable:value -> 273 OnUpdateRoutine:1 Routine
+121 Literal:output -> 167 CollisionInit:Duration
+343 IsHittable:OnHitTarget -> 75 GetBoundDistance:Current
+221 GetActionDirVector:Result -> 263 SetOwnerDirection:DirectionVector
+241 GetOwnerPosition:Result -> 275 ShootProjectile:Position
+267 GetVariable:value -> 289 EndRoutine:1 Routine
+363 AppendPosition:Result -> 367 PublishSyncAction:TriggerInfo
+339 ProjectileHit:OnHitTarget -> 97 SelectUnit:ifTrue
+129 Literal:output -> 293 DisposeEffect:1 Managed Key
+373 Vector3Sum:sum -> 383 UpdateEffect:Position
+157 GetVariable:value -> 261 EndRoutine:1 Routine
+327 GetTargetForManualProj:Direction -> 311 AppendDirection:0 Value
+139 PlayEffect:PooledObject -> 229 CacheEffect:PooledObject
+115 GetOwnerPosition:Result -> 119 PlayEffect:Position
+257 Vector3Sum:sum -> 297 UpdateEffect:Position
+163 Vector3Lerp:interpolation -> 257 Vector3Sum:1
+339 ProjectileHit:HitPosition -> 201 GetHitEffect:Position
+335 GetVariable:value -> 189 EndRoutine:1 Routine
+117 GetOptionApply:Result -> 215 SetVariable:input
+71 Literal:output -> 213 PlayEffect:Scale
+133 GetVariable:value -> 353 GetAnyRoutineActive:1 Routine
+339 ProjectileHit:HitPosition -> 337 PlayEffect:Position
+269 GetVariable:value -> 315 PlayEffect:Direction
+311 AppendDirection:Result -> 331 PublishTriggerAction:TriggerInfo
+373 Vector3Sum:sum -> 271 UpdateEffect:Position
+253 OnUpdateFrame:DeltaTime -> 273 OnUpdateRoutine:DeltaTime
+169 GetOptionAppliedSelector:Result -> 143 GetModifier:Modifier
+339 ProjectileHit:OnHitTarget -> 369 IsHittableTarget:Target
+91 Vector3Lerp:interpolation -> 373 Vector3Sum:1
+97 SelectUnit:selection -> 225 IsHittableTarget:Target
+165 GetVariable:value -> 219 Vector3Lerp:a
+349 GetCharacterIsNull:Result -> 97 SelectUnit:condition
+365 GetModifier:Result -> 251 ApplyDamage:Modifier
+339 ProjectileHit:OnHitTarget -> 145 GetClosestTargetFrom:FromTarget
+265 Literal:output -> 293 DisposeEffect:2 Managed Key
+339 ProjectileHit:OnHitType -> 149 SwitchOnProjectileHit:Enum
+143 GetModifier:Result -> 277 ApplyDamage:Modifier
+283 LessOrEqual:comparison -> 95 If:condition
+333 GetActionDirVector:Result -> 275 ShootProjectile:Direction
+171 GetVariable:value -> 219 Vector3Lerp:b
+219 Vector3Lerp:interpolation -> 257 Vector3Sum:0
+227 GetTargetAt:Result -> 107 GetCharacterIsNull:Value
+175 GetExclusiveWeapon:Result -> 177 If:condition
+255 AppendTarget:Result -> 341 AppendPosition:TargetInfo
+167 CollisionInit:Result -> 287 SetVariable:input
+385 GetVariable:value -> 187 WhileCollisionCalculate:Position
+77 GetActionDirVector:Result -> 309 LockDirection:Direction
+327 GetTargetForManualProj:Target -> 391 AppendTarget:0 Value
+DEFAULTS
+67 OnInit {}
+69 PlayEffect {"EffectKey": {"$content": "fx_2nd_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+71 Literal {}
+73 GetPositionAt {"Index": {"$content": 0, "$type": "System.Int32"}}
+75 GetBoundDistance {}
+77 GetActionDirVector {}
+79 GetAilmentInfo {"AilmentType": {"$content": "Down", "$type": "Oak.Ailment"}, "IsFullGauge": {"$content": false, "$type": "System.Boolean"}, "Gauge": {"$content": 98.0, "$type": "System.Single"}, "GaugeAdd": {"$content": 14.0, "$type": "System.Single"}}
+81 OnStartAction {}
+83 Literal {}
+85 UpdateEffect {"ManageKey": {"$content": "cache_contrail", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+87 UnSetCwpDarken {"Duration": {"$content": 0.2, "$type": "System.Single"}}
+89 Literal {}
+91 Vector3Lerp {"a": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 3.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+93 PublishSyncAction {}
+95 If {}
+97 SelectUnit {}
+99 GetVariable {"name": {"$content": "sync_position", "$type": "System.String"}}
+101 SetVariable {"name": {"$content": "sync_start", "$type": "System.String"}}
+103 IsTimePassed {"Timer": {"$content": 0.4, "$type": "System.Single"}}
+105 GetVariable {"name": {"$content": "Routine_1", "$type": "System.String"}}
+107 GetCharacterIsNull {}
+109 GetVariable {"name": {"$content": "collider", "$type": "System.String"}}
+111 SetVariable {"name": {"$content": "sync_direction", "$type": "System.String"}}
+113 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+115 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+117 GetOptionApply {"TargetId": {"$content": 20340659, "$type": "System.Int32"}}
+119 PlayEffect {"EffectKey": {"$content": "fx_cast", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+121 Literal {}
+123 GetVariable {"name": {"$content": "Routine_1", "$type": "System.String"}}
+125 OnFinishAction {}
+127 TriggerAction {}
+129 Literal {}
+131 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+133 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+135 StartRoutine {}
+137 GetVariable {"name": {"$content": "collider", "$type": "System.String"}}
+139 PlayEffect {"EffectKey": {"$content": "fx_2nd_proj", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+141 IsTimeBetween {"MinTimer": {"$content": 0.0, "$type": "System.Single"}, "MaxTimer": {"$content": 0.2, "$type": "System.Single"}}
+143 GetModifier {"Modifier": {"$content": 1.0, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.06, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+145 GetClosestTargetFrom {"SearchRange": {"$content": 3.0, "$type": "System.Single"}}
+147 SetVariable {"name": {"$content": "sync_position", "$type": "System.String"}}
+149 SwitchOnProjectileHit {}
+151 CollisionCalculateStart {}
+153 IsAvailable {}
+155 PlayAnim {"AnimKey": {"$content": "anim_fallback", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+157 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+159 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+161 IsTimePassed {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+163 Vector3Lerp {"a": {"x": 0.0, "y": 3.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+165 GetVariable {"name": {"$content": "sync_start", "$type": "System.String"}}
+167 CollisionInit {"Radius": {"$content": 2.35, "$type": "System.Single"}, "InnerRadius": {"$content": 0.0, "$type": "System.Single"}, "Height": {"$content": 0.75, "$type": "System.Single"}, "IsCenterToBottom": {"$content": false, "$type": "System.Boolean"}, "MaxHit": {"$content": 1, "$type": "System.Int32"}, "OnlyHittableTarget": {"$content": true, "$type": "System.Boolean"}, "OnlyFriendlyTarget": {"$content": false, "$type": "System.Boolean"}}
+169 GetOptionAppliedSelector {"TargetId": {"$content": 20340659, "$type": "System.Int32"}, "True": {"$content": 0.6, "$type": "System.Single"}, "False": {"$content": 0.51, "$type": "System.Single"}}
+171 GetVariable {"name": {"$content": "sync_position", "$type": "System.String"}}
+173 IsTimePassed {"Timer": {"$content": 0.35, "$type": "System.Single"}}
+175 GetExclusiveWeapon {}
+177 If {}
+179 GetHitSound {"SoundKey": {"$content": "sfx_hit_02", "$type": "System.String"}}
+181 SelectUnit {}
+183 GetVariable {"name": {"$content": "Routine_1", "$type": "System.String"}}
+185 GetEaseProgress {"EaseType": {"$content": "EaseInOutCubic", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.0, "$type": "System.Single"}, "EndTime": {"$content": 0.2, "$type": "System.Single"}}
+187 WhileCollisionCalculate {}
+189 EndRoutine {}
+191 GetAilmentInfo {"AilmentType": {"$content": "Down", "$type": "Oak.Ailment"}, "IsFullGauge": {"$content": false, "$type": "System.Boolean"}, "Gauge": {"$content": 42.0, "$type": "System.Single"}, "GaugeAdd": {"$content": 6.0, "$type": "System.Single"}}
+193 StartRoutine {}
+195 IsTimePassed {"Timer": {"$content": 0.2, "$type": "System.Single"}}
+197 IsTimeBetween {"MinTimer": {"$content": 0.2, "$type": "System.Single"}, "MaxTimer": {"$content": 0.4, "$type": "System.Single"}}
+199 GetHitSound {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+201 GetHitEffect {"EffectKey": {"$content": "fx_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsRotate": {"$content": false, "$type": "System.Boolean"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "FollowFlag": {"$content": "", "$type": "Oak.ParentFollowFlag"}}
+203 SetActionActive {}
+205 IsTimePassed {"Timer": {"$content": 0.5, "$type": "System.Single"}}
+207 IsTimePassed {"Timer": {"$content": 0.7, "$type": "System.Single"}}
+209 If {}
+211 PlayDefaultVoice {}
+213 PlayEffect {"EffectKey": {"$content": "fx_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": false, "$type": "System.Boolean"}, "FollowFlag": {"$content": "", "$type": "Oak.ParentFollowFlag"}}
+215 SetVariable {"name": {"$content": "is_myth_cwp", "$type": "System.String"}}
+217 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+219 Vector3Lerp {"a": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 1.0, "y": 1.0, "z": 1.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+221 GetActionDirVector {}
+223 GetPositionAt {"Index": {"$content": 0, "$type": "System.Int32"}}
+225 IsHittableTarget {}
+227 GetTargetAt {"Index": {"$content": 0, "$type": "System.Int32"}}
+229 CacheEffect {"ManageKey": {"$content": "cache_proj", "$type": "System.String"}}
+231 PlayAnim {"AnimKey": {"$content": "anim_attack2_loop", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+233 SetIsControllingCharacter {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+235 CacheEffect {"ManageKey": {"$content": "cache_contrail", "$type": "System.String"}}
+237 GetOwner {}
+239 SetActionInactive {}
+241 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+243 PlayScreenEffect {"EffectKey": {"$content": "fx_screen", "$type": "System.String"}, "ForceApply": {"$content": false, "$type": "System.Boolean"}}
+245 GetVariable {"name": {"$content": "sync_position", "$type": "System.String"}}
+247 PlaySound {"SoundKey": {"$content": "sfx_cwp_attack_01", "$type": "System.String"}}
+249 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+251 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "None", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+253 OnUpdateFrame {}
+255 AppendTarget {}
+257 Vector3Sum {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+259 SetCwpDarken {"Amount": {"$content": 0.5, "$type": "System.Single"}, "Duration": {"$content": 0.2, "$type": "System.Single"}}
+261 EndRoutine {}
+263 SetOwnerDirection {"DirectionVector": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+265 Literal {}
+267 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+269 GetVariable {"name": {"$content": "sync_direction", "$type": "System.String"}}
+271 UpdateEffect {"ManageKey": {"$content": "cache_proj", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+273 OnUpdateRoutine {}
+275 ShootProjectile {"Key": {"$content": "proj_cwp", "$type": "System.String"}, "Label": {"$content": 0, "$type": "System.Int32"}, "CalculateInner": {"$content": true, "$type": "System.Boolean"}, "TargetPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+277 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "None", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+279 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+281 UnLockDirection {}
+283 LessOrEqual {"b": {"$content": 4.01, "$type": "System.Single"}}
+285 DisposeEffect {"1 immediate": {"$content": false, "$type": "System.Boolean"}, "2 immediate": {"$content": false, "$type": "System.Boolean"}}
+287 SetVariable {"name": {"$content": "collider", "$type": "System.String"}}
+289 EndRoutine {}
+291 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+293 DisposeEffect {"1 immediate": {"$content": false, "$type": "System.Boolean"}, "2 immediate": {"$content": false, "$type": "System.Boolean"}}
+295 OnSyncAction {}
+297 UpdateEffect {"ManageKey": {"$content": "cache_proj", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+299 GetVariable {"name": {"$content": "sync_position", "$type": "System.String"}}
+301 PlayAnim {"AnimKey": {"$content": "anim_attack2", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+303 PlayAnim {"AnimKey": {"$content": "anim_attack2_start", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+305 IsTimePassed {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+307 GetExclusiveWeapon {}
+309 LockDirection {}
+311 AppendDirection {}
+313 IsTimeBetween {"MinTimer": {"$content": 0.4, "$type": "System.Single"}, "MaxTimer": {"$content": 0.7, "$type": "System.Single"}}
+315 PlayEffect {"EffectKey": {"$content": "fx_2nd_contrail", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+317 Literal {}
+319 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+321 RemoveAnim {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+323 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+325 IsTimePassedForFinishAction {"Timer": {"$content": 0.7, "$type": "System.Single"}}
+327 GetTargetForManualProj {"SearchRange": {"$content": 7.0, "$type": "System.Single"}, "IsStationary": {"$content": false, "$type": "System.Boolean"}, "ComboActionCheckHittable": {"$content": false, "$type": "System.Boolean"}}
+329 GetVariable {"name": {"$content": "sync_direction", "$type": "System.String"}}
+331 PublishTriggerAction {}
+333 GetActionDirVector {}
+335 GetVariable {"name": {"$content": "Routine_1", "$type": "System.String"}}
+337 PlayEffect {"EffectKey": {"$content": "fx_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": false, "$type": "System.Boolean"}, "FollowFlag": {"$content": "", "$type": "Oak.ParentFollowFlag"}}
+339 ProjectileHit {}
+341 AppendPosition {}
+343 IsHittable {}
+345 SetIsRunCancelable {"IsRunCancel": {"$content": true, "$type": "System.Boolean"}}
+347 GetActionDirVector {}
+349 GetCharacterIsNull {}
+351 PlayCameraShake {"ShakeAmount": {"$content": 0.05, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.2, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+353 GetAnyRoutineActive {}
+355 OnForceCancelAction {}
+357 If {}
+359 If {}
+361 GetEaseProgress {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.0, "$type": "System.Single"}, "EndTime": {"$content": 0.4, "$type": "System.Single"}}
+363 AppendPosition {}
+365 GetModifier {"Modifier": {"$content": 1.5, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.14, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+367 PublishSyncAction {}
+369 IsHittableTarget {}
+371 PlaySound {"SoundKey": {"$content": "sfx_ready", "$type": "System.String"}}
+373 Vector3Sum {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+375 GetExclusiveWeapon {}
+377 GetVariable {"name": {"$content": "sync_position", "$type": "System.String"}}
+379 SetLockedTarget {}
+381 ReturnBool {"Bool": {"$content": false, "$type": "System.Boolean"}}
+383 UpdateEffect {"ManageKey": {"$content": "cache_contrail", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+385 GetVariable {"name": {"$content": "sync_position", "$type": "System.String"}}
+387 GetEaseProgress {"EaseType": {"$content": "EaseInOutCubic", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.2, "$type": "System.Single"}, "EndTime": {"$content": 0.4, "$type": "System.Single"}}
+389 ReturnBool {"Bool": {"$content": false, "$type": "System.Boolean"}}
+391 AppendTarget {}
+393 PlayCameraShake {"ShakeAmount": {"$content": 0.3, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.25, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+395 GetOptionAppliedSelector {"TargetId": {"$content": 20340659, "$type": "System.Int32"}, "True": {"$content": 1.4, "$type": "System.Single"}, "False": {"$content": 1.19, "$type": "System.Single"}}
+
+### battleball_pitcher-ManualBattleballPitcherFirst.json
+217 OnFinishAction:trigger -> 211 SetActionInactive:InputTrigger
+149 IsAvailable:Trigger -> 163 If:enter
+53 RemoveAnim:OutputTrigger -> 117 UnLockDirection:InputTrigger
+47 EndRoutine:OutputTrigger -> 45 SetOwnerDirection:InputTrigger
+145 PlayEffect:OutputTrigger -> 161 PlaySound:InputTrigger
+125 IsHittableTarget:True -> 175 ApplyDamage:InputTrigger
+181 OnUpdateFrame:trigger -> 219 OnUpdateRoutine:InputTrigger
+157 SetLockedTarget:OutputTrigger -> 57 ShootProjectile:InputTrigger
+57 ShootProjectile:OutputTrigger -> 145 PlayEffect:InputTrigger
+117 UnLockDirection:OutputTrigger -> 47 EndRoutine:InputTrigger
+153 IsTimePassed:True -> 157 SetLockedTarget:InputTrigger
+39 OnInit:trigger -> 89 SetIsControllingCharacter:InputTrigger
+119 IsHittable:Trigger -> 187 If:enter
+85 IsTimePassed:True -> 81 PlayAnim:InputTrigger
+163 If:ifFalse -> 49 ReturnBool:InputTrigger
+171 PublishTriggerOption:OutputTrigger -> 143 ReturnBool:InputTrigger
+97 SetActionActive:OutputTrigger -> 93 StartRoutine:InputTrigger
+41 GetTargetForManualProj:OutputTrigger -> 87 PublishTriggerAction:InputTrigger
+81 PlayAnim:OutputTrigger -> 195 PlayDash:InputTrigger
+137 ProjectileHit:Trigger -> 75 SwitchOnProjectileHit:enter
+187 If:ifFalse -> 115 ReturnBool:InputTrigger
+69 OnStartAction:trigger -> 97 SetActionActive:InputTrigger
+59 ApplyBuff:OutputTrigger -> 77 If:enter
+87 PublishTriggerAction:OutputTrigger -> 61 ReturnBool:InputTrigger
+129 If:ifTrue -> 139 PublishTriggerOption:InputTrigger
+65 TriggerAction:Trigger -> 41 GetTargetForManualProj:InputTrigger
+85 IsTimePassed:Exit -> 153 IsTimePassed:InputTrigger
+135 SetIsRunCancelable:OutputTrigger -> 109 SetVariable:assign
+129 If:ifFalse -> 167 ReturnBool:InputTrigger
+89 SetIsControllingCharacter:OutputTrigger -> 135 SetIsRunCancelable:InputTrigger
+211 SetActionInactive:OutputTrigger -> 53 RemoveAnim:InputTrigger
+163 If:ifTrue -> 67 ReturnBool:InputTrigger
+99 PlaySound:OutputTrigger -> 111 PlayCameraShake:InputTrigger
+175 ApplyDamage:OutputTrigger -> 99 PlaySound:InputTrigger
+111 PlayCameraShake:OutputTrigger -> 59 ApplyBuff:InputTrigger
+75 SwitchOnProjectileHit:%SelfDestruction -> 129 If:enter
+75 SwitchOnProjectileHit:%FieldObject -> 125 IsHittableTarget:InputTrigger
+77 If:ifTrue -> 171 PublishTriggerOption:InputTrigger
+153 IsTimePassed:Exit -> 121 IsTimePassedForFinishAction:InputTrigger
+77 If:ifFalse -> 143 ReturnBool:InputTrigger
+93 StartRoutine:OutputTrigger -> 183 LockDirection:InputTrigger
+139 PublishTriggerOption:OutputTrigger -> 167 ReturnBool:InputTrigger
+155 SetVariable:assigned -> 215 SetVariable:assign
+109 SetVariable:assigned -> 155 SetVariable:assign
+187 If:ifTrue -> 43 ReturnBool:InputTrigger
+219 OnUpdateRoutine:1 Update -> 85 IsTimePassed:InputTrigger
+125 IsHittableTarget:False -> 129 If:enter
+VALUES
+185 GetAnyRoutineActive:Result -> 163 If:condition
+189 GetOwner:Result -> 95 GetBoundDistance:Target
+131 AddVectorOffset:Result -> 145 PlayEffect:Position
+137 ProjectileHit:OnHitType -> 75 SwitchOnProjectileHit:Enum
+55 Literal:output -> 107 SelectUnit:ifTrue
+123 GetActionDirVector:Result -> 45 SetOwnerDirection:DirectionVector
+137 ProjectileHit:OnHitTarget -> 59 ApplyBuff:Target
+197 GetStickDirection:Result -> 195 PlayDash:Direction
+137 ProjectileHit:OnHitTarget -> 175 ApplyDamage:DamageTarget
+79 GetVariable:value -> 219 OnUpdateRoutine:1 Routine
+205 GetActionDirVector:Result -> 131 AddVectorOffset:Direction
+137 ProjectileHit:HitPosition -> 73 GetHitEffect:Position
+179 GetActionDirVector:Result -> 145 PlayEffect:Direction
+105 GetModifier:Result -> 175 ApplyDamage:Modifier
+223 GetOptionTriggerInfo:Result -> 171 PublishTriggerOption:TriggerInfo
+141 AppendTarget:Result -> 51 AppendDirection:TargetInfo
+91 GetOwnerPosition:Result -> 57 ShootProjectile:Position
+181 OnUpdateFrame:DeltaTime -> 219 OnUpdateRoutine:DeltaTime
+201 LessOrEqual:comparison -> 187 If:condition
+203 GetActionDirVector:Result -> 177 DirectionRotateEuler:Direction
+173 GetActionDirVector:Result -> 209 SelectUnit:ifTrue
+137 ProjectileHit:OnHitTarget -> 125 IsHittableTarget:Target
+107 SelectUnit:selection -> 59 ApplyBuff:BuffLevel
+103 GetActionTarget:Result -> 57 ShootProjectile:TargetToFollow
+151 Literal:output -> 223 GetOptionTriggerInfo:Integer
+113 GetVariable:value -> 93 StartRoutine:1 Routine
+191 GetVariable:value -> 47 EndRoutine:1 Routine
+41 GetTargetForManualProj:Direction -> 51 AppendDirection:0 Value
+73 GetHitEffect:HitEffect -> 175 ApplyDamage:HitEffect
+209 SelectUnit:selection -> 57 ShootProjectile:Direction
+193 Literal:output -> 147 GetOptionTriggerInfo:Integer
+63 GetVariable:value -> 77 If:condition
+207 GetActionTarget:Result -> 199 GetCharacterIsNull:Value
+51 AppendDirection:Result -> 87 PublishTriggerAction:TriggerInfo
+127 GetOptionApply:Result -> 109 SetVariable:input
+159 GetOwnerPosition:Result -> 131 AddVectorOffset:Position
+133 GetActionDirVector:Result -> 183 LockDirection:Direction
+41 GetTargetForManualProj:Target -> 141 AppendTarget:0 Value
+213 GetOwner:Result -> 59 ApplyBuff:Sender
+95 GetBoundDistance:Result -> 201 LessOrEqual:a
+199 GetCharacterIsNull:Result -> 209 SelectUnit:condition
+101 GetVariable:value -> 185 GetAnyRoutineActive:1 Routine
+177 DirectionRotateEuler:Result -> 209 SelectUnit:ifFalse
+147 GetOptionTriggerInfo:Result -> 139 PublishTriggerOption:TriggerInfo
+119 IsHittable:OnHitTarget -> 95 GetBoundDistance:Current
+165 GetVariable:value -> 129 If:condition
+169 Literal:output -> 107 SelectUnit:ifFalse
+221 GetOptionApply:Result -> 155 SetVariable:input
+71 GetVariable:value -> 107 SelectUnit:condition
+225 GetHitSound:SfxInfo -> 175 ApplyDamage:HitSound
+83 GetOptionApply:Result -> 215 SetVariable:input
+DEFAULTS
+39 OnInit {}
+41 GetTargetForManualProj {"SearchRange": {"$content": 7.0, "$type": "System.Single"}, "IsStationary": {"$content": false, "$type": "System.Boolean"}, "ComboActionCheckHittable": {"$content": false, "$type": "System.Boolean"}}
+43 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+45 SetOwnerDirection {"DirectionVector": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+47 EndRoutine {}
+49 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+51 AppendDirection {}
+53 RemoveAnim {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+55 Literal {}
+57 ShootProjectile {"Key": {"$content": "proj_manual", "$type": "System.String"}, "Label": {"$content": 0, "$type": "System.Int32"}, "CalculateInner": {"$content": true, "$type": "System.Boolean"}, "TargetPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+59 ApplyBuff {"BuffKey": {"$content": "buff_battleball_pitcher_manual_0", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+61 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+63 GetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+65 TriggerAction {}
+67 ReturnBool {"Bool": {"$content": false, "$type": "System.Boolean"}}
+69 OnStartAction {}
+71 GetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+73 GetHitEffect {"EffectKey": {"$content": "fx_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsRotate": {"$content": false, "$type": "System.Boolean"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "FollowFlag": {"$content": "", "$type": "Oak.ParentFollowFlag"}}
+75 SwitchOnProjectileHit {}
+77 If {}
+79 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+81 PlayAnim {"AnimKey": {"$content": "anim_attack", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+83 GetOptionApply {"TargetId": {"$content": 320659, "$type": "System.Int32"}}
+85 IsTimePassed {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+87 PublishTriggerAction {}
+89 SetIsControllingCharacter {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+91 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+93 StartRoutine {}
+95 GetBoundDistance {}
+97 SetActionActive {}
+99 PlaySound {"SoundKey": {"$content": "sfx_hit_02", "$type": "System.String"}}
+101 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+103 GetActionTarget {}
+105 GetModifier {"Modifier": {"$content": 0.6, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+107 SelectUnit {}
+109 SetVariable {"name": {"$content": "is_myth_manual", "$type": "System.String"}}
+111 PlayCameraShake {"ShakeAmount": {"$content": 0.1, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.15, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+113 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+115 ReturnBool {"Bool": {"$content": false, "$type": "System.Boolean"}}
+117 UnLockDirection {}
+119 IsHittable {}
+121 IsTimePassedForFinishAction {"Timer": {"$content": 0.6, "$type": "System.Single"}}
+123 GetActionDirVector {}
+125 IsHittableTarget {}
+127 GetOptionApply {"TargetId": {"$content": 20350659, "$type": "System.Int32"}}
+129 If {}
+131 AddVectorOffset {"OffsetAmount": {"$content": 0.5, "$type": "System.Single"}}
+133 GetActionDirVector {}
+135 SetIsRunCancelable {"IsRunCancel": {"$content": true, "$type": "System.Boolean"}}
+137 ProjectileHit {}
+139 PublishTriggerOption {"TargetOptionId": {"$content": 320659, "$type": "System.Int32"}}
+141 AppendTarget {}
+143 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+145 PlayEffect {"EffectKey": {"$content": "fx_fire", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+147 GetOptionTriggerInfo {}
+149 IsAvailable {}
+151 Literal {}
+153 IsTimePassed {"Timer": {"$content": 0.4, "$type": "System.Single"}}
+155 SetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+157 SetLockedTarget {}
+159 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+161 PlaySound {"SoundKey": {"$content": "sfx_attack", "$type": "System.String"}}
+163 If {}
+165 GetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+167 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+169 Literal {}
+171 PublishTriggerOption {"TargetOptionId": {"$content": 320659, "$type": "System.Int32"}}
+173 GetActionDirVector {}
+175 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "None", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+177 DirectionRotateEuler {"Euler": {"x": 0.0, "y": 30.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+179 GetActionDirVector {}
+181 OnUpdateFrame {}
+183 LockDirection {}
+185 GetAnyRoutineActive {}
+187 If {}
+189 GetOwner {}
+191 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+193 Literal {}
+195 PlayDash {"StayDuration": {"$content": 0.0, "$type": "System.Single"}, "DashDuration": {"$content": 0.2, "$type": "System.Single"}, "DashSpeed": {"$content": 18.0, "$type": "System.Single"}, "DashOnBlockType": {"$content": "Slide", "$type": "Oak.ShortDashState+OnBlockType"}, "CancelByMove": {"$content": false, "$type": "System.Boolean"}, "ManualMinDistance": {"$content": 0.0, "$type": "System.Single"}, "CanRecoverStamina": {"$content": false, "$type": "System.Boolean"}}
+197 GetStickDirection {"InputWindow": {"$content": 0.3, "$type": "System.Single"}, "Default": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+199 GetCharacterIsNull {}
+201 LessOrEqual {"b": {"$content": 3.64, "$type": "System.Single"}}
+203 GetActionDirVector {}
+205 GetActionDirVector {}
+207 GetActionTarget {}
+209 SelectUnit {}
+211 SetActionInactive {}
+213 GetOwner {}
+215 SetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+217 OnFinishAction {}
+219 OnUpdateRoutine {}
+221 GetOptionApply {"TargetId": {"$content": 310659, "$type": "System.Int32"}}
+223 GetOptionTriggerInfo {}
+225 GetHitSound {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+
+### battleball_pitcher-ManualBattleballPitcherSecond.json
+43 IsTimePassed:Exit -> 117 IsTimePassedForFinishAction:InputTrigger
+131 PublishTriggerOption:OutputTrigger -> 169 ReturnBool:InputTrigger
+213 If:ifTrue -> 77 ReturnBool:InputTrigger
+211 SetLockedTarget:OutputTrigger -> 157 ShootProjectile:InputTrigger
+157 ShootProjectile:OutputTrigger -> 107 PlayEffect:InputTrigger
+225 IsTimePassed:Exit -> 43 IsTimePassed:InputTrigger
+195 OnFinishAction:trigger -> 129 SetActionInactive:InputTrigger
+155 SetVariable:assigned -> 151 SetVariable:assign
+57 RemoveAnim:OutputTrigger -> 219 UnLockDirection:InputTrigger
+55 OnStartAction:trigger -> 201 SetActionActive:InputTrigger
+41 PublishTriggerAction:OutputTrigger -> 75 ReturnBool:InputTrigger
+87 SetIsRunCancelable:OutputTrigger -> 171 SetVariable:assign
+201 SetActionActive:OutputTrigger -> 67 StartRoutine:InputTrigger
+191 PlayAnim:OutputTrigger -> 181 PlayDash:InputTrigger
+39 OnInit:trigger -> 145 SetIsControllingCharacter:InputTrigger
+219 UnLockDirection:OutputTrigger -> 95 EndRoutine:InputTrigger
+103 If:ifTrue -> 99 PublishTriggerOption:InputTrigger
+99 PublishTriggerOption:OutputTrigger -> 159 ReturnBool:InputTrigger
+177 OnUpdateRoutine:1 Update -> 225 IsTimePassed:InputTrigger
+171 SetVariable:assigned -> 155 SetVariable:assign
+95 EndRoutine:OutputTrigger -> 215 SetOwnerDirection:InputTrigger
+105 IsHittableTarget:True -> 101 ApplyDamage:InputTrigger
+107 PlayEffect:OutputTrigger -> 91 PlaySound:InputTrigger
+199 ApplyBuff:OutputTrigger -> 63 If:enter
+59 GetTargetForManualProj:OutputTrigger -> 41 PublishTriggerAction:InputTrigger
+163 IsHittable:Trigger -> 213 If:enter
+43 IsTimePassed:True -> 211 SetLockedTarget:InputTrigger
+93 TriggerAction:Trigger -> 59 GetTargetForManualProj:InputTrigger
+165 OnUpdateFrame:trigger -> 177 OnUpdateRoutine:InputTrigger
+129 SetActionInactive:OutputTrigger -> 57 RemoveAnim:InputTrigger
+213 If:ifFalse -> 49 ReturnBool:InputTrigger
+97 PlaySound:OutputTrigger -> 127 PlayCameraShake:InputTrigger
+101 ApplyDamage:OutputTrigger -> 97 PlaySound:InputTrigger
+105 IsHittableTarget:False -> 103 If:enter
+79 If:ifTrue -> 65 ReturnBool:InputTrigger
+67 StartRoutine:OutputTrigger -> 73 LockDirection:InputTrigger
+79 If:ifFalse -> 81 ReturnBool:InputTrigger
+225 IsTimePassed:True -> 191 PlayAnim:InputTrigger
+145 SetIsControllingCharacter:OutputTrigger -> 87 SetIsRunCancelable:InputTrigger
+119 IsAvailable:Trigger -> 79 If:enter
+63 If:ifFalse -> 169 ReturnBool:InputTrigger
+63 If:ifTrue -> 131 PublishTriggerOption:InputTrigger
+147 SwitchOnProjectileHit:%FieldObject -> 105 IsHittableTarget:InputTrigger
+103 If:ifFalse -> 159 ReturnBool:InputTrigger
+207 ProjectileHit:Trigger -> 147 SwitchOnProjectileHit:enter
+127 PlayCameraShake:OutputTrigger -> 199 ApplyBuff:InputTrigger
+147 SwitchOnProjectileHit:%SelfDestruction -> 103 If:enter
+VALUES
+89 DirectionRotateEuler:Result -> 45 SelectUnit:ifFalse
+85 GetOwner:Result -> 199 ApplyBuff:Sender
+207 ProjectileHit:HitPosition -> 183 GetHitEffect:Position
+115 GetModifier:Result -> 101 ApplyDamage:Modifier
+203 GetVariable:value -> 177 OnUpdateRoutine:1 Routine
+141 Literal:output -> 111 GetOptionTriggerInfo:Integer
+59 GetTargetForManualProj:Target -> 185 AppendTarget:0 Value
+221 GetVariable:value -> 193 SelectUnit:condition
+207 ProjectileHit:OnHitType -> 147 SwitchOnProjectileHit:Enum
+143 GetOptionApply:Result -> 155 SetVariable:input
+61 Literal:output -> 193 SelectUnit:ifFalse
+71 GetActionDirVector:Result -> 107 PlayEffect:Direction
+207 ProjectileHit:OnHitTarget -> 101 ApplyDamage:DamageTarget
+83 GetCharacterIsNull:Result -> 45 SelectUnit:condition
+165 OnUpdateFrame:DeltaTime -> 177 OnUpdateRoutine:DeltaTime
+207 ProjectileHit:OnHitTarget -> 199 ApplyBuff:Target
+139 GetVariable:value -> 133 GetAnyRoutineActive:1 Routine
+121 GetStickDirection:Result -> 181 PlayDash:Direction
+45 SelectUnit:selection -> 157 ShootProjectile:Direction
+161 GetActionDirVector:Result -> 45 SelectUnit:ifTrue
+185 AppendTarget:Result -> 175 AppendDirection:TargetInfo
+123 GetActionTarget:Result -> 157 ShootProjectile:TargetToFollow
+69 GetOptionTriggerInfo:Result -> 131 PublishTriggerOption:TriggerInfo
+109 GetOptionApply:Result -> 151 SetVariable:input
+163 IsHittable:OnHitTarget -> 47 GetBoundDistance:Current
+179 Literal:output -> 69 GetOptionTriggerInfo:Integer
+111 GetOptionTriggerInfo:Result -> 99 PublishTriggerOption:TriggerInfo
+167 GetOwnerPosition:Result -> 51 AddVectorOffset:Position
+125 GetVariable:value -> 63 If:condition
+193 SelectUnit:selection -> 199 ApplyBuff:BuffLevel
+113 GetActionTarget:Result -> 83 GetCharacterIsNull:Value
+59 GetTargetForManualProj:Direction -> 175 AppendDirection:0 Value
+187 GetOwner:Result -> 47 GetBoundDistance:Target
+197 GetVariable:value -> 103 If:condition
+51 AddVectorOffset:Result -> 107 PlayEffect:Position
+175 AppendDirection:Result -> 41 PublishTriggerAction:TriggerInfo
+173 GetActionDirVector:Result -> 73 LockDirection:Direction
+189 Literal:output -> 193 SelectUnit:ifTrue
+149 GetActionDirVector:Result -> 89 DirectionRotateEuler:Direction
+223 GetHitSound:SfxInfo -> 101 ApplyDamage:HitSound
+217 GetActionDirVector:Result -> 215 SetOwnerDirection:DirectionVector
+205 GetVariable:value -> 95 EndRoutine:1 Routine
+135 GetOwnerPosition:Result -> 157 ShootProjectile:Position
+209 LessOrEqual:comparison -> 213 If:condition
+153 GetActionDirVector:Result -> 51 AddVectorOffset:Direction
+183 GetHitEffect:HitEffect -> 101 ApplyDamage:HitEffect
+47 GetBoundDistance:Result -> 209 LessOrEqual:a
+53 GetOptionApply:Result -> 171 SetVariable:input
+133 GetAnyRoutineActive:Result -> 79 If:condition
+207 ProjectileHit:OnHitTarget -> 105 IsHittableTarget:Target
+137 GetVariable:value -> 67 StartRoutine:1 Routine
+DEFAULTS
+39 OnInit {}
+41 PublishTriggerAction {}
+43 IsTimePassed {"Timer": {"$content": 0.4, "$type": "System.Single"}}
+45 SelectUnit {}
+47 GetBoundDistance {}
+49 ReturnBool {"Bool": {"$content": false, "$type": "System.Boolean"}}
+51 AddVectorOffset {"OffsetAmount": {"$content": 0.5, "$type": "System.Single"}}
+53 GetOptionApply {"TargetId": {"$content": 20350659, "$type": "System.Int32"}}
+55 OnStartAction {}
+57 RemoveAnim {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+59 GetTargetForManualProj {"SearchRange": {"$content": 7.0, "$type": "System.Single"}, "IsStationary": {"$content": false, "$type": "System.Boolean"}, "ComboActionCheckHittable": {"$content": false, "$type": "System.Boolean"}}
+61 Literal {}
+63 If {}
+65 ReturnBool {"Bool": {"$content": false, "$type": "System.Boolean"}}
+67 StartRoutine {}
+69 GetOptionTriggerInfo {}
+71 GetActionDirVector {}
+73 LockDirection {}
+75 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+77 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+79 If {}
+81 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+83 GetCharacterIsNull {}
+85 GetOwner {}
+87 SetIsRunCancelable {"IsRunCancel": {"$content": true, "$type": "System.Boolean"}}
+89 DirectionRotateEuler {"Euler": {"x": 0.0, "y": -30.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+91 PlaySound {"SoundKey": {"$content": "sfx_attack", "$type": "System.String"}}
+93 TriggerAction {}
+95 EndRoutine {}
+97 PlaySound {"SoundKey": {"$content": "sfx_hit_02", "$type": "System.String"}}
+99 PublishTriggerOption {"TargetOptionId": {"$content": 320659, "$type": "System.Int32"}}
+101 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "None", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+103 If {}
+105 IsHittableTarget {}
+107 PlayEffect {"EffectKey": {"$content": "fx_fire", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+109 GetOptionApply {"TargetId": {"$content": 320659, "$type": "System.Int32"}}
+111 GetOptionTriggerInfo {}
+113 GetActionTarget {}
+115 GetModifier {"Modifier": {"$content": 0.6, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+117 IsTimePassedForFinishAction {"Timer": {"$content": 0.6, "$type": "System.Single"}}
+119 IsAvailable {}
+121 GetStickDirection {"InputWindow": {"$content": 0.3, "$type": "System.Single"}, "Default": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+123 GetActionTarget {}
+125 GetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+127 PlayCameraShake {"ShakeAmount": {"$content": 0.1, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.15, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+129 SetActionInactive {}
+131 PublishTriggerOption {"TargetOptionId": {"$content": 320659, "$type": "System.Int32"}}
+133 GetAnyRoutineActive {}
+135 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+137 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+139 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+141 Literal {}
+143 GetOptionApply {"TargetId": {"$content": 310659, "$type": "System.Int32"}}
+145 SetIsControllingCharacter {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+147 SwitchOnProjectileHit {}
+149 GetActionDirVector {}
+151 SetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+153 GetActionDirVector {}
+155 SetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+157 ShootProjectile {"Key": {"$content": "proj_manual", "$type": "System.String"}, "Label": {"$content": 0, "$type": "System.Int32"}, "CalculateInner": {"$content": true, "$type": "System.Boolean"}, "TargetPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+159 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+161 GetActionDirVector {}
+163 IsHittable {}
+165 OnUpdateFrame {}
+167 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+169 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+171 SetVariable {"name": {"$content": "is_myth_manual", "$type": "System.String"}}
+173 GetActionDirVector {}
+175 AppendDirection {}
+177 OnUpdateRoutine {}
+179 Literal {}
+181 PlayDash {"StayDuration": {"$content": 0.0, "$type": "System.Single"}, "DashDuration": {"$content": 0.2, "$type": "System.Single"}, "DashSpeed": {"$content": 18.0, "$type": "System.Single"}, "DashOnBlockType": {"$content": "Slide", "$type": "Oak.ShortDashState+OnBlockType"}, "CancelByMove": {"$content": false, "$type": "System.Boolean"}, "ManualMinDistance": {"$content": 0.0, "$type": "System.Single"}, "CanRecoverStamina": {"$content": false, "$type": "System.Boolean"}}
+183 GetHitEffect {"EffectKey": {"$content": "fx_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsRotate": {"$content": false, "$type": "System.Boolean"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "FollowFlag": {"$content": "", "$type": "Oak.ParentFollowFlag"}}
+185 AppendTarget {}
+187 GetOwner {}
+189 Literal {}
+191 PlayAnim {"AnimKey": {"$content": "anim_attack", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+193 SelectUnit {}
+195 OnFinishAction {}
+197 GetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+199 ApplyBuff {"BuffKey": {"$content": "buff_battleball_pitcher_manual_0", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+201 SetActionActive {}
+203 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+205 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+207 ProjectileHit {}
+209 LessOrEqual {"b": {"$content": 3.64, "$type": "System.Single"}}
+211 SetLockedTarget {}
+213 If {}
+215 SetOwnerDirection {"DirectionVector": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+217 GetActionDirVector {}
+219 UnLockDirection {}
+221 GetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+223 GetHitSound {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+225 IsTimePassed {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+
+### battleball_pitcher-ManualBattleballPitcherThird.json
+196 OnUpdateFrame:trigger -> 114 OnUpdateRoutine:InputTrigger
+190 IsHittableTarget:False -> 88 If:enter
+94 PlaySound:OutputTrigger -> 210 PlayCameraShake:InputTrigger
+92 EndRoutine:OutputTrigger -> 166 SetOwnerDirection:InputTrigger
+212 SetLockedTarget:OutputTrigger -> 64 ShootProjectile:InputTrigger
+164 If:ifFalse -> 170 ReturnBool:InputTrigger
+134 SwitchOnProjectileHit:%SelfDestruction -> 88 If:enter
+70 PublishTriggerOption:OutputTrigger -> 170 ReturnBool:InputTrigger
+46 OnInit:trigger -> 72 SetIsControllingCharacter:InputTrigger
+208 IsTimePassed:True -> 240 PlayAnim:InputTrigger
+208 IsTimePassed:Exit -> 224 IsTimePassed:InputTrigger
+218 SetIsRunCancelable:OutputTrigger -> 76 SetVariable:assign
+140 If:ifFalse -> 108 ReturnBool:InputTrigger
+148 If:ifFalse -> 202 ReturnBool:InputTrigger
+186 OnStartAction:trigger -> 52 SetActionActive:InputTrigger
+134 SwitchOnProjectileHit:%FieldObject -> 190 IsHittableTarget:InputTrigger
+210 PlayCameraShake:OutputTrigger -> 236 ApplyBuff:InputTrigger
+164 If:ifTrue -> 70 PublishTriggerOption:InputTrigger
+110 GetTargetForManualProj:OutputTrigger -> 206 PublishTriggerAction:InputTrigger
+234 PlayEffect:OutputTrigger -> 116 PlaySound:InputTrigger
+162 ApplyDamage:OutputTrigger -> 94 PlaySound:InputTrigger
+182 RemoveAnim:OutputTrigger -> 120 UnLockDirection:InputTrigger
+216 IsTimePassed:True -> 62 PlayAnim:InputTrigger
+206 PublishTriggerAction:OutputTrigger -> 48 ReturnBool:InputTrigger
+98 If:ifFalse -> 164 If:enter
+140 If:ifTrue -> 128 ReturnBool:InputTrigger
+64 ShootProjectile:OutputTrigger -> 234 PlayEffect:InputTrigger
+78 IsHittable:Trigger -> 148 If:enter
+236 ApplyBuff:OutputTrigger -> 98 If:enter
+74 SetActionInactive:OutputTrigger -> 182 RemoveAnim:InputTrigger
+72 SetIsControllingCharacter:OutputTrigger -> 218 SetIsRunCancelable:InputTrigger
+120 UnLockDirection:OutputTrigger -> 92 EndRoutine:InputTrigger
+200 ApplyDamage:OutputTrigger -> 164 If:enter
+76 SetVariable:assigned -> 172 SetVariable:assign
+190 IsHittableTarget:True -> 162 ApplyDamage:InputTrigger
+88 If:ifTrue -> 80 PublishTriggerOption:InputTrigger
+178 OnFinishAction:trigger -> 74 SetActionInactive:InputTrigger
+102 ProjectileHit:Trigger -> 134 SwitchOnProjectileHit:enter
+80 PublishTriggerOption:OutputTrigger -> 220 ReturnBool:InputTrigger
+88 If:ifFalse -> 220 ReturnBool:InputTrigger
+98 If:ifTrue -> 200 ApplyDamage:InputTrigger
+172 SetVariable:assigned -> 124 SetVariable:assign
+118 TriggerAction:Trigger -> 110 GetTargetForManualProj:InputTrigger
+154 StartRoutine:OutputTrigger -> 96 LockDirection:InputTrigger
+230 IsTimePassed:True -> 150 PlayAnim:InputTrigger
+174 IsAvailable:Trigger -> 140 If:enter
+224 IsTimePassed:True -> 212 SetLockedTarget:InputTrigger
+148 If:ifTrue -> 66 ReturnBool:InputTrigger
+216 IsTimePassed:Exit -> 230 IsTimePassed:InputTrigger
+230 IsTimePassed:Exit -> 208 IsTimePassed:InputTrigger
+224 IsTimePassed:Exit -> 106 IsTimePassedForFinishAction:InputTrigger
+114 OnUpdateRoutine:1 Update -> 216 IsTimePassed:InputTrigger
+52 SetActionActive:OutputTrigger -> 154 StartRoutine:InputTrigger
+VALUES
+196 OnUpdateFrame:DeltaTime -> 114 OnUpdateRoutine:DeltaTime
+226 GetActionDirVector:Result -> 166 SetOwnerDirection:DirectionVector
+228 GetOwner:Result -> 236 ApplyBuff:Sender
+198 GetVariable:value -> 126 GetAnyRoutineActive:1 Routine
+184 SelectUnit:selection -> 236 ApplyBuff:BuffLevel
+54 GetActionDirVector:Result -> 96 LockDirection:Direction
+156 GetVariable:value -> 98 If:condition
+110 GetTargetForManualProj:Direction -> 238 AppendDirection:0 Value
+82 GetOptionTriggerInfo:Result -> 80 PublishTriggerOption:TriggerInfo
+102 ProjectileHit:HitPosition -> 138 GetHitEffect:Position
+152 Literal:output -> 184 SelectUnit:ifFalse
+68 LessOrEqual:comparison -> 148 If:condition
+104 GetOwner:Result -> 180 GetBoundDistance:Target
+142 GetOwnerPosition:Result -> 58 AddVectorOffset:Position
+204 Literal:output -> 56 GetOptionTriggerInfo:Integer
+176 GetOptionApply:Result -> 172 SetVariable:input
+122 GetHitSound:SfxInfo -> 162 ApplyDamage:HitSound
+160 GetOptionApply:Result -> 124 SetVariable:input
+130 GetVariable:value -> 184 SelectUnit:condition
+50 GetModifier:Result -> 162 ApplyDamage:Modifier
+90 GetOptionAppliedSelector:Result -> 136 ScalarMultiply:b
+146 GetVariable:value -> 92 EndRoutine:1 Routine
+58 AddVectorOffset:Result -> 234 PlayEffect:Position
+100 Literal:output -> 82 GetOptionTriggerInfo:Integer
+84 GetOwner:Result -> 86 GetCharacterAttackToDps:Target
+112 GetVariable:value -> 114 OnUpdateRoutine:1 Routine
+56 GetOptionTriggerInfo:Result -> 70 PublishTriggerOption:TriggerInfo
+102 ProjectileHit:OnHitTarget -> 200 ApplyDamage:DamageTarget
+102 ProjectileHit:OnHitTarget -> 236 ApplyBuff:Target
+158 GetVariable:value -> 164 If:condition
+138 GetHitEffect:HitEffect -> 162 ApplyDamage:HitEffect
+136 ScalarMultiply:product -> 200 ApplyDamage:Modifier
+232 GetOwnerPosition:Result -> 64 ShootProjectile:Position
+144 Literal:output -> 184 SelectUnit:ifTrue
+102 ProjectileHit:OnHitType -> 134 SwitchOnProjectileHit:Enum
+132 GetActionDirVector:Result -> 58 AddVectorOffset:Direction
+238 AppendDirection:Result -> 206 PublishTriggerAction:TriggerInfo
+102 ProjectileHit:OnHitTarget -> 162 ApplyDamage:DamageTarget
+180 GetBoundDistance:Result -> 68 LessOrEqual:a
+110 GetTargetForManualProj:Target -> 192 AppendTarget:0 Value
+222 GetHitSound:SfxInfo -> 200 ApplyDamage:HitSound
+60 GetVariable:value -> 88 If:condition
+126 GetAnyRoutineActive:Result -> 140 If:condition
+192 AppendTarget:Result -> 238 AppendDirection:TargetInfo
+168 GetActionDirVector:Result -> 234 PlayEffect:Direction
+78 IsHittable:OnHitTarget -> 180 GetBoundDistance:Current
+86 GetCharacterAttackToDps:Result -> 136 ScalarMultiply:a
+194 GetActionDirVector:Result -> 64 ShootProjectile:Direction
+188 GetVariable:value -> 154 StartRoutine:1 Routine
+214 GetOptionApply:Result -> 76 SetVariable:input
+102 ProjectileHit:OnHitTarget -> 190 IsHittableTarget:Target
+DEFAULTS
+46 OnInit {}
+48 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+50 GetModifier {"Modifier": {"$content": 0.8, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+52 SetActionActive {}
+54 GetActionDirVector {}
+56 GetOptionTriggerInfo {}
+58 AddVectorOffset {"OffsetAmount": {"$content": 0.5, "$type": "System.Single"}}
+60 GetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+62 PlayAnim {"AnimKey": {"$content": "anim_attack2_start", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+64 ShootProjectile {"Key": {"$content": "proj_manual", "$type": "System.String"}, "Label": {"$content": 0, "$type": "System.Int32"}, "CalculateInner": {"$content": true, "$type": "System.Boolean"}, "TargetPos": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+66 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+68 LessOrEqual {"b": {"$content": 3.64, "$type": "System.Single"}}
+70 PublishTriggerOption {"TargetOptionId": {"$content": 320659, "$type": "System.Int32"}}
+72 SetIsControllingCharacter {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+74 SetActionInactive {}
+76 SetVariable {"name": {"$content": "is_myth_manual", "$type": "System.String"}}
+78 IsHittable {}
+80 PublishTriggerOption {"TargetOptionId": {"$content": 320659, "$type": "System.Int32"}}
+82 GetOptionTriggerInfo {}
+84 GetOwner {}
+86 GetCharacterAttackToDps {}
+88 If {}
+90 GetOptionAppliedSelector {"TargetId": {"$content": 20310659, "$type": "System.Int32"}, "True": {"$content": 0.45, "$type": "System.Single"}, "False": {"$content": 0.3, "$type": "System.Single"}}
+92 EndRoutine {}
+94 PlaySound {"SoundKey": {"$content": "sfx_attack_02", "$type": "System.String"}}
+96 LockDirection {}
+98 If {}
+100 Literal {}
+102 ProjectileHit {}
+104 GetOwner {}
+106 IsTimePassedForFinishAction {"Timer": {"$content": 0.8, "$type": "System.Single"}}
+108 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+110 GetTargetForManualProj {"SearchRange": {"$content": 7.0, "$type": "System.Single"}, "IsStationary": {"$content": false, "$type": "System.Boolean"}, "ComboActionCheckHittable": {"$content": false, "$type": "System.Boolean"}}
+112 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+114 OnUpdateRoutine {}
+116 PlaySound {"SoundKey": {"$content": "sfx_attack", "$type": "System.String"}}
+118 TriggerAction {}
+120 UnLockDirection {}
+122 GetHitSound {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+124 SetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+126 GetAnyRoutineActive {}
+128 ReturnBool {"Bool": {"$content": false, "$type": "System.Boolean"}}
+130 GetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+132 GetActionDirVector {}
+134 SwitchOnProjectileHit {}
+136 ScalarMultiply {"b": {"$content": 0.3, "$type": "System.Single"}}
+138 GetHitEffect {"EffectKey": {"$content": "fx_hit", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsRotate": {"$content": false, "$type": "System.Boolean"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "FollowFlag": {"$content": "", "$type": "Oak.ParentFollowFlag"}}
+140 If {}
+142 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+144 Literal {}
+146 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+148 If {}
+150 PlayAnim {"AnimKey": {"$content": "anim_attack2_loop", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+152 Literal {}
+154 StartRoutine {}
+156 GetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+158 GetVariable {"name": {"$content": "is_special_option", "$type": "System.String"}}
+160 GetOptionApply {"TargetId": {"$content": 320659, "$type": "System.Int32"}}
+162 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "None", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+164 If {}
+166 SetOwnerDirection {"DirectionVector": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+168 GetActionDirVector {}
+170 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+172 SetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+174 IsAvailable {}
+176 GetOptionApply {"TargetId": {"$content": 310659, "$type": "System.Int32"}}
+178 OnFinishAction {}
+180 GetBoundDistance {}
+182 RemoveAnim {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+184 SelectUnit {}
+186 OnStartAction {}
+188 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+190 IsHittableTarget {}
+192 AppendTarget {}
+194 GetActionDirVector {}
+196 OnUpdateFrame {}
+198 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+200 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "None", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+202 ReturnBool {"Bool": {"$content": false, "$type": "System.Boolean"}}
+204 Literal {}
+206 PublishTriggerAction {}
+208 IsTimePassed {"Timer": {"$content": 0.35, "$type": "System.Single"}}
+210 PlayCameraShake {"ShakeAmount": {"$content": 0.2, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.18, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+212 SetLockedTarget {}
+214 GetOptionApply {"TargetId": {"$content": 20350659, "$type": "System.Int32"}}
+216 IsTimePassed {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+218 SetIsRunCancelable {"IsRunCancel": {"$content": true, "$type": "System.Boolean"}}
+220 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+222 GetHitSound {"SoundKey": {"$content": "sfx_hit_02", "$type": "System.String"}}
+224 IsTimePassed {"Timer": {"$content": 0.5, "$type": "System.Single"}}
+226 GetActionDirVector {}
+228 GetOwner {}
+230 IsTimePassed {"Timer": {"$content": 0.2, "$type": "System.Single"}}
+232 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+234 PlayEffect {"EffectKey": {"$content": "fx_fire", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+236 ApplyBuff {"BuffKey": {"$content": "buff_battleball_pitcher_manual_0", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+238 AppendDirection {}
+240 PlayAnim {"AnimKey": {"$content": "anim_attack2", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+
+### battleball_pitcher-MythBattleballPitcher.json
+199 PlayEffect:OutputTrigger -> 227 PlaySound:InputTrigger
+87 OnFinishAction:trigger -> 158 SetActionInactive:InputTrigger
+132 EndRoutine:OutputTrigger -> 53 SetOwnerDirection:InputTrigger
+71 SetVariable:assigned -> 229 SetVariable:assign
+187 LockDirection:OutputTrigger -> 71 SetVariable:assign
+203 CollisionInBattleOnce:Each -> 138 ApplyDamage:InputTrigger
+55 PlayEffect:OutputTrigger -> 63 CacheEffect:InputTrigger
+119 PlayCameraShake:OutputTrigger -> 73 UpdateEffect:InputTrigger
+99 DisposeEffect:OutputTrigger -> 115 PlayCameraShake:InputTrigger
+175 PublishTriggerAction:OutputTrigger -> 105 ReturnBool:InputTrigger
+85 StartRoutine:OutputTrigger -> 187 LockDirection:InputTrigger
+67 IsTimePassed:True -> 99 DisposeEffect:InputTrigger
+67 IsTimePassed:Exit -> 163 IsTimePassedForFinishAction:InputTrigger
+154 OnUpdateRoutine:1 Update -> 95 IsTimePassed:InputTrigger
+158 SetActionInactive:OutputTrigger -> 150 RemoveAnim:InputTrigger
+181 OnUpdateFrame:trigger -> 154 OnUpdateRoutine:InputTrigger
+179 SetVariable:assigned -> 183 SetVariable:assign
+225 SetVariable:assigned -> 179 SetVariable:assign
+97 IsTimeBetween:True -> 119 PlayCameraShake:InputTrigger
+51 OnInit:trigger -> 69 SetIsControllingCharacter:InputTrigger
+229 SetVariable:assigned -> 225 SetVariable:assign
+150 RemoveAnim:OutputTrigger -> 136 UnLockDirection:InputTrigger
+189 OnDeclareAction:trigger -> 197 SetActionActive:InputTrigger
+167 OnStartAction:trigger -> 85 StartRoutine:InputTrigger
+95 IsTimePassed:True -> 199 PlayEffect:InputTrigger
+103 CacheEffect:OutputTrigger -> 55 PlayEffect:InputTrigger
+211 PlaySound:OutputTrigger -> 205 PlayAnim:InputTrigger
+97 IsTimeBetween:Exit -> 67 IsTimePassed:InputTrigger
+73 UpdateEffect:OutputTrigger -> 59 UpdateEffect:InputTrigger
+69 SetIsControllingCharacter:OutputTrigger -> 126 SetIsRunCancelable:InputTrigger
+227 PlaySound:OutputTrigger -> 103 CacheEffect:InputTrigger
+148 GetClosestTargetInBattle:OutputTrigger -> 175 PublishTriggerAction:InputTrigger
+144 TriggerAction:Trigger -> 148 GetClosestTargetInBattle:InputTrigger
+95 IsTimePassed:Exit -> 97 IsTimeBetween:InputTrigger
+115 PlayCameraShake:OutputTrigger -> 195 PlayEffect:InputTrigger
+197 SetActionActive:OutputTrigger -> 211 PlaySound:InputTrigger
+195 PlayEffect:OutputTrigger -> 203 CollisionInBattleOnce:InputTrigger
+136 UnLockDirection:OutputTrigger -> 132 EndRoutine:InputTrigger
+VALUES
+217 GetVariable:value -> 79 SelectUnit:ifFalse
+65 GetVariable:value -> 132 EndRoutine:1 Routine
+79 SelectUnit:selection -> 199 PlayEffect:Position
+201 GetVariable:value -> 81 SelectUnit:ifFalse
+148 GetClosestTargetInBattle:Target -> 213 AppendTarget:0 Value
+111 GetActionDirVector:Result -> 171 ToSideDirection:DirectionVector
+148 GetClosestTargetInBattle:Direction -> 185 AppendDirection:0 Value
+117 GetModifier:Result -> 138 ApplyDamage:Modifier
+89 GetOwnerPosition:Result -> 156 Vector3Sum:0
+130 SelectUnit:selection -> 169 Vector3Lerp:a
+142 Literal:output -> 109 SelectUnit:ifFalse
+171 ToSideDirection:Result -> 73 UpdateEffect:Direction
+61 GreaterOrEqual:comparison -> 109 SelectUnit:condition
+171 ToSideDirection:Result -> 59 UpdateEffect:Direction
+93 Literal:output -> 109 SelectUnit:ifTrue
+203 CollisionInBattleOnce:EachFieldObject -> 138 ApplyDamage:DamageTarget
+91 Vector3Sum:sum -> 229 SetVariable:input
+219 ToSideDirection:Result -> 187 LockDirection:Direction
+57 GetVariable:value -> 61 GreaterOrEqual:a
+81 SelectUnit:selection -> 195 PlayEffect:Position
+107 GreaterOrEqual:comparison -> 130 SelectUnit:condition
+177 GetVariable:value -> 81 SelectUnit:ifTrue
+61 GreaterOrEqual:comparison -> 79 SelectUnit:condition
+169 Vector3Lerp:interpolation -> 73 UpdateEffect:Position
+156 Vector3Sum:sum -> 183 SetVariable:input
+134 GetVariable:value -> 85 StartRoutine:1 Routine
+113 GetVariable:value -> 154 OnUpdateRoutine:1 Routine
+121 Literal:output -> 99 DisposeEffect:1 Managed Key
+152 GetActionDirVector:Result -> 219 ToSideDirection:DirectionVector
+181 OnUpdateFrame:DeltaTime -> 154 OnUpdateRoutine:DeltaTime
+109 SelectUnit:selection -> 199 PlayEffect:Direction
+215 GetVariable:value -> 83 SelectUnit:ifFalse
+107 GreaterOrEqual:comparison -> 83 SelectUnit:condition
+140 GetEaseProgress:Result -> 169 Vector3Lerp:t
+221 GetVariable:value -> 83 SelectUnit:ifTrue
+123 GetMember:value -> 71 SetVariable:input
+185 AppendDirection:Result -> 175 PublishTriggerAction:TriggerInfo
+83 SelectUnit:selection -> 169 Vector3Lerp:b
+79 SelectUnit:selection -> 55 PlayEffect:Position
+169 Vector3Lerp:interpolation -> 59 UpdateEffect:Position
+193 GetVariable:value -> 130 SelectUnit:ifTrue
+55 PlayEffect:PooledObject -> 63 CacheEffect:PooledObject
+199 PlayEffect:PooledObject -> 103 CacheEffect:PooledObject
+89 GetOwnerPosition:Result -> 191 Vector3Sum:0
+209 GetVariable:value -> 130 SelectUnit:ifFalse
+207 GreaterOrEqual:comparison -> 81 SelectUnit:condition
+146 GetVariable:value -> 107 GreaterOrEqual:a
+101 GetActionDirVector:Result -> 195 PlayEffect:Direction
+128 GetActionDirVector:Result -> 160 GetMember:target
+77 Vector3Sum:sum -> 225 SetVariable:input
+89 GetOwnerPosition:Result -> 91 Vector3Sum:0
+173 Literal:output -> 99 DisposeEffect:2 Managed Key
+89 GetOwnerPosition:Result -> 77 Vector3Sum:0
+165 GetActionDirVector:Result -> 123 GetMember:target
+75 GetActionDirVector:Result -> 53 SetOwnerDirection:DirectionVector
+109 SelectUnit:selection -> 55 PlayEffect:Direction
+213 AppendTarget:Result -> 185 AppendDirection:TargetInfo
+223 GetVariable:value -> 79 SelectUnit:ifTrue
+160 GetMember:value -> 207 GreaterOrEqual:a
+191 Vector3Sum:sum -> 179 SetVariable:input
+DEFAULTS
+51 OnInit {}
+53 SetOwnerDirection {"DirectionVector": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+55 PlayEffect {"EffectKey": {"$content": "fx_contrail", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+57 GetVariable {"name": {"$content": "hero_dir", "$type": "System.String"}}
+59 UpdateEffect {"ManageKey": {"$content": "cache_contrail_0", "$type": "System.String"}, "Direction": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+61 GreaterOrEqual {"b": {"$content": 0.0, "$type": "System.Single"}}
+63 CacheEffect {"ManageKey": {"$content": "cache_contrail_0", "$type": "System.String"}}
+65 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+67 IsTimePassed {"Timer": {"$content": 0.4, "$type": "System.Single"}}
+69 SetIsControllingCharacter {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+71 SetVariable {"name": {"$content": "hero_dir", "$type": "System.String"}}
+73 UpdateEffect {"ManageKey": {"$content": "cache_proj_0", "$type": "System.String"}, "Direction": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+75 GetActionDirVector {}
+77 Vector3Sum {"1": {"x": 20.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+79 SelectUnit {}
+81 SelectUnit {}
+83 SelectUnit {}
+85 StartRoutine {}
+87 OnFinishAction {}
+89 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+91 Vector3Sum {"1": {"x": -20.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+93 Literal {}
+95 IsTimePassed {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+97 IsTimeBetween {"MinTimer": {"$content": 0.0, "$type": "System.Single"}, "MaxTimer": {"$content": 0.4, "$type": "System.Single"}}
+99 DisposeEffect {"1 immediate": {"$content": false, "$type": "System.Boolean"}, "2 immediate": {"$content": false, "$type": "System.Boolean"}}
+101 GetActionDirVector {}
+103 CacheEffect {"ManageKey": {"$content": "cache_proj_0", "$type": "System.String"}}
+105 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+107 GreaterOrEqual {"b": {"$content": 0.0, "$type": "System.Single"}}
+109 SelectUnit {}
+111 GetActionDirVector {}
+113 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+115 PlayCameraShake {"ShakeAmount": {"$content": 0.4, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.7, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+117 GetModifier {"Modifier": {"$content": 4.5, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+119 PlayCameraShake {"ShakeAmount": {"$content": 0.12, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.18, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+121 Literal {}
+123 GetMember {"target": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+126 SetIsRunCancelable {"IsRunCancel": {"$content": false, "$type": "System.Boolean"}}
+128 GetActionDirVector {}
+130 SelectUnit {}
+132 EndRoutine {}
+134 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+136 UnLockDirection {}
+138 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "Normal", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.4, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+140 GetEaseProgress {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.0, "$type": "System.Single"}, "EndTime": {"$content": 0.4, "$type": "System.Single"}}
+142 Literal {}
+144 TriggerAction {}
+146 GetVariable {"name": {"$content": "hero_dir", "$type": "System.String"}}
+148 GetClosestTargetInBattle {}
+150 RemoveAnim {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+152 GetActionDirVector {}
+154 OnUpdateRoutine {}
+156 Vector3Sum {"1": {"x": -4.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+158 SetActionInactive {}
+160 GetMember {"target": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+163 IsTimePassedForFinishAction {"Timer": {"$content": 1.1, "$type": "System.Single"}}
+165 GetActionDirVector {}
+167 OnStartAction {}
+169 Vector3Lerp {"a": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 1.0, "y": 1.0, "z": 1.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+171 ToSideDirection {}
+173 Literal {}
+175 PublishTriggerAction {}
+177 GetVariable {"name": {"$content": "pro_end_right", "$type": "System.String"}}
+179 SetVariable {"name": {"$content": "pro_end_right", "$type": "System.String"}}
+181 OnUpdateFrame {}
+183 SetVariable {"name": {"$content": "pro_end_left", "$type": "System.String"}}
+185 AppendDirection {}
+187 LockDirection {}
+189 OnDeclareAction {}
+191 Vector3Sum {"1": {"x": 4.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+193 GetVariable {"name": {"$content": "pro_start_right", "$type": "System.String"}}
+195 PlayEffect {"EffectKey": {"$content": "fx_explosion", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+197 SetActionActive {}
+199 PlayEffect {"EffectKey": {"$content": "fx_proj", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+201 GetVariable {"name": {"$content": "pro_end_left", "$type": "System.String"}}
+203 CollisionInBattleOnce {}
+205 PlayAnim {"AnimKey": {"$content": "anim_attack2", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+207 GreaterOrEqual {"b": {"$content": 0.0, "$type": "System.Single"}}
+209 GetVariable {"name": {"$content": "pro_start_left", "$type": "System.String"}}
+211 PlaySound {"SoundKey": {"$content": "sfx_leader", "$type": "System.String"}}
+213 AppendTarget {}
+215 GetVariable {"name": {"$content": "pro_end_left", "$type": "System.String"}}
+217 GetVariable {"name": {"$content": "pro_start_left", "$type": "System.String"}}
+219 ToSideDirection {}
+221 GetVariable {"name": {"$content": "pro_end_right", "$type": "System.String"}}
+223 GetVariable {"name": {"$content": "pro_start_right", "$type": "System.String"}}
+225 SetVariable {"name": {"$content": "pro_start_left", "$type": "System.String"}}
+227 PlaySound {"SoundKey": {"$content": "sfx_leader_02", "$type": "System.String"}}
+229 SetVariable {"name": {"$content": "pro_start_right", "$type": "System.String"}}
+
+### battleball_pitcher-SupportBattleballPitcher.json
+340 FadeMirage:OutputTrigger -> 316 PlayEffect:InputTrigger
+230 OnUpdateFrame:trigger -> 348 OnUpdateRoutine:InputTrigger
+284 UpdateEffect:OutputTrigger -> 98 UpdateEffect:InputTrigger
+460 IsTimeBetween:Exit -> 312 IsTimePassedForFinishAction:InputTrigger
+264 GetStageMemberEach:Each -> 276 ApplyBuff:InputTrigger
+104 CollisionCalculateOnce:Each -> 342 ApplyDamage:InputTrigger
+328 SetOwnerDirection:OutputTrigger -> 428 HideMirage:InputTrigger
+460 IsTimeBetween:True -> 406 WhileCollisionCalculate:InputTrigger
+428 HideMirage:OutputTrigger -> 526 HideMirage:InputTrigger
+214 IsTimePassed:Exit -> 460 IsTimeBetween:InputTrigger
+404 InitMirage:OutputTrigger -> 476 SetVariable:assign
+214 IsTimePassed:True -> 534 CollisionCalculateStart:InputTrigger
+292 LockDirection:OutputTrigger -> 458 SetSupportDarken:InputTrigger
+476 SetVariable:assigned -> 420 SetVariable:assign
+134 PlayEffect:OutputTrigger -> 344 PlayEffect:InputTrigger
+366 SetIsRunCancelable:OutputTrigger -> 106 SetVariable:assign
+188 CacheEffect:OutputTrigger -> 536 PlayEffect:InputTrigger
+102 OnForceCancelAction:trigger -> 494 HideMirage:InputTrigger
+458 SetSupportDarken:OutputTrigger -> 332 If:enter
+356 RemoveAnim:OutputTrigger -> 144 UnLockDirection:InputTrigger
+240 SetVariable:assigned -> 404 InitMirage:InputTrigger
+440 SetActionInactive:OutputTrigger -> 356 RemoveAnim:InputTrigger
+210 PlayEffect:OutputTrigger -> 464 PlayCameraShake:InputTrigger
+464 PlayCameraShake:OutputTrigger -> 104 CollisionCalculateOnce:InputTrigger
+130 PlayCameraShake:OutputTrigger -> 134 PlayEffect:InputTrigger
+480 OnStartAction:trigger -> 482 StartRoutine:InputTrigger
+552 GetTargetForSupport:OutputTrigger -> 396 PublishTriggerAction:InputTrigger
+350 OnFinishAction:trigger -> 440 SetActionInactive:InputTrigger
+148 UpdateEffect:OutputTrigger -> 250 UpdateEffect:InputTrigger
+316 PlayEffect:OutputTrigger -> 266 CacheEffect:InputTrigger
+204 IsTimePassed:True -> 210 PlayEffect:InputTrigger
+454 SetActionActive:OutputTrigger -> 502 PlayEffect:InputTrigger
+320 IsTimeBetween:True -> 284 UpdateEffect:InputTrigger
+520 IsTimePassed:True -> 180 DisposeEffect:InputTrigger
+266 CacheEffect:OutputTrigger -> 446 PlayEffect:InputTrigger
+490 IsTimePassed:Exit -> 322 IsTimeBetween:InputTrigger
+276 ApplyBuff:OutputTrigger -> 556 GetSummonedEach:InputTrigger
+216 HideMirage:OutputTrigger -> 208 DisposeEffect:InputTrigger
+144 UnLockDirection:OutputTrigger -> 518 EndRoutine:InputTrigger
+490 IsTimePassed:True -> 268 DisposeEffect:InputTrigger
+106 SetVariable:assigned -> 240 SetVariable:assign
+180 DisposeEffect:OutputTrigger -> 432 FadeMirage:InputTrigger
+126 SetVariable:assigned -> 548 SetVariable:assign
+122 OnDeclareAction:trigger -> 454 SetActionActive:InputTrigger
+482 StartRoutine:OutputTrigger -> 292 LockDirection:InputTrigger
+204 IsTimePassed:Exit -> 88 IsTimePassed:InputTrigger
+332 If:ifTrue -> 264 GetStageMemberEach:InputTrigger
+282 UnsetSupportDarken:OutputTrigger -> 328 SetOwnerDirection:InputTrigger
+486 IsTimeBetween:True -> 116 UpdateEffect:InputTrigger
+418 IsTimePassed:Exit -> 486 IsTimeBetween:InputTrigger
+446 PlayEffect:OutputTrigger -> 336 CacheEffect:InputTrigger
+84 OnInit:trigger -> 452 SetIsControllingCharacter:InputTrigger
+426 CollisionCalculateEnd:OutputTrigger -> 282 UnsetSupportDarken:InputTrigger
+406 WhileCollisionCalculate:Each -> 444 ApplyDamage:InputTrigger
+396 PublishTriggerAction:OutputTrigger -> 506 ReturnBool:InputTrigger
+496 PlayEffect:OutputTrigger -> 464 PlayCameraShake:InputTrigger
+534 CollisionCalculateStart:OutputTrigger -> 130 PlayCameraShake:InputTrigger
+234 IsTimeBetween:True -> 100 UpdateEffect:InputTrigger
+116 UpdateEffect:OutputTrigger -> 438 UpdateEffect:InputTrigger
+310 PlayDefaultVoice:OutputTrigger -> 552 GetTargetForSupport:InputTrigger
+88 IsTimePassed:True -> 496 PlayEffect:InputTrigger
+392 IsTimePassed:True -> 114 PlayAnim:InputTrigger
+258 PlayAnim:OutputTrigger -> 414 PlayEffect:InputTrigger
+184 ShowMirage:OutputTrigger -> 372 SetMirage:InputTrigger
+314 SetMirage:OutputTrigger -> 184 ShowMirage:InputTrigger
+88 IsTimePassed:Exit -> 392 IsTimePassed:InputTrigger
+322 IsTimeBetween:Exit -> 234 IsTimeBetween:InputTrigger
+322 IsTimeBetween:True -> 148 UpdateEffect:InputTrigger
+548 SetVariable:assigned -> 212 ShowMirage:InputTrigger
+556 GetSummonedEach:Each -> 370 ApplyBuff:InputTrigger
+418 IsTimePassed:True -> 258 PlayAnim:InputTrigger
+212 ShowMirage:OutputTrigger -> 96 PlayMirageAnimation:InputTrigger
+520 IsTimePassed:Exit -> 204 IsTimePassed:InputTrigger
+348 OnUpdateRoutine:1 Update -> 412 IsTimePassed:InputTrigger
+412 IsTimePassed:True -> 380 PlayMirageAnimation:InputTrigger
+412 IsTimePassed:Exit -> 418 IsTimePassed:InputTrigger
+536 PlayEffect:OutputTrigger -> 436 CacheEffect:InputTrigger
+268 DisposeEffect:OutputTrigger -> 340 FadeMirage:InputTrigger
+500 PlaySound:OutputTrigger -> 126 SetVariable:assign
+502 PlayEffect:OutputTrigger -> 500 PlaySound:InputTrigger
+394 PlaySound:OutputTrigger -> 188 CacheEffect:InputTrigger
+414 PlayEffect:OutputTrigger -> 394 PlaySound:InputTrigger
+320 IsTimeBetween:Exit -> 300 IsTimePassed:InputTrigger
+300 IsTimePassed:True -> 522 PlayAnim:InputTrigger
+234 IsTimeBetween:Exit -> 520 IsTimePassed:InputTrigger
+392 IsTimePassed:Exit -> 214 IsTimePassed:InputTrigger
+100 UpdateEffect:OutputTrigger -> 120 UpdateEffect:InputTrigger
+336 CacheEffect:OutputTrigger -> 154 PlayEffect:InputTrigger
+486 IsTimeBetween:Exit -> 320 IsTimeBetween:InputTrigger
+452 SetIsControllingCharacter:OutputTrigger -> 366 SetIsRunCancelable:InputTrigger
+436 CacheEffect:OutputTrigger -> 256 PlayEffect:InputTrigger
+96 PlayMirageAnimation:OutputTrigger -> 314 SetMirage:InputTrigger
+494 HideMirage:OutputTrigger -> 216 HideMirage:InputTrigger
+286 TriggerAction:Trigger -> 310 PlayDefaultVoice:InputTrigger
+526 HideMirage:OutputTrigger -> 302 DisposeEffect:InputTrigger
+300 IsTimePassed:Exit -> 490 IsTimePassed:InputTrigger
+518 EndRoutine:OutputTrigger -> 426 CollisionCalculateEnd:InputTrigger
+VALUES
+304 Literal:output -> 208 DisposeEffect:2 Managed Key
+524 GetBoundPosition:Result -> 270 Vector3Subtract:minuend
+378 GetActionTarget:Result -> 260 GetBoundPosition:Target
+558 GetActionTarget:Result -> 492 GetBoundPosition:Target
+198 GetActionDirVector:Result -> 358 AddVectorOffset:Direction
+478 Literal:output -> 208 DisposeEffect:1 Managed Key
+334 GetActionDirVector:Result -> 364 AddVectorOffset:Direction
+220 Vector3Sum:sum -> 120 UpdateEffect:Position
+194 GetEaseProgress:Result -> 400 Vector3Lerp:t
+190 GetAilmentInfo:Result -> 444 ApplyDamage:AilmentInfo
+220 Vector3Sum:sum -> 100 UpdateEffect:Position
+222 GetVariable:value -> 364 AddVectorOffset:Position
+92 GetActionTarget:Result -> 254 GetBoundPosition:Target
+544 GetModifier:Result -> 342 ApplyDamage:Modifier
+362 GetActionDirVector:Result -> 328 SetOwnerDirection:DirectionVector
+260 GetBoundPosition:Result -> 236 Vector3Subtract:minuend
+170 GetVariable:value -> 518 EndRoutine:1 Routine
+550 Vector3Subtract:difference -> 100 UpdateEffect:Direction
+176 GetVariable:value -> 226 Vector3Subtract:subtrahend
+468 Vector3Subtract:difference -> 256 PlayEffect:Direction
+272 Vector3Subtract:difference -> 536 PlayEffect:Direction
+388 Literal:output -> 448 CollisionInit:Duration
+326 Vector3Subtract:difference -> 414 PlayEffect:Direction
+108 GetActionTarget:Result -> 166 GetBoundPosition:Target
+248 GetEaseProgress:Result -> 402 Vector3Lerp:t
+430 GetVariable:value -> 426 CollisionCalculateEnd:2 Calculator
+164 GetVariable:value -> 508 GetGroundPosition:Position
+252 GetOwnerPosition:Result -> 502 PlayEffect:Position
+270 Vector3Subtract:difference -> 154 PlayEffect:Direction
+556 GetSummonedEach:EachFieldObject -> 370 ApplyBuff:Target
+472 Vector3Subtract:difference -> 446 PlayEffect:Direction
+224 GetVariable:value -> 514 AddVectorOffset:Position
+484 GetVariable:value -> 104 CollisionCalculateOnce:Calculator
+206 GetOwner:Result -> 370 ApplyBuff:Sender
+538 Vector3Sum:sum -> 126 SetVariable:input
+390 GetVariable:value -> 446 PlayEffect:Position
+226 Vector3Subtract:difference -> 284 UpdateEffect:Direction
+150 GetVariable:value -> 316 PlayEffect:Position
+308 Literal:output -> 180 DisposeEffect:1 Managed Key
+462 GetActionDirVector:Result -> 406 WhileCollisionCalculate:Direction
+510 GetVariable:value -> 534 CollisionCalculateStart:Calculator
+290 CollisionInit:Result -> 106 SetVariable:input
+514 AddVectorOffset:Result -> 154 PlayEffect:Position
+474 GetOwnerPosition:Result -> 538 Vector3Sum:0
+554 GetEaseProgress:Result -> 162 Vector3Lerp:t
+536 PlayEffect:PooledObject -> 436 CacheEffect:PooledObject
+202 GetVariable:value -> 348 OnUpdateRoutine:1 Routine
+110 GetActionTarget:Result -> 398 GetBoundPosition:Target
+86 GetOwnerPosition:Result -> 406 WhileCollisionCalculate:Position
+542 GetActionDirVector:Result -> 514 AddVectorOffset:Direction
+244 Literal:output -> 208 DisposeEffect:3 Managed Key
+424 GetBoundPosition:Result -> 550 Vector3Subtract:minuend
+124 Literal:output -> 302 DisposeEffect:1 Managed Key
+294 Literal:output -> 302 DisposeEffect:4 Managed Key
+296 Literal:output -> 302 DisposeEffect:3 Managed Key
+90 Literal:output -> 180 DisposeEffect:2 Managed Key
+446 PlayEffect:PooledObject -> 336 CacheEffect:PooledObject
+546 GetHitSound:SfxInfo -> 444 ApplyDamage:HitSound
+168 Vector3Lerp:interpolation -> 172 Vector3Sum:0
+324 GetActionTarget:Result -> 504 GetBoundPosition:Target
+376 GetActionTarget:Result -> 238 GetBoundPosition:Target
+406 WhileCollisionCalculate:EachFieldObject -> 444 ApplyDamage:DamageTarget
+146 AppendTarget:Result -> 532 AppendDirection:TargetInfo
+504 GetBoundPosition:Result -> 186 Vector3Lerp:b
+298 GetActionDirVector:Result -> 134 PlayEffect:Direction
+166 GetBoundPosition:Result -> 104 CollisionCalculateOnce:Position
+242 GetActionTarget:Result -> 524 GetBoundPosition:Target
+112 GetVariable:value -> 482 StartRoutine:1 Routine
+182 Vector3Sum:sum -> 438 UpdateEffect:Position
+364 AddVectorOffset:Result -> 256 PlayEffect:Position
+152 GetOwner:Result -> 276 ApplyBuff:Sender
+488 GetVariable:value -> 550 Vector3Subtract:subtrahend
+540 Literal:output -> 268 DisposeEffect:1 Managed Key
+232 GetVariable:value -> 326 Vector3Subtract:subtrahend
+470 Vector3Sum:sum -> 548 SetVariable:input
+466 Literal:output -> 268 DisposeEffect:2 Managed Key
+226 Vector3Subtract:difference -> 116 UpdateEffect:Direction
+400 Vector3Lerp:interpolation -> 182 Vector3Sum:1
+140 GetOptionApply:Result -> 420 SetVariable:input
+158 GetActionDirVector:Result -> 292 LockDirection:Direction
+192 GetOptionApply:Result -> 476 SetVariable:input
+218 GetActionDirVector:Result -> 530 DirectionRotateEuler:Direction
+118 Literal:output -> 208 DisposeEffect:4 Managed Key
+280 GetActionDirVector:Result -> 132 DirectionRotateEuler:Direction
+174 GetVariable:value -> 536 PlayEffect:Position
+236 Vector3Subtract:difference -> 316 PlayEffect:Direction
+330 GetOwnerPosition:Result -> 358 AddVectorOffset:Position
+318 GetEaseProgress:Result -> 168 Vector3Lerp:t
+456 GetActionTarget:Result -> 262 GetBoundPosition:Target
+550 Vector3Subtract:difference -> 120 UpdateEffect:Direction
+264 GetStageMemberEach:EachFieldObject -> 276 ApplyBuff:Target
+138 GetVariable:value -> 346 GetGroundPosition:Position
+316 PlayEffect:PooledObject -> 266 CacheEffect:PooledObject
+288 GetBoundPosition:Result -> 468 Vector3Subtract:minuend
+492 GetBoundPosition:Result -> 326 Vector3Subtract:minuend
+136 GetVariable:value -> 468 Vector3Subtract:subtrahend
+156 GetVariable:value -> 426 CollisionCalculateEnd:1 Calculator
+278 GetVariable:value -> 270 Vector3Subtract:subtrahend
+530 DirectionRotateEuler:Result -> 470 Vector3Sum:1
+262 GetBoundPosition:Result -> 226 Vector3Subtract:minuend
+532 AppendDirection:Result -> 396 PublishTriggerAction:TriggerInfo
+168 Vector3Lerp:interpolation -> 182 Vector3Sum:0
+142 GetVariable:value -> 236 Vector3Subtract:subtrahend
+104 CollisionCalculateOnce:EachFieldObject -> 342 ApplyDamage:DamageTarget
+398 GetBoundPosition:Result -> 472 Vector3Subtract:minuend
+274 GetVariable:value -> 414 PlayEffect:Position
+360 Vector3Sum:sum -> 250 UpdateEffect:Position
+246 GetOwnerPosition:Result -> 534 CollisionCalculateStart:Position
+386 GetActionDirVector:Result -> 344 PlayEffect:Direction
+384 GetActionDirVector:Result -> 314 SetMirage:Direction
+360 Vector3Sum:sum -> 148 UpdateEffect:Position
+516 GetOwnerPosition:Result -> 134 PlayEffect:Position
+238 GetBoundPosition:Result -> 210 PlayEffect:Position
+226 Vector3Subtract:difference -> 98 UpdateEffect:Direction
+422 GetOptionAppliedSelector:Result -> 544 GetModifier:Modifier
+354 GetVariable:value -> 168 Vector3Lerp:a
+374 Vector3Lerp:interpolation -> 360 Vector3Sum:1
+346 GetGroundPosition:Result -> 372 SetMirage:Position
+550 Vector3Subtract:difference -> 250 UpdateEffect:Direction
+550 Vector3Subtract:difference -> 148 UpdateEffect:Direction
+200 GetActionTarget:Result -> 416 GetBoundPosition:Target
+172 Vector3Sum:sum -> 284 UpdateEffect:Position
+368 GetActionTarget:Result -> 424 GetBoundPosition:Target
+552 GetTargetForSupport:Target -> 146 AppendTarget:0 Value
+552 GetTargetForSupport:Direction -> 532 AppendDirection:0 Value
+414 PlayEffect:PooledObject -> 188 CacheEffect:PooledObject
+382 GetOptionAppliedSelector:Result -> 128 GetModifier:Modifier
+196 GetOwnerPosition:Result -> 470 Vector3Sum:0
+416 GetBoundPosition:Result -> 496 PlayEffect:Position
+408 GetEaseProgress:Result -> 374 Vector3Lerp:t
+338 GetActionTarget:Result -> 288 GetBoundPosition:Target
+352 GetActionDirVector:Result -> 372 SetMirage:Direction
+358 AddVectorOffset:Result -> 344 PlayEffect:Position
+162 Vector3Lerp:interpolation -> 220 Vector3Sum:1
+132 DirectionRotateEuler:Result -> 538 Vector3Sum:1
+128 GetModifier:Result -> 444 ApplyDamage:Modifier
+410 GetActionTarget:Result -> 442 GetBoundPosition:Target
+186 Vector3Lerp:interpolation -> 360 Vector3Sum:0
+498 GetVariable:value -> 186 Vector3Lerp:a
+178 GetVariable:value -> 332 If:condition
+182 Vector3Sum:sum -> 116 UpdateEffect:Position
+450 GetVariable:value -> 472 Vector3Subtract:subtrahend
+226 Vector3Subtract:difference -> 438 UpdateEffect:Direction
+402 Vector3Lerp:interpolation -> 172 Vector3Sum:1
+94 GetActionDirVector:Result -> 502 PlayEffect:Direction
+508 GetGroundPosition:Result -> 314 SetMirage:Position
+254 GetBoundPosition:Result -> 272 Vector3Subtract:minuend
+434 GetEaseProgress:Result -> 186 Vector3Lerp:t
+186 Vector3Lerp:interpolation -> 220 Vector3Sum:0
+264 GetStageMemberEach:EachFieldObject -> 556 GetSummonedEach:Target
+306 Literal:output -> 302 DisposeEffect:2 Managed Key
+442 GetBoundPosition:Result -> 168 Vector3Lerp:b
+448 CollisionInit:Result -> 240 SetVariable:input
+230 OnUpdateFrame:DeltaTime -> 348 OnUpdateRoutine:DeltaTime
+172 Vector3Sum:sum -> 98 UpdateEffect:Position
+160 GetActionDirVector:Result -> 534 CollisionCalculateStart:Direction
+228 GetVariable:value -> 406 WhileCollisionCalculate:Calculator
+528 GetHitSound:SfxInfo -> 342 ApplyDamage:HitSound
+512 GetVariable:value -> 272 Vector3Subtract:subtrahend
+DEFAULTS
+84 OnInit {}
+86 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+88 IsTimePassed {"Timer": {"$content": 0.6, "$type": "System.Single"}}
+90 Literal {}
+92 GetActionTarget {}
+94 GetActionDirVector {}
+96 PlayMirageAnimation {"MirageIndex": {"$content": 0, "$type": "System.Int32"}, "AnimKey": {"$content": "anim_attack1_1", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+98 UpdateEffect {"ManageKey": {"$content": "cache_contrail_0", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+100 UpdateEffect {"ManageKey": {"$content": "cache_proj_1", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+102 OnForceCancelAction {}
+104 CollisionCalculateOnce {}
+106 SetVariable {"name": {"$content": "collider_0", "$type": "System.String"}}
+108 GetActionTarget {}
+110 GetActionTarget {}
+112 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+114 PlayAnim {"AnimKey": {"$content": "anim_attack2", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+116 UpdateEffect {"ManageKey": {"$content": "cache_proj_0", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+118 Literal {}
+120 UpdateEffect {"ManageKey": {"$content": "cache_contrail_1", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+122 OnDeclareAction {}
+124 Literal {}
+126 SetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+128 GetModifier {"Modifier": {"$content": 1.8, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+130 PlayCameraShake {"ShakeAmount": {"$content": 0.25, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.3, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+132 DirectionRotateEuler {"Euler": {"x": 0.0, "y": 90.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+134 PlayEffect {"EffectKey": {"$content": "fx_main", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+136 GetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+138 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+140 GetOptionApply {"TargetId": {"$content": 310659, "$type": "System.Int32"}}
+142 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+144 UnLockDirection {}
+146 AppendTarget {}
+148 UpdateEffect {"ManageKey": {"$content": "cache_proj_1", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+150 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+152 GetOwner {}
+154 PlayEffect {"EffectKey": {"$content": "fx_sub_fire2", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+156 GetVariable {"name": {"$content": "collider_0", "$type": "System.String"}}
+158 GetActionDirVector {}
+160 GetActionDirVector {}
+162 Vector3Lerp {"a": {"x": 0.0, "y": 1.5, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+164 GetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+166 GetBoundPosition {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+168 Vector3Lerp {"a": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 1.0, "y": 1.0, "z": 1.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+170 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+172 Vector3Sum {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+174 GetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+176 GetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+178 GetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+180 DisposeEffect {"1 immediate": {"$content": false, "$type": "System.Boolean"}, "2 immediate": {"$content": false, "$type": "System.Boolean"}}
+182 Vector3Sum {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+184 ShowMirage {"MirageIndex": {"$content": 1, "$type": "System.Int32"}, "FadeDuration": {"$content": 0.2, "$type": "System.Single"}}
+186 Vector3Lerp {"a": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 1.0, "y": 1.0, "z": 1.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+188 CacheEffect {"ManageKey": {"$content": "cache_proj_0", "$type": "System.String"}}
+190 GetAilmentInfo {"AilmentType": {"$content": "Aerial", "$type": "Oak.Ailment"}, "IsFullGauge": {"$content": true, "$type": "System.Boolean"}, "Gauge": {"$content": 0.0, "$type": "System.Single"}, "GaugeAdd": {"$content": 0.0, "$type": "System.Single"}}
+192 GetOptionApply {"TargetId": {"$content": 20300659, "$type": "System.Int32"}}
+194 GetEaseProgress {"EaseType": {"$content": "EaseOutSine", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.0, "$type": "System.Single"}, "EndTime": {"$content": 0.15, "$type": "System.Single"}}
+196 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+198 GetActionDirVector {}
+200 GetActionTarget {}
+202 GetVariable {"name": {"$content": "Routine_0", "$type": "System.String"}}
+204 IsTimePassed {"Timer": {"$content": 0.3, "$type": "System.Single"}}
+206 GetOwner {}
+208 DisposeEffect {"1 immediate": {"$content": false, "$type": "System.Boolean"}, "2 immediate": {"$content": false, "$type": "System.Boolean"}, "3 immediate": {"$content": false, "$type": "System.Boolean"}, "4 immediate": {"$content": false, "$type": "System.Boolean"}}
+210 PlayEffect {"EffectKey": {"$content": "fx_explosion1", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+212 ShowMirage {"MirageIndex": {"$content": 0, "$type": "System.Int32"}, "FadeDuration": {"$content": 0.2, "$type": "System.Single"}}
+214 IsTimePassed {"Timer": {"$content": 0.9, "$type": "System.Single"}}
+216 HideMirage {"MirageIndex": {"$content": 1, "$type": "System.Int32"}}
+218 GetActionDirVector {}
+220 Vector3Sum {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+222 GetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+224 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+226 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+228 GetVariable {"name": {"$content": "collider_1", "$type": "System.String"}}
+230 OnUpdateFrame {}
+232 GetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+234 IsTimeBetween {"MinTimer": {"$content": 0.45, "$type": "System.Single"}, "MaxTimer": {"$content": 0.6, "$type": "System.Single"}}
+236 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+238 GetBoundPosition {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+240 SetVariable {"name": {"$content": "collider_1", "$type": "System.String"}}
+242 GetActionTarget {}
+244 Literal {}
+246 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+248 GetEaseProgress {"EaseType": {"$content": "EaseInQuad", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.15, "$type": "System.Single"}, "EndTime": {"$content": 0.3, "$type": "System.Single"}}
+250 UpdateEffect {"ManageKey": {"$content": "cache_contrail_1", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+252 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+254 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+256 PlayEffect {"EffectKey": {"$content": "fx_sub_fire1", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+258 PlayAnim {"AnimKey": {"$content": "anim_attack2_start", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+260 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+262 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+264 GetStageMemberEach {}
+266 CacheEffect {"ManageKey": {"$content": "cache_proj_1", "$type": "System.String"}}
+268 DisposeEffect {"1 immediate": {"$content": false, "$type": "System.Boolean"}, "2 immediate": {"$content": false, "$type": "System.Boolean"}}
+270 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+272 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+274 GetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+276 ApplyBuff {"BuffKey": {"$content": "buff_battleball_pitcher_weapon", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+278 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+280 GetActionDirVector {}
+282 UnsetSupportDarken {"Duration": {"$content": 0.15, "$type": "System.Single"}}
+284 UpdateEffect {"ManageKey": {"$content": "cache_proj_0", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+286 TriggerAction {}
+288 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+290 CollisionInit {"Radius": {"$content": 1.5, "$type": "System.Single"}, "InnerRadius": {"$content": 0.0, "$type": "System.Single"}, "Height": {"$content": 0.75, "$type": "System.Single"}, "IsCenterToBottom": {"$content": true, "$type": "System.Boolean"}, "MaxHit": {"$content": 1, "$type": "System.Int32"}, "OnlyHittableTarget": {"$content": true, "$type": "System.Boolean"}, "OnlyFriendlyTarget": {"$content": false, "$type": "System.Boolean"}}
+292 LockDirection {}
+294 Literal {}
+296 Literal {}
+298 GetActionDirVector {}
+300 IsTimePassed {"Timer": {"$content": 0.15, "$type": "System.Single"}}
+302 DisposeEffect {"1 immediate": {"$content": false, "$type": "System.Boolean"}, "2 immediate": {"$content": false, "$type": "System.Boolean"}, "3 immediate": {"$content": false, "$type": "System.Boolean"}, "4 immediate": {"$content": false, "$type": "System.Boolean"}}
+304 Literal {}
+306 Literal {}
+308 Literal {}
+310 PlayDefaultVoice {}
+312 IsTimePassedForFinishAction {"Timer": {"$content": 1.1, "$type": "System.Single"}}
+314 SetMirage {"MirageIndex": {"$content": 0, "$type": "System.Int32"}}
+316 PlayEffect {"EffectKey": {"$content": "fx_proj2", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+318 GetEaseProgress {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.0, "$type": "System.Single"}, "EndTime": {"$content": 0.3, "$type": "System.Single"}}
+320 IsTimeBetween {"MinTimer": {"$content": 0.15, "$type": "System.Single"}, "MaxTimer": {"$content": 0.3, "$type": "System.Single"}}
+322 IsTimeBetween {"MinTimer": {"$content": 0.3, "$type": "System.Single"}, "MaxTimer": {"$content": 0.45, "$type": "System.Single"}}
+324 GetActionTarget {}
+326 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+328 SetOwnerDirection {"DirectionVector": {"x": 1.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+330 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+332 If {}
+334 GetActionDirVector {}
+336 CacheEffect {"ManageKey": {"$content": "cache_contrail_1", "$type": "System.String"}}
+338 GetActionTarget {}
+340 FadeMirage {"MirageIndex": {"$content": 0, "$type": "System.Int32"}, "FadeDuration": {"$content": 0.3, "$type": "System.Single"}}
+342 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "None", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": false, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": false, "$type": "System.Boolean"}}
+344 PlayEffect {"EffectKey": {"$content": "fx_fire", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+346 GetGroundPosition {}
+348 OnUpdateRoutine {}
+350 OnFinishAction {}
+352 GetActionDirVector {}
+354 GetVariable {"name": {"$content": "mirage_pos_0", "$type": "System.String"}}
+356 RemoveAnim {"AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+358 AddVectorOffset {"OffsetAmount": {"$content": 0.5, "$type": "System.Single"}}
+360 Vector3Sum {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+362 GetActionDirVector {}
+364 AddVectorOffset {"OffsetAmount": {"$content": 0.5, "$type": "System.Single"}}
+366 SetIsRunCancelable {"IsRunCancel": {"$content": false, "$type": "System.Boolean"}}
+368 GetActionTarget {}
+370 ApplyBuff {"BuffKey": {"$content": "buff_battleball_pitcher_weapon", "$type": "System.String"}, "BuffLevel": {"$content": 0, "$type": "System.Int32"}, "BuffSlot": {"$content": "None", "$type": "Oak.EquipmentSlot"}, "ShowEffect": {"$content": false, "$type": "System.Boolean"}}
+372 SetMirage {"MirageIndex": {"$content": 1, "$type": "System.Int32"}}
+374 Vector3Lerp {"a": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 1.5, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+376 GetActionTarget {}
+378 GetActionTarget {}
+380 PlayMirageAnimation {"MirageIndex": {"$content": 1, "$type": "System.Int32"}, "AnimKey": {"$content": "anim_attack1_2", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+382 GetOptionAppliedSelector {"TargetId": {"$content": 20300659, "$type": "System.Int32"}, "True": {"$content": 2.4, "$type": "System.Single"}, "False": {"$content": 2.16, "$type": "System.Single"}}
+384 GetActionDirVector {}
+386 GetActionDirVector {}
+388 Literal {}
+390 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+392 IsTimePassed {"Timer": {"$content": 0.75, "$type": "System.Single"}}
+394 PlaySound {"SoundKey": {"$content": "sfx_support_attack", "$type": "System.String"}}
+396 PublishTriggerAction {}
+398 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+400 Vector3Lerp {"a": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 1.5, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+402 Vector3Lerp {"a": {"x": 0.0, "y": 1.5, "z": 0.0, "$type": "UnityEngine.Vector3"}, "b": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "t": {"$content": 0.0, "$type": "System.Single"}}
+404 InitMirage {"MirageCount": {"$content": 2, "$type": "System.Int32"}, "MirageColor": {"r": 0.5, "g": 0.5, "b": 0.5, "a": 1.0, "$type": "UnityEngine.Color"}}
+406 WhileCollisionCalculate {}
+408 GetEaseProgress {"EaseType": {"$content": "EaseOutSine", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.3, "$type": "System.Single"}, "EndTime": {"$content": 0.45, "$type": "System.Single"}}
+410 GetActionTarget {}
+412 IsTimePassed {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+414 PlayEffect {"EffectKey": {"$content": "fx_proj1", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+416 GetBoundPosition {"Pivot": {"$content": "Root", "$type": "CharacterTool.BoundPivot"}}
+418 IsTimePassed {"Timer": {"$content": 0.0, "$type": "System.Single"}}
+420 SetVariable {"name": {"$content": "is_cwp_option", "$type": "System.String"}}
+422 GetOptionAppliedSelector {"TargetId": {"$content": 20300659, "$type": "System.Int32"}, "True": {"$content": 0.8, "$type": "System.Single"}, "False": {"$content": 0.72, "$type": "System.Single"}}
+424 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+426 CollisionCalculateEnd {}
+428 HideMirage {"MirageIndex": {"$content": 0, "$type": "System.Int32"}}
+430 GetVariable {"name": {"$content": "collider_1", "$type": "System.String"}}
+432 FadeMirage {"MirageIndex": {"$content": 1, "$type": "System.Int32"}, "FadeDuration": {"$content": 0.3, "$type": "System.Single"}}
+434 GetEaseProgress {"EaseType": {"$content": "Linear", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.3, "$type": "System.Single"}, "EndTime": {"$content": 0.6, "$type": "System.Single"}}
+436 CacheEffect {"ManageKey": {"$content": "cache_contrail_0", "$type": "System.String"}}
+438 UpdateEffect {"ManageKey": {"$content": "cache_contrail_0", "$type": "System.String"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+440 SetActionInactive {}
+442 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+444 ApplyDamage {"DamageType": {"$content": "Projectile", "$type": "Oak.DamageType"}, "ForceCritical": {"$content": false, "$type": "System.Boolean"}, "StunFactor": {"$content": "None", "$type": "CharacterTool.ToolDamageStunFactor"}, "StunDuration": {"$content": 0.0, "$type": "System.Single"}, "AilmentRatio": {"$content": 1.0, "$type": "System.Single"}, "IsForceAilment": {"$content": true, "$type": "System.Boolean"}, "ApplyOnlyTarget": {"$content": true, "$type": "System.Boolean"}}
+446 PlayEffect {"EffectKey": {"$content": "fx_contrail2", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+448 CollisionInit {"Size": {"x": 10.0, "y": 0.75, "z": 2.0, "$type": "UnityEngine.Vector3"}, "IsCenterToSide": {"$content": true, "$type": "System.Boolean"}, "MaxHit": {"$content": 1, "$type": "System.Int32"}, "OnlyHittableTarget": {"$content": true, "$type": "System.Boolean"}, "OnlyFriendlyTarget": {"$content": false, "$type": "System.Boolean"}}
+450 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+452 SetIsControllingCharacter {"IsControllingCharacter": {"$content": true, "$type": "System.Boolean"}}
+454 SetActionActive {}
+456 GetActionTarget {}
+458 SetSupportDarken {"TargetDarken": {"$content": 0.5, "$type": "System.Single"}, "Duration": {"$content": 0.15, "$type": "System.Single"}}
+460 IsTimeBetween {"MinTimer": {"$content": 0.9, "$type": "System.Single"}, "MaxTimer": {"$content": 1.1, "$type": "System.Single"}}
+462 GetActionDirVector {}
+464 PlayCameraShake {"ShakeAmount": {"$content": 0.1, "$type": "System.Single"}, "ShakeDuration": {"$content": 0.15, "$type": "System.Single"}, "UseManualLocal": {"$content": true, "$type": "System.Boolean"}}
+466 Literal {}
+468 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+470 Vector3Sum {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+472 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+474 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+476 SetVariable {"name": {"$content": "is_myth_support", "$type": "System.String"}}
+478 Literal {}
+480 OnStartAction {}
+482 StartRoutine {}
+484 GetVariable {"name": {"$content": "collider_0", "$type": "System.String"}}
+486 IsTimeBetween {"MinTimer": {"$content": 0.0, "$type": "System.Single"}, "MaxTimer": {"$content": 0.15, "$type": "System.Single"}}
+488 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+490 IsTimePassed {"Timer": {"$content": 0.3, "$type": "System.Single"}}
+492 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+494 HideMirage {"MirageIndex": {"$content": 0, "$type": "System.Int32"}}
+496 PlayEffect {"EffectKey": {"$content": "fx_explosion2", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+498 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+500 PlaySound {"SoundKey": {"$content": "sfx_support_ready", "$type": "System.String"}}
+502 PlayEffect {"EffectKey": {"$content": "fx_cast", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+504 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+506 ReturnBool {"Bool": {"$content": true, "$type": "System.Boolean"}}
+508 GetGroundPosition {}
+510 GetVariable {"name": {"$content": "collider_1", "$type": "System.String"}}
+512 GetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+514 AddVectorOffset {"OffsetAmount": {"$content": 0.5, "$type": "System.Single"}}
+516 GetOwnerPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+518 EndRoutine {}
+520 IsTimePassed {"Timer": {"$content": 0.6, "$type": "System.Single"}}
+522 PlayAnim {"AnimKey": {"$content": "anim_attack2_loop", "$type": "System.String"}, "AnimationTrack": {"$content": "Base", "$type": "Oak.Character+SpineAnimationTrack"}}
+524 GetBoundPosition {"Pivot": {"$content": "Center", "$type": "CharacterTool.BoundPivot"}}
+526 HideMirage {"MirageIndex": {"$content": 1, "$type": "System.Int32"}}
+528 GetHitSound {"SoundKey": {"$content": "sfx_hit", "$type": "System.String"}}
+530 DirectionRotateEuler {"Euler": {"x": 0.0, "y": -90.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+532 AppendDirection {}
+534 CollisionCalculateStart {}
+536 PlayEffect {"EffectKey": {"$content": "fx_contrail1", "$type": "System.String"}, "Position": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "Direction": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "IsFollowSpine": {"$content": true, "$type": "System.Boolean"}, "FollowFlag": {"$content": "Position,Rotation,PositionAndRotation", "$type": "Oak.ParentFollowFlag"}}
+538 Vector3Sum {"1": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+540 Literal {}
+542 GetActionDirVector {}
+544 GetModifier {"Modifier": {"$content": 0.6, "$type": "System.Single"}, "ModifierAdd": {"$content": 0.0, "$type": "System.Single"}, "MaxHit": {"$content": 1.0, "$type": "System.Single"}}
+546 GetHitSound {"SoundKey": {"$content": "sfx_hit_02", "$type": "System.String"}}
+548 SetVariable {"name": {"$content": "mirage_pos_1", "$type": "System.String"}}
+550 Vector3Subtract {"minuend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}, "subtrahend": {"x": 0.0, "y": 0.0, "z": 0.0, "$type": "UnityEngine.Vector3"}}
+552 GetTargetForSupport {"XZNormalize": {"$content": true, "$type": "System.Boolean"}}
+554 GetEaseProgress {"EaseType": {"$content": "EaseInQuad", "$type": "CharacterTool.ToolInterpolateType"}, "StartTime": {"$content": 0.45, "$type": "System.Single"}, "EndTime": {"$content": 0.6, "$type": "System.Single"}}
+556 GetSummonedEach {}
+558 GetActionTarget {}

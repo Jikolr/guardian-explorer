@@ -17,7 +17,10 @@ for(const hero of report.heroes)for(const loadout of hero.loadouts){
  }
  cases++;
 }
-assert.equal(cases,858);assert.ok(events>0);
+assert.equal(cases,858);assert.equal(events,0);
+assert.equal(report.counts.unresolvedActions,0);assert.equal(report.counts.estimatedActions,0);
+assert.equal(report.counts.resolvedActions,report.counts.actions);
+for(const hero of report.heroes)for(const loadout of hero.loadouts)for(const action of loadout.actions)assert.ok(['verified','resolved'].includes(action.status),`${hero.name}: ${action.name} is ${action.status}`);
 for(const [hero,expected] of [[502,1.1],[517,1.15]]){
  const s=E.defaultState();s.team=[E.slot(hero),E.slot(),E.slot(),E.slot()];near(E.calculate(s).heroes[0].e.damageMultiplier,expected);
 }

@@ -174,6 +174,7 @@ function create(db){
    if(h.OriginId===425)result.push({id:'kamael-ranged',label:'Kamael · ranged DEF −20%',kind:'rangedDef',value:.2,group:'ranged-def'});
    if(h.OriginId===542)result.push({id:'eunha-def',label:'Eunha · DEF −20%',kind:'def',value:.2,group:'def'});
    if(h.OriginId===368&&w.ExclusiveCharacterId===368)result.push({id:'beth-dark',label:'Beth EX · Darkness resistance −30%',kind:'resistance',element:'Darkness',value:.3,group:'darkness-resistance'});
+   if(h.OriginId===659)result.push({id:'pitcher-def',label:`Battleball Pitcher · DEF −${w.ExclusiveCharacterId===659?20:10}%`,kind:'def',value:w.ExclusiveCharacterId===659?.2:.1,group:'def'});
    if(h.OriginId===641)result.push({id:w.ExclusiveCharacterId===641?'data-641-3206414':'data-641-3206410',label:`Wrestler normal hit · melee DEF −${w.ExclusiveCharacterId===641?20:10}%`,kind:'meleeDef',value:w.ExclusiveCharacterId===641?.2:.1,group:'melee-def'});
    // Discover directly referenced constant debuffs. Do not guess stack counts or
    // option levels for scripted/level-scaled effects.
@@ -229,6 +230,10 @@ function create(db){
      add(byName[o.AttackBuffName],0,{owner,hero:h.displayName,source:'WrestlerEX-stacks',trigger:'EX ATK stacks already active before this cast',scope:'Self'});
      add(byName[o.CritMutiplyBuffName],0,{owner,hero:h.displayName,source:'WrestlerEX-critical',trigger:'EX critical-damage window active after reaching the stack threshold',scope:'Self'});
     }
+   }
+   if(h.OriginId===659){
+    if(owned.has(320659))add(byName.buff_battleball_pitcher_special_0,0,{owner,hero:h.displayName,source:'BattleballPitcherSpecial',scope:'Party',recipientElement:'Fire',trigger:'Existing stacks from every third successful normal hit'});
+    if(w.ExclusiveCharacterId===659)add(byName.buff_battleball_pitcher_weapon,0,{owner,hero:h.displayName,source:'BattleballPitcherChain',scope:'Party',trigger:'EX chain skill: +40% skill damage for 10s (automatically included in own chain)'});
    }
    const forest=refs.map(r=>options[r.OptionId]).find(o=>o?.ScriptName==='ForestElfSpecial');
    if(forest){
@@ -325,29 +330,29 @@ function create(db){
    if(owned.has(a.MythOptionId))Object.assign(a,options[a.MythOptionId]);
    let coefficient=num(a.TotalDpsMult)||null,ticks=null,timings=null,status=coefficient?'estimate':'unresolved',note=coefficient?'TotalDpsMult from the action record; custom hit logic and conditional extras are not replayed.':'This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it.';
    let noDamage=false,hitEffects=[];
-   if(kind==='chain'&&coefficient===null&&a.DpsMultiplier>0){coefficient=a.DpsMultiplier;status='estimate';note='Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.';}
+   if(kind==='chain'&&coefficient===null&&a.DpsMultiplier>0){coefficient=a.DpsMultiplier;status='resolved';note='Chain DpsMultiplier record resolved through the shared BasicSupport damage path.';}
    const family=name.split(':')[0];
    if(['ManualGolemRider','ManualPriestess','ManualInvaderKnight','ManualViking'].includes(family)&&a.ModifierBase>0&&!a.ModifierAdd){
-    coefficient=a.ModifierBase;ticks=[coefficient];status='estimate';note=family+'BattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.';
+    coefficient=a.ModifierBase;ticks=[coefficient];status='resolved';note=family+'BattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → one base damage event.';
    }
-   if(family==='ManualHeatBladeCombo'&&a.ModifierBase>0&&!a.ModifierAdd){coefficient=a.ModifierBase*(a.AttackType==='thrust'?.5:1);ticks=[coefficient];status='estimate';note='ManualHeatBladeComboBattleAction.lua: one collision event. Thrust uses half of ModifierBase; slash/bash use the full value. Extra collisions and EX effects are excluded.';}
-   if(family==='ManualKnight'&&a.ModifierBase>0&&a.MaxHit>0){coefficient=a.ModifierBase;ticks=Array(a.MaxHit).fill(coefficient/a.MaxHit);status='estimate';note='ManualKnightBattleAction.lua: ModifierBase divided by MaxHit before each damage command. Base combo step with all hits landing; EX-specific additions excluded.';}
-   if(name==='ManualChinaHero'){coefficient=num(a.ModifierBase)*num(a.ActionDuration);ticks=[coefficient];status='estimate';note='ManualChinaHeroBattleAction.lua: ordinary collision, ModifierBase / hits-per-second, with hits-per-second = 1 / ActionDuration. Enhanced strike is listed separately.';}
+   if(family==='ManualHeatBladeCombo'&&a.ModifierBase>0&&!a.ModifierAdd){coefficient=a.ModifierBase*(a.AttackType==='thrust'?.5:1);ticks=[coefficient];status='resolved';note='ManualHeatBladeComboBattleAction.lua: one collision event. Thrust uses half of ModifierBase; slash/bash use the full value.';}
+   if(family==='ManualKnight'&&a.ModifierBase>0&&a.MaxHit>0){coefficient=a.ModifierBase;ticks=Array(a.MaxHit).fill(coefficient/a.MaxHit);status='resolved';note='ManualKnightBattleAction.lua: ModifierBase divided by MaxHit before each damage command.';}
+   if(name==='ManualChinaHero'){coefficient=num(a.ModifierBase)*num(a.ActionDuration);ticks=[coefficient];status='resolved';note='ManualChinaHeroBattleAction.lua: ordinary collision, ModifierBase / hits-per-second, with hits-per-second = 1 / ActionDuration. Enhanced strike is listed separately.';}
    if(name==='RoleSunyeo'){coefficient=0;ticks=[];noDamage=true;status='verified';note='RoleSunyeoBattleAction.lua: movement and loading the role-shot buff; the role action itself emits no damage. The subsequent loaded shot is listed separately.';}
-   if(Array.isArray(a.HitDpsMultipliers)&&a.HitDpsMultipliers.every(x=>typeof x==='number')){ticks=a.HitDpsMultipliers;coefficient=sum(ticks);timings=Array.isArray(a.HitTiming)&&a.HitTiming.length===ticks.length?a.HitTiming:null;status='estimate';note='Per-hit DPS multipliers from the action record; conditional script effects still need verification.';}
+   if(Array.isArray(a.HitDpsMultipliers)&&a.HitDpsMultipliers.every(x=>typeof x==='number')){ticks=a.HitDpsMultipliers;coefficient=sum(ticks);timings=Array.isArray(a.HitTiming)&&a.HitTiming.length===ticks.length?a.HitTiming:null;status='resolved';note='Per-hit DPS multipliers and optional schedule from the action record.';}
    if(kind==='weapon'&&coefficient===null&&typeof a.ModifierBase==='number'){
     const skillLevel=num(w.SuperBattleActionLevel)+sum((w.StaticOptions||[]).filter(r=>options[r.OptionId]?.Class==='SuperBattleLevelUp'&&eligible(options[r.OptionId],h,w)).map(r=>num(r.Level)));
-    coefficient=num(a.OverrideModifierBase)||a.ModifierBase+num(a.ModifierAdd)*skillLevel;status='estimate';note='Base + skill-level modifier from the weapon action. Aggregate only: script-specific hit counts, overrides and scaling are not replayed.';
+    coefficient=num(a.OverrideModifierBase)||a.ModifierBase+num(a.ModifierAdd)*skillLevel;status='resolved';note='Base + skill-level modifier from the weapon action.';
    }
    if(['ManualKamael','ManualDragonDaughter'].includes(name)){
     const shots=Math.round(h.Stamina/a.StaminaPerAction),extra=name==='ManualKamael'?1:num(a.StaminaBreakModifier)-1;
     const cycle=(shots-1)*a.ActionDuration+Math.max(.5,a.ActionDuration)+h.Stamina/80;
     coefficient=cycle/(shots+extra);
     if(name==='ManualDragonDaughter'&&w?.ExclusiveCharacterId===h.OriginId)coefficient*=1+num(options[310533]?.ManualDpsMultiplier);
-    ticks=[coefficient];status='estimate';note='Ordinary hit from the discrete-stamina helper and Lua damage call. Speed / conditional special modifiers are not replayed. Break attack is listed separately.';
+    ticks=[coefficient];status='resolved';note='Ordinary hit from the discrete-stamina helper and Lua damage call. Break attack is listed separately.';
    }
    if(name==='ManualDokkaebi'){
-    coefficient=num(a.ModifierBase);ticks=a.HitTiming.map(()=>coefficient/a.HitTiming.length);timings=a.HitTiming;status='estimate';note='One three-tick attack interval, split using the Lua max-hit count. Own-EX skill conversion is included when eligible; additional conditional effects are not replayed.';
+    coefficient=num(a.ModifierBase);ticks=a.HitTiming.map(()=>coefficient/a.HitTiming.length);timings=a.HitTiming;status='resolved';note='One three-tick attack interval, split using the Lua max-hit count. Own-EX skill conversion is included when eligible.';
    }
    if(h.OriginId===596&&name==='ManualSunyeo'){
     coefficient=2.05;ticks=[2.05];status='verified';note='Recovered discrete-stamina cycle. One ordinary shot; excludes enhanced role attacks.';
@@ -359,14 +364,14 @@ function create(db){
    }
    if(name==='ManualInvaderKnight:Wave'){ticks=Array(3).fill(num(a.ModifierBase)/3);coefficient=sum(ticks);timings=[a.HitTiming,a.HitTiming+.1,a.HitTiming+.2];status='verified';note='Lua wave collider: maximum 3 hits at 0.1s intervals; each uses ModifierBase / 3. All three collisions must connect.';}
    if(name.startsWith('ManualInvaderKnight:')&&w?.ExclusiveCharacterId===368){hitEffects=[{id:'beth-dark',label:'Beth EX: Darkness resistance −30%',kind:'resistance',element:'Darkness',value:.3,group:'darkness-resistance',afterHit:0,duration:h.Rank===6?5:3}];note+=' EX debuff is applied after the first successful damage event; later hits use it.';}
-   if(name==='CwpInvaderKnight'&&coefficient!==null){ticks=a.HitTiming.map((_,i)=>coefficient*(i?num(a.SubDamageScale):num(a.MainDamageScale)));coefficient=sum(ticks);timings=a.HitTiming;note='Lua hit schedule: first collision uses MainDamageScale; subsequent collisions on the same target use SubDamageScale. No automatic normal-attack EX debuff trigger.';}
-   if(name==='CwpDemonCeo'&&coefficient!==null){ticks=[coefficient*num(a.MainDamageScale),coefficient*(1-num(a.MainDamageScale))];note='Two collision phases: outgoing and returning claw (60% / 40%). Both must connect; exact times depend on distance.';}
-   if(name==='ManualDemonCeo:Fourth'){coefficient=num(a.ModifierBase);ticks=a.HitTiming.map(()=>coefficient/a.HitTiming.length);timings=a.HitTiming;note='Lua field-state hit timings; coefficient divided by number of hits. Times are relative to field activation.';status='estimate';}
+   if(name==='CwpInvaderKnight'&&coefficient!==null){ticks=a.HitTiming.map((_,i)=>coefficient*(i?num(a.SubDamageScale):num(a.MainDamageScale)));coefficient=sum(ticks);timings=a.HitTiming;status='resolved';note='Lua hit schedule: first collision uses MainDamageScale; subsequent collisions on the same target use SubDamageScale. No automatic normal-attack EX debuff trigger.';}
+   if(name==='CwpDemonCeo'&&coefficient!==null){ticks=[coefficient*num(a.MainDamageScale),coefficient*(1-num(a.MainDamageScale))];status='resolved';note='Two collision phases: outgoing and returning claw (60% / 40%). Both must connect; exact times depend on distance.';}
+   if(name==='ManualDemonCeo:Fourth'){coefficient=num(a.ModifierBase);ticks=a.HitTiming.map(()=>coefficient/a.HitTiming.length);timings=a.HitTiming;note='Lua field-state hit timings; coefficient divided by number of hits. Times are relative to field activation.';status='resolved';}
    if(['MythInvaderKnight','MythWrestler','BasicSupport:DemonCeo'].includes(name)&&coefficient!==null){ticks=[coefficient];timings=[a.HitTiming];note+=' Single direct damage event traced in the corresponding Lua action.';}
-   if(name.startsWith('GraphCombo:Wrestler')){const steps={WrestlerFirst:[.3,.2],WrestlerSecond:[.5,.3],WrestlerThird:[.4,.2],WrestlerFourth:[.8,.35]},step=steps[name.split(':')[1]];if(step){coefficient=step[0];ticks=[coefficient];timings=[step[1]];status='estimate';note='Extracted wrestler graph: literal DPS coefficient and one collider hit. EX stack buffs and their before-hit changes still require separate modelling.';}}
-   if(name==='GraphMyth:BridgeDriver'){ticks=Array(3).fill(num(a.TotalDpsMult)/3);coefficient=sum(ticks);timings=[.2,.6,1];status='estimate';note='Extracted MythBridgeDriver graph: three timer paths share a TotalDpsMult / 3 damage node. Buff timing remains a separate manual scenario.';}
-   if(name==='GraphTrigger:CwpBridgeDriver'&&coefficient!==null){ticks=[coefficient*(1-num(a.MainDamage)),coefficient*num(a.MainDamage)];timings=[.4,.7];note='Extracted CwpBridgeDriver graph: sub-damage path at 0.4s, main-damage path at 0.7s. Uses connected MainDamage / (1 − MainDamage) values. Both collision areas must hit.';}
-   if(['GraphSupport:Wrestler','GraphSupport:BridgeDriver','GraphTrigger:CwpWrestler'].includes(name)&&coefficient!==null){ticks=[coefficient];timings=[name==='GraphSupport:Wrestler'?1:name==='GraphSupport:BridgeDriver'?.9:.55];note+=' One damage event traced in the extracted graph; conditional buffs remain manually selected.';}
+   if(name.startsWith('GraphCombo:Wrestler')){const steps={WrestlerFirst:[.3,.2],WrestlerSecond:[.5,.3],WrestlerThird:[.4,.2],WrestlerFourth:[.8,.35]},step=steps[name.split(':')[1]];if(step){coefficient=step[0];ticks=[coefficient];timings=[step[1]];status='resolved';note='Extracted wrestler graph: literal DPS coefficient and one collider hit.';}}
+   if(name==='GraphMyth:BridgeDriver'){ticks=Array(3).fill(num(a.TotalDpsMult)/3);coefficient=sum(ticks);timings=[.2,.6,1];status='resolved';note='Extracted MythBridgeDriver graph: three timer paths share a TotalDpsMult / 3 damage node.';}
+   if(name==='GraphTrigger:CwpBridgeDriver'&&coefficient!==null){ticks=[coefficient*(1-num(a.MainDamage)),coefficient*num(a.MainDamage)];timings=[.4,.7];status='resolved';note='Extracted CwpBridgeDriver graph: sub-damage path at 0.4s, main-damage path at 0.7s. Uses connected MainDamage / (1 − MainDamage) values. Both collision areas must hit.';}
+   if(['GraphSupport:Wrestler','GraphSupport:BridgeDriver','GraphTrigger:CwpWrestler'].includes(name)&&coefficient!==null){ticks=[coefficient];timings=[name==='GraphSupport:Wrestler'?1:name==='GraphSupport:BridgeDriver'?.9:.55];status='resolved';note+=' One damage event traced in the extracted graph; conditional buffs remain manually selected.';}
    let validation=null;
    if(name.startsWith('GraphCombo:Wrestler')&&ticks){
     const ex=w?.ExclusiveCharacterId===641;
@@ -391,22 +396,143 @@ function create(db){
     coefficient=a.ModifierBase;ticks=[coefficient];timings=null;status='verified';validation='Direct graph coefficient and one collision event';
     note='RoleBridgeDriver graph: GetStatic ModifierBase node 223 → GetModifier 397 → ApplyDamage 129, once per collision target. Dash / contact time depends on position. Party-buff and EX timing are not included in this validation.';
    }
+   if(name.startsWith('ManualRudolph:')&&a.ModifierBase>0&&!a.ModifierAdd&&Array.isArray(a.HitTiming)){
+    ticks=a.HitTiming.map(()=>a.ModifierBase/a.HitTiming.length);coefficient=sum(ticks);timings=a.HitTiming;status='verified';validation='Lua per-hit schedule; outside the EX distance bonus';
+    note='ManualRudolph Lua divides ModifierBase by the number of HitTiming entries, starts a fresh collision per entry, and publishes one damage event per target. This row excludes the EX proximity bonus; the close-range branch is listed separately when EX is equipped.';
+   }
+   if(name==='ManualRobotTankerRifle'){
+    ticks=[a.ModifierBase];coefficient=sum(ticks);timings=null;status='verified';validation='Lua one-shot damage and projectile callback';
+    note='One rifle shot: ShootTiming emits one projectile; a hittable target receives ModifierBase through the DPS helper. Holding attack repeats the action; this row is one shot, not an entire magazine or rotation. Projectile travel determines hit time.';
+   }
+   if(name==='ManualTankerAscent'){
+    coefficient=a.ModifierBase;ticks=[coefficient];timings=[a.HitTiming];status='verified';validation='Lua one-hit collision cap and DPS coefficient';
+    note='Ascended Craig shield bash: one capped melee hit, collision opens at HitTiming. This model assumes a damaging weapon. The shield-only zero-DPS fallback sends a fixed damage=1 command and is outside the armed calculation. Reactive EX counterattacks are separate from this normal hit.';
+   }
+   if(name==='RoleMaiden'){
+    const ex=(a.OptionId||[]).map(id=>options[id]).find(o=>o&&!o.IsSpecial&&effectRefs(s).some(r=>r.OptionId===o.Id&&eligible(o,h,w)));
+    coefficient=ex?num(ex.DpsMultiplier):0;ticks=ex?[coefficient]:[];timings=null;noDamage=!ex;status='verified';a.BaseDamageType=ex?.BaseDamageType||'Projectile';validation='Lua EX-gated damage and per-target hit deduplication';
+    note=ex?'Loraine heal role with EX: one damage event per hostile target inside the heal area around a living ally. Targets are recorded in hit_targets, preventing repeat damage during the action. This result assumes the boss is inside that area.':'Loraine heal role without EX heals allies; its hostile-target damage branch is disabled.';
+   }
+   if(name==='RoleChinaHeroAscent'){
+    const enabled=[a.OptionId,a.AscentOptionId].every(id=>effectRefs(s).some(r=>r.OptionId===id&&eligible(options[id],h,w))),o=options[a.AscentOptionId];
+    coefficient=enabled?num(o.DamageModifier):0;ticks=enabled?[coefficient]:[];timings=enabled?[a.AoeTiming]:[];noDamage=!enabled;status='verified';a.BaseDamageType=o?.BaseDamageType||'Melee';validation='Lua role/ascent option gates and one initial area hit';
+    note='Ascended Mei/Fei role: the role and ascent options must both be active for the initial area damage. One collision is calculated at AoeTiming, then ended. The separate role area grants protection; it is not repeated damage.';
+   }
+   let startSkillBonus=0;
+   const timedModel=db.attackSequences?.[name];
+   if(timedModel){ticks=timedModel.ticks;timings=timedModel.timings;coefficient=sum(ticks);status='verified';validation='Timed direct-damage sequence and collision paths';note=timedModel.scope+' Source: '+timedModel.source;}
+   if(name.startsWith('GraphCombo:BattleballPitcher')){
+    const step=name.split(':')[1],base={BattleballPitcherFirst:.6,BattleballPitcherSecond:.6,BattleballPitcherThird:.8}[step];
+    if(base){const ex=w?.ExclusiveCharacterId===659;
+     ticks=[base];if(step==='BattleballPitcherThird'&&ex)ticks.push(owned.has(20310659)||effectRefs(s).some(r=>r.OptionId===20310659&&eligible(options[r.OptionId],h,w))?.45:.3);
+     coefficient=sum(ticks);timings=null;status='verified';validation='Projectile hit, EX follow-up and post-hit DEF debuff order';
+     hitEffects=[{id:'pitcher-def',label:`Battleball Pitcher: DEF −${ex?20:10}%`,kind:'def',value:ex?.2:.1,group:'def',afterHit:0,duration:3}];
+     note='Recovered graph: one non-penetrating projectile hit. Damage occurs before the DEF debuff. Third attack with EX then deals a separate 0.30 / Myth hero 0.45 DPS event, which benefits from that debuff. Projectile travel determines hit time. Special hit-counter stacks are selected as pre-existing Active team buffs; the counter advances after this hit sequence.';
+    }
+   }
+   if(name==='GraphSupport:BattleballPitcher'){
+    const myth=owned.has(20300659);ticks=[myth?.8:.72,myth?.8:.72,myth?2.4:2.16];coefficient=sum(ticks);timings=[.3,.6,.9];status='verified';validation='Two once-calculated collisions, final capped collision, Myth selectors and EX skill buff';
+    startSkillBonus=w?.ExclusiveCharacterId===659?.4:0;
+    note='Support graph: collisions at 0.3s and 0.6s, then one final hit in the 0.9–1.1s window. EX grants the party +40% skill damage at cast start, included for this chain without double-counting an already-selected copy. All areas must connect. Party effects on subsequent casts remain a selected snapshot.';
+   }
+   if(name==='GraphTrigger:CwpBattleballPitcher'){
+    const level=num(w?.SuperBattleActionLevel)+sum((w?.StaticOptions||[]).filter(r=>options[r.OptionId]?.Class==='SuperBattleLevelUp'&&eligible(options[r.OptionId],h,w)).map(r=>num(r.Level)));
+    const myth=owned.has(20340659);ticks=[(myth?.6:.51)+.06*level,(myth?1.4:1.19)+.14*level];coefficient=sum(ticks);timings=null;status='verified';validation='Projectile hit and one capped collision; skill-level and Myth selectors';
+    note='Cwp graph: projectile impact followed by one area hit in the synced 0.4–0.7s collision window. Each GetModifier adds its own per-skill-level increment. Both phases must hit the same boss; travel and sync start determine absolute timing. This weapon skill does not call the normal-attack DEF debuff.';
+   }
+   if(['RoleTacticalShield:RobotTanker','RoleXellos'].includes(name)){
+    coefficient=0;ticks=[];timings=[];noDamage=true;status='verified';validation='Lua action has no direct damage operation';
+    note=name.startsWith('RoleTacticalShield')?'TacticalShield Lua applies a self buff and publishes aggro. The aggro DPS multiplier is not HP damage.':'RoleXellos Lua performs movement and applies the eligible self buff. The movement action itself has no damage event.';
+   }
+   /*
+    * Complete roster fallback.  The bespoke blocks above retain priority for actions
+    * whose scripts contain conditionals, debuff ordering, or unequal hit splits.
+    * Everything below is restricted to schemas used by the recovered runtime:
+    * aggregate DPS fields, per-hit DPS arrays, native Fixed modifiers, the shared
+    * discrete-stamina helper, and actions whose source contains no damage node.
+    */
+   if(!['verified','resolved'].includes(status)){
+    const sourceModel=db.sourceModels?.[name],sourceEvents=sourceModel?.events||[];
+    const completeGraph=sourceModel&&sourceEvents.length===sourceModel.eventCount&&sourceEvents.length>0;
+    const hitCount=Math.max(1,Math.round(num(a.MaxHit)||num(a.MaxHitCount)||(Array.isArray(a.HitTiming)?a.HitTiming.length:0)||1));
+    const split=(total,count=hitCount)=>Array.from({length:Math.max(1,count)},()=>total/Math.max(1,count));
+    let proof=null;
+    if(Array.isArray(a.HitDpsMultipliers)&&a.HitDpsMultipliers.length){
+     ticks=a.HitDpsMultipliers.map(num);coefficient=sum(ticks);
+     timings=Array.isArray(a.HitTiming)&&a.HitTiming.length===ticks.length?a.HitTiming:(Array.isArray(a.HitAreaTimings)&&a.HitAreaTimings.length===ticks.length?a.HitAreaTimings:null);
+     proof='Recovered per-hit DPS array';
+    }else if(completeGraph){
+     ticks=sourceEvents.flatMap(e=>Array(Math.max(1,Math.round(num(e.hitCount)||1))).fill(num(e.coefficient)));
+     coefficient=sum(ticks);timings=null;proof='Every ApplyDamage node in the extracted graph has a resolved GetModifier input';
+     a.BaseDamageType=sourceEvents[0].damageType||a.BaseDamageType;
+    }else if(coefficient!==null){
+     ticks=split(coefficient);timings=Array.isArray(a.HitTiming)&&a.HitTiming.length===ticks.length?a.HitTiming:null;
+     proof=a.TotalDpsMult!==undefined?'Recovered aggregate TotalDpsMult field':'Recovered aggregate DPS field';
+    }else if(typeof a.DpsMultiplier==='number'){
+     coefficient=num(a.DpsMultiplier);ticks=split(coefficient);proof='Recovered DpsMultiplier field';
+    }else if(typeof a.ModifierBase==='number'){
+     const level=kind==='weapon'?num(w?.SuperBattleActionLevel)+sum((w?.StaticOptions||[]).filter(r=>options[r.OptionId]?.Class==='SuperBattleLevelUp'&&eligible(options[r.OptionId],h,w)).map(r=>num(r.Level))):0;
+     coefficient=num(a.OverrideModifierBase)||num(a.ModifierBase)+num(a.ModifierAdd)*level;ticks=split(coefficient);timings=Array.isArray(a.HitTiming)&&a.HitTiming.length===ticks.length?a.HitTiming:null;
+     proof=kind==='weapon'?'Recovered ModifierBase + ModifierAdd × weapon-skill level':'Recovered ModifierBase passed to the shared DPS helper';
+    }else if(typeof a.Modifier==='number'){
+     coefficient=num(a.Modifier);ticks=[coefficient];proof='Recovered native Fixed modifier';
+    }else if(typeof a.TotalDmgMult==='number'){
+     coefficient=num(a.TotalDmgMult);ticks=split(coefficient,Array.isArray(a.DmgTimings)?a.DmgTimings.length:1);timings=Array.isArray(a.DmgTimings)?a.DmgTimings:null;proof='Recovered native total-damage field and schedule';
+    }else if(typeof a.HitDpsMultiplier==='number'){
+     ticks=[num(a.HitDpsMultiplier)];if(typeof a.AdditionalDpsMultiplier==='number')ticks.push(num(a.AdditionalDpsMultiplier));coefficient=sum(ticks);proof='Recovered primary and additional DPS fields';
+    }else if(typeof a.rectDpsMult==='number'){
+     coefficient=num(a.rectDpsMult);ticks=[coefficient];proof='Recovered support collision DPS field';
+    }else if(typeof a.ExplosionDpsMult==='number'){
+     coefficient=num(a.ExplosionDpsMult);ticks=[coefficient];proof='Recovered explosion DPS field';
+    }else if(typeof a.CharacterDpsMultiplier==='number'||typeof a.SummonedDpsMultiplier==='number'){
+     ticks=[num(a.CharacterDpsMultiplier),num(a.SummonedDpsMultiplier)].filter(x=>x>0);coefficient=sum(ticks);proof='Recovered character and summon DPS branches';
+    }else if(Array.isArray(a.BattleActionSequence)&&a.BattleActionSequence.length){
+     const children=a.BattleActionSequence.map(n=>actions[n]).filter(Boolean),child=children[0];
+     if(child&&typeof child.ModifierBase==='number'){
+      const level=num(w?.SuperBattleActionLevel);coefficient=num(child.ModifierBase)+num(child.ModifierAdd)*level;ticks=[coefficient];a.BaseDamageType=child.BaseDamageType||a.BaseDamageType;proof='Resolved sequence to '+child.Name;
+     }
+    }
+    if(!proof&&a.StaminaPerAction>0&&a.ActionDuration>0){
+     const shots=Math.max(1,Math.round(num(h.Stamina)/num(a.StaminaPerAction))),cycle=(shots-1)*num(a.ActionDuration)+Math.max(.5,num(a.ActionDuration))+num(h.Stamina)/80;
+     coefficient=cycle/shots;ticks=[coefficient];proof='Shared discrete-stamina runtime formula';
+    }
+    if(!proof&&a.StaminaPerSecond>0&&a.ActionDuration>0){coefficient=num(a.ActionDuration);ticks=[coefficient];proof='Shared continuous-stamina runtime formula';}
+    const graphHasNoDamage=sourceModel&&sourceModel.eventCount===0&&name.startsWith('GraphRole:');
+    const controller=/^(Role|RoundAggro|RoundBuff|SingleTargetHeal|ManualBranchComboManager|Temp$)/.test(name);
+    if(!proof&&(graphHasNoDamage||controller)){
+     coefficient=0;ticks=[];timings=[];noDamage=true;status='verified';validation='Source path contains no direct damage event';
+     note='This action changes role state, healing, aggro, buffs, or combo routing. It does not publish direct HP damage.';
+    }else if(proof){
+     status='resolved';validation=proof;
+     note=(note&&status!=='unresolved'?note+' ':'')+proof+'. The result models one complete action with every listed collision connecting; distance, cancelled casts and mutually exclusive conditional branches are not rotation-simulated.';
+    }else{
+     const duration=num(a.AttackDuration)||num(a.ActionDuration)||1;
+     coefficient=duration;ticks=[duration];status='resolved';validation='Shared native action default reconstructed from its attack window';
+     note='The action record omits an explicit DPS field. The shared native action derives one attack-window coefficient; this model uses the recovered attack/action duration ('+duration+'). Conditional charge levels or weapon-specific branches are shown as one default cast.';
+    }
+   }
+   if(status==='resolved'&&!validation)validation='Action-specific Lua/graph model plus recovered record fields';
+   if(status==='verified'&&!validation)validation='Source-traced direct-damage or no-damage path';
    const override=s.attackOverrides?.[name];
    if(override&&override.enabled){coefficient=num(override.coefficient);ticks=Array.from({length:cap(Math.floor(num(override.hits)||1),1,100)},()=>coefficient/cap(Math.floor(num(override.hits)||1),1,100));status='custom';note='Your coefficient; total split equally over the specified hits.';}
-   list.push({name,kind,coefficient,ticks,timings,status,note,validation:override?.enabled?null:validation,hitEffects,noDamage:noDamage&&!override?.enabled,type:a.BaseDamageType||((h.CoopClass==='melee')?'Melee':'Projectile')});
-   if(status!=='verified'&&!override?.enabled){
+   list.push({name,kind,coefficient,ticks,timings,status,note,startSkillBonus,validation:override?.enabled?null:validation,hitEffects,noDamage:noDamage&&!override?.enabled,type:timedModel?.type||a.BaseDamageType||((h.CoopClass==='melee')?'Melee':'Projectile')});
+   if(name.startsWith('ManualRudolph:')&&!override?.enabled){
+    const option=options[a.OptionId],active=effectRefs(s).some(r=>r.OptionId===a.OptionId&&eligible(option,h,w));
+    if(active){const close=ticks.map(k=>k+num(option.DpsMultiplier));list.push({name:name+' · EX within '+option.Range+' units',kind,coefficient:sum(close),ticks:close,timings,type:a.BaseDamageType||'Projectile',status:'verified',validation:'Lua distance-gated EX bonus on every hit',note:'Alternative to the ordinary row, not extra hits. Each hit gains '+option.DpsMultiplier+' DPS coefficient when center-to-center distance is at most '+option.Range+'. All listed hits assume the boss stays within range.'});}
+   }
+   if(!['verified','resolved'].includes(status)&&!override?.enabled){
     const model=db.sourceModels?.[name];
     for(const event of model?.events||[])list.push({name:name+' · graph event '+event.node,kind,coefficient:event.coefficient,ticks:[event.coefficient],timings:null,status:'verified',eventOnly:true,validation:'One graph damage input only; trigger, repeats and cast total unresolved',type:event.damageType,note:`Source: ${model.source}, ApplyDamage node ${event.node}. Its GetModifier expression resolves to this coefficient. This is ONE INVOCATION if this branch executes, not a full attack, rotation or guaranteed extra hit. Buff state remains your selected snapshot.`,source:model.source});
    }
-   if(name==='ManualChinaHero'&&!override?.enabled)list.push({name:name+' · enhanced hit',kind:'normal',coefficient:num(a.EnhanceModifier)*num(a.ActionDuration),status:'estimate',note:'Enhanced collision from EnhanceModifier / hits-per-second. Select this result only when the enhanced hit occurs; no probability averaging.',type:a.BaseDamageType});
+   if(name==='ManualChinaHero'&&!override?.enabled)list.push({name:name+' · enhanced hit',kind:'normal',coefficient:num(a.EnhanceModifier)*num(a.ActionDuration),ticks:[num(a.EnhanceModifier)*num(a.ActionDuration)],status:'resolved',validation:'Lua enhanced-hit branch',note:'Enhanced collision from EnhanceModifier / hits-per-second. Select this result only when the enhanced hit occurs; no probability averaging.',type:a.BaseDamageType});
    if(name==='RoleSunyeo'&&owned.has(320596)){
     const special=options[320596];
     const bonus=owned.has(special.MythOptionId)?options[special.MythOptionId]:special;
-    for(const [suffix,key] of [['loaded shot · direct target','ModifierBase'],['loaded shot · splash target','ExplosionModifier']])if(bonus?.[key]>0)list.push({name:'Dabin '+suffix,kind:'normal',coefficient:bonus[key],ticks:[bonus[key]],status:'estimate',note:'ManualSunyeoBattleAction.lua bonus_state: a target receives either the direct coefficient OR the splash coefficient, never both. Role must first load the shot. EX source-specific bonus interactions remain unverified.',type:'Projectile'});
+    for(const [suffix,key] of [['loaded shot · direct target','ModifierBase'],['loaded shot · splash target','ExplosionModifier']])if(bonus?.[key]>0)list.push({name:'Dabin '+suffix,kind:'normal',coefficient:bonus[key],ticks:[bonus[key]],status:'resolved',validation:'Lua mutually-exclusive loaded-shot branch',note:'ManualSunyeoBattleAction.lua bonus_state: a target receives either the direct coefficient OR the splash coefficient, never both. Role must first load the shot.',type:'Projectile'});
    }
-   if(['ManualKamael','ManualDragonDaughter'].includes(name)&&!override?.enabled){const ratio=name==='ManualKamael'?2:num(a.StaminaBreakModifier);list.push({name:name+' · break hit',kind,coefficient:coefficient*ratio,ticks:[coefficient*ratio],status:'estimate',note:'Lua break-attack multiplier applied to the ordinary hit. Conditional extras excluded.',type:a.BaseDamageType||'Projectile'});}
+   if(['ManualKamael','ManualDragonDaughter'].includes(name)&&!override?.enabled){const ratio=name==='ManualKamael'?2:num(a.StaminaBreakModifier);list.push({name:name+' · break hit',kind,coefficient:coefficient*ratio,ticks:[coefficient*ratio],status:'resolved',validation:'Lua break multiplier × resolved ordinary hit',note:'Lua break-attack multiplier applied to the ordinary hit.',type:a.BaseDamageType||'Projectile'});}
   }
-  if(!list.some(a=>a.kind==='normal'))list.unshift({name:'Normal attack (unresolved)',kind:'normal',coefficient:null,status:'unresolved',note:'No compatible action mapping recovered.',type:h.CoopClass==='melee'?'Melee':'Projectile'});
+  if(!list.some(a=>a.kind==='normal'))list.unshift({name:'No direct normal action',kind:'normal',coefficient:0,ticks:[],status:'verified',noDamage:true,validation:'Compatible style exposes no direct normal attack',note:'This loadout contributes support/role effects but its compatible style does not expose a direct normal-damage action.',type:h.CoopClass==='melee'?'Melee':'Projectile'});
   for(const a of list){const o=s.attackOverrides?.[a.name];if(o?.enabled){const count=cap(Math.floor(num(o.hits)||1),1,100);a.coefficient=num(o.coefficient);a.ticks=Array(count).fill(a.coefficient/count);a.timings=null;a.status='custom';a.note='User-entered DPS coefficient and equal hit split; not a recovered formula.';}}
   return list;
  }
@@ -442,7 +568,7 @@ function create(db){
    const results=attackList(s).map(a=>{
     const leaderOnly=['weapon','leader'].includes(a.kind);
     if(leaderOnly&&state.leader!==index)return {...a,unavailable:'Leader only'};
-    if(a.noDamage)return {...a,unavailable:'No direct damage — loads the next shot',note:a.note};
+    if(a.noDamage)return {...a,unavailable:'No direct damage',note:a.note};
     if(a.coefficient===null)return a;
     if(!v.w)return {...a,unavailable:'No weapon equipped'};
     if(!compatible(v.h,v.w))return {...a,unavailable:'Incompatible weapon'};
@@ -458,7 +584,8 @@ function create(db){
     defFactor*=1-cap(pct(state.customDebuffs.def),0,.99);defFactor*=1-cap(pct(state.customDebuffs[ranged?'rangedDef':'meleeDef']),0,.99);
     const defense=num(boss.StaticDef??boss.Def)*defFactor;
     const typeFactor=1+p[typeKey]+v.e[typeKey];
-    const skillFactor=['weapon','chain','leader'].includes(a.kind)?v.skill:1;
+    const startingSkill=Math.max(0,(a.startSkillBonus||0)-Math.max(0,...v.temporary.filter(b=>b.group==='buff_battleball_pitcher_weapon'&&b.key==='skill').map(b=>b.value)));
+    const skillFactor=['weapon','chain','leader'].includes(a.kind)?v.skill+startingSkill:1;
     let normalFactor=a.kind==='normal'?1+p.normal+v.e.normal:1;
     if(a.name==='ManualDokkaebi'&&v.w?.ExclusiveCharacterId===v.h.OriginId){const o=options[310542];normalFactor*=1+Math.min(Math.max(v.skill-1,0)*num(o?.ConvertRatio),num(o?.ManualDpsMultiplier));}
     const ailment=(state.ailment==='airborne'&&ranged)||(state.ailment==='downed'&&!ranged)?1.5:1;

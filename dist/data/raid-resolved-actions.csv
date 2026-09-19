@@ -1,0 +1,811 @@
+Status,Action,Heroes,Loadouts,Code-traced loadouts,Resolved data-model loadouts,Validation
+Resolved,ActivePowerWave,China Hero Ascent,5,0,5,Action-specific Lua/graph model plus recovered record fields
+Resolved,AkayukiBatto:Akayuki,Akayuki,8,0,8,Recovered native Fixed modifier
+Resolved,AkayukiSlash:BackSlash,Akayuki,8,0,8,Recovered native Fixed modifier
+Resolved,AkayukiSlash:Slash,Akayuki,8,0,8,Recovered native Fixed modifier
+Resolved,AuraSlash,Gnome; Warrior,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:AlpacaGirl,Mayreel,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Bakeneko,Bakeneko Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:BlueDragon,Blue Dragon,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:BoatracingGirl,Boatracing Girl,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:CaptainRabbit,Captain Rabbit,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:ChinaChef,Lynn,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:ChinaHero,China Hero Ascent,20,0,20,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:CyborgMonk,Cyborg Monk,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Dai,Dai,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:DemonBrother,Demon Brother,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:DemonCeo,Demon Ceo,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:DemonEngineer,Demon Engineer,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:DemonGovernor,Demon Governor,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:DemonInspector,Demon Inspector,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:DemonOperator,Demon Operator,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:DemonPowergirl,Demon Powergirl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:DemonSlayer,Andras,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:DesertelfHunter,Desertelf Hunter,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Dokkaebi,Dokkaebi Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:DragonDaughter,Dragon Daughter,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:Eleanor,Eleanor,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:ExorcistGirl,Exorcist Girl,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:FallenQueen,Fallen Queen Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Fern,Fern,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:FestivalGirl,Festival Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:FireBishop,Fire Bishop,6,0,6,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:FireHarpy,Fire Harpy Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:FlameStrike,Dragon Boy,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:FlowerGirl,Flower Girl,6,0,6,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:ForestElf,Estel,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Frieren,Frieren,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:FutureKnight,Future Knight,6,0,6,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:FuturePrincess,Future Princess,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:GnomeDoctor,Noel,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:GoatGirl,Goat Girl,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:GolemRider,Golem Rider,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:GuardianAngel,Guardian Angel,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:HalfVampire,Half Vampire,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Hana,Hana,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:HeroAi,Hero Ai,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:IdolCaptain,Idol Captain Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields; Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Innuit,Innuit Ascent,10,0,10,Action-specific Lua/graph model plus recovered record fields
+Code-traced,BasicSupport:InvaderKnight,Beth,8,8,0,"Direct coefficient, Myth override and hit sequence"
+Resolved,BasicSupport:JadeShaman,Jade Shaman,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Kamael,Kamael,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Kunoichi,Kunoichi,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:LadyThief,Lady Thief Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:LeafFairy,Aoba,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:LegendaryHero,Erina,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Librarian,Librarian,6,0,6,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:LifeguardYuze,Lifeguard Yuze,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Lina,Lina,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Maam,Maam,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:MechaAndroid,Mk.99,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Mercenary,Mercenary Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Mermaid,Mermaid,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:MilkywayGirl,Milkyway Girl,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:MsChrome,Ms Chrome,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Necromancer,Noxia,3,0,3,Recovered character and summon DPS branches
+Resolved,BasicSupport:NinjaLeader,Ninja Leader,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:PandaGirl,Xiaoman,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:PartyMadPanda,Party Mad Panda,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:Parvati,Parvati,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:PixyGirl,Pixy Girl,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:PlagueDoctor,Plague Doctor,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:Popp,Popp,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Priestess,Priestess,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:Saintess,Saintess Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SeaWitch,Sea Witch,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SecretAgent,Anna,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SheepGirl,Sheep Girl,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Shuran,Shuran,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:SlimeMilim,Slime Milim,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SlimeRimuru,Slime Rimuru,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SlimeShuna,Slime Shuna,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SoulpowerGirl,Soulpower Girl,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Stark,Stark,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SteamPrincess,Steam Princess,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:StoreAngelLua,Gabriel,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:StreamerGirl,Ruri,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Succubus,Succubus,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:SuccubusNoble,Bianca,8,0,8,Action-specific Lua/graph model plus recovered record fields; Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SummerAmy,Summer Amy,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:SummerAndroid,Summer Android Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SummerLoraine,Summer Loraine,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SummerShapira,Summer Shapira,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Sunyeo,Sunyeo Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:SurferSohee,Surfer Sohee,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Tanker,Tanker Ascent,10,0,10,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:TwinsAndroid,Nifty,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:UptownLancerGirl,Uptown Lancer Girl,6,0,6,Recovered support collision DPS field
+Resolved,BasicSupport:ValentineAmeris,Valentine Ameris,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:VampireCaptain,Vampire Captain,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:VampireLord,Vampire Lord,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:VampireNoble,Vampire Noble Ascent,10,0,10,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Viking,Viking,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,BasicSupport:VillainAndroid,Villain Android,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:VillainRedhood,Villain Redhood Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Watcher,Watcher,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:WhiteBeast,White Beast,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:WhiteDruid,White Druid,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:WhitedayGirgas,Whiteday Girgas,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,BasicSupport:Xellos,Xellos,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,CwpAdmiral,Marina,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpAkayukiAkaoni,Akayuki,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpAlpacaGirl,Mayreel,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpBakeneko,Bakeneko Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpBattleballGirl,Rie,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpBlueDragon,Blue Dragon,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpBoatracingGirl,Boatracing Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpCaptainRabbit,Captain Rabbit,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpChinaChef,Lynn,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpChinaUltimateIceFlameBomb,China Hero Ascent,10,0,10,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpCyborgMonk,Cyborg Monk,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDai,Dai,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDancingArcherDesertRain,Tinia,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonBrother,Demon Brother,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonCeo,Demon Ceo,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonEngineer,Demon Engineer,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonGovernor,Demon Governor,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonInspector,Demon Inspector,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonOperator,Demon Operator,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonPowergirl,Demon Powergirl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonSister,Demon Sister,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDemonSlayer,Andras,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDesertSlaveEarthquake,Desert Slave,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDesertelfHunter,Desertelf Hunter,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDokkaebi,Dokkaebi Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDollGirlDragonTalon,Doll Girl,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDragonBoy,Dragon Boy,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpDragonDaughter,Dragon Daughter,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpEightTailFoxFireBomb,Nari,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpEleanor,Eleanor,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpEugeneMotorcycleStunt,Eugene,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpExorcistGirl,Exorcist Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFallenQueen,Fallen Queen Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFern,Fern,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFestivalGirlFanBoomerang,Festival Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFireBishop2,Fire Bishop,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFireBishopFlameOfDestruction,Fire Bishop,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFireHarpy,Fire Harpy Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFlowerGirl,Flower Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFlowerGirl2,Flower Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpForestElf,Estel,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFrieren,Frieren,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFutureKnight,Future Knight,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFutureKnight2,Future Knight,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpFuturePrincess,Future Princess,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpGaram,Garam,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpGaram2,Garam,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpGhostBusterMagitonChain,Ghost Buster,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpGoatGirl,Goat Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpGolemRiderTremorsOfTheEarth,Golem Rider,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpGourry,Gourry,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpGuardianAngel,Guardian Angel,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpHalfVampire,Half Vampire,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpHana,Hana,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpHeroAi,Hero Ai,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpIdolCaptainRainbowSherbet,Idol Captain Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpInnuit,Innuit Ascent,10,0,10,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpInvaderKnight,Beth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpJadeShaman,Jade Shaman,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpKamael,Kamael,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpKnightCaptainSpearImpact,Knightcaptain,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpKnightThunderStrike,Rie,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpKunoichi,Kunoichi,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpLadyThief,Lady Thief Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpLeafFairy,Aoba,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpLegendaryHero,Erina,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpLibrarian2,Librarian,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpLibrarianTaegeuk,Librarian,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpLifeguardYuze,Lifeguard Yuze,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpLina,Lina,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMaam,Maam,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMadScientistFormulaA,Mad Scientist Myth,18,0,18,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMaidFickleLady,Amy; Viking,16,0,16,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMaiden,Maiden,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMechaAndroid,Mk.99,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMercenary,Mercenary Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMermaid,Mermaid,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMilkywayGirl,Milkyway Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpMsChromeManager,Ms Chrome,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpNecromancer,Noxia,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpNinjaLeader,Ninja Leader,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPandaGirl,Xiaoman,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPartyMadPanda,Party Mad Panda,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpParvati,Parvati,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPet,Pet,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPirateBlueRoseBlossom,Rachel,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPixyGirl,Pixy Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPlagueDoctor,Plague Doctor,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPlitvice2,Plitvice,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPlitviceFlameOfPurification,Plitvice,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPopp,Popp,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpPriestess,Priestess,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpRedhoodNewtonApple,Redhood Ascent,10,0,10,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpRobotTanker2,Oghma,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpRobotTankerPressureField,Oghma,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpRudolph,Rudolph,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpRudolph2,Rudolph,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSaintess,Saintess Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSeaWitch,Sea Witch,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSecretAgent,Anna,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSheepGirl,Sheep Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpShuran,Shuran,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSlimeMilim,Slime Milim,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSlimeRimuru,Slime Rimuru,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSlimeShuna,Slime Shuna,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSniper,Hekate,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSoulpowerGirl,Soulpower Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpStark,Stark,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSteamKnight,Steam Knight,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSteamPrincessImperialOrder,Steam Princess,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpStoreAngel,Gabriel,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpStreamerGirl,Ruri,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSuccubusHeartBreaker,Succubus,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSuccubusNoble,Bianca,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSummerAmy,Summer Amy,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSummerAndroid,Summer Android Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSummerLoraine,Summer Loraine,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSummerShapira,Summer Shapira,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Code-traced,CwpSunyeo,Sunyeo Myth,8,8,0,Source-traced direct-damage or no-damage path
+Resolved,CwpSurferSohee,Surfer Sohee,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSurvivorAutoGuidedArrow,Survivor,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpSwindlerMeteorStrike,Dolf,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpTanker,Tanker Ascent,10,0,10,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpTeatanHeroDestructionFire,Teatan Hero,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpTwinsAndroid,Nifty,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpUptownLancerGirl,Uptown Lancer Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpUptownLancerGirl2,Uptown Lancer Girl,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpValentineAmeris,Valentine Ameris,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpVampireCaptain,Vampire Captain,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpVampireLord,Vampire Lord,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpVampireNoble,Vampire Noble Ascent,10,0,10,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpVillainAndroid,Villain Android,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpVillainRedhoodPlasmaGrenade,Villain Redhood Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpWatcher,Watcher,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpWhiteBeast,White Beast,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpWhiteDruid,White Druid,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpWhitedayGirgas,Whiteday Girgas,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpWitchCocoHellHound,Witch Coco,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,CwpXellos,Xellos,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,DancingArcherSupport,Tinia,3,0,3,Recovered primary and additional DPS fields
+Resolved,EightTailSupport,Nari,3,0,3,Recovered native total-damage field and schedule
+Resolved,EugeneSupport,Eugene,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GaramSupport,Garam,6,0,6,Recovered aggregate TotalDpsMult field
+Resolved,GnomeStomp,Gnome,1,0,1,Shared native action default reconstructed from its attack window
+Resolved,GraphCombo:AdelaNobleFirst,Adela Noble Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:AdelaNobleFourth,Adela Noble Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:AdelaNobleSecond,Adela Noble Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:AdelaNobleThird,Adela Noble Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:AliciaFirst,Alicia,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:AliciaFourth,Alicia,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:AliciaSecond,Alicia,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:AliciaThird,Alicia,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,GraphCombo:BattleballPitcherFirst,Battleball Pitcher Myth,8,8,0,"Projectile hit, EX follow-up and post-hit DEF debuff order"
+Code-traced,GraphCombo:BattleballPitcherSecond,Battleball Pitcher Myth,8,8,0,"Projectile hit, EX follow-up and post-hit DEF debuff order"
+Code-traced,GraphCombo:BattleballPitcherThird,Battleball Pitcher Myth,8,8,0,"Projectile hit, EX follow-up and post-hit DEF debuff order"
+Resolved,GraphCombo:CarpGirlFirst,Geumrin,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:CarpGirlFourth,Geumrin,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:CarpGirlSecond,Geumrin,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:CarpGirlThird,Geumrin,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:EternalFlameFirst,Eternal Flame Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:EternalFlameSecond,Eternal Flame Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:EternalFlameThird,Eternal Flame Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:FirstBishopFirst,First Bishop Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:FirstBishopFourth,First Bishop Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:FirstBishopSecond,First Bishop Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:FirstBishopThird,First Bishop Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:FoxShikigamiFirst,Fox Shikigami Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:FoxShikigamiSecond,Fox Shikigami Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:FoxShikigamiThird,Fox Shikigami Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:MagicalGirlFirst,Magical Girl Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:MagicalGirlFourth,Magical Girl Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:MagicalGirlSecond,Magical Girl Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:MagicalGirlThird,Magical Girl Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphCombo:NelluruFirst,Nelluru Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:NelluruSecond,Nelluru Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:NelluruThird,Nelluru Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:SecondBishopFirst,Second Bishop Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:SecondBishopFourth,Second Bishop Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:SecondBishopSecond,Second Bishop Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:SecondBishopThird,Second Bishop Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:SummerrieFirst,Summer Rie Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphCombo:SummerrieFourth,Summer Rie Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphCombo:SummerrieSecond,Summer Rie Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphCombo:SummerrieThird,Summer Rie Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphCombo:WhitedayGirgasFirst,Whiteday Girgas,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:WhitedayGirgasSecond,Whiteday Girgas,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphCombo:WhitedayGirgasThird,Whiteday Girgas,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,GraphCombo:WrestlerFirst,Wrestler Myth,8,8,0,"Direct graph coefficient, collision event and post-hit debuff order"
+Code-traced,GraphCombo:WrestlerFourth,Wrestler Myth,8,8,0,"Direct graph coefficient, collision event and post-hit debuff order"
+Code-traced,GraphCombo:WrestlerSecond,Wrestler Myth,8,8,0,"Direct graph coefficient, collision event and post-hit debuff order"
+Code-traced,GraphCombo:WrestlerThird,Wrestler Myth,8,8,0,"Direct graph coefficient, collision event and post-hit debuff order"
+Resolved,GraphMyth:Alicia,Alicia,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:Bakeneko,Bakeneko Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Code-traced,GraphMyth:BattleballPitcher,Battleball Pitcher Myth,2,2,0,Timed direct-damage sequence and collision paths
+Resolved,GraphMyth:BridgeDriver,Bridge Driver Myth,2,0,2,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphMyth:BridgeMessenger,Seira,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:CarpGirl,Geumrin,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:EternalFlame,Eternal Flame Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:FallenQueen,Fallen Queen Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:FireHarpy,Fire Harpy Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:FirstBishop,First Bishop Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:FoxShikigami,Fox Shikigami Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:GnomeDoctor,Noel,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:Klen,Klen,2,0,2,Recovered aggregate TotalDpsMult field
+Code-traced,GraphMyth:LegendaryHero,Erina,2,2,0,Timed direct-damage sequence and collision paths
+Resolved,GraphMyth:MadScientist,Mad Scientist Myth,3,0,3,Recovered aggregate TotalDpsMult field
+Code-traced,GraphMyth:MagicalGirl,Magical Girl Myth,2,2,0,Timed direct-damage sequence and collision paths
+Resolved,GraphMyth:Mercenary,Mercenary Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:Nelluru,Nelluru Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:SecondBishop,Second Bishop Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Code-traced,GraphMyth:SquirrelGirl,Chriselle,2,2,0,Timed direct-damage sequence and collision paths
+Code-traced,GraphMyth:SuccubusNoble,Bianca,2,2,0,Timed direct-damage sequence and collision paths
+Resolved,GraphMyth:Sunyeo,Sunyeo Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphMyth:TwinsAndroid,Nifty,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,GraphPersistent:BridgeDriver,Bridge Driver Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphRole:AdelaNoble,Adela Noble Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphRole:Alicia,Alicia,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,GraphRole:BridgeDriver,Bridge Driver Myth,8,8,0,Direct graph coefficient and one collision event
+Code-traced,GraphRole:BridgeMessenger,Seira,8,8,0,Source path contains no direct damage event
+Resolved,GraphRole:CarpGirl,Geumrin,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,GraphRole:EternalFlame,Eternal Flame Myth,8,0,8,Shared native action default reconstructed from its attack window
+Code-traced,GraphRole:FirstBishop,First Bishop Myth,8,8,0,Source path contains no direct damage event
+Resolved,GraphRole:FoxShikigami,Fox Shikigami Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,GraphRole:GnomeDoctor,Noel,8,8,0,Source path contains no direct damage event
+Resolved,GraphRole:LadyThiefMyth,Lady Thief Myth,2,0,2,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Resolved,GraphRole:MadScientistAscent,Mad Scientist Myth,6,0,6,Shared native action default reconstructed from its attack window
+Resolved,GraphRole:MagicalGirl,Magical Girl Myth,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Code-traced,GraphRole:MermaidSpy,J,8,8,0,Source path contains no direct damage event
+Code-traced,GraphRole:Nelluru,Nelluru Myth,8,8,0,Source path contains no direct damage event
+Code-traced,GraphRole:SecondBishop,Second Bishop Myth,8,8,0,Source path contains no direct damage event
+Resolved,GraphRole:SquirrelGirl,Chriselle,8,0,8,Every ApplyDamage node in the extracted graph has a resolved GetModifier input
+Code-traced,GraphRole:SuccubusNobleMyth,Bianca,2,2,0,Source path contains no direct damage event
+Resolved,GraphRole:Summerrie,Summer Rie Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphRole:Wrestler,Wrestler Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphStamina:BridgeMessenger,Seira,8,0,8,Shared discrete-stamina runtime formula
+Resolved,GraphStamina:GnomeDoctor,Noel,8,0,8,Shared discrete-stamina runtime formula
+Resolved,GraphStamina:Klen,Klen,8,0,8,Shared discrete-stamina runtime formula
+Resolved,GraphStamina:MermaidSpy,J,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphStamina:SquirrelGirl,Chriselle,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,GraphSupport:AdelaNoble,Adela Noble Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:Alicia,Alicia,8,0,8,Recovered aggregate TotalDpsMult field
+Code-traced,GraphSupport:BattleballPitcher,Battleball Pitcher Myth,8,8,0,"Two once-calculated collisions, final capped collision, Myth selectors and EX skill buff"
+Resolved,GraphSupport:BridgeDriver,Bridge Driver Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphSupport:BridgeMessenger,Seira,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:CarpGirl,Geumrin,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:EternalFlame,Eternal Flame Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:FirstBishop,First Bishop Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:FoxShikigami,Fox Shikigami Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:Klen,Klen,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:MagicalGirl,Magical Girl Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:MermaidSpy,J,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:Nelluru,Nelluru Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:SecondBishop,Second Bishop Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:SquirrelGirl,Chriselle,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,GraphSupport:SummerRie,Summer Rie Myth,8,0,8,Recovered aggregate TotalDpsMult field
+Code-traced,GraphSupport:Wrestler,Wrestler Myth,8,8,0,Direct graph damage path
+Resolved,GraphTrigger:CwpAdelaNoble,Adela Noble Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpAlicia,Alicia,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Code-traced,GraphTrigger:CwpBattleballPitcher,Battleball Pitcher Myth,8,8,0,Projectile hit and one capped collision; skill-level and Myth selectors
+Resolved,GraphTrigger:CwpBridgeDriver,Bridge Driver Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpBridgeMessenger,Seira,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpCarpGirl,Geumrin,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpEternalFlame,Eternal Flame Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpFirstBishop,First Bishop Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpFoxShikigami,Fox Shikigami Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpGnomeDoctor,Noel,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpKlen,Klen,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpMagicalGirl,Magical Girl Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpMermaidSpy,J,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpNelluru,Nelluru Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpSecondBishop,Second Bishop Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpSquirrelGirl,Chriselle,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpSummerRie,Summer Rie Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GraphTrigger:CwpWrestler,Wrestler Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,GrenadeSupport:Rudolph,Rudolph,6,0,6,Action-specific Lua/graph model plus recovered record fields
+Resolved,JumpStompSupport:DemonSister,Demon Sister,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,JumpStompSupport:DesertSlave,Desert Slave,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,JumpStompSupport:Gourry,Gourry,3,0,3,Recovered aggregate TotalDpsMult field
+Resolved,JumpStompSupport:Maid,Amy,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,JumpStompSupport:SteamKnight,Steam Knight,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,KnightCaptainSupport,Knightcaptain,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,LaviComboPunch,Demon Sister,8,0,8,Recovered native Fixed modifier
+Resolved,LinearSupport:Akayuki,Akayuki,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,LinearSupport:Pet,Pet,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,MachineGunArrow,Warrior,2,0,2,Action-specific Lua/graph model plus recovered record fields
+Resolved,MadScientistSupport,Mad Scientist Myth,18,0,18,Action-specific Lua/graph model plus recovered record fields
+Resolved,MaidenSupport,Maiden,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualAlpacaGirl:First,Mayreel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualAlpacaGirl:Fourth,Mayreel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualAlpacaGirl:Second,Mayreel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualAlpacaGirl:Third,Mayreel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBattleBallGirl:Final,Rie,16,0,16,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBattleBallGirl:First,Rie,16,0,16,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBattleBallGirl:Second,Rie,16,0,16,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBlueDragon,Blue Dragon,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBoatracingGirl:First,Boatracing Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBoatracingGirl:Fourth,Boatracing Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBoatracingGirl:Second,Boatracing Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBoatracingGirl:Third,Boatracing Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualBounceFireball:Swindler,Dolf,8,0,8,Shared native action default reconstructed from its attack window
+Code-traced,ManualBranchComboManager:Bakeneko,Bakeneko Myth,8,8,0,Source path contains no direct damage event
+Code-traced,ManualBranchComboManager:ExorcistGirl,Exorcist Girl,3,3,0,Source path contains no direct damage event
+Code-traced,ManualBranchComboManager:ValentineAmeris,Valentine Ameris,3,3,0,Source path contains no direct damage event
+Resolved,ManualCaptainRabbit:First,Captain Rabbit,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualCaptainRabbit:Second,Captain Rabbit,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualCaptainRabbit:Third,Captain Rabbit,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualChargeBow,Warrior,2,0,2,Shared native action default reconstructed from its attack window
+Resolved,ManualChargeDeathFist:DesertSlave,Desert Slave,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualCharmStomp:SuccubusStomp,Succubus,8,0,8,Recovered native Fixed modifier
+Resolved,ManualChinaChef,Lynn,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualChinaHero,China Hero Ascent,12,0,12,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualChinaHero:Ascent,China Hero Ascent,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualClawSlash:PetLeft,Pet,8,0,8,Recovered native Fixed modifier
+Resolved,ManualClawSlash:PetRight,Pet,8,0,8,Recovered native Fixed modifier
+Resolved,ManualCyborgMonk,Cyborg Monk,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualDai:Rslash,Dai,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDai:Slash,Dai,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDai:Stomp,Dai,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDai:Strike,Dai,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDarkHound:WitchCoco,Witch Coco,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualDarkHound:WitchCoco2,Witch Coco,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualDarkHoundCluster:WitchCoco,Witch Coco,3,0,3,Shared native action default reconstructed from its attack window
+Code-traced,ManualDemonCeo:First,Demon Ceo,3,3,0,Direct coefficient and collision hit sequence
+Code-traced,ManualDemonCeo:Fourth,Demon Ceo,3,3,0,Direct coefficient and collision hit sequence
+Code-traced,ManualDemonCeo:Second,Demon Ceo,3,3,0,Direct coefficient and collision hit sequence
+Code-traced,ManualDemonCeo:Thrid,Demon Ceo,3,3,0,Direct coefficient and collision hit sequence
+Resolved,ManualDemonEngineer,Demon Engineer,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualDemonGovernor:First,Demon Governor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonGovernor:Fourth,Demon Governor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonGovernor:Second,Demon Governor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonGovernor:Third,Demon Governor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonInspector:First,Demon Inspector,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonInspector:Fourth,Demon Inspector,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonInspector:Second,Demon Inspector,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonInspector:Third,Demon Inspector,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonOperator,Demon Operator,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualDemonPowergirl:First,Demon Powergirl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonPowergirl:Fourth,Demon Powergirl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonPowergirl:Second,Demon Powergirl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonPowergirl:Third,Demon Powergirl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonSlayer:First,Andras,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonSlayer:Second,Andras,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDemonSlayer:Third,Andras,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualDesertElvenArchery:DancingArcher,Tinia,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualDesertelfHunter,Desertelf Hunter,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualDimensionBow,Survivor,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualDokkaebi,Dokkaebi Myth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualDragonDaughter,Dragon Daughter,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualEleanor,Eleanor,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualFallenQueen:First,Fallen Queen Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFallenQueen:Fourth,Fallen Queen Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFallenQueen:Second,Fallen Queen Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFallenQueen:Third,Fallen Queen Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFern,Fern,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualFestivalGirl:First,Festival Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFestivalGirl:Second,Festival Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFestivalGirl:Third,Festival Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFireHarpy:First,Fire Harpy Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFireHarpy:Second,Fire Harpy Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFireHarpy:Third,Fire Harpy Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFlameCombat:RSlash,Fire Bishop,6,0,6,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFlameCombat:Slash,Fire Bishop,6,0,6,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFlameCombat:Smash,Fire Bishop,6,0,6,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFlowerGirl,Flower Girl,6,0,6,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualForestElf:First,Estel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualForestElf:Fourth,Estel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualForestElf:Second,Estel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualForestElf:Third,Estel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFoxBead:EightTail,Nari,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualFrieren:First,Frieren,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFrieren:Second,Frieren,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFrieren:Third,Frieren,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFutureKnight,Future Knight,3,0,3,Shared continuous-stamina runtime formula
+Resolved,ManualFuturePrincess:Magic,Future Princess,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFuturePrincess:RSlash,Future Princess,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFuturePrincess:Slash,Future Princess,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFuturePrincess:StaffOnly,Future Princess,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFuturePrincess:Stomp,Future Princess,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualFuturePrincess:Thrust,Future Princess,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualGaramBasket,Garam,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualGaramBow,Garam,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualGas:DragonBoy,Dragon Boy,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualGas:GhostBuster,Ghost Buster,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualGoatGirl,Goat Girl,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualGolemRider:LSmash,Golem Rider,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualGolemRider:RSmash,Golem Rider,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualGolemRider:Smash,Golem Rider,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualGourry:First,Gourry,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualGourry:Fourth,Gourry,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualGourry:Second,Gourry,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualGourry:Third,Gourry,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualGrenade:Maiden,Maiden,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualGrenade:RedHood,Redhood Ascent,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualGrenadeLauncher:VillainRedhood,Villain Redhood Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualGuardianAngel:First,Guardian Angel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualGuardianAngel:Fourth,Guardian Angel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualGuardianAngel:Second,Guardian Angel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualGuardianAngel:Third,Guardian Angel,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHalfVampire:First,Half Vampire,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHalfVampire:Fourth,Half Vampire,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHalfVampire:Second,Half Vampire,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHalfVampire:Third,Half Vampire,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHana:First,Hana,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHana:Fourth,Hana,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHana:Second,Hana,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHana:Third,Hana,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHeadButt:DemonSister,Demon Sister,8,0,8,Recovered native Fixed modifier
+Resolved,ManualHeadButt:Pet,Pet,8,0,8,Recovered native Fixed modifier
+Resolved,ManualHealShotgun:DemonBrother,Demon Brother,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualHeatBladeCombo:Bash,Oghma,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualHeatBladeCombo:RSlash,Oghma,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualHeatBladeCombo:Slash,Oghma,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualHeatBladeCombo:Thrust,Oghma,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualHeroAi:First,Hero Ai,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHeroAi:Fourth,Hero Ai,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHeroAi:Second,Hero Ai,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualHeroAi:Third,Hero Ai,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualIceCutter:SuccubusNoble,Bianca,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualInnuit,Innuit Ascent,8,0,8,Shared discrete-stamina runtime formula
+Resolved,ManualInnuit:Ascent,Innuit Ascent,2,0,2,Shared discrete-stamina runtime formula
+Resolved,ManualInvaderKnight:RSlash,Beth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualInvaderKnight:Slash,Beth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualInvaderKnight:Stomp,Beth,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Code-traced,ManualInvaderKnight:Wave,Beth,8,8,0,Source-traced direct-damage or no-damage path
+Resolved,ManualJadeShaman:First,Jade Shaman,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualJadeShaman:Second,Jade Shaman,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualJadeShaman:Third,Jade Shaman,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualKamael,Kamael,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualKatanaSlash:AdmiralReverseSlash,Marina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualKatanaSlash:AdmiralSlash,Marina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualKatanaSlash:AdmiralSpinSlash,Marina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualKatanaSlash:AdmiralThrust,Marina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualKnight:First,Warrior,4,0,4,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualKnight:Fourth,Warrior,4,0,4,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualKnight:Second,Warrior,4,0,4,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualKnight:Third,Warrior,4,0,4,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualKunoichi:First,Kunoichi,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualKunoichi:Fourth,Kunoichi,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualKunoichi:Second,Kunoichi,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualKunoichi:Third,Kunoichi,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLadyThief:First,Lady Thief Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLadyThief:Fourth,Lady Thief Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLadyThief:Second,Lady Thief Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLadyThief:Third,Lady Thief Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLegendaryHero:First,Erina,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLegendaryHero:Fourth,Erina,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLegendaryHero:Second,Erina,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLegendaryHero:Third,Erina,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLibrarian,Librarian,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualLifeguardYuze,Lifeguard Yuze,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLina:First,Lina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLina:Fourth,Lina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLina:Second,Lina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualLina:Third,Lina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMaam:First,Maam,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMaam:Fourth,Maam,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMaam:Second,Maam,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMaam:Third,Maam,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMadScientist,Mad Scientist Myth,18,0,18,Shared native action default reconstructed from its attack window
+Resolved,ManualMechaAndroid,Mk.99,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualMercenary:First,Mercenary Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMercenary:Second,Mercenary Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMercenary:Third,Mercenary Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMermaid,Mermaid,3,0,3,Shared continuous-stamina runtime formula
+Resolved,ManualMilkywayGirl:First,Milkyway Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMilkywayGirl:Fourth,Milkyway Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMilkywayGirl:Second,Milkyway Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMilkywayGirl:Third,Milkyway Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualMissile:TeatanHero,Teatan Hero,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualMotorcycleStunt:Manager,Eugene,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualMsChrome,Ms Chrome,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualNecromancer,Noxia,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualNinjaLeader:First,Ninja Leader,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualNinjaLeader:Second,Ninja Leader,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualNinjaLeader:Third,Ninja Leader,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPalmStrike:DollGirlLeft,Doll Girl,8,0,8,Recovered native Fixed modifier
+Resolved,ManualPalmStrike:DollGirlRight,Doll Girl,8,0,8,Recovered native Fixed modifier
+Resolved,ManualPalmStrike:DollGirlTwinStrike,Doll Girl,8,0,8,Recovered native Fixed modifier
+Resolved,ManualPandaGirl,Xiaoman,8,0,8,Shared discrete-stamina runtime formula
+Resolved,ManualPartyMadPandaBoss,Party Mad Panda,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualParvati:First,Parvati,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualParvati:Fourth,Parvati,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualParvati:Second,Parvati,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualParvati:Third,Parvati,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPistol,Rachel,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualPixyGirl,Pixy Girl,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualPlagueDoctor:First,Plague Doctor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPlagueDoctor:Fourth,Plague Doctor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPlagueDoctor:Second,Plague Doctor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPlagueDoctor:Third,Plague Doctor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPlitvice:RSlash,Plitvice,6,0,6,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPlitvice:Slash,Plitvice,6,0,6,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPlitvice:Thrust,Plitvice,6,0,6,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPopp,Popp,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualPriestess:RSlash,Priestess,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualPriestess:Slash,Priestess,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualPriestess:Stomp,Priestess,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualRecoveryBow:LeafFairy,Aoba,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualRedhoodAscent,Redhood Ascent,2,0,2,Shared discrete-stamina runtime formula
+Resolved,ManualRifle,Warrior,2,0,2,Shared native action default reconstructed from its attack window
+Resolved,ManualRifle:Weak,Rifle Weak,1,0,1,Shared native action default reconstructed from its attack window
+Code-traced,ManualRobotTankerRifle,Oghma,3,3,0,Lua one-shot damage and projectile callback
+Code-traced,ManualRudolph:First,Rudolph,3,3,0,Lua per-hit schedule; outside the EX distance bonus
+Code-traced,ManualRudolph:Second,Rudolph,3,3,0,Lua per-hit schedule; outside the EX distance bonus
+Code-traced,ManualRudolph:Third,Rudolph,3,3,0,Lua per-hit schedule; outside the EX distance bonus
+Resolved,ManualSaintess,Saintess Myth,8,0,8,Shared discrete-stamina runtime formula
+Resolved,ManualSeaWitch,Sea Witch,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualSecretAgent:First,Anna,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSecretAgent:Fourth,Anna,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSecretAgent:Second,Anna,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSecretAgent:Third,Anna,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSheepGirl,Sheep Girl,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualShuran:First,Shuran,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualShuran:Fourth,Shuran,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualShuran:Second,Shuran,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualShuran:Third,Shuran,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeMilim:First,Slime Milim,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeMilim:Fourth,Slime Milim,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeMilim:Second,Slime Milim,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeMilim:Thrid,Slime Milim,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeRimuru:First,Slime Rimuru,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeRimuru:Fourth,Slime Rimuru,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeRimuru:Second,Slime Rimuru,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeRimuru:Third,Slime Rimuru,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSlimeShuna,Slime Shuna,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualSniperRifle:Sniper,Hekate,16,0,16,Shared native action default reconstructed from its attack window
+Resolved,ManualSoulpowerGirl,Soulpower Girl,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualSoundWave:IdolCaptain,Idol Captain Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualSoundWave:IdolCaptainEnhance,Idol Captain Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualSoundWave:IdolCaptainReverse,Idol Captain Myth,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualStark:First,Stark,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualStark:Second,Stark,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualStark:Third,Stark,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualStoreAngel,Gabriel,8,0,8,Shared discrete-stamina runtime formula
+Resolved,ManualStreamerGirl,Ruri,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerAmy:First,Summer Amy,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerAmy:Fourth,Summer Amy,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerAmy:Second,Summer Amy,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerAmy:Third,Summer Amy,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerAndroid,Summer Android Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerLoraine,Summer Loraine,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerShapira:First,Summer Shapira,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerShapira:Fourth,Summer Shapira,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerShapira:Second,Summer Shapira,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSummerShapira:Third,Summer Shapira,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,ManualSunyeo,Sunyeo Myth,8,8,0,Source-traced direct-damage or no-damage path
+Resolved,ManualSurferSohee:First,Surfer Sohee,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSurferSohee:Second,Surfer Sohee,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualSurferSohee:Third,Surfer Sohee,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,ManualTankerAscent,Tanker Ascent,2,2,0,Lua one-hit collision cap and DPS coefficient
+Resolved,ManualThrustCombo:SteamPrincess,Steam Princess,8,0,8,Recovered native Fixed modifier
+Resolved,ManualTwinsAndroid,Nifty,8,0,8,Shared discrete-stamina runtime formula
+Resolved,ManualUptownLancerGirl,Uptown Lancer Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualUptownLancerGirl2:First,Uptown Lancer Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualUptownLancerGirl2:FourthWeak,Uptown Lancer Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualUptownLancerGirl2:Second,Uptown Lancer Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualVampireCaptain,Vampire Captain,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualVampireLord,Vampire Lord,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualVampireNoble,Vampire Noble Ascent,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualVampireNoble:Ascent,Vampire Noble Ascent,2,0,2,Shared native action default reconstructed from its attack window
+Resolved,ManualViking:RSlash,Viking,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualViking:Slash,Viking,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualViking:Stomp,Viking,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,ManualVillainAndroid,Villain Android,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualWatcher,Watcher,3,0,3,Shared discrete-stamina runtime formula
+Resolved,ManualWeakBasket,Librarian,3,0,3,Shared native action default reconstructed from its attack window
+Resolved,ManualWeaponBoomerang:Maid,Amy,8,0,8,Recovered native Fixed modifier
+Resolved,ManualWeaponThrowing,Knightcaptain,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,ManualWhiteBeast:Slash,White Beast,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualWhiteBeast:Stomp,White Beast,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualWhiteBeast:Thrust,White Beast,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualWhiteDruid:First,White Druid,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualWhiteDruid:Second,White Druid,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualWhiteDruid:Third,White Druid,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualXellos:First,Xellos,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualXellos:Fourth,Xellos,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualXellos:Second,Xellos,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,ManualXellos:Third,Xellos,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,MythAdelaNoble,Adela Noble Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythDokkaebi,Dokkaebi Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythEugene,Eugene,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythIdolCaptain,Idol Captain Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythInvaderKnight,Beth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythKamael,Kamael,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythLadyThief,Lady Thief Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythMermaidSpy,J,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythPandaGirl,Xiaoman,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythSaintess,Saintess Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythStoreAngel,Gabriel,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythSummerAndroid,Summer Android Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythSummerRie,Summer Rie Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythVillainRedhood,Villain Redhood Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Resolved,MythWrestler,Wrestler Myth,2,0,2,Recovered aggregate TotalDpsMult field
+Code-traced,No direct normal action,China Hero Ascent; Gnome; Rifle Weak; Warrior,9,9,0,Compatible style exposes no direct normal attack
+Retired placeholder,Normal attack (unresolved),China Hero Ascent; Gnome; Rifle Weak; Warrior,9,0,0,Retired placeholder: the compatible style exposes no direct normal-damage action
+Resolved,OnehandBackSlash:Knight,Steam Princess,8,0,8,Recovered native Fixed modifier
+Resolved,OnehandBackSlash:Tanker,Tanker Ascent,8,0,8,Recovered native Fixed modifier
+Resolved,OnehandBackSlash:TankerAscent,Tanker Ascent,2,0,2,Recovered native Fixed modifier
+Resolved,OnehandShieldBash:Tanker,Tanker Ascent,8,0,8,Recovered native Fixed modifier
+Resolved,OnehandSlash:Knight,Steam Princess,8,0,8,Recovered native Fixed modifier
+Resolved,OnehandSlash:Tanker,Tanker Ascent,8,0,8,Recovered native Fixed modifier
+Resolved,OnehandSlash:TankerAscent,Tanker Ascent,2,0,2,Recovered native Fixed modifier
+Resolved,OnehandStinger:Tanker,Tanker Ascent,10,0,10,Recovered native Fixed modifier
+Resolved,PlitviceSupport,Plitvice,6,0,6,Action-specific Lua/graph model plus recovered record fields
+Resolved,ProjectileSupport:BattleBallGirl,Rie,16,0,16,Recovered aggregate TotalDpsMult field
+Resolved,ProjectileSupport:GhostBuster,Ghost Buster,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,ProjectileSupport:Pirate,Rachel,8,0,8,Recovered aggregate TotalDpsMult field
+Resolved,RedhoodSupport,Redhood Ascent,10,0,10,Recovered explosion DPS field
+Resolved,RobotTankerSupport,Oghma,6,0,6,Recovered aggregate TotalDpsMult field
+Resolved,RoleBakeneko,Bakeneko Myth,8,6,2,Recovered DpsMultiplier field; Source path contains no direct damage event
+Resolved,RoleBoatracingGirl,Boatracing Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleCaptainRabbit,Captain Rabbit,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleChinaChef,Lynn,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleChinaHeroAscent,China Hero Ascent,3,3,0,Lua role/ascent option gates and one initial area hit
+Resolved,RoleCyborgMonk,Cyborg Monk,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleDemonCeo,Demon Ceo,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleDemonEngineer,Demon Engineer,3,3,0,Source path contains no direct damage event
+Resolved,RoleDemonGovernor,Demon Governor,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleDemonInspector,Demon Inspector,3,3,0,Source path contains no direct damage event
+Code-traced,RoleDemonOperator,Demon Operator,3,3,0,Source path contains no direct damage event
+Resolved,RoleDemonPowergirl,Demon Powergirl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleDemonSlayer,Andras,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleDesertArrow:DancingArcher,Tinia,3,3,0,Source path contains no direct damage event
+Resolved,RoleDesertelfHunter,Desertelf Hunter,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleDokkaebi,Dokkaebi Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleExorcistGirl,Exorcist Girl,3,3,0,Source path contains no direct damage event
+Resolved,RoleFallenQueen,Fallen Queen Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleFestivalGirl,Festival Girl,3,3,0,Source path contains no direct damage event
+Code-traced,RoleFireHarpy,Fire Harpy Myth,8,8,0,Source path contains no direct damage event
+Resolved,RoleFrieren,Frieren,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleFutureKnight,Future Knight,3,3,0,Source path contains no direct damage event
+Code-traced,RoleFuturePrincess,Future Princess,3,3,0,Source path contains no direct damage event
+Resolved,RoleGoatGirl,Goat Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleGuardianAngel,Guardian Angel,3,3,0,Source path contains no direct damage event
+Code-traced,RoleHalfVampire,Half Vampire,3,3,0,Source path contains no direct damage event
+Resolved,RoleHealLaser:DemonBrother,Demon Brother,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleHookTaunt:Admiral,Marina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleInnuitAscent,Innuit Ascent,2,0,2,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleInvaderKnightMyth,Beth,2,0,2,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleJadeShaman,Jade Shaman,3,3,0,Source path contains no direct damage event
+Code-traced,RoleKunoichi,Kunoichi,3,3,0,Source path contains no direct damage event
+Resolved,RoleLegendaryHero,Erina,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleLibrarian,Librarian,3,3,0,Source path contains no direct damage event
+Resolved,RoleLina,Lina,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleMaam,Maam,3,3,0,Source path contains no direct damage event
+Code-traced,RoleMaiden,Maiden,8,8,0,Lua EX-gated damage and per-target hit deduplication
+Resolved,RoleMercenary,Mercenary Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleMermaid,Mermaid,3,3,0,Source path contains no direct damage event
+Resolved,RoleMilkywayGirl,Milkyway Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleMsChrome,Ms Chrome,3,3,0,Source path contains no direct damage event
+Code-traced,RoleNecromancer,Noxia,3,3,0,Source path contains no direct damage event
+Resolved,RoleNinjaLeader,Ninja Leader,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RolePartyMadPanda,Party Mad Panda,3,3,0,Source path contains no direct damage event
+Resolved,RoleParvati,Parvati,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RolePixyGirl,Pixy Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RolePopp,Popp,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RolePriestess,Priestess,3,3,0,Source path contains no direct damage event
+Resolved,RoleRedhoodAscent,Redhood Ascent,2,0,2,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleRudolph,Rudolph,4,0,4,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleSaintess,Saintess Myth,8,8,0,Source path contains no direct damage event
+Code-traced,RoleSeaWitch,Sea Witch,3,3,0,Source path contains no direct damage event
+Resolved,RoleSheepGirl,Sheep Girl,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleShuran,Shuran,3,3,0,Source path contains no direct damage event
+Resolved,RoleSlimeMilim,Slime Milim,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleSlimeRimuru,Slime Rimuru,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleSlimeShuna,Slime Shuna,3,3,0,Source path contains no direct damage event
+Code-traced,RoleSoulpowerGirl,Soulpower Girl,3,3,0,Source path contains no direct damage event
+Resolved,RoleStreamerGirl,Ruri,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleSummerAmy,Summer Amy,3,3,0,Source path contains no direct damage event
+Resolved,RoleSummerAndroid,Summer Android Myth,8,0,8,Recovered ModifierBase passed to the shared DPS helper
+Resolved,RoleSummerShapira,Summer Shapira,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleSunyeo,Sunyeo Myth,8,8,0,Source-traced direct-damage or no-damage path
+Code-traced,RoleTacticalShield:RobotTanker,Oghma,3,3,0,Lua action has no direct damage operation
+Code-traced,RoleTwinsAndroid,Nifty,8,8,0,Source path contains no direct damage event
+Code-traced,RoleValentineAmeris,Valentine Ameris,3,3,0,Source path contains no direct damage event
+Resolved,RoleVampireCaptain,Vampire Captain,3,0,3,Recovered ModifierBase passed to the shared DPS helper
+Code-traced,RoleVampireNobleAscent,Vampire Noble Ascent,2,2,0,Source path contains no direct damage event
+Code-traced,RoleWatcher,Watcher,3,3,0,Source path contains no direct damage event
+Code-traced,RoleWhiteDruid,White Druid,3,3,0,Source path contains no direct damage event
+Code-traced,RoleXellos,Xellos,3,3,0,Lua action has no direct damage operation
+Code-traced,RoundAggro:DollGirl,Doll Girl,8,8,0,Source path contains no direct damage event
+Code-traced,RoundAggro:Tanker,Tanker Ascent,10,10,0,Source path contains no direct damage event
+Code-traced,RoundBuff:SteamPrincess,Steam Princess,8,8,0,Source path contains no direct damage event
+Resolved,Sequence:BombBullet,Hekate; Rifle Weak; Warrior,11,0,11,Resolved sequence to SeqExplosionProj:BombBullet
+Resolved,SingleTargetAggro:DemonSister,Demon Sister,8,0,8,Recovered DpsMultiplier field
+Code-traced,SingleTargetHeal:LeafFairy,Aoba,8,8,0,Source path contains no direct damage event
+Resolved,SniperSupport,Hekate,16,0,16,Recovered aggregate TotalDpsMult field
+Resolved,SummonObjectSupport:DollGirl,Doll Girl,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,SurvivorSupport,Survivor,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,SwindlerSupport,Dolf,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Resolved,TankerSupport:Admiral,Marina,3,0,3,Action-specific Lua/graph model plus recovered record fields
+Resolved,TeatanHeroSupport,Teatan Hero,8,0,8,Action-specific Lua/graph model plus recovered record fields
+Code-traced,Temp,Party Mad Panda; Watcher,6,6,0,Source path contains no direct damage event
+Resolved,TwohandBackSlash:Knight,Future Knight; Rudolph; Succubus; Warrior,16,0,16,Shared native action default reconstructed from its attack window
+Resolved,TwohandBackSlash:Maid,Amy,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,TwohandBackSlash:SteamKnight,Steam Knight,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,TwohandSlash:Knight,Future Knight; Rudolph; Succubus; Warrior,16,0,16,Shared native action default reconstructed from its attack window
+Resolved,TwohandSlash:Maid,Amy,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,TwohandSlash:SteamKnight,Steam Knight,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,TwohandSpinningSlash:SteamKnight,Steam Knight,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,TwohandStomp:Knight,Future Knight; Rudolph; Warrior,8,0,8,Shared native action default reconstructed from its attack window
+Resolved,WitchCocoSupport,Witch Coco,3,0,3,Action-specific Lua/graph model plus recovered record fields
