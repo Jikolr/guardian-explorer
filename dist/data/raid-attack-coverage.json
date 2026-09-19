@@ -1,0 +1,2599 @@
+{
+  "snapshot": "3.54.0",
+  "added": [
+    {
+      "name": "ManualChinaHero",
+      "kind": "normal",
+      "coefficient": 0.15400000000000003,
+      "ticks": [
+        0.15400000000000003
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualChinaHeroBattleAction.lua: ordinary collision, ModifierBase / hits-per-second, with hits-per-second = 1 / ActionDuration. Enhanced strike is listed separately.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "JumpStompSupport:DesertSlave",
+      "kind": "chain",
+      "coefficient": 2,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "BasicSupport:FlameStrike",
+      "kind": "chain",
+      "coefficient": 3,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "BasicSupport:Innuit",
+      "kind": "chain",
+      "coefficient": 2.25,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "ManualKnight:First",
+      "kind": "normal",
+      "coefficient": 0.3333,
+      "ticks": [
+        0.3333
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualKnightBattleAction.lua: ModifierBase divided by MaxHit before each damage command. Base combo step with all hits landing; EX-specific additions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualKnight:Second",
+      "kind": "normal",
+      "coefficient": 0.4333,
+      "ticks": [
+        0.4333
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualKnightBattleAction.lua: ModifierBase divided by MaxHit before each damage command. Base combo step with all hits landing; EX-specific additions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualKnight:Third",
+      "kind": "normal",
+      "coefficient": 0.3333,
+      "ticks": [
+        0.3333
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualKnightBattleAction.lua: ModifierBase divided by MaxHit before each damage command. Base combo step with all hits landing; EX-specific additions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualKnight:Fourth",
+      "kind": "normal",
+      "coefficient": 0.2333,
+      "ticks": [
+        0.07776666666666666,
+        0.07776666666666666,
+        0.07776666666666666
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualKnightBattleAction.lua: ModifierBase divided by MaxHit before each damage command. Base combo step with all hits landing; EX-specific additions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "MadScientistSupport",
+      "kind": "chain",
+      "coefficient": 2,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "MaidenSupport",
+      "kind": "chain",
+      "coefficient": 2.95,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "SurvivorSupport",
+      "kind": "chain",
+      "coefficient": 1.6,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "SwindlerSupport",
+      "kind": "chain",
+      "coefficient": 3.2,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "TeatanHeroSupport",
+      "kind": "chain",
+      "coefficient": 3.5,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "BasicSupport:IdolCaptain",
+      "kind": "chain",
+      "coefficient": 2.6,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "TotalDpsMult from the action record; custom hit logic and conditional extras are not replayed.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "WitchCocoSupport",
+      "kind": "chain",
+      "coefficient": 4.5,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "BasicSupport:SuccubusNoble",
+      "kind": "chain",
+      "coefficient": 2.2,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "TotalDpsMult from the action record; custom hit logic and conditional extras are not replayed.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "ManualHeatBladeCombo:Thrust",
+      "kind": "normal",
+      "coefficient": 0.2,
+      "ticks": [
+        0.2
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualHeatBladeComboBattleAction.lua: one collision event. Thrust uses half of ModifierBase; slash/bash use the full value. Extra collisions and EX effects are excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualHeatBladeCombo:Slash",
+      "kind": "normal",
+      "coefficient": 0.5,
+      "ticks": [
+        0.5
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualHeatBladeComboBattleAction.lua: one collision event. Thrust uses half of ModifierBase; slash/bash use the full value. Extra collisions and EX effects are excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualHeatBladeCombo:RSlash",
+      "kind": "normal",
+      "coefficient": 0.5,
+      "ticks": [
+        0.5
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualHeatBladeComboBattleAction.lua: one collision event. Thrust uses half of ModifierBase; slash/bash use the full value. Extra collisions and EX effects are excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualHeatBladeCombo:Bash",
+      "kind": "normal",
+      "coefficient": 0.6,
+      "ticks": [
+        0.6
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualHeatBladeComboBattleAction.lua: one collision event. Thrust uses half of ModifierBase; slash/bash use the full value. Extra collisions and EX effects are excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualGolemRider:LSmash",
+      "kind": "normal",
+      "coefficient": 0.65,
+      "ticks": [
+        0.65
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualGolemRiderBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualGolemRider:RSmash",
+      "kind": "normal",
+      "coefficient": 0.65,
+      "ticks": [
+        0.65
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualGolemRiderBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualGolemRider:Smash",
+      "kind": "normal",
+      "coefficient": 0.75,
+      "ticks": [
+        0.75
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualGolemRiderBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "BasicSupport:GolemRider",
+      "kind": "chain",
+      "coefficient": 3.6,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualInvaderKnight:Wave",
+      "kind": "normal",
+      "coefficient": 0.6,
+      "ticks": [
+        0.6
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualInvaderKnightBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualInvaderKnight:Stomp",
+      "kind": "normal",
+      "coefficient": 0.6,
+      "ticks": [
+        0.6
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualInvaderKnightBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualInvaderKnight:Slash",
+      "kind": "normal",
+      "coefficient": 0.45,
+      "ticks": [
+        0.45
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualInvaderKnightBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualInvaderKnight:RSlash",
+      "kind": "normal",
+      "coefficient": 0.45,
+      "ticks": [
+        0.45
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualInvaderKnightBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "GrenadeSupport:Rudolph",
+      "kind": "chain",
+      "coefficient": 4.2,
+      "ticks": null,
+      "timings": null,
+      "status": "estimate",
+      "note": "Chain DpsMultiplier record: aggregate estimate only. Native BasicSupport exposes CollisionDpsMultiplier; custom repetition, hit schedules and extra procs remain unverified.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "ManualViking:Stomp",
+      "kind": "normal",
+      "coefficient": 0.8,
+      "ticks": [
+        0.8
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualVikingBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualViking:Slash",
+      "kind": "normal",
+      "coefficient": 0.5,
+      "ticks": [
+        0.5
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualVikingBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualViking:RSlash",
+      "kind": "normal",
+      "coefficient": 0.5,
+      "ticks": [
+        0.5
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualVikingBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Melee"
+    },
+    {
+      "name": "ManualPriestess:Slash",
+      "kind": "normal",
+      "coefficient": 0.5,
+      "ticks": [
+        0.5
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualPriestessBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "ManualPriestess:RSlash",
+      "kind": "normal",
+      "coefficient": 0.5,
+      "ticks": [
+        0.5
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualPriestessBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "ManualPriestess:Stomp",
+      "kind": "normal",
+      "coefficient": 0.6,
+      "ticks": [
+        0.6
+      ],
+      "timings": null,
+      "status": "estimate",
+      "note": "ManualPriestessBattleAction.lua: ModifierBase → calculate_attack_modifier_from_dps → damage command. One base damage event; conditional EX procs and repeated collisions excluded.",
+      "noDamage": false,
+      "type": "Projectile"
+    },
+    {
+      "name": "RoleSunyeo",
+      "kind": "special",
+      "coefficient": 0,
+      "ticks": [],
+      "timings": null,
+      "status": "verified",
+      "note": "RoleSunyeoBattleAction.lua: movement and loading the role-shot buff; the role action itself emits no damage. The subsequent loaded shot is listed separately.",
+      "noDamage": true,
+      "type": "Projectile"
+    }
+  ],
+  "unresolved": [
+    {
+      "name": "AkayukiSlash:Slash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "AkayukiSlash:BackSlash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "AkayukiBatto:Akayuki",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "Normal attack (unresolved)",
+      "kind": "normal",
+      "reason": "No compatible action mapping recovered."
+    },
+    {
+      "name": "ManualHealShotgun:DemonBrother",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleHealLaser:DemonBrother",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "LaviComboPunch",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHeadButt:DemonSister",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "SingleTargetAggro:DemonSister",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualChargeDeathFist:DesertSlave",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPalmStrike:DollGirlRight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPalmStrike:DollGirlLeft",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPalmStrike:DollGirlTwinStrike",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoundAggro:DollGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGas:DragonBoy",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGas:GhostBuster",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualInnuit",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWeaponThrowing",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualRecoveryBow:LeafFairy",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "SingleTargetHeal:LeafFairy",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMadScientist",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "TwohandSlash:Maid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "TwohandBackSlash:Maid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWeaponBoomerang:Maid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGrenade:Maiden",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleMaiden",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualClawSlash:PetLeft",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualClawSlash:PetRight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHeadButt:Pet",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPistol",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPlitvice:Slash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPlitvice:RSlash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPlitvice:Thrust",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGrenade:RedHood",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RedhoodSupport",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSniperRifle:Sniper",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "Sequence:BombBullet",
+      "kind": "weapon",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "TwohandSlash:SteamKnight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "TwohandBackSlash:SteamKnight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "TwohandSpinningSlash:SteamKnight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "OnehandSlash:Knight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "OnehandBackSlash:Knight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualThrustCombo:SteamPrincess",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoundBuff:SteamPrincess",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "TwohandSlash:Knight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "TwohandBackSlash:Knight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualCharmStomp:SuccubusStomp",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDimensionBow",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBounceFireball:Swindler",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "OnehandSlash:Tanker",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "OnehandBackSlash:Tanker",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "OnehandShieldBash:Tanker",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "OnehandStinger:Tanker",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoundAggro:Tanker",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMissile:TeatanHero",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualUptownLancerGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "BasicSupport:UptownLancerGirl",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualVampireNoble",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKatanaSlash:AdmiralSpinSlash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKatanaSlash:AdmiralSlash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKatanaSlash:AdmiralReverseSlash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKatanaSlash:AdmiralThrust",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleHookTaunt:Admiral",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGrenadeLauncher:VillainRedhood",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSoundWave:IdolCaptain",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSoundWave:IdolCaptainReverse",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSoundWave:IdolCaptainEnhance",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFlowerGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDarkHound:WitchCoco",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDarkHound:WitchCoco2",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDarkHoundCluster:WitchCoco",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBattleBallGirl:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBattleBallGirl:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBattleBallGirl:Final",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWeakBasket",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMotorcycleStunt:Manager",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDesertElvenArchery:DancingArcher",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDesertArrow:DancingArcher",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "DancingArcherSupport",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFlameCombat:Slash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFlameCombat:RSlash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFlameCombat:Smash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFoxBead:EightTail",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "EightTailSupport",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualIceCutter:SuccubusNoble",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleTacticalShield:RobotTanker",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFestivalGirl:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFestivalGirl:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFestivalGirl:Third",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleFestivalGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFuturePrincess:StaffOnly",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleFuturePrincess",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFuturePrincess:Stomp",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFuturePrincess:Thrust",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFuturePrincess:Slash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFuturePrincess:RSlash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFuturePrincess:Magic",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGaramBow",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "TwohandStomp:Knight",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleRudolph",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualStoreAngel",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualChinaChef",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleChinaChef",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RolePriestess",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualNecromancer",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleNecromancer",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "BasicSupport:Necromancer",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualAlpacaGirl:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualAlpacaGirl:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualAlpacaGirl:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualAlpacaGirl:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMechaAndroid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonCeo:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonCeo:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonCeo:Thrid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonCeo:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDemonCeo",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLadyThief:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLadyThief:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLadyThief:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLadyThief:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSurferSohee:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSurferSohee:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSurferSohee:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLifeguardYuze",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualEleanor",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFireHarpy:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFireHarpy:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFireHarpy:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleFireHarpy",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLegendaryHero:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLegendaryHero:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLegendaryHero:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLegendaryHero:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleLegendaryHero",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualVillainAndroid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMercenary:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMercenary:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMercenary:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleMercenary",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWhiteDruid:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWhiteDruid:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWhiteDruid:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleWhiteDruid",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHana:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHana:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHana:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHana:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualCaptainRabbit:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualCaptainRabbit:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualCaptainRabbit:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleCaptainRabbit",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSaintess",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSaintess",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualParvati:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualParvati:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualParvati:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualParvati:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleParvati",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLina:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLina:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLina:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualLina:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleLina",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGourry:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGourry:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGourry:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGourry:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualXellos:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualXellos:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualXellos:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualXellos:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleXellos",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHalfVampire:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHalfVampire:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHalfVampire:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHalfVampire:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleHalfVampire",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualVampireLord",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSeaWitch",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSeaWitch",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSheepGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSheepGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerAndroid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSummerAndroid",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerLoraine",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPartyMadPandaBoss",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RolePartyMadPanda",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "Temp",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMsChrome",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleMsChrome",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualVampireCaptain",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleVampireCaptain",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonOperator",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDemonOperator",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonSlayer:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonSlayer:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonSlayer:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDemonSlayer",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKunoichi:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKunoichi:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKunoichi:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKunoichi:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleKunoichi",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonPowergirl:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonPowergirl:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonPowergirl:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonPowergirl:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDemonPowergirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDai:Stomp",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDai:Rslash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDai:Slash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDai:Strike",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMaam:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMaam:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMaam:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMaam:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleMaam",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPopp",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RolePopp",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDesertelfHunter",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDesertelfHunter",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWhiteBeast:Thrust",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWhiteBeast:Slash",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWhiteBeast:Stomp",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFallenQueen:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFallenQueen:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFallenQueen:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFallenQueen:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleFallenQueen",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHeroAi:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHeroAi:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHeroAi:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualHeroAi:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualCyborgMonk",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleCyborgMonk",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMermaid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleMermaid",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerAmy:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerAmy:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerAmy:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerAmy:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSummerAmy",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDokkaebi",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerShapira:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerShapira:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerShapira:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSummerShapira:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSummerShapira",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonGovernor:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonGovernor:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonGovernor:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonGovernor:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDemonGovernor",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonEngineer",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDemonEngineer",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualShuran:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualShuran:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualShuran:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualShuran:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleShuran",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonInspector:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonInspector:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonInspector:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualDemonInspector:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleDemonInspector",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBranchComboManager:Bakeneko",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleBakeneko",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGuardianAngel:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGuardianAngel:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGuardianAngel:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGuardianAngel:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleGuardianAngel",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPlagueDoctor:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPlagueDoctor:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPlagueDoctor:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPlagueDoctor:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualWatcher",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleWatcher",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeRimuru:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeRimuru:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeRimuru:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeRimuru:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSlimeRimuru",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeShuna",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSlimeShuna",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeMilim:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeMilim:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeMilim:Thrid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSlimeMilim:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSlimeMilim",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualForestElf:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualForestElf:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualForestElf:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualForestElf:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualGoatGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleGoatGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBlueDragon",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPixyGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RolePixyGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMilkywayGirl:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMilkywayGirl:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMilkywayGirl:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualMilkywayGirl:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleMilkywayGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBoatracingGirl:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBoatracingGirl:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBoatracingGirl:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBoatracingGirl:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleBoatracingGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBranchComboManager:ExorcistGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleExorcistGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSecretAgent:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSecretAgent:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSecretAgent:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSecretAgent:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualStreamerGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleStreamerGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualSoulpowerGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleSoulpowerGirl",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualNinjaLeader:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualNinjaLeader:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualNinjaLeader:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleNinjaLeader",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualJadeShaman:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualJadeShaman:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualJadeShaman:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleJadeShaman",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFrieren:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFrieren:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFrieren:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleFrieren",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualFern",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualStark:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualStark:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualStark:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualTwinsAndroid",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleTwinsAndroid",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualBranchComboManager:ValentineAmeris",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleValentineAmeris",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:WhitedayGirgasFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:WhitedayGirgasSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:WhitedayGirgasThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:WrestlerFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:WrestlerSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:WrestlerThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:WrestlerFourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:Wrestler",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualPandaGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphStamina:MermaidSpy",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:MermaidSpy",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:AdelaNobleSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:AdelaNobleThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:AdelaNobleFourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:AdelaNoble",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:AdelaNobleFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:SummerrieFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:SummerrieSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:SummerrieThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:SummerrieFourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:Summerrie",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:BattleballPitcherFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:BattleballPitcherSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:BattleballPitcherThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphStamina:SquirrelGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:SquirrelGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:FirstBishopFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:FirstBishopSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:FirstBishopThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:FirstBishopFourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:FirstBishop",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:EternalFlameFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:EternalFlameSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:EternalFlameThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:EternalFlame",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:FoxShikigamiFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:FoxShikigamiSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:FoxShikigamiThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:FoxShikigami",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:MagicalGirlFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:MagicalGirlSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:MagicalGirlThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:MagicalGirlFourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:MagicalGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphStamina:GnomeDoctor",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:GnomeDoctor",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphStamina:Klen",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:NelluruFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:NelluruSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:NelluruThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:Nelluru",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:AliciaFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:AliciaSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:AliciaThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:AliciaFourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:Alicia",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:SecondBishopFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:SecondBishopSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:SecondBishopThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:SecondBishopFourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:SecondBishop",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:CarpGirlFirst",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:CarpGirlSecond",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:CarpGirlThird",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphCombo:CarpGirlFourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:CarpGirl",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphStamina:BridgeMessenger",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:BridgeMessenger",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphPersistent:BridgeDriver",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:BridgeDriver",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualRedhoodAscent",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleRedhoodAscent",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "OnehandSlash:TankerAscent",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "OnehandBackSlash:TankerAscent",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualTankerAscent",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualVampireNoble:Ascent",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleVampireNobleAscent",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualChinaHero:Ascent",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleChinaHeroAscent",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualInnuit:Ascent",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleInnuitAscent",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKnightAscent:First",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKnightAscent:Second",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKnightAscent:Third",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "ManualKnightAscent:Fourth",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleKnightAscent",
+      "kind": "special",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:MadScientistAscent",
+      "kind": "normal",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "RoleInvaderKnightMyth",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:LadyThiefMyth",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    },
+    {
+      "name": "GraphRole:SuccubusNobleMyth",
+      "kind": "chain",
+      "reason": "This action’s coefficient needs script-specific decoding. Enter a DPS coefficient below to explore it."
+    }
+  ]
+}

@@ -9,6 +9,7 @@ Explore Guardian Tales heroes, enemies, items, artwork, maps and recovered game 
 | I want to… | Start here |
 | --- | --- |
 | Find a character’s identity, variants and linked weapons | [Character directory](https://Jikolr.github.io/guardian-explorer/characters.html) |
+| Build a raid team and estimate damage per hit | [Raid damage simulator](https://Jikolr.github.io/guardian-explorer/raid.html) |
 | Compare up to four records | [Side-by-side comparison](https://Jikolr.github.io/guardian-explorer/compare.html) |
 | Recognize a hero, boss or item | [Artwork & portraits](https://Jikolr.github.io/guardian-explorer/visual.html) |
 | Look up stored stats or other details | [Data tables](https://Jikolr.github.io/guardian-explorer/index.html) |
@@ -16,6 +17,22 @@ Explore Guardian Tales heroes, enemies, items, artwork, maps and recovered game 
 | Explore XP requirements | [XP calculator](https://Jikolr.github.io/guardian-explorer/research.html#xp) |
 | Download a picture, table or original file | [Game files & downloads](https://Jikolr.github.io/guardian-explorer/files.html) |
 | Read recovered scripts and research | [Research archive](https://Jikolr.github.io/guardian-explorer/research.html) |
+
+## Simulate a raid build
+
+Choose **Raid damage simulator** in the left sidebar.
+
+Equipment now shows a picture beside each selection and bonus summaries for non-weapon slots. Card suggestions are limited to ATK, skill-damage and critical-chance bonuses. The visible **Relic substats & stage bonus** panel lets you choose three substats, their roll strengths, a special effect and stage resistance. Heroes without a Myth entry and their EX weapons cap at level 130; the illustration ATK max preset is 2.2%.
+
+1. Enter the ATK bonuses shown in your collection, knowledge and Guardian screens. Open the mastery section and enter **levels**, not percentages. **Set account bonuses to max** fills the editable snapshot preset while preserving mastery.
+2. Choose up to four heroes and their evolution stages. Pick a leader, weapons, accessory, cards, merch, jewel and relic. Hero nodes, eligible blessing, weapon rolls, limit breaks and engraving are treated as maxed. For relics, choose the evolution record and enter each roll; the page previews its percentage.
+3. Choose a raid boss and element, then tick the debuffs already active on it. **No debuffs** keeps the boss’s permanent raid protection. Additional unmapped debuffs can be entered as manual assumptions.
+4. Open **Active team buffs** and tick temporary bonuses active at the moment of the hit. The list follows your team, gear and leader. Set stack counts where available; each entry shows its trigger, duration and recipients. For example, you can activate Dabin's chain ATK buff or equipped Ameris's EX critical-damage stacks. These choices are saved with the complete setup.
+5. Read noncritical, critical and average damage. Expand an attack to see the calculation, or the coverage section to see missing effects. Buff timers and automatic rotations are not simulated; unknown recipient rules require an explicit manual choice.
+
+**Load measured Dabin example** reproduces the weapon-only test: about **513,668 predicted** versus **513,669 observed** on her critical normal hit after the Earth debuff. This validates that scenario, not the entire roster. Dabin’s weapon skill has a recovered three-hit split; many other actions are aggregate estimates or explicitly unresolved. Scripted procs, conditional stacks, transformations, alternate EX behavior and timed rotations are not universally implemented. Manual coefficients are marked custom.
+
+Your current setup saves in this browser. Named account profiles can be reused with other teams. Download a profile or complete setup as JSON and use **Import setup** to restore it on another device. **Download results** includes the inputs and coverage notes. Nothing is uploaded by these controls.
 
 ## Find your first character
 

@@ -1,0 +1,84 @@
+const assert=require('node:assert/strict');
+const engine=require('./dist/raid-engine.js');
+const E=engine.create(require('./dist/data/raid-simulator.json'));
+const near=(a,b,t=1e-7)=>assert.ok(Math.abs(a-b)<t,`${a} != ${b}`);
+const normal=s=>E.calculate(s).heroes[0].results.find(x=>x.name==='ManualSunyeo').total;
+const measured=E.measured(),result=E.calculate(measured),d=result.heroes[0];
+near(d.atk,648976.6917885361);
+near(d.components[0].weaponAttack,6234.6386,.001);
+near(d.crit,.60);near(d.critMultiplier,2.2);near(d.skill,1.912);
+near(normal(measured).critical,513668.2964340853);
+assert.ok(Math.abs(normal(measured).critical-513669)<1);
+const clean=E.measured();clean.debuffs=[];
+near(normal(measured).critical/normal(clean).critical,1.2);
+const full=E.measured();full.team[1].weapon=E.bestWeapon(E.heroes[full.team[1].hero]);full.team[2].weapon=9060535;full.team[3].weapon=9050565;full.debuffs=E.availableDebuffs(full).map(x=>x.id);
+near(normal(full).critical/normal(measured).critical,1000/676);
+const noTower=E.measured();noTower.profile.tower=0;
+near(normal(noTower).critical/normal(measured).critical,4.239/4.339);
+const fire=E.measured();fire.element='Fire';fire.debuffs=[];
+near(normal(fire).critical/normal(clean).critical,.7/1.3);
+const basic=E.measured();basic.element='None';assert.equal(E.calculate(basic).protection,.73);
+const follower=E.measured();follower.leader=1;assert.equal(E.calculate(follower).heroes[0].results.find(a=>a.kind==='weapon').unavailable,'Leader only');
+const skill=d.results.find(a=>a.name==='CwpSunyeo');near(skill.hits.reduce((s,x)=>s+x.noncrit,0),skill.total.noncrit);near(skill.hits[0].noncrit/skill.total.noncrit,.4);near(skill.total.noncrit,696857.672927341);
+assert.deepEqual(E.validate(JSON.parse(JSON.stringify(measured))),measured);
+const relic=E.measured();relic.team[0].relic=190020;relic.team[0].relicOptions=[{OptionId:900005,Level:70},{OptionId:0,Level:0}];assert.deepEqual(E.validate(relic),relic);assert.ok(normal(relic).critical>normal(measured).critical);
+const malformed=E.measured();malformed.team[0].hero=999999;assert.throws(()=>E.validate(malformed));
+const duplicate=E.measured();duplicate.team[1]=structuredClone(duplicate.team[0]);assert.throws(()=>E.validate(duplicate));
+const invalid=E.measured();invalid.profile.tower=NaN;assert.throws(()=>E.validate(invalid));
+const wrongRelic=structuredClone(relic);wrongRelic.team[0].relicOptions[0].OptionId=36;assert.throws(()=>E.validate(wrongRelic));
+const mastery=E.measured();mastery.profile.mastery.rangedAtk=0;assert.ok(normal(mastery).critical<normal(measured).critical);
+const lower=E.measured();lower.team[0]=E.slot(596);assert.ok(E.calculate(lower).heroes[0].atk<d.atk);assert.ok(!E.calculate(lower).heroes[0].results.some(a=>a.kind==='leader'));
+let attacks=0,estimates=0,unresolved=0;
+for(const h of E.db.heroes){
+ const s=E.defaultState();s.team=[E.slot(h.Id),E.slot(),E.slot(),E.slot()];
+ const r=E.calculate(s);assert.ok(Number.isFinite(r.heroes[0].atk));
+ for(const a of r.heroes[0].results){attacks++;if(a.status==='unresolved')unresolved++;if(a.status==='estimate')estimates++;if(a.total)for(const v of Object.values(a.total))assert.ok(Number.isFinite(v)&&v>=0,`${h.Id} ${a.name}`);}
+}
+console.log(`Passed: measured hit, skill ticks, debuff stacking, bonus groups, element/protection, leader gating, profiles, relics, invalid imports, evolution, and ${E.db.heroes.length} hero stages. ${attacks} mapped action entries (${estimates} estimates, ${unresolved} unresolved).`);
+
+// Temporary buffs are opt-in, scoped, stage/equipment-dependent and persisted.
+const temp=E.measured(),chain=E.availableBuffs(temp).find(b=>b.name==='buff_sunyeo_support');
+assert.ok(chain);assert.equal(chain.scope,'Party');
+temp.activeBuffs=[{id:chain.id,scope:'Party',stacks:1}];
+near(normal(temp).critical/normal(measured).critical,1.7/1.5);
+near(E.calculate(temp).heroes[0].atk,d.atk);
+assert.deepEqual(E.validate(JSON.parse(JSON.stringify(temp))),temp);
+const legacy=E.measured();delete legacy.activeBuffs;assert.deepEqual(E.validate(legacy).activeBuffs,[]);
+const tempLeader=E.availableBuffs(temp).find(b=>b.trigger==='Leader skill');
+temp.activeBuffs=[{id:tempLeader.id,scope:'Party',stacks:1}];temp.leader=2;
+assert.ok(!E.availableBuffs(temp).some(b=>b.id===tempLeader.id));
+near(normal(temp).critical,normal(measured).critical);
+const equipped=E.defaultState(),activeList=E.availableBuffs(equipped);
+const eunha=activeList.find(b=>b.name==='buff_dokkaebi_myth_special_option');
+assert.equal(eunha.maxStacks,10);assert.equal(eunha.value,.03);
+equipped.activeBuffs=[{id:eunha.id,scope:'Party',stacks:10}];
+near(normal(equipped).critical/normal(E.defaultState()).critical,1.8/1.5);
+const ameris=activeList.find(b=>b.name==='buff_dragon_daughter_weapon_1');
+equipped.activeBuffs=[{id:ameris.id,scope:'Party',stacks:3}];
+near(E.calculate(equipped).heroes[0].critMultiplier,2.8);
+equipped.team[1].weapon=0;assert.ok(!E.availableBuffs(equipped).some(b=>b.id===ameris.id));
+near(E.calculate(equipped).heroes[0].critMultiplier,2.2);
+const restricted=E.defaultState(),basicBuff=E.availableBuffs(restricted).find(b=>b.recipientElement==='None');
+assert.ok(basicBuff);restricted.activeBuffs=[{id:basicBuff.id,scope:'Party',stacks:1}];
+near(E.calculate(restricted).heroes[0].critMultiplier,2.2);
+near(E.calculate(restricted).heroes[3].critMultiplier,2.7);
+restricted.team[3].weapon=9050565;assert.ok(!E.availableBuffs(restricted).some(b=>b.id===basicBuff.id));
+const doubled=E.measured();doubled.activeBuffs=[{id:chain.id,scope:'Party',stacks:1},{id:chain.id,scope:'Party',stacks:1}];
+near(normal(doubled).critical/normal(measured).critical,1.7/1.5);
+const badStacks=E.defaultState();badStacks.activeBuffs=[{id:eunha.id,scope:'Party',stacks:11}];assert.throws(()=>E.validate(badStacks));
+console.log('Passed: temporary party bonuses, stack limits, group deduplication, recipient elements, leader/EX eligibility, legacy saves and buff round-trip.');
+
+// Corrections supplied by the user and newly traced attack branches.
+assert.equal(E.maxProfile.illustration,2.2);
+const noMythHero=E.db.heroes.find(h=>E.heroCap(h)===130&&E.bestWeapon(h));
+assert.ok(noMythHero);assert.equal(E.slot(noMythHero.Id).level,130);
+assert.equal(E.slot(noMythHero.Id).weaponLevel,130);
+const legacyCap=E.defaultState();legacyCap.team[0]=E.slot(noMythHero.Id);legacyCap.team[0].level=150;legacyCap.team[0].weaponLevel=150;
+const correctedCap=E.validate(legacyCap);assert.equal(correctedCap.team[0].level,130);assert.equal(correctedCap.team[0].weaponLevel,130);
+near(E.calculate(legacyCap).heroes[0].atk,E.calculate(correctedCap).heroes[0].atk);
+const dabinActions=E.attackList(E.measured().team[0]);
+assert.ok(dabinActions.find(a=>a.name==='RoleSunyeo').noDamage);
+const loaded=dabinActions.find(a=>a.name==='Dabin loaded shot · direct target');assert.ok(loaded.coefficient>0);
+const knightHero=E.db.heroes.find(h=>E.attackList(E.slot(h.Id)).some(a=>a.name==='ManualKnight:Fourth'));
+const knightStep=E.attackList(E.slot(knightHero.Id)).find(a=>a.name==='ManualKnight:Fourth');assert.equal(knightStep.ticks.length,3);near(knightStep.ticks.reduce((a,b)=>a+b,0),.2333);
+console.log('Passed: 2.2% preset, non-Myth hero/EX caps, legacy level migration, Dabin role/loaded shot and Knight multi-hit split.');
