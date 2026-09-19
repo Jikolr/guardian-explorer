@@ -82,3 +82,23 @@ const loaded=dabinActions.find(a=>a.name==='Dabin loaded shot · direct target')
 const knightHero=E.db.heroes.find(h=>E.attackList(E.slot(h.Id)).some(a=>a.name==='ManualKnight:Fourth'));
 const knightStep=E.attackList(E.slot(knightHero.Id)).find(a=>a.name==='ManualKnight:Fourth');assert.equal(knightStep.ticks.length,3);near(knightStep.ticks.reduce((a,b)=>a+b,0),.2333);
 console.log('Passed: 2.2% preset, non-Myth hero/EX caps, legacy level migration, Dabin role/loaded shot and Knight multi-hit split.');
+
+// Every cast starts from the selected target state; a landed hit can alter later hits.
+const timingTeam=E.defaultState();timingTeam.team=[20368,20641,406,20698].map(id=>E.slot(id));timingTeam.debuffs=[];
+const bethWave=st=>E.calculate(st).heroes[0].results.find(a=>a.name==='ManualInvaderKnight:Wave');
+const freshWave=bethWave(timingTeam);assert.equal(freshWave.hits.length,3);freshWave.ticks.forEach(k=>near(k,.2));
+near(freshWave.timings[0],.2);near(freshWave.timings[2],.4);
+near(freshWave.hits[1].noncrit/freshWave.hits[0].noncrit,1.3);near(freshWave.hits[2].noncrit,freshWave.hits[1].noncrit);
+assert.ok(freshWave.hits[0].appliedAfter.some(x=>x.includes('Beth')));
+assert.ok(!freshWave.hits[0].activeEffects.some(x=>x.includes('Beth')));
+near(freshWave.total.noncrit,freshWave.hits.reduce((n,h)=>n+h.noncrit,0));
+const preDebuffed=structuredClone(timingTeam);preDebuffed.debuffs=['beth-dark'];const preWave=bethWave(preDebuffed);
+near(preWave.hits[0].noncrit,freshWave.hits[1].noncrit);near(preWave.hits[0].noncrit,preWave.hits[2].noncrit);
+assert.equal(preWave.hits[0].appliedAfter.length,0);
+const offEx=structuredClone(timingTeam);offEx.team[0].weapon=E.db.items.find(i=>i.WeaponType==='twohandsword'&&!i.ExclusiveCharacterId).Id;
+const offWave=bethWave(offEx);assert.equal(offWave.hitEffects.length,0);near(offWave.hits[0].noncrit,offWave.hits[1].noncrit);
+const driverActions=E.attackList(timingTeam.team[3]);const driverLead=driverActions.find(a=>a.name==='GraphMyth:BridgeDriver');assert.equal(driverLead.ticks.length,3);near(driverLead.coefficient,4.5);
+const driverWs=driverActions.find(a=>a.name==='GraphTrigger:CwpBridgeDriver');near(driverWs.ticks[0]/driverWs.coefficient,.4);near(driverWs.ticks[1]/driverWs.coefficient,.6);
+assert.equal(E.attackList(timingTeam.team[0]).find(a=>a.name==='CwpInvaderKnight').ticks.length,4);
+assert.equal(E.attackList(timingTeam.team[2]).find(a=>a.name==='CwpDemonCeo').ticks.length,2);
+console.log('Passed: Beth before/after-hit debuff, initial debuff deduplication, EX gating, per-hit totals, and teammate graph/weapon sequences.');

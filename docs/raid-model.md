@@ -24,7 +24,7 @@ Browser keys are `guardian-atlas-raid-v1` (current setup) and `guardian-atlas-ra
 
 Same modelled debuff groups take the strongest contribution. Generic and attack-type DEF reductions multiply. Ordinary six-element regular raid records carry 75% protection except Basic at 73%; changing element follows this convention. An unsupported boss element should not be interpreted as an independently observed raid variant.
 
-The model returns noncritical, all-critical and critical-expectation values, not a timed rotation or total raid DPS. An injured target's damage-over-time is not simulated. Changing state holds that state constant for every hit in a displayed cast.
+The model returns noncritical, all-critical and critical-expectation values, not a timed rotation or total raid DPS. An injured target's damage-over-time is not simulated. Each cast starts independently from the selected target state. Traced on-hit effects may change that state between hits within the cast; they are not carried into another attack preview. Beth’s normal-attack EX resistance reduction currently has an automatic post-hit transition. Other untraced triggers remain manually selected.
 
 ## Evidence and confidence
 
@@ -61,3 +61,18 @@ Numerical tests cover stack limits, recipient and EX restrictions, leader eligib
 The data includes 653 playable stage records and 138 regular raid variants. **All selectable records do not imply all effects are implemented.** Unresolved coefficients show no calculated result. Unsupported option classes are reported, and custom coefficients/bonuses stay labelled as manual assumptions. General estimates can omit scripted procs, summons, transformations, alternate weapons, conditional stacks and dual-wield behavior. A near-exact Dabin check does not validate those other paths.
 
 Relevant source evidence is in the website's Damage calculation report, native methods 108846 (growth), 108914/108915 (skill/account scale), 59059 (weapon conversion), 116108 (discrete stamina), 71789/71793 (protection), and recovered `ManualSunyeo`, `CwpSunyeo`, `ManualKamael`, `ManualDragonDaughter`, `ManualDokkaebi` action scripts.
+
+## Per-hit evidence pass
+
+`audit_hit_sequences.py` scans all 2,670 action records, matching 1,501 Lua paths and 134 extracted graph references. `extract_attack_graphs.py` reads supplied Unity graph bundles into the local research directory. The downloadable `dist/data/raid-hit-audit.json` exposes candidate timing fields, graph damage expressions and Lua line references. A graph damage-node count is NOT treated as a hit count: branches can be mutually exclusive, loops can repeat, and colliders can hit different targets.
+
+Implemented sequences from this pass:
+
+- Beth normal Wave: 0.2 / 0.3 / 0.4 seconds, three coefficients of 0.2. `ManualInvaderKnightBattleAction.lua` lines 37–42 create the three-hit collider; lines 458–460 divide the coefficient by three. Lines 652–661 publish damage before applying the EX debuff. The first-hit −30% Darkness resistance debuff lasts 3 seconds, or 5 for the Myth variant. The calculator re-evaluates mitigation per hit, avoiding double counting a pre-existing reduction. All hits are assumed to connect; no missed-hit probability or target movement is simulated.
+- Beth WS: four events at 0.40 / 0.52 / 0.64 / 0.76 seconds, each 25% of the current skill coefficient. Its Lua action does not automatically invoke the normal-attack debuff.
+- Demon CEO fourth normal step: two equal field-state events at 0.15 / 0.35 seconds. WS has outgoing 60% and returning 40% phases; exact times depend on distance and are not invented.
+- Wrestler graph combo: individual first/second/third/fourth steps have base coefficients 0.3 / 0.5 / 0.4 / 0.8 and one damage event at 0.2 / 0.3 / 0.2 / 0.35 seconds respectively. Conditional EX stacking and its before-hit buffs remain incomplete.
+- Bridge Driver graph leader skill: three equal TotalDpsMult / 3 events at 0.2 / 0.6 / 1.0 seconds. WS graph routes (1 − MainDamage) at 0.4 seconds then MainDamage at 0.7 seconds; both collision areas must connect. These graph timer values take precedence over unused static timing fields for this model. Leader-buff activation timing remains manual.
+- Graph Wrestler chain / WS and Bridge Driver chain have one traced direct damage event. This does not imply every passive proc is included.
+
+Every result now distinguishes an aggregate with an unresolved sequence from modelled hits. Per-hit breakdowns show the target state and newly applied effects. Existing generic aggregate damage estimates are still not validated full rotations or complete hit models. In particular, graph-based Bridge Driver normal attack branches and many roster-wide proc/buff paths remain unresolved.
