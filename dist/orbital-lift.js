@@ -38,11 +38,11 @@
   const v=scaledStats(s,f,m.Options||[]);
   if(!v)return '<p class="fine">Level-scaled stats unavailable: missing source values.</p>';
   const hpLabel=v.elite==='unverified'?'HP (unknown modifiers excluded)':'HP';
-  return '<p class="position"><strong>Level '+v.level+' · '+hpLabel+' '+statNumber(v.hp)+
-   ' · ATK '+statNumber(v.atk)+' · DEF '+statNumber(v.def)+'</strong></p>'+
+  return '<p class="enemy-level">Level '+v.level+'</p><dl class="enemy-stats"><div><dt>'+hpLabel+'</dt><dd>'+statNumber(v.hp)+
+   '</dd></div><div><dt>ATK</dt><dd>'+statNumber(v.atk)+'</dd></div><div><dt>DEF</dt><dd>'+statNumber(v.def)+'</dd></div></dl>'+
    '<p class="fine">'+(v.elite==='none'?'':'Elite multipliers: HP ×'+statNumber(v.hpMultiplier)+' / ATK ×'+statNumber(v.atkMultiplier)+' / DEF ×'+statNumber(v.defMultiplier)+'. ')+
    (v.combatElite==='incomplete'?'Unknown option modifiers excluded. ':'')+
-   'ATK / DEF include level scaling but exclude equipment and other buffs.</p>';
+   'HP / ATK / DEF include level scaling but exclude equipment and other buffs.</p>';
  }
  window.orbitalStatScaling={calculate:scaledStats};
 
@@ -73,6 +73,31 @@
   return `<details class="enemy-debuffs"><summary><strong>Enemy debuffs (${entries.length})</strong></summary><p class="fine">Referenced by this tower variant’s actions, not weapon properties. Combat activation and final magnitude are not verified. Script/projectile-only effects may be missing.</p>${entries.map(e=>{const b=e.record;return `<section><p><strong>${esc(b.Elemental?b.Elemental+' resistance reduction':labels[b.ClassName]||b.ClassName)}</strong> · ${Number.isFinite(b.Duration)?num(b.Duration)+' s':'Duration unspecified'}${b.StackCap?' · Stack cap '+num(b.StackCap):''}</p><p class="fine">Source parameters: ${Object.entries(b).filter(([k,v])=>typeof v==='number'&&/^(AttackScale|DefenseScale|Resistance)(Base|Add)$/.test(k)).map(([k,v])=>esc(k)+' = '+num(v)).join(' · ')}</p><details><summary>Action references & source</summary>${e.references.map(r=>`<p class="fine"><a href="${link('static-battlestyles',r.styleId)}">Tower battle style →</a> · <a href="${link('static-battleactions',r.actionId)}">${esc(r.action)} →</a> · ${esc(r.field)}${r.level!==null?' · Buff level '+r.level:' · Buff level not specified in this reference'}</p>`).join('')}<a href="${link('static-buffs',e.id)}">${esc(b.Name)} · Buff ${e.id} →</a><pre>${esc(JSON.stringify(b,null,2))}</pre></details></section>`;}).join('')}</details>`;
  }
  let db,current,filtered=[];
+ // Reviewed tower-specific chain: monster 105287 -> style 784 -> action 1291 -> buff 55002.
+ // Descriptive only: these parameters are not included in the displayed monster stats.
+ function specialEffectMarkup(s){
+  if(s.Name!=='it_cw_passage_saul_debuff_poi')return '';
+  return `<section class="enemy-special-effect"><h4>Special effect · Poison</h4><p>Periodic damage · 10 seconds · every 2 seconds (5 ticks).</p><details><summary>Parameters & source</summary><p class="fine">Preparation: 12 seconds. Applied buff level: 30. Damage type: Dps. Exact damage per tick is not verified.</p><p class="fine">DamageBase: 0 · DamageAdd: 0.02 · Action AtkModifierBase: 0.3. These are source parameters, not a percentage of the target’s HP.</p><p><a href="${link('static-battleactions',1291)}">WholeTargeting:poi →</a> · <a href="${link('static-buffs',55002)}">Poison buff 55002 →</a> · <a href="${link('static-battlestyles',784)}">Tower battle style →</a></p></details></section>`;
+ }
+ function healingMarkup(s,f,m){
+  if(['healer_default','healer_archer'].includes(s.Class)){
+   const stats=scaledStats(s,f,m.Options||[]);
+   if(!stats)return '';
+   const longRest=s.Class==='healer_archer',actionId=longRest?1200:1197,styleId=longRest?738:735;
+   const amount=statNumber(Math.floor(stats.hp*0.8));
+   return `<section class="enemy-special-effect enemy-healing"><h4>Special effect · Healing</h4><p><strong>Ally heal: ${amount} HP per recipient</strong><br>80% of the healer’s own max HP. The base amount is the same for each recipient, regardless of their max HP.</p><details><summary>Calculation & source</summary><p class="fine">Base heal = floor(healer max HP × 0.8). Uses this floor’s calculated HP, including assigned elite modifiers.</p><p class="fine">Preparation: 2 seconds · RestTime: ${longRest?5:0.5} · HealDistance: 2.75 · HealModifierBase: 0.8.</p><a href="${link('static-battleactions',actionId)}">${longRest?'MonsterHealNew:LongRest':'MonsterHealNew'} →</a> · <a href="${link('static-battlestyles',styleId)}">Healer battle style →</a></details></section>`;
+  }
+  if(s.Name!=='it_mirror_kamael_myth_rift')return '';
+  const own=scaledStats(s,f,m.Options||[]);
+  if(!own)return '';
+  const heal=(hp,ratio)=>statNumber(Math.floor(hp*ratio));
+  const targets=f.Monsters.map(target=>{
+   const enemy=db.enemies[target.MonsterId];
+   const stats=scaledStats(enemy.spec,f,target.Options||[]);
+   return stats?`<li><span>P${target.Position} · ${esc(enemy.name)}</span><strong>${heal(stats.hp,0.06)} HP</strong></li>`:'';
+  }).join('');
+  return `<section class="enemy-special-effect enemy-healing"><h4>Special effect · Healing</h4><p><strong>Normal attack · Self: ${heal(own.hp,0.04)} HP</strong><br>4% of Kamael’s max HP per healing application.</p><p><strong>Finisher · Party heal</strong><br>6% of each recipient’s own max HP, including Kamael.</p><details><summary>Healing per floor enemy</summary><ul class="healing-targets">${targets}</ul></details><details><summary>Calculation & source</summary><p class="fine">Normal: floor(Kamael max HP × 0.04). Finisher: floor(recipient max HP × 0.06). Uses this floor’s calculated HP, including assigned elite modifiers. Base healing before healing modifiers and missing-HP limits; combat rounding may differ. Listed enemies are potential recipients, not a guarantee that all are eligible at the moment of casting.</p><p class="fine">ManualKamael: HealRatio = 0.04; BreakHealRatio = 0.06. The script heals the owner during drain and uses each target’s max HP for the party finisher. Option-based HealMultiplier can modify these ratios.</p><a href="${link('static-battleactions',181)}">ManualKamael action →</a> · <a href="${link('static-battlestyles',1408)}">Mirror Kamael battle style →</a></details></section>`;
+ }
  function show(f){
   current=f;$('#floor-view').hidden=false;$('#floor-number').value=$('#floor-list').value=f.Floor;
   $('#floor-title').textContent='Floor '+num(f.Floor);$('#floor-meta').textContent=`${f.FloorType} · Monster level ${f.StandardLevel+1} · JSON level ${f.StandardLevel} · ${f.Monsters.length} enemies`;
@@ -82,7 +107,7 @@
   f.Monsters.forEach((m,i)=>{if(!slots.has(m.Position))slots.set(m.Position,[]);slots.get(m.Position).push({m,i});});
   $('#formation').innerHTML=[...slots].sort((a,b)=>a[0]-b[0]).map(([p,entries])=>`<div class="position-cell"><span class="slot-label">P${p}</span>${entries.length?`<div class="slot-enemies" style="--occupants:${entries.length}">${entries.map(({m,i})=>{const e=db.enemies[m.MonsterId];return `<button class="tile ${m.Options?.length?'option':''}" data-enemy="${i}" aria-label="Position ${p}: ${esc(e.name)}" title="${esc(e.name)}">${picture(e.image,e.name)}${m.Options?.length?'<span class="option-marker">★</span>':''}</button>`;}).join('')}</div>`:'<span class="empty-marker">◇</span>'}</div>`).join('');
   $('#formation-count').textContent=`${f.Monsters.length} of ${f.Monsters.length} enemies shown · select a portrait for details`;
-  $('#enemies').innerHTML=f.Monsters.map((m,i)=>{const e=db.enemies[m.MonsterId],s=e.spec;return `<article class="enemy" id="enemy-${i}" data-enemy="${i}">${picture(e.image,e.name)}<div><h3>${esc(e.name)}</h3><p class="position">Position ${m.Position} · ${esc(s.ElementalType||'Unknown')} · ${esc(e.tower.Class)} / ${esc(e.tower.CoopClass)}</p><p class="fine">${esc(s.Name)} · Spec ${e.tower.SpecId}</p>${statsMarkup(s,f,m)}${weaponMarkup(s,f)}${debuffMarkup(s)}<p>Source base HP ${num(s.Hp)} · ATK ${num(s.Atk)} · DEF ${num(s.Def)} · Mass ${num(s.Mass)}</p>${(m.Options||[]).map(o=>{const op=db.options[o.OptionId]||{};return `<details><summary class="tag">Stage option: ${esc(String(op.Name||o.OptionId).replaceAll('_',' '))} · Lv ${o.Level}</summary><pre>${esc(JSON.stringify(op,null,2))}</pre><a href="${link('static-options',o.OptionId)}">Option source →</a></details>`;}).join('')}<a href="${link('monsters',e.tower.SpecId)}">Enemy record →</a></div></article>`;}).join('')||`<p class="floor-data">No enemies are assigned in the source record for this ${esc(f.FloorType)} floor.</p>`;
+  $('#enemies').innerHTML=f.Monsters.map((m,i)=>{const e=db.enemies[m.MonsterId],s=e.spec;return `<article class="enemy" id="enemy-${i}" data-enemy="${i}"><header class="enemy-header">${picture(e.image,e.name)}<div><h3>${esc(e.name)}</h3><p class="position">Position ${m.Position} · ${esc(s.ElementalType||'Unknown')} · ${esc(e.tower.Class)} / ${esc(e.tower.CoopClass)}</p><p class="fine">${esc(s.Name)} · Spec ${e.tower.SpecId}</p></div></header><div class="enemy-body">${statsMarkup(s,f,m)}<p>Source base HP ${num(s.Hp)} · ATK ${num(s.Atk)} · DEF ${num(s.Def)} · Mass ${num(s.Mass)}</p>${weaponMarkup(s,f)}${specialEffectMarkup(s)}${healingMarkup(s,f,m)}${debuffMarkup(s)}${(m.Options||[]).map(o=>{const op=db.options[o.OptionId]||{};return `<details><summary class="tag">Stage option: ${esc(String(op.Name||o.OptionId).replaceAll('_',' '))} · Lv ${o.Level}</summary><pre>${esc(JSON.stringify(op,null,2))}</pre><a href="${link('static-options',o.OptionId)}">Option source →</a></details>`;}).join('')}<a href="${link('monsters',e.tower.SpecId)}">Enemy record →</a></div></article>`;}).join('')||`<p class="floor-data">No enemies are assigned in the source record for this ${esc(f.FloorType)} floor.</p>`;
   $('#rewards').innerHTML=(f.Rewards||[]).map(r=>{const it=db.items[r.ItemId],name=it?.media?.name||it?.record?.Name||'Item '+r.ItemId;return `<a class="reward" href="${link('static-items',r.ItemId)}">${it?.media?.image?picture(it.media.image,''):''}${num(r.Amount)} × ${esc(name)}</a>`;}).join('')||'No reward stored.';
   $('#raw-floor').textContent=JSON.stringify(f,null,2);$('#source-floor').href=link('static-infinitytowerfloors',f.Id);
   $('#floor-view').querySelectorAll('img').forEach(img=>img.onerror=()=>{const fallback=document.createElement('span');fallback.className='image-fallback';fallback.textContent=img.alt||'Image unavailable';img.replaceWith(fallback);});
