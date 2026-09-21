@@ -102,8 +102,47 @@
  }
  // Reviewed tower-specific chain: monster 105287 -> style 784 -> action 1291 -> buff 55002.
  // Descriptive only: these parameters are not included in the displayed monster stats.
- function specialEffectMarkup(s){
-  if(s.Name!=='it_cw_passage_saul_debuff_poi')return '';
+function specialEffectMarkup(s){
+  return roleSpecialEffectMarkup(s)+weaponSkillEffectMarkup(s);
+ }
+ function weaponSkillEffectMarkup(s){
+  // Exact Tower spec mappings, including styles with UseSuper=false whose casts were observed in game.
+  const skills={
+   it_boss_twohand_warrior_mirror_rift:['CwpKnightThunderStrike',936,846],
+   it_boss_tanker_mirror_rift:['CwpTankerChargeImpact',943,823],
+   it_boss_succubus_mirror_rift:['CwpSuccubusHeartBreaker',954,851],
+   it_boss_innuit_mirror_rift:['CwpInnuitIceStorm',953,838],
+   it_boss_ghost_buster_mirror_rift:['CwpGhostBusterMagitonChain',955,858],
+   it_boss_swindler_mirror_rift:['CwpSwindlerMeteorStrike',951,832],
+   it_mirror_ninja_leader_myth_rift_challenge:['CwpNinjaLeader',1071,1431],
+   it_boss_uptown_lancer_girl_mirror_rift:['CwpUptownLancerGirl',973,857],
+   it_mirror_twins_android_myth_rift_challenge:['CwpTwinsAndroid',1080,1437],
+   it_boss_future_knight_mirror_rift:['CwpFutureKnight',977,898],
+   it_boss_future_princess_mirror_tower:['CwpFuturePrincess',969,886]
+  };
+  const skill=skills[s.Name];
+  if(!skill)return '';
+  const [action,id,style]=skill;
+  const manaCosts={936:[85,0],943:[70,0],954:[70,0],953:[123,3],955:[94,1],951:[132,2],1071:[90,3],973:[75,0.25],1080:[100,4],977:[70,1.25],969:[135,0]};
+  const [base,add]=manaCosts[id];
+  const seconds=value=>new Intl.NumberFormat('de-DE',{maximumFractionDigits:3}).format(value);
+  const cooldown=add?`${seconds(base/10)} − ${seconds(add/10)} × L`:seconds(base/10);
+  const label=action.replace(/^Cwp/,'').replace(/([a-z])([A-Z])/g,'$1 $2');
+  return `<section class="enemy-special-effect"><h4>Special effect · Weapon skill</h4><p><strong>${esc(label)}</strong><br>Theoretical cooldown: ${cooldown} s</p>${add?'<p class="fine">L = internal skill level (unknown), not monster level or floor.</p>':''}<p class="fine">Assumes 10 mana/s without modifiers. Actual cast intervals are not verified.</p><details><summary>Parameters & source</summary><p class="fine">Recharge estimate = (ManaCostBase − ManaCostAdd × L) / 10. ManaCostBase: ${seconds(base)} · ManaCostAdd: ${seconds(add)}. Assumes recovery is active and ManaRegenScale = 1; AI, animations and interruptions may delay casting. No value is assumed for L${add?'':'; this skill’s cost does not depend on L'}.</p><p class="fine">Action: ${esc(action)}. Assigned directly by this Infinity Tower enemy’s battle style. Activation has been reported in game. UseSuper is not used to hide this skill.</p><p><a href="${link('static-battleactions',id)}">Weapon skill action →</a> · <a href="${link('static-battlestyles',style)}">Enemy battle style →</a> · <a href="research.html?section=code&entry=1196&method=11773#code">Base mana recovery →</a> · <a href="research.html?section=code&entry=2660&method=28869#code">Mana recovery calculation →</a></p></details></section>`;
+ }
+ function roleSpecialEffectMarkup(s){
+  const roleEffects={
+   it_boss_future_princess_mirror_tower:{title:'Taunt & ally defense boost',cooldown:10,description:'Taunts nearby opponents and grants nearby living allies +30% DEF for 5 seconds.',details:'Radius: 3.3 game units. Adds threat equal to the caster’s DPS × 2.8 once per eligible opponent. The script applies the defense buff to friendly targets in range; whether this search includes the caster has not been confirmed. The 5-second duration belongs to the defense buff, not the taunt.',action:113,buff:330362,style:886},
+   it_tanker_mirror_rift:{title:'Taunt',cooldown:6,description:'Generates threat around the caster.',details:'RoundAggro:Tanker parameters: AggroRadius = 3.3 game units; AggroMultiplier = 2; Cooltime = 6. These are configured parameters, not a verified fixed-duration forced target effect.',action:24,style:821},
+   it_boss_tanker_mirror_rift:{title:'Taunt',cooldown:6,description:'Generates threat around the caster.',details:'RoundAggro:Tanker parameters: AggroRadius = 3.3 game units; AggroMultiplier = 2; Cooltime = 6. These are configured parameters, not a verified fixed-duration forced target effect.',action:24,style:823},
+   it_mirror_boatracing_girl_myth_rift:{title:'Taunt & counter barrier',cooldown:7,description:'Generates threat on the selected target and activates a counter barrier.',details:'Adds threat equal to the caster’s DPS × 4 if a target is selected. Barrier buff: configured duration 0.7 seconds; BarrierBase = 1. This parameter is not an HP shield percentage. The script removes the buff when the action state ends; options may change the counter behavior.',action:433,buff:3305990,style:1394},
+   it_mirror_demon_governor_myth_rift:{title:'Threat & self shield',cooldown:8,description:'Attacks opponents and gains a shield equal to 2.5% of its own max HP per application, up to 4 applications per activation (10% total).',details:'The script adds extra threat equal to caster DPS × (2 − 0.4) = caster DPS × 1.6, separately from damage. Shield applications depend on eligible targets hit; the 10% maximum is not guaranteed on every cast. ShieldRatio = 0.025; MaxShieldCount = 4. This shield is not added to displayed HP.',action:346,style:1410},
+   it_boss_future_knight_mirror_rift:{title:'Self barrier',cooldown:7,description:'Applies a barrier to itself with a configured duration of 3 seconds.',details:'RoleFutureKnight applies buff_future_knight_role to the caster. BarrierBase = 1; this is not an HP shield percentage. This is a secondary role action, not the CwpFutureKnight weapon skill, and does not establish that skill’s cooldown.',action:138,buff:330389,style:898}
+  };
+  const effect=roleEffects[s.Name];
+  if(effect)return `<section class="enemy-special-effect"><h4>Special effect · ${esc(effect.title)}</h4><p><strong>Configured cooldown: ${effect.cooldown} seconds</strong><br>${esc(effect.description)}</p><details><summary>Parameters & source</summary><p class="fine">${esc(effect.details)}</p><p class="fine">AI and combat conditions can delay activation. Temporary buffs are not included in the displayed HP / ATK / DEF.</p><p><a href="${link('static-battleactions',effect.action)}">Action parameters →</a>${effect.buff?` · <a href="${link('static-buffs',effect.buff)}">Buff parameters →</a>`:''} · <a href="${link('static-battlestyles',effect.style)}">Enemy battle style →</a></p></details></section>`;
+  if(s.Name==='it_robot_tanker_mirror_rift')return `<section class="enemy-special-effect"><h4>Special effect · Taunt & defense boost</h4><p><strong>Taunt nearby opponents · Cooldown: 6 seconds</strong><br>Grants itself +50% DEF for 3 seconds.</p><details><summary>Parameters & source</summary><p class="fine">Taunt radius: 3.15 game units · Action duration: 0.4 seconds. Adds threat equal to the caster’s DPS × 2.8 once per eligible target per activation; this is not damage or a fixed-duration forced target effect.</p><p class="fine">The 6-second cooldown is the configured value; AI and combat conditions can delay activation. The 3-second duration applies to the defense buff. This temporary buff is not included in the displayed DEF.</p><p><a href="${link('static-battleactions',99)}">RoleTacticalShield:RobotTanker →</a> · <a href="${link('static-buffs',330353)}">Defense buff 330353 →</a> · <a href="${link('static-battlestyles',891)}">Mirror Robot Tanker battle style →</a></p></details></section>`;
+  if(!['it_cw_passage_saul_debuff_poi','it_debuff_poi'].includes(s.Name))return '';
   return `<section class="enemy-special-effect"><h4>Special effect · Poison</h4><p>Periodic damage · 10 seconds · every 2 seconds (5 ticks).</p><details><summary>Parameters & source</summary><p class="fine">Preparation: 12 seconds. Applied buff level: 30. Damage type: Dps. Exact damage per tick is not verified.</p><p class="fine">DamageBase: 0 · DamageAdd: 0.02 · Action AtkModifierBase: 0.3. These are source parameters, not a percentage of the target’s HP.</p><p><a href="${link('static-battleactions',1291)}">WholeTargeting:poi →</a> · <a href="${link('static-buffs',55002)}">Poison buff 55002 →</a> · <a href="${link('static-battlestyles',784)}">Tower battle style →</a></p></details></section>`;
  }
  function healingMarkup(s,f,m){
