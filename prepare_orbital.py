@@ -20,3 +20,12 @@ assert all(m['MonsterId'] in enemies for f in floors for m in f['Monsters'])
 assert len({f['Floor'] for f in floors})==len(floors)
 (P/'orbital-lift.json').write_text(json.dumps(out,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 print(f'{len(floors)} floors; {len(enemies)} enemy definitions; all floor references joined.')
+
+# Orbital-only equipment snapshot; calculated stats stay in the client.
+weapon_ids={e['spec'].get(k) for e in enemies.values() for k in ('DefaultWeapon1','DefaultWeapon2')}
+weapons={'items':{i:items[i] for i in weapon_ids if i in items},
+ 'media':{i:media['static-items:'+str(i)] for i in weapon_ids if 'static-items:'+str(i) in media},
+ 'scales':{r['id']:r['fields']['Value'] for r in read('static-itemlevelscalefactor.json')}}
+(P/'orbital-weapons.json').write_text(json.dumps(weapons,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
+import runpy
+runpy.run_path(str(Path(__file__).with_name('prepare_orbital_debuffs.py')))
