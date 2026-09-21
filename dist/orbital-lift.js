@@ -78,7 +78,28 @@
    const magnitude=!prefix?'':add===0?pct(base):levels.length===1&&e.references.every(r=>Number.isFinite(r.level))?pct(base+add*levels[0]):pct(base)+' + '+pct(add)+' × buff level (level unspecified)';
    return `<section><p><strong>${esc(b.Elemental?b.Elemental+' resistance reduction':labels[b.ClassName]||b.ClassName)}</strong>${magnitude? ' · '+esc(magnitude):''} · ${Number.isFinite(b.Duration)?num(b.Duration)+' s':'Duration unspecified'}${b.StackCap?' · Stack cap '+num(b.StackCap):''}</p><p class="fine">Source parameters: ${Object.entries(b).filter(([k,v])=>typeof v==='number'&&/^(AttackScale|DefenseScale|Resistance)(Base|Add)$/.test(k)).map(([k,v])=>esc(k)+' = '+num(v)).join(' · ')}</p><details><summary>Action references & source</summary><p class="fine">Displayed percentages use Base + Add × buff level. Scale fields are converted to percent (×100); Resistance fields already use percentage points. Missing nonzero-Add levels are shown as a formula, not assumed. Values do not imply a matching change in final damage; stacking and combat activation are not verified.</p>${e.references.map(r=>`<p class="fine"><a href="${link('static-battlestyles',r.styleId)}">Tower battle style →</a> · <a href="${link('static-battleactions',r.actionId)}">${esc(r.action)} →</a> · ${esc(r.field)}${r.level!==null?' · Buff level '+r.level:' · Buff level not specified in this reference'}</p>`).join('')}<a href="${link('static-buffs',e.id)}">${esc(b.Name)} · Buff ${e.id} →</a><pre>${esc(JSON.stringify(b,null,2))}</pre></details></section>`;}).join('')}</details>`;
  }
- let db,current,filtered=[];
+ let db,current,filtered=[],roomData={entries:[]},roomError=false;
+ function showRecordRoom(f){
+  let panel=$('#record-room-panel');
+  if(!panel){panel=document.createElement('section');panel.id='record-room-panel';$('.formation-layout').after(panel);}
+  const active=f.FloorType==='RecordRoom';
+  $('.formation-layout').hidden=active;panel.hidden=!active;
+  if(!active)return;
+  const entries=roomData.entries.filter(e=>e.floor===f.Floor);
+  const letters=[...new Set(entries.map(e=>e.record))].sort();
+  panel.innerHTML=`<div class="record-room-layout"><section class="formation-panel"><h3>Record Room</h3><img class="record-room-art" src="data/visual/map-thumbnails/tower_recordroom.webp" alt="Tower record room map"><p><a href="map-preview.html?map=tower_recordroom&mode=art&markers=1&layers=0,1,2,3,4,5&types=npcs,monsters,events,camera,other#map">Explore map & console positions →</a></p><div class="record-room-buttons" aria-label="Choose a record"></div></section><article class="floor-data record-room-reader"><h3 id="room-record-title"></h3><div id="room-dialogue"></div><details id="room-source"><summary>Text keys & source</summary><p class="fine"></p><pre></pre></details></article></div>`;
+  const render=letter=>{
+   const parts=entries.filter(e=>e.record===letter).sort((a,b)=>a.order-b.order);
+   $('#room-record-title').textContent='Record '+letter;
+   $('#room-dialogue').innerHTML=parts.map(e=>'<p>'+esc(e.text)+'</p>').join('');
+   $('#room-source p').hidden=true;
+   $('#room-source pre').textContent=parts.map(e=>e.key+'\n'+e.raw).join('\n\n');
+   panel.querySelectorAll('.record-room-buttons button').forEach(b=>b.setAttribute('aria-pressed',String(b.textContent==='Record '+letter)));
+  };
+  for(const letter of letters){const button=document.createElement('button');button.type='button';button.textContent='Record '+letter;button.onclick=()=>render(letter);panel.querySelector('.record-room-buttons').append(button);}
+  if(letters.length)render(letters[0]);
+  else{const noRecords=[951,1251,1351,1451].includes(f.Floor);$('#room-record-title').textContent=noRecords?'No records':'Records unavailable';$('#room-dialogue').textContent=noRecords?'A broken console.':roomError?'Record data could not be loaded.':'Texts for this floor have not been recovered yet.';$('#room-source').hidden=true;}
+ }
  // Reviewed tower-specific chain: monster 105287 -> style 784 -> action 1291 -> buff 55002.
  // Descriptive only: these parameters are not included in the displayed monster stats.
  function specialEffectMarkup(s){
@@ -106,6 +127,7 @@
  }
  function show(f){
   current=f;$('#floor-view').hidden=false;$('#floor-number').value=$('#floor-list').value=f.Floor;
+  showRecordRoom(f);
   $('#floor-title').textContent='Floor '+num(f.Floor);$('#floor-meta').textContent=`${f.FloorType} · Monster level ${f.StandardLevel+1} · JSON level ${f.StandardLevel} · ${f.Monsters.length} enemies`;
   document.title=`Orbital Lift · Floor ${f.Floor} · Guardian Atlas`;history.replaceState(null,'',location.pathname+'?floor='+f.Floor);
   $('#previous').disabled=filtered.indexOf(f)<=0;$('#next').disabled=filtered.indexOf(f)>=filtered.length-1;
@@ -121,6 +143,7 @@
  function filter(){const q=$('#enemy-search').value.trim().toLowerCase(),type=$('#floor-type').value;filtered=db.floors.filter(f=>(!type||f.FloorType===type)&&(!q||f.Monsters.some(m=>{const e=db.enemies[m.MonsterId];return `${e.name} ${e.spec.Name}`.toLowerCase().includes(q);})));$('#status').textContent=`${num(filtered.length)} matching floors · ${num(db.floors.length)} stored floors`;$('#floor-list').innerHTML=filtered.map(f=>`<option value="${f.Floor}">Floor ${f.Floor} · ${esc(f.FloorType)}</option>`).join('');$('#floor-view').hidden=!filtered.length;$('#previous').disabled=$('#next').disabled=!filtered.length;if(filtered.length)show(filtered.includes(current)?current:filtered[0]);}
  try{
   const response=await fetch('data/orbital-lift.json');if(!response.ok)throw Error('Floor data unavailable');db=await response.json();
+  try{const response=await fetch('data/record-room-texts.json?v=complete-records-1',{cache:'no-cache'});if(!response.ok)throw Error('Record data unavailable');roomData=await response.json();}catch(e){roomError=true;}
   try{const response=await fetch('data/orbital-weapons.json');if(!response.ok)throw Error('Weapon data unavailable');equipment=await response.json();}catch(e){equipmentError=true;}
   try{const response=await fetch('data/orbital-debuffs.json');if(!response.ok)throw Error('Debuff data unavailable');debuffData=await response.json();}catch(e){debuffError=true;}
   $('#floor-number').max=Math.max(...db.floors.map(f=>f.Floor));$('#floor-type').innerHTML+=[...new Set(db.floors.map(f=>f.FloorType))].map(t=>`<option>${esc(t)}</option>`).join('');

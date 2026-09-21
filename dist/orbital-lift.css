@@ -35,6 +35,16 @@ main{max-width:1400px}#floor-controls{display:flex;gap:12px;flex-wrap:wrap;align
 @media(max-width:850px){.formation-layout{grid-template-columns:1fr}}
 @media(max-width:650px){#enemies{grid-template-columns:1fr}#enemies .enemy{padding:16px}.enemy-header{min-height:0}}
 
+.formation-layout[hidden],#record-room-panel[hidden]{display:none}
+.record-room-layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;align-items:start}
+.record-room-art{width:100%;max-height:320px;object-fit:contain;border-radius:8px;background:#101926}
+.record-room-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.record-room-buttons button[aria-pressed=true]{border-color:#f6c85f;background:#f6c85f20;color:#f6c85f}
+.record-room-reader{margin-top:0;min-width:0;padding:24px}
+#room-dialogue p{white-space:pre-line;line-height:1.85;margin:0 0 20px}
+#room-source{border-top:1px solid #66404c80;padding-top:12px}
+@media(max-width:850px){.record-room-layout{grid-template-columns:1fr}}
+
 /* Sprite dimensions must never affect slot sizing. */
 #formation{grid-template-columns:repeat(4,minmax(0,1fr));align-items:start}
 .position-cell{position:relative;aspect-ratio:1;min-width:0;min-height:0;overflow:hidden;background:#422b35;border:1px solid #61414b;border-radius:8px}
