@@ -17,7 +17,12 @@ for enemy in db['enemies'].values():
     for style in styles:
         if style['fields'].get('Class') != spec['Class']:
             continue
-        for name in style['fields'].get('BattleActions') or []:
+        names = list(style['fields'].get('BattleActions') or [])
+        # Reviewed nested Tower action: manager 1103 -> Extra 437 -> mark 3306021.
+        # Do not infer activation of the optional weapon/special-option variants.
+        if spec['Name'] == 'it_mirror_exorcist_girl_myth_rift' and 'ManualBranchComboManager:ExorcistGirl' in names:
+            names.extend(actions['ManualBranchComboManager:ExorcistGirl']['fields'].get('ExtraAction') or [])
+        for name in names:
             action = actions.get(name)
             if not action:
                 continue
