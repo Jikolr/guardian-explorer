@@ -184,7 +184,7 @@ function specialEffectMarkup(s){
   const response=await fetch('data/orbital-lift.json');if(!response.ok)throw Error('Floor data unavailable');db=await response.json();
   try{const response=await fetch('data/record-room-texts.json?v=complete-records-1',{cache:'no-cache'});if(!response.ok)throw Error('Record data unavailable');roomData=await response.json();}catch(e){roomError=true;}
   try{const response=await fetch('data/orbital-weapons.json');if(!response.ok)throw Error('Weapon data unavailable');equipment=await response.json();}catch(e){equipmentError=true;}
-  try{const response=await fetch('data/orbital-debuffs.json');if(!response.ok)throw Error('Debuff data unavailable');debuffData=await response.json();}catch(e){debuffError=true;}
+  try{const response=await fetch('data/orbital-debuffs.json?v=exorcist-mark-1');if(!response.ok)throw Error('Debuff data unavailable');debuffData=await response.json();}catch(e){debuffError=true;}
   $('#floor-number').max=Math.max(...db.floors.map(f=>f.Floor));$('#floor-type').innerHTML+=[...new Set(db.floors.map(f=>f.FloorType))].map(t=>`<option>${esc(t)}</option>`).join('');
   current=db.floors.find(f=>f.Floor===Number(new URLSearchParams(location.search).get('floor')||1325))||db.floors[0];filter();
   $('#floor-type').onchange=$('#enemy-search').oninput=filter;
