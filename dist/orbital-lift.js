@@ -167,7 +167,7 @@ function specialEffectMarkup(s){
  function show(f){
   current=f;$('#floor-view').hidden=false;$('#floor-number').value=$('#floor-list').value=f.Floor;
   showRecordRoom(f);
-  $('#floor-title').textContent='Floor '+num(f.Floor);$('#floor-meta').textContent=`${f.FloorType} · Monster level ${f.StandardLevel+1} · JSON level ${f.StandardLevel} · ${f.Monsters.length} enemies`;
+  $('#floor-title').textContent='Floor '+num(f.Floor);$('#floor-meta').textContent=`${f.FloorType} · Monster level ${f.StandardLevel+1}`;
   document.title=`Orbital Lift · Floor ${f.Floor} · Guardian Atlas`;history.replaceState(null,'',location.pathname+'?floor='+f.Floor);
   $('#previous').disabled=filtered.indexOf(f)<=0;$('#next').disabled=filtered.indexOf(f)>=filtered.length-1;
   const slots=new Map(Array.from({length:20},(_,i)=>[i+1,[]]));
