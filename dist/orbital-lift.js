@@ -147,11 +147,12 @@ function specialEffectMarkup(s){
  }
  function healingMarkup(s,f,m){
   if(['healer_default','healer_archer'].includes(s.Class)){
-   const stats=scaledStats(s,f,m.Options||[]);
+   // Caster-based healing excludes elite HP bonuses (Saul comparison on floor 1317).
+   const stats=scaledStats(s,f,[]);
    if(!stats)return '';
    const longRest=s.Class==='healer_archer',actionId=longRest?1200:1197,styleId=longRest?738:735;
    const amount=statNumber(Math.floor(stats.hp*0.8));
-   return `<section class="enemy-special-effect enemy-healing"><h4>Special effect · Healing</h4><p><strong>Ally heal: ${amount} HP per recipient</strong><br>80% of the healer’s own max HP. The base amount is the same for each recipient, regardless of their max HP.</p><details><summary>Calculation & source</summary><p class="fine">Base heal = floor(healer max HP × 0.8). Uses this floor’s calculated HP, including assigned elite modifiers.</p><p class="fine">Preparation: 2 seconds · RestTime: ${longRest?5:0.5} · HealDistance: 2.75 · HealModifierBase: 0.8.</p><a href="${link('static-battleactions',actionId)}">${longRest?'MonsterHealNew:LongRest':'MonsterHealNew'} →</a> · <a href="${link('static-battlestyles',styleId)}">Healer battle style →</a></details></section>`;
+   return `<section class="enemy-special-effect enemy-healing"><h4>Special effect · Healing</h4><p><strong>Ally heal: ${amount} HP per recipient</strong><br>80% of the healer’s level-scaled HP before elite bonuses. The base amount is the same for each recipient, regardless of their max HP.</p><details><summary>Calculation & source</summary><p class="fine">Base heal = floor(healer HP before elite bonuses × 0.8). Elite HP multipliers do not increase this amount. Supported by the normal/elite Saul comparison on floor 1317; applied as a shared rule to these healer classes. Combat rounding may differ.</p><p class="fine">Preparation: 2 seconds · RestTime: ${longRest?5:0.5} · HealDistance: 2.75 · HealModifierBase: 0.8.</p><a href="${link('static-battleactions',actionId)}">${longRest?'MonsterHealNew:LongRest':'MonsterHealNew'} →</a> · <a href="${link('static-battlestyles',styleId)}">Healer battle style →</a></details></section>`;
   }
   if(s.Name!=='it_mirror_kamael_myth_rift')return '';
   const own=scaledStats(s,f,m.Options||[]);
