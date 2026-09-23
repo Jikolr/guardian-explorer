@@ -31,6 +31,8 @@ main{max-width:1400px}#floor-controls{display:flex;gap:12px;flex-wrap:wrap;align
 .enemy-body>a{display:inline-block;margin-top:12px;font-size:12px}
 .weapon-details>summary::before{content:'▸';color:var(--muted)}
 .weapon-details[open]>summary::before{content:'▾'}
+.weapon-details>summary>strong{min-width:0;overflow-wrap:anywhere}
+.weapon-details .weapon-crit{margin-left:auto;flex-shrink:0;white-space:nowrap;padding:3px 7px;border:1px solid #e9c65d55;border-radius:6px;background:#e9c65d0d;color:#e9c65d;font-size:11px;font-weight:600;letter-spacing:.03em}
 @media(min-width:851px) and (max-width:1150px){.formation-layout{grid-template-columns:260px minmax(0,1fr)}#enemies{grid-template-columns:1fr}}
 @media(max-width:850px){.formation-layout{grid-template-columns:1fr}}
 @media(max-width:650px){#enemies{grid-template-columns:1fr}#enemies .enemy{padding:16px}.enemy-header{min-height:0}}
