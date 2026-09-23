@@ -147,6 +147,13 @@ function specialEffectMarkup(s){
   return `<section class="enemy-special-effect"><h4>Special effect · Poison</h4><p>Periodic damage · 10 seconds · every 2 seconds (5 ticks).</p><details><summary>Parameters & source</summary><p class="fine">Preparation: 12 seconds. Applied buff level: 30. Damage type: Dps. Exact damage per tick is not verified.</p><p class="fine">DamageBase: 0 · DamageAdd: 0.02 · Action AtkModifierBase: 0.3. These are source parameters, not a percentage of the target’s HP.</p><p><a href="${link('static-battleactions',1291)}">WholeTargeting:poi →</a> · <a href="${link('static-buffs',55002)}">Poison buff 55002 →</a> · <a href="${link('static-battlestyles',784)}">Tower battle style →</a></p></details></section>`;
  }
  function healingMarkup(s,f,m){
+  if(s.Name==='it_maiden_mirror_rift'){
+   const weapon=equipment.items[s.DefaultWeapon1],level=f.StandardLevel;
+   if(!weapon||!Number.isInteger(level)||level<0||![weapon.Recovery,weapon.StatGrowthRate,s.Recovery].every(Number.isFinite)||weapon.StatGrowthRate<=0)return '';
+   // Recovery-based working model matches the reported 67,606 heal on floor 800.
+   const amount=Math.trunc(weapon.Recovery*Math.pow(weapon.StatGrowthRate,level)*s.Recovery);
+return `<section class="enemy-special-effect enemy-healing"><h4>Special effect · Healing</h4><p><strong>Area heal: ${statNumber(amount)} HP per recipient</strong><br>Recovery-based healing for allies in range, including itself; not a percentage of recipient HP.</p><p class="fine">Debuff cleanse · Configured cooldown: 5 s · Base uses: 6.</p><details><summary>Calculation & source</summary><p class="fine">Working model: trunc(weapon Recovery × weapon growth^StandardLevel × caster Recovery). ${num(weapon.Recovery)} × ${num(weapon.StatGrowthRate)}^${level} × ${num(s.Recovery)}. No elite HP multiplier or item level-scale factor is applied. Healing modifiers, missing HP and combat rounding may affect the result.</p><p class="fine">RoundHeal:Maiden: HealMultiplier = 1, CureOnHeal = true, Cooltime = 5, UseCount = 6. AI timing and active options may change casting intervals or available uses. No unconfirmed shield effect is included.</p><a href="${link('static-battleactions',19)}">RoundHeal:Maiden →</a> · <a href="${link('static-battlestyles',845)}">Tower battle style →</a> · <a href="${link('static-items',s.DefaultWeapon1)}">Recovery source →</a></details></section>`;
+  }
   if(['healer_default','healer_archer'].includes(s.Class)){
    // Caster-based healing excludes elite HP bonuses (Saul comparison on floor 1317).
    const stats=scaledStats(s,f,[]);
