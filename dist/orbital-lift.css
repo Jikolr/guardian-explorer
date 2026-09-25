@@ -23,6 +23,8 @@ main{max-width:1400px}#floor-controls{display:flex;gap:12px;flex-wrap:wrap;align
 .enemy-special-effect summary{color:var(--muted)}
 .enemy-healing{border-color:#478f92;border-left-color:#75d5ce;background:#75d5ce0a}
 .enemy-healing h4{color:#a4e5df}
+.enemy-target-priority{border-color:#477eac;border-left-color:#72b9ff;background:#72b9ff0a}
+.enemy-target-priority h4{color:#9dceff}
 .healing-targets{list-style:none;padding:0;margin:10px 0}
 .healing-targets li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #478f9244;font-size:12px}
 .healing-targets strong{white-space:nowrap;font-variant-numeric:tabular-nums}
